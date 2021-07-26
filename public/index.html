@@ -1,14 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Web site created using create-react-app" />
-    <title>React App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Arbeidstiltak Visning</title>
+
+    <link rel="icon" href="/veilarbportefoljeflatefs/favicon.ico" type="image/x-icon" />
+    <script type="application/javascript" src="/frontendlogger/logger.js"></script>
+    <script src="https://navikt.github.io/internarbeidsflatedecorator/v2.1/static/js/head.v2.min.js"></script>
+    <!--SKAL BRUKES I MILJØ-->
+    <!--    <script src="/internarbeidsflatedecorator/v2.1/static/js/head.v2.min.js"></script>-->
+    <link rel="stylesheet" href="https://navikt.github.io/internarbeidsflatedecorator/v2.1/static/css/main.css" />
+    <script type="module" src="/static/index.js"></script>
   </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+
+  <body role="navigation">
+    <div id="applikasjon" class="app">
+      <div id="header"></div>
+      <div id="arbeidstiltak-visning-root"></div>
+    </div>
   </body>
 </html>

@@ -1,10 +1,11 @@
 import React from 'react';
+import Decorator from './decorator/decorator';
 
 function App() {
   return (
-    <div className="App">
-      <p>HELLO WORLD</p>
-    </div>
+    <>
+      <Decorator />
+    </>
   );
 }
 

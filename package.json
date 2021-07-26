@@ -2,57 +2,72 @@
   "name": "arbeidstiltak-visning",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "cross-env REACT_APP_DEV=true craco start",
+    "build": "craco build",
+    "eject": "craco eject",
+    "clean": "rimraf build",
+    "prepare": "husky install"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie < 11",
+    "not op_mini all"
+  ],
+  "resolutions": {
+    "**/fsevents": "^1.2.9"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,ts,tsx,jsx,less,json,css,md}": "prettier --write"
+  },
   "dependencies": {
+    "@navikt/fnrvalidator": "^1.1.4",
+    "@navikt/navspa": "^3.0.0",
+    "classnames": "^2.3.1",
+    "lodash.throttle": "^4.1.1",
+    "nav-frontend-core": "^6.0.1",
+    "nav-frontend-js-utils": "^1.0.19",
+    "nav-frontend-knapper": "^3.0.2",
+    "nav-frontend-knapper-style": "^2.0.2",
+    "nav-frontend-lenker": "^2.0.1",
+    "nav-frontend-lenker-style": "^2.0.1",
+    "nav-frontend-paneler-style": "^2.0.1",
+    "nav-frontend-skjema": "^4.0.1",
+    "nav-frontend-skjema-style": "^3.0.1",
+    "nav-frontend-typografi": "^4.0.1",
+    "nav-frontend-typografi-style": "^2.0.1",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "17.0.2",
+    "react-redux": "^7.2.4",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/react": "17.0.11",
+    "@types/react-dom": "17.0.8",
+    "@types/uuid": "^8.3.1",
+    "@typescript-eslint/eslint-plugin": "^4.28.1",
+    "@typescript-eslint/parser": "^4.28.1",
     "@craco/craco": "^6.2.0",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
     "craco-less": "^1.18.0",
     "cross-env": "^7.0.3",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
-    "husky": "^7.0.1",
-    "nav-frontend-core": "^6.0.1",
-    "prettier": "^2.3.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "typescript": "^4.3.5",
-    "web-vitals": "^1.0.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "prepare": "husky install"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.28.4",
-    "@typescript-eslint/parser": "^4.28.4",
-    "eslint": "^7.31.0",
+    "eslint": "^7.30.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
-    "eslint-plugin-react": "^7.24.0"
+    "eslint-plugin-react": "^7.24.0",
+    "husky": "^7.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "2.3.2",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.1.3"
   }
 }
