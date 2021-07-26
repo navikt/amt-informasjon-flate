@@ -38,7 +38,7 @@ jobs:
         with:
           key: ${{ secrets.TRELLO_KEY }}
           token: ${{ secrets.TRELLO_TOKEN }}
-          board: MS4JF07M
+          board: ${{ secrets.TRELLO_BOARD_ID }}
       - name: Attach branch to card
         id: Attach
         uses: navikt/veilarbtrelloactions/create-attachment@v2.0
