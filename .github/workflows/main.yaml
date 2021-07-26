@@ -2,7 +2,7 @@ name: Test, build and deploy
 on: push
 env:
   IMAGE_TAG: ${{ github.sha }}
-  IMAGE: ghcr.io/navikt/arbeidstiltak-redigering
+  IMAGE: ghcr.io/navikt/arbeidstiltak-visning
   PRINT_PAYLOAD: true
   RESOURCE: .nais/nais.yaml
   CI: true
