@@ -1,6 +1,6 @@
 import React from 'react';
 import Tiltaksboks, { TiltaksboksProps } from './Tiltaksboks';
-import './tiltak.less';
+import './Tiltak.less';
 
 export interface TiltakOversiktProps {
   tiltaksliste: Array<TiltaksboksProps>;

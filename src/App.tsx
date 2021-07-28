@@ -1,7 +1,7 @@
 import React from 'react';
 import Decorator from './decorator/decorator';
-import TiltakOversikt, { TiltakOversiktProps } from './components/tiltaksoversikt/TiltakOversikt';
-import './App.css';
+import TiltakOversikt from './components/tiltaksoversikt/TiltakOversikt';
+import './App.less';
 
 function App() {
   const tiltaksliste = [
