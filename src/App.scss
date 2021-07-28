@@ -1,0 +1,14 @@
+$tiltakBox-width: 15.5em;
+
+.tiltakBox {
+  display: block;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(38, 38, 38, 0.12), 0px 1px 3px rgba(38, 38, 38, 0.2);
+  border-radius: 4px;
+  width: $tiltakBox-width; //tilsvarer ca 250 px
+  height: 17.2em; //tilsvarer ca 275 px
+}
+
+.tiltakOversikt {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($tiltakBox-width, 1fr));
+}
