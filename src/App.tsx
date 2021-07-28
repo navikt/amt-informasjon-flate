@@ -1,6 +1,6 @@
 import React from 'react';
 import Decorator from './decorator/decorator';
-import TiltakOversikt, { TiltakOversiktProps } from './components/TiltakOversikt';
+import TiltakOversikt, { TiltakOversiktProps } from './components/tiltaksoversikt/TiltakOversikt';
 import './App.css';
 
 function App() {
