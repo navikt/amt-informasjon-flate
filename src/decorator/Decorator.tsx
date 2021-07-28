@@ -1,6 +1,6 @@
 import React from 'react';
-import { DecoratorProps } from './decorator-props';
-import decoratorConfig from './decorator-config';
+import { DecoratorProps } from './DecoratorProps';
+import decoratorConfig from './DecoratorConfig';
 import Navspa from '@navikt/navspa';
 
 const InternflateDecorator = Navspa.importer<DecoratorProps>('internarbeidsflatefs');
