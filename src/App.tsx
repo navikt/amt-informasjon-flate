@@ -1,7 +1,6 @@
 import React from 'react';
 import Decorator from './decorator/Decorator';
 import TiltakOversikt from './components/tiltaksoversikt/TiltakOversikt';
-import './App.less';
 import Header from './components/Header/Header';
 import './App.less';
 import DarkModeToggle from './components/Toggle/VeilederBrukerToggle';
