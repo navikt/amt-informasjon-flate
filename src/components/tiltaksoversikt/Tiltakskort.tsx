@@ -10,7 +10,7 @@ export interface TiltaksboksProps {
   bilde?: Blob;
 }
 
-const Tiltaksboks = (props: TiltaksboksProps) => {
+const Tiltakskort = (props: TiltaksboksProps) => {
   //TODO: legge til et grunnleggende bilde?
   const imgUrl = props.bilde ? URL.createObjectURL(props.bilde) : '';
 
@@ -18,7 +18,7 @@ const Tiltaksboks = (props: TiltaksboksProps) => {
     <a href="" className="remove_link_style">
       {/* TODO: legg til lenke for visning av tiltaket */}
 
-      <div className="tiltakboks">
+      <div className="tiltakskort">
         <img src={imgUrl} alt={props.tittel} />
         <div>
           <Undertittel className="tittel">{props.tittel}</Undertittel>
@@ -30,4 +30,4 @@ const Tiltaksboks = (props: TiltaksboksProps) => {
   );
 };
 
-export default Tiltaksboks;
+export default Tiltakskort;

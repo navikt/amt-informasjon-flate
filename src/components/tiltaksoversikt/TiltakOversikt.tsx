@@ -1,5 +1,5 @@
 import React from 'react';
-import Tiltaksboks, { TiltaksboksProps } from './Tiltaksboks';
+import Tiltakskort, { TiltaksboksProps } from './Tiltakskort';
 import './Tiltak.less';
 
 export interface TiltakOversiktProps {
@@ -10,7 +10,7 @@ const TiltakOversikt = (props: TiltakOversiktProps) => {
   return (
     <div className="tiltakOversikt">
       {props.tiltaksliste.map((tiltak: TiltaksboksProps) => (
-        <Tiltaksboks {...tiltak} key={tiltak.id} />
+        <Tiltakskort {...tiltak} key={tiltak.id} />
       ))}
     </div>
   );
