@@ -1,4 +1,4 @@
-import { DecoratorProps } from './decorator-props';
+import { DecoratorProps } from './DecoratorProps';
 
 const decoratorConfig = (): DecoratorProps => {
   return {

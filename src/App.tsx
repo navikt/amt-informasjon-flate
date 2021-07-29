@@ -1,5 +1,5 @@
 import React from 'react';
-import Decorator from './decorator/decorator';
+import Decorator from './decorator/Decorator';
 import TiltakOversikt from './components/tiltaksoversikt/TiltakOversikt';
 import './App.less';
 
@@ -21,7 +21,10 @@ function App() {
   return (
     <>
       <Decorator />
-      <TiltakOversikt tiltaksliste={tiltaksliste} />
+
+      <div className="main-app">
+        <TiltakOversikt tiltaksliste={tiltaksliste} />
+      </div>
     </>
   );
 }
