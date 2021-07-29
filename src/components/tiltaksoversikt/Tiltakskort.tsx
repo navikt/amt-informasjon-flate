@@ -15,7 +15,7 @@ const Tiltakskort = (props: TiltaksboksProps) => {
   const imgUrl = props.bilde ? URL.createObjectURL(props.bilde) : '';
 
   return (
-    <a href="" className="remove_link_style">
+    <a href="test" className="remove_link_style">
       {/* TODO: legg til lenke for visning av tiltaket */}
 
       <div className="tiltakskort">

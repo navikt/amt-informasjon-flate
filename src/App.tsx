@@ -1,7 +1,9 @@
 import React from 'react';
 import Decorator from './decorator/Decorator';
 import TiltakOversikt from './components/tiltaksoversikt/TiltakOversikt';
+import Header from './components/Header/Header';
 import './App.less';
+import DarkModeToggle from './components/Toggle/VeilederBrukerToggle';
 
 function App() {
   //TODO fjern når vi får koblet til backend
@@ -23,6 +25,8 @@ function App() {
       <Decorator />
 
       <div className="main-app">
+        <Header />
+        <DarkModeToggle />
         <TiltakOversikt tiltaksliste={tiltaksliste} />
       </div>
     </>
