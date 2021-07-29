@@ -1,11 +1,16 @@
 import React from 'react';
 import Decorator from './decorator/Decorator';
-import TiltakOversikt from './components/tiltaksoversikt/TiltakOversikt';
 import Header from './components/Header/Header';
 import './App.less';
-import DarkModeToggle from './components/Toggle/VeilederBrukerToggle';
+import VeilederVisning from './components/VeilederVisning/VeilederVisning';
+import BrukerVisning from './components/BrukerVisning/BrukerVisning';
+import { useSelector } from 'react-redux';
+import TiltakOversikt from './components/tiltaksoversikt/TiltakOversikt';
+import ToggleController from './components/Toggle/ToggleController';
 
 function App() {
+  const veilederToggle = useSelector((state: any) => state.visningsToggle.veiledervisning);
+
   //TODO fjern når vi får koblet til backend
   const tiltaksliste = [
     { id: 1, tittel: 'Tittel', ingress: 'Lorem Ipsum dolor sit amet' },
@@ -23,10 +28,10 @@ function App() {
   return (
     <>
       <Decorator />
-
+      <Header />
       <div className="main-app">
-        <Header />
-        <DarkModeToggle />
+        <ToggleController />
+        {veilederToggle === true ? <VeilederVisning /> : <BrukerVisning />}
         <TiltakOversikt tiltaksliste={tiltaksliste} />
       </div>
     </>
