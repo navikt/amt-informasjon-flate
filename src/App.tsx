@@ -2,6 +2,7 @@ import React from 'react';
 import Decorator from './decorator/Decorator';
 import TiltakOversikt from './components/tiltaksoversikt/TiltakOversikt';
 import './App.less';
+import Filtreringsoversikt from './components/filtrering/Filtreringsoversikt';
 
 function App() {
   //TODO fjern når vi får koblet til backend
@@ -11,11 +12,7 @@ function App() {
     { id: 3, tittel: 'Tittel', ingress: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim.' },
     { id: 4, tittel: 'Tittel', ingress: 'Lorem Ipsum dolor sit amet' },
     { id: 5, tittel: 'Tittel', ingress: 'Lorem Ipsum dolor sit amet' },
-    {
-      id: 6,
-      tittel: 'Tittel',
-      ingress: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    },
+    { id: 6, tittel: 'Tittel', ingress: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
   ];
 
   return (
@@ -23,6 +20,7 @@ function App() {
       <Decorator />
 
       <div className="main-app">
+        <Filtreringsoversikt />
         <TiltakOversikt tiltaksliste={tiltaksliste} />
       </div>
     </>
