@@ -1,22 +1,18 @@
 import Ekspanderbartpanel from 'nav-frontend-ekspanderbartpanel';
 import { Checkbox } from 'nav-frontend-skjema';
-import React from 'react';
+import React, { useState } from 'react';
 
 interface DropDownFilterProps {
   filtreringsmuligheter: Array<string>;
   onChange: (filter: string) => void;
   tittel: string;
+  style?: React.CSSProperties;
 }
 
-const DropdownFilter = ({ filtreringsmuligheter, onChange, tittel }: DropDownFilterProps) => {
+const DropdownFilter = ({ filtreringsmuligheter, onChange, tittel, style }: DropDownFilterProps) => {
   return (
-    <>
-      <Ekspanderbartpanel
-        renderContentWhenClosed={true}
-        tittel={tittel}
-        className="dropdownFilter"
-        style={{ background: 'rgba(179, 193, 0, 0.4)' }}
-      >
+    <div>
+      <Ekspanderbartpanel renderContentWhenClosed={true} tittel={tittel} className="dropdownFilter" style={style}>
         {filtreringsmuligheter.map((filtreringsmulighet, index) => (
           <Checkbox
             label={filtreringsmulighet}
@@ -27,7 +23,7 @@ const DropdownFilter = ({ filtreringsmuligheter, onChange, tittel }: DropDownFil
           />
         ))}
       </Ekspanderbartpanel>
-    </>
+    </div>
   );
 };
 
