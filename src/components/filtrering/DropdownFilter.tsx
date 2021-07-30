@@ -8,7 +8,7 @@ interface DropDownFilterProps {
   tittel: string;
 }
 
-const DropDownFilter = ({ filtreringsmuligheter, onChange, tittel }: DropDownFilterProps) => {
+const DropdownFilter = ({ filtreringsmuligheter, onChange, tittel }: DropDownFilterProps) => {
   return (
     <>
       <Ekspanderbartpanel
@@ -31,4 +31,4 @@ const DropDownFilter = ({ filtreringsmuligheter, onChange, tittel }: DropDownFil
   );
 };
 
-export default DropDownFilter;
+export default DropdownFilter;

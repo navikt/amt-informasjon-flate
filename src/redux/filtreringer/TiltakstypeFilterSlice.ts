@@ -10,13 +10,13 @@ const TiltakstypeFilter = createSlice({
   name: 'tiltakstypeFilter',
   initialState,
   reducers: {
-    toggleFilter: (state, action: PayloadAction<string>) => {
+    toggleTiltakstypeFilter: (state, action: PayloadAction<string>) => {
       const index = state.aktiveTiltakstypeFilter.findIndex(filter => filter === action.payload);
       index < 0 ? state.aktiveTiltakstypeFilter.push(action.payload) : state.aktiveTiltakstypeFilter.splice(index, 1);
     },
   },
 });
 
-export const { toggleFilter } = TiltakstypeFilter.actions;
+export const { toggleTiltakstypeFilter } = TiltakstypeFilter.actions;
 
 export default TiltakstypeFilter.reducer;

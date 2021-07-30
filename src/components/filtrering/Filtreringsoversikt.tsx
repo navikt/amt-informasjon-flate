@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Filtrering.less';
+import KategoriFilter from './KategoriFilter';
 import TiltakstypeFilter from './TiltakstypeFilter';
 
 const Filtreringsoversikt = () => {
-  const [tiltaksType, settiltaksType] = useState<string>('');
-
   return (
     <>
       <TiltakstypeFilter />
+      <KategoriFilter />
     </>
   );
 };
