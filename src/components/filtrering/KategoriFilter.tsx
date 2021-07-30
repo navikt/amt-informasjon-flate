@@ -13,7 +13,14 @@ const KategoriFilter = () => {
     dispatch(toggleKategoriFilter(filter));
   };
 
-  return <DropdownFilter filtreringsmuligheter={kategorier} onChange={oppdaterFiltere} tittel="Kategori" />;
+  return (
+    <DropdownFilter
+      filtreringsmuligheter={kategorier}
+      onChange={oppdaterFiltere}
+      tittel="Kategori"
+      style={{ background: 'rgba(179, 193, 0, 0.4)' }}
+    />
+  );
 };
 
 export default KategoriFilter;
