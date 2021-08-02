@@ -1,0 +1,25 @@
+@import '../filtrering/Filtrering.less';
+
+.tiltak_og_filter_grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: @stedfilter_bredde 1fr;
+  grid-template-rows: auto 1fr;
+  column-gap: 2rem;
+
+  .filtere {
+    grid-column-start: 2;
+    grid-row-start: 1;
+  }
+
+  .tiltak {
+    grid-column-start: 2;
+    grid-row-start: 2;
+  }
+
+  .omraade_filter {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+}
