@@ -19,7 +19,7 @@ const TiltakstypeFilter = () => {
       filtreringsmuligheter={tiltakstyper}
       onChange={oppdaterFiltere}
       tittel="Tiltakstyper"
-      style={{ background: 'rgba(179, 193, 0, 0.4)' }}
+      className="dropdownFilter"
     />
   );
 };

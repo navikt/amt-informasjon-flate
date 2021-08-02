@@ -16,7 +16,7 @@ const InnsatsgruppeFilter = () => {
       filtreringsmuligheter={innsatsgrupper}
       onChange={oppdaterFiltere}
       tittel="Innsatsgrupper"
-      style={{ background: 'rgba(179, 193, 0, 0.4)' }}
+      className="dropdownFilter"
     />
   );
 };

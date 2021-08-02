@@ -18,7 +18,7 @@ const KategoriFilter = () => {
       filtreringsmuligheter={kategorier}
       onChange={oppdaterFiltere}
       tittel="Kategori"
-      style={{ background: 'rgba(179, 193, 0, 0.4)' }}
+      className="dropdownFilter"
     />
   );
 };

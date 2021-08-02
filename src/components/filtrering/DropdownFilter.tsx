@@ -7,18 +7,13 @@ interface DropDownFilterProps {
   onChange: (filter: string) => void;
   tittel: string;
   style?: React.CSSProperties;
-  className?: string;
+  className: string;
 }
 
 const DropdownFilter = ({ filtreringsmuligheter, onChange, tittel, style, className }: DropDownFilterProps) => {
   return (
     <div>
-      <Ekspanderbartpanel
-        renderContentWhenClosed={true}
-        tittel={tittel}
-        className={className || 'dropdownFilter'}
-        style={style}
-      >
+      <Ekspanderbartpanel renderContentWhenClosed={true} tittel={tittel} className={className} style={style}>
         {filtreringsmuligheter.map((filtreringsmulighet, index) => (
           <Checkbox
             label={filtreringsmulighet}
