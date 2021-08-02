@@ -20,7 +20,8 @@ const StedFilter = createSlice({
       //fjerner filter på kommune hvis regionen fjernes
       const tilhorendeKommuner = regionerMedKommuner.get(action.payload);
       tilhorendeKommuner?.forEach(kommune => {
-        if (state.aktiveKommunerFilter.includes(kommune)) state.aktiveKommunerFilter.splice(index, 1);
+        const kommuneIndex = state.aktiveKommunerFilter.indexOf(kommune);
+        if (kommuneIndex >= 0) state.aktiveKommunerFilter.splice(kommuneIndex, 1);
       });
     },
     toggleKommuneFilter: (state, action: PayloadAction<string>) => {
