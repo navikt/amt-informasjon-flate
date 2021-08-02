@@ -2,14 +2,20 @@ import React from 'react';
 import Tiltakskort, { TiltaksboksProps } from './Tiltakskort';
 import './Tiltak.less';
 
-export interface TiltakOversiktProps {
-  tiltaksliste: Array<TiltaksboksProps>;
-}
+const TiltakOversikt = () => {
+  //TODO fjern når vi får koblet til backend
+  const tiltaksliste = [
+    { id: 1, tittel: 'Tittel', ingress: 'Lorem Ipsum dolor sit amet' },
+    { id: 2, tittel: 'Tittel', ingress: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { id: 3, tittel: 'Tittel', ingress: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim.' },
+    { id: 4, tittel: 'Tittel', ingress: 'Lorem Ipsum dolor sit amet' },
+    { id: 5, tittel: 'Tittel', ingress: 'Lorem Ipsum dolor sit amet' },
+    { id: 6, tittel: 'Tittel', ingress: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+  ];
 
-const TiltakOversikt = (props: TiltakOversiktProps) => {
   return (
     <div className="tiltakOversikt">
-      {props.tiltaksliste.map((tiltak: TiltaksboksProps) => (
+      {tiltaksliste.map((tiltak: TiltaksboksProps) => (
         <Tiltakskort {...tiltak} key={tiltak.id} />
       ))}
     </div>

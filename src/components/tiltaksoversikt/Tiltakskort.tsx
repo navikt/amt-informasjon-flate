@@ -1,6 +1,5 @@
 import React from 'react';
 import './Tiltak.less';
-import '../../App.less';
 import { Undertittel } from 'nav-frontend-typografi';
 
 export interface TiltaksboksProps {
