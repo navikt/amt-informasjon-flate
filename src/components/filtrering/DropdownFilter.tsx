@@ -1,6 +1,6 @@
 import Ekspanderbartpanel from 'nav-frontend-ekspanderbartpanel';
 import { Checkbox } from 'nav-frontend-skjema';
-import React, { useState } from 'react';
+import React from 'react';
 
 interface DropDownFilterProps {
   filtreringsmuligheter: Array<string>;
@@ -19,7 +19,7 @@ const DropdownFilter = ({ filtreringsmuligheter, onChange, tittel, style, classN
             label={filtreringsmulighet}
             value={filtreringsmulighet}
             key={index}
-            className="dropdownCheckbox"
+            className="ekspanderbartpanel_checkbox"
             onChange={() => onChange(filtreringsmulighet)}
           />
         ))}

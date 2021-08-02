@@ -23,13 +23,13 @@ const StedFilter = () => {
         filtreringsmuligheter={navregioner}
         tittel="Velg Nav region"
         onChange={oppdaterRegionFiltere}
-        className="stedFilter"
+        className="stedsfilter"
       />
       <DropdownFilter
         filtreringsmuligheter={kommuner}
         tittel="Velg kommune"
         onChange={oppdaterKommuneFilter}
-        className="stedFilter"
+        className="stedsfilter"
       />
     </>
   );

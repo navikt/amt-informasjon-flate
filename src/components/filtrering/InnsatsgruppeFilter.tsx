@@ -16,7 +16,7 @@ const InnsatsgruppeFilter = () => {
       filtreringsmuligheter={innsatsgrupper}
       onChange={oppdaterFiltere}
       tittel="Innsatsgrupper"
-      className="dropdownFilter"
+      className="custom_ekspanderbart_panel"
     />
   );
 };

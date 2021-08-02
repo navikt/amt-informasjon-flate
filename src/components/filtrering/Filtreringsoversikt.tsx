@@ -6,7 +6,7 @@ import TiltakstypeFilter from './TiltakstypeFilter';
 
 const Filtreringsoversikt = () => {
   return (
-    <div className="dropdownFilterContainer">
+    <div className="filteroversikt">
       <KategoriFilter />
       <TiltakstypeFilter />
       <InnsatsgruppeFilter />
