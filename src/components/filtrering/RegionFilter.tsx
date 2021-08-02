@@ -19,8 +19,8 @@ const RegionFilter = ({ region }: RegionFilterProps) => {
   const [erRegionenAktiv, setErRegionenAktiv] = useState<boolean>(false);
 
   const onChange = () => {
-    setErRegionenAktiv(!erRegionenAktiv);
     oppdaterRegionFilter(region);
+    setErRegionenAktiv(!erRegionenAktiv);
   };
 
   return (
