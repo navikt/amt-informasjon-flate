@@ -18,9 +18,8 @@ function App() {
       <div className="main-app">
         <ToggleController />
         {veilederToggle === true ? <VeilederVisning /> : <BrukerVisning />}
+        <TiltakOgFilterOversikt />
       </div>
-
-      <TiltakOgFilterOversikt />
     </>
   );
 }
