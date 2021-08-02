@@ -17,23 +17,19 @@ const StedFilter = () => {
     dispatch(toggleKommuneFilter(kommune));
   };
 
-  const style = {
-    width: '15.5rem',
-  } as React.CSSProperties;
-
   return (
     <>
       <DropdownFilter
         filtreringsmuligheter={navregioner}
         tittel="Velg Nav region"
         onChange={oppdaterRegionFiltere}
-        style={style}
+        className="stedFilter"
       />
       <DropdownFilter
         filtreringsmuligheter={kommuner}
         tittel="Velg kommune"
         onChange={oppdaterKommuneFilter}
-        style={style}
+        className="stedFilter"
       />
     </>
   );
