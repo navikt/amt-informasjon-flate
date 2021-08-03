@@ -25,12 +25,14 @@ const ToggleController = () => {
   }, [veilederToggle]);
 
   return (
-    <Toggle
-      toggle={veilederToggle}
-      onChange={() => dispatch(toggleVisning())}
-      venstreTekst="Veileder"
-      hoyreTekst="Bruker"
-    />
+    <div className="veiledervisning-toggle">
+      <Toggle
+        toggle={veilederToggle}
+        onChange={() => dispatch(toggleVisning())}
+        venstreTekst="Veileder"
+        hoyreTekst="Bruker"
+      />
+    </div>
   );
 };
 
