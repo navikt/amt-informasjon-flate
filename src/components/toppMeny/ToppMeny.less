@@ -1,0 +1,50 @@
+@import '~nav-frontend-core/less/core';
+
+.topp-meny {
+  grid-row: 1;
+  display: grid;
+  grid-gap: .5rem;
+}
+
+.visningsmodus {
+  grid-row: 2;
+
+  .typo-systemtittel {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid @navGra40;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+
+    span {
+      background: #fff;
+      padding: 0 10px;
+      color: @navGra40;
+    }
+  }
+}
+
+.om-mulighetsrommet {
+  grid-row: 3;
+  width: 60%;
+  justify-self: center;
+
+  .ekspanderbartPanel {
+    background-color: rgba(179, 193, 0, 0.4);
+
+    &__innhold {
+      border: 1px solid black;
+      background-color: white;
+      width: 80%;
+      margin: 0 auto 1rem;
+    }
+
+    &__hode:focus {
+      box-shadow: none;
+    }
+
+    &__tittel {
+      margin: 0 auto;
+    }
+  }
+}
