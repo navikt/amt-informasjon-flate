@@ -22,10 +22,7 @@ const removeCssHashPlugin = {
 };
 
 module.exports = {
-  plugins: [
-    { plugin: CracoLessPlugin },
-    { plugin: removeCssHashPlugin },
-  ],
+  plugins: [{ plugin: CracoLessPlugin }, { plugin: removeCssHashPlugin }],
   webpack: {
     configure: {
       output: {
