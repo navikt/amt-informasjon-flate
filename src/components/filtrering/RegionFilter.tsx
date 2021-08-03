@@ -1,6 +1,6 @@
 import { Checkbox } from 'nav-frontend-skjema';
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toggleRegionFilter } from '../../redux/filtreringer/StedFilterSlice';
 import tilhorendeKommuner from '../../data/geografi';
 import KommuneFilter from './KommuneFilter';
@@ -16,17 +16,21 @@ const RegionFilter = ({ region }: RegionFilterProps) => {
     dispatch(toggleRegionFilter(region));
   };
 
-  const [erRegionenAktiv, setErRegionenAktiv] = useState<boolean>(false);
-
-  const onChange = () => {
-    oppdaterRegionFilter(region);
-    setErRegionenAktiv(!erRegionenAktiv);
-  };
+  const aktiveRegionerFiltere = useSelector((state: any) => state.stedFilterReducer.aktiveRegionerFilter);
 
   return (
     <>
-      <Checkbox label={region} value={region} className="ekspanderbartpanel_checkbox" onChange={onChange} />
-      <div style={{ display: erRegionenAktiv ? 'block' : 'none' }} className="innrykket_checkbox">
+      <Checkbox
+        label={region}
+        value={region}
+        checked={aktiveRegionerFiltere.includes(region)}
+        className="ekspanderbartpanel_checkbox"
+        onChange={() => oppdaterRegionFilter(region)}
+      />
+      <div
+        style={{ display: aktiveRegionerFiltere.includes(region) ? 'block' : 'none' }}
+        className="innrykket_checkbox"
+      >
         {tilhorendeKommuner.get(region)?.map((kommune, kommuneIndex) => (
           <KommuneFilter kommune={kommune} key={kommuneIndex} />
         ))}

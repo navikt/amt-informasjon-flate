@@ -1,5 +1,5 @@
-import { Checkbox } from 'nav-frontend-skjema';
 import React from 'react';
+import { Checkbox } from 'nav-frontend-skjema';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleKommuneFilter } from '../../redux/filtreringer/StedFilterSlice';
 
@@ -16,15 +16,13 @@ const KommuneFilter = ({ kommune }: KommuneFilterProps) => {
   const aktiveKommuneFiltere = useSelector((state: any) => state.stedFilterReducer.aktiveKommunerFilter);
 
   return (
-    <>
-      <Checkbox
-        checked={aktiveKommuneFiltere.includes(kommune)}
-        label={kommune}
-        value={kommune}
-        className="ekspanderbartpanel_checkbox"
-        onChange={() => oppdaterKommuneFilter(kommune)}
-      />
-    </>
+    <Checkbox
+      checked={aktiveKommuneFiltere.includes(kommune)}
+      label={kommune}
+      value={kommune}
+      className="ekspanderbartpanel_checkbox"
+      onChange={() => oppdaterKommuneFilter(kommune)}
+    />
   );
 };
 
