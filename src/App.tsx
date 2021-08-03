@@ -5,6 +5,7 @@ import './App.less';
 import Header from './components/header/Header';
 import ToppMeny from './components/toppMeny/ToppMeny';
 import TiltakOgFilterOversikt from './components/visning/TiltakOgFilterOversikt';
+import Tiltaksvisning from './components/tiltaksvisning/Tiltaksvisning';
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
       <Header />
       <div className="main-app">
         <Switch>
-          <Route path="/tiltak/:id">{/* Voff voff */}</Route>
+          <Route path="/tiltak/:id">
+            <Tiltaksvisning />
+          </Route>
           <Route path="/">
             <ToppMeny />
             <TiltakOgFilterOversikt />
