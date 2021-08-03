@@ -19,7 +19,7 @@ module.exports = {
         '@typescript-eslint/no-use-before-define': ['off'],
         'no-use-before-define': 'off',
         'space-before-function-paren': ['off'],
-        'prettier/prettier': ['off'],
+        'prettier/prettier': ['warn'],
         'no-unused-vars': ['warn'],
         'no-useless-return': ['off'],
         'spaced-comment': ['off'],
