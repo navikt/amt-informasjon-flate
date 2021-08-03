@@ -1,5 +1,5 @@
+import React from 'react';
 import { Checkbox } from 'nav-frontend-skjema';
-import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleRegionFilter } from '../../redux/filtreringer/StedFilterSlice';
 import tilhorendeKommuner from '../../data/geografi';
