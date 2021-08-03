@@ -45,6 +45,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{env.NODE_VERSION}}
+      - name: Install production artifact
+          run: npm ci
       - name: Build production artifact
         run: npm run build
       - name: Build and publish Docker image
