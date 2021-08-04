@@ -1,10 +1,11 @@
 import React from 'react';
 import Filtreringsoversikt from '../filtrering/Filtreringsoversikt';
 import StedFilter from '../filtrering/StedFilter';
-import TiltakOversikt from '../tiltaksoversikt/TiltakOversikt';
+import Tiltaksvisning from '../tiltaksoversikt/Tiltaksvisning';
 import './TiltakOgFilterOversikt.less';
 import { Innholdstittel } from 'nav-frontend-typografi';
 import Sokefelt from '../filtrering/Sokefelt';
+import BildeListeVisningsToggle from '../toggle/BildeListeVisningsToggle';
 
 const TiltakOgFilterOversikt = () => {
   return (
@@ -12,10 +13,11 @@ const TiltakOgFilterOversikt = () => {
       <Innholdstittel>
         <span>Muligheter</span>
       </Innholdstittel>
+      <BildeListeVisningsToggle />
       <Sokefelt />
       <StedFilter />
       <Filtreringsoversikt />
-      <TiltakOversikt />
+      <Tiltaksvisning />
     </div>
   );
 };

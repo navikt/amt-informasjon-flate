@@ -3,15 +3,20 @@
 .topp-meny {
   grid-row: 1;
   display: grid;
-  grid-gap: .5rem;
+  grid-gap: 0.5rem;
   margin-bottom: 2rem;
   grid-template-rows: 4rem auto;
   grid-template-columns: auto auto;
-}
 
-.visningsmodus {
-  grid-row: 1;
-  grid-column: 1;
+  .veiledervisning-toggle {
+    grid-row: 1;
+    grid-column: 2;
+    justify-self: end;
+  }
+  .visningsmodus {
+    grid-row: 1;
+    grid-column: 1;
+  }
 }
 
 .om-mulighetsrommet {
