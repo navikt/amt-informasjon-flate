@@ -2,7 +2,7 @@ apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
   name: arbeidstiltak-visning
-  namespace: {{namespace}}
+  namespace: pto
   labels:
     team: pto
 spec:
