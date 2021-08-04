@@ -8,11 +8,11 @@ metadata:
 spec:
   image: {{image}}:{{image_tag}}
   port: 80
-  { { #if ingresses}}
+  {{ #if ingresses}}
     ingresses:
-      { { #each ingresses}}
-          - {{this } }
-        {{/each } }
+      {{ #each ingresses}}
+          - {{this }}
+        {{/each }}
   {{/if}}
   liveness:
     path: /
