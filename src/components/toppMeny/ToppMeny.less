@@ -4,28 +4,20 @@
   grid-row: 1;
   display: grid;
   grid-gap: .5rem;
+  margin-bottom: 2rem;
+  grid-template-rows: 4rem auto;
+  grid-template-columns: auto auto;
 }
 
 .visningsmodus {
-  grid-row: 2;
-
-  .typo-systemtittel {
-    width: 100%;
-    text-align: center;
-    border-bottom: 1px solid @navGra40;
-    line-height: 0.1em;
-    margin: 10px 0 20px;
-
-    span {
-      background: #fff;
-      padding: 0 10px;
-      color: @navGra40;
-    }
-  }
+  grid-row: 1;
+  grid-column: 1;
 }
 
 .om-mulighetsrommet {
-  grid-row: 3;
+  grid-row: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
   width: 60%;
   justify-self: center;
 

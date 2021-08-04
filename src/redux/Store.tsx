@@ -11,6 +11,6 @@ export default store({
     kategoriFilterReducer,
     innsatsgruppeFilterReducer,
     stedFilterReducer,
-    visningsToggle: visningsReducer,
+    visningsReducer,
   },
 });

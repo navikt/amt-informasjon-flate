@@ -14,7 +14,7 @@ const TiltakOversikt = () => {
   ];
 
   return (
-    <div className="tiltakOversikt">
+    <div className="tiltaksoversikt">
       {tiltaksliste.map((tiltak: TiltaksboksProps) => (
         <Tiltakskort {...tiltak} key={tiltak.id} />
       ))}

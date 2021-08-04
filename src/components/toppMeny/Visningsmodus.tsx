@@ -1,22 +1,18 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import './ToppMeny.less';
-import { Systemtittel } from 'nav-frontend-typografi';
+import AlertStripe from 'nav-frontend-alertstriper';
 
 const Visningsmodus = () => {
-  const veilederToggle = useSelector((state: any) => state.visningsToggle.veiledervisning);
+  const veilederToggle = useSelector((state: any) => state.visningsReducer.veiledervisning);
   return (
-    <div className="visningsmodus">
-      {veilederToggle === true ? (
-        <Systemtittel>
-          <span>Veiledervisning</span>
-        </Systemtittel>
-      ) : (
-        <Systemtittel>
-          <span>Brukervisning</span>
-        </Systemtittel>
+    <>
+      {veilederToggle === false && (
+        <AlertStripe type="info" className="visningsmodus">
+          Brukervisning
+        </AlertStripe>
       )}
-    </div>
+    </>
   );
 };
 

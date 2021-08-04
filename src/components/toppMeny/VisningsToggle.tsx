@@ -1,11 +1,11 @@
 import { toggleVisning } from '../../redux/VisningsToggleSlice';
-import Toggle from './Toggle';
+import Toggle from '../toggle/Toggle';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-const ToggleController = () => {
+const VisningsToggle = () => {
   const dispatch = useDispatch();
-  const veilederToggle = useSelector((state: any) => state.visningsToggle.veiledervisning);
+  const veilederToggle = useSelector((state: any) => state.visningsReducer.veiledervisning);
 
   useEffect(() => {
     const veilederTekst = document.querySelector<HTMLElement>('.switch-button_venstre-tekst')!;
@@ -26,14 +26,9 @@ const ToggleController = () => {
 
   return (
     <div className="veiledervisning-toggle">
-      <Toggle
-        toggle={veilederToggle}
-        onChange={() => dispatch(toggleVisning())}
-        venstreTekst="Veileder"
-        hoyreTekst="Bruker"
-      />
+      <Toggle onChange={() => dispatch(toggleVisning())} venstreTekst="Veileder" hoyreTekst="Bruker" />
     </div>
   );
 };
 
-export default ToggleController;
+export default VisningsToggle;
