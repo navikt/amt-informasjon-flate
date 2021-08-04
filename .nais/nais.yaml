@@ -11,8 +11,8 @@ spec:
   {{#if ingresses}}
   ingresses:
     {{#each ingresses}}
-       - {{this}}
-      {{/each}}
+    - {{this}}
+    {{/each}}
   {{/if}}
   liveness:
     path: /
