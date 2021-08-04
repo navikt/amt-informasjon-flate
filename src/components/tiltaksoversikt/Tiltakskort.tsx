@@ -15,8 +15,6 @@ const Tiltakskort = (props: TiltaksboksProps) => {
 
   return (
     <a href={'tiltak/' + props.id} className="remove_link_style">
-      {/* TODO: legg til lenke for visning av tiltaket */}
-
       <div className="tiltakskort">
         <img src={imgUrl} alt={props.tittel} />
         <div>
