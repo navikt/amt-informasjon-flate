@@ -48,13 +48,6 @@ const Tiltaksvisning = () => {
           <Tabs tabs={tabs} onChange={endreInnholdsvisning} />
         </div>
         <div className="fane_innhold">
-          {/*
-          
-          <Panel border style={{ borderTop: 0, borderTopLeftRadius: 0, borderTopRightRadius: 0 }}>
-            Innhold her.
-          </Panel>
-          */}
-
           <Panel>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras scelerisque nisl ac bibendum sagittis. Proin
             egestas in lorem et efficitur. Suspendisse in facilisis eros, faucibus fermentum magna. Praesent ante erat,
