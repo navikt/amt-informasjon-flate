@@ -8,8 +8,8 @@ metadata:
 spec:
   image: {{image}}:{{image_tag}}
   port: 80
-    ingresses:
-      - https://arbeidstiltak-visning.dev.intern.nav.no
+  ingresses:
+    - https://arbeidstiltak-visning.dev.intern.nav.no
   liveness:
     path: /
     initialDelay: 10
