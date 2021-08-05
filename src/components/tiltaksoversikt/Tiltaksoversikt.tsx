@@ -6,7 +6,7 @@ import '../visning/TiltakOgFilterOversikt.less';
 import 'nav-frontend-tabell-style';
 import Tiltaksliste from './listevisning/Tiltaksliste';
 
-const Tiltaksvisning = () => {
+const Tiltaksoversikt = () => {
   //TODO fjern når vi får koblet til backend
   const tiltaksliste = [
     { id: 1, tittel: 'Truckførerkurs', ingress: 'Lorem Ipsum dolor sit amet' },
@@ -34,4 +34,4 @@ const Tiltaksvisning = () => {
   );
 };
 
-export default Tiltaksvisning;
+export default Tiltaksoversikt;

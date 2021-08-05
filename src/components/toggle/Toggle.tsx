@@ -9,10 +9,9 @@ export interface ToggleProps {
   onChange: ActionCreatorWithoutPayload;
   venstreTekst: string;
   hoyreTekst: string;
-  className?: string;
 }
 
-const Toggle = ({ toggle, onChange, venstreTekst, hoyreTekst, className }: ToggleProps) => {
+const Toggle = ({ toggle, onChange, venstreTekst, hoyreTekst }: ToggleProps) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,7 +32,7 @@ const Toggle = ({ toggle, onChange, venstreTekst, hoyreTekst, className }: Toggl
   }, [toggle, hoyreTekst, venstreTekst]);
 
   return (
-    <div className={classNames('switch-button', className)}>
+    <div className="switch-button">
       <input
         className="switch-button-checkbox"
         type="checkbox"

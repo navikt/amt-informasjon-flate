@@ -1,7 +1,7 @@
 import React from 'react';
 import Filtreringsoversikt from '../filtrering/Filtreringsoversikt';
 import StedFilter from '../filtrering/StedFilter';
-import Tiltaksvisning from '../tiltaksoversikt/Tiltaksvisning';
+import Tiltaksoversikt from '../tiltaksoversikt/Tiltaksoversikt';
 import './TiltakOgFilterOversikt.less';
 import { Innholdstittel } from 'nav-frontend-typografi';
 import Sokefelt from '../filtrering/Sokefelt';
@@ -17,7 +17,7 @@ const TiltakOgFilterOversikt = () => {
       <Sokefelt />
       <StedFilter />
       <Filtreringsoversikt />
-      <Tiltaksvisning />
+      <Tiltaksoversikt />
     </div>
   );
 };

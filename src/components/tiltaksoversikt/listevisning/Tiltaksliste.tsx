@@ -1,4 +1,4 @@
-import TiltakTilListe from './TiltakTilListe';
+import TiltakRad from './TiltakRad';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { TiltakskortProps } from '../bildevisning/Tiltakskort';
@@ -22,7 +22,7 @@ const Tiltaksliste = ({ tiltaksliste }: TiltakslisteProps) => {
         </thead>
         <tbody>
           {tiltaksliste.map((tiltak: TiltakskortProps) => (
-            <TiltakTilListe {...tiltak} key={tiltak.id} veilederToggle={veilederToggle} />
+            <TiltakRad {...tiltak} key={tiltak.id} veilederToggle={veilederToggle} />
           ))}
         </tbody>
       </table>

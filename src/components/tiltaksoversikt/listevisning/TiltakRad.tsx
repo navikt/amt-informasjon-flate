@@ -1,14 +1,14 @@
 import React from 'react';
 import '../Tiltak.less';
 
-export interface TiltakListevisningProps {
+export interface TiltakRadProps {
   id: number;
   tittel: string;
   ingress: string;
   veilederToggle: boolean;
 }
 
-const TiltakTilListe = ({ tittel, ingress, id, veilederToggle }: TiltakListevisningProps) => {
+const TiltakRad = ({ tittel, ingress, id, veilederToggle }: TiltakRadProps) => {
   return (
     <tr>
       {veilederToggle && <td>{id}</td>}
@@ -20,4 +20,4 @@ const TiltakTilListe = ({ tittel, ingress, id, veilederToggle }: TiltakListevisn
   );
 };
 
-export default TiltakTilListe;
+export default TiltakRad;
