@@ -55,8 +55,7 @@ const Tiltaksvisning = () => {
 
   const faner = Array.from(tiltak.faner.keys());
 
-  const tabs: TabProps[] = [];
-  faner.forEach(fane => tabs.push({ label: fane }));
+  const tabs: TabProps[] = faner.map(fane => ({ label: fane }));
 
   const [aktivFaneBeskrivelse, setAktivFaneBeskrivelse] = useState<Array<string>>(tiltak.faner.get(faner[0]) || []);
 
