@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SyntheticEvent, useState } from 'react';
 import Panel from 'nav-frontend-paneler';
 import Tabs from 'nav-frontend-tabs';
 import { TabProps } from 'nav-frontend-tabs/lib/tab';
@@ -18,17 +18,51 @@ const Tiltaksvisning = () => {
     bilde:
       'https://assets.website-files.com/5f0454ca439d52fef0fb4143/600e78d9b3db13ded972087f_shutterstock_1075806023-p-1600.jpeg',
     faner: new Map<string, Array<string>>([
-      ['Formål og innhold', ['blablabla', 'Blabla blabla', 'Blablablabla bla']],
-      ['Opptakskrav', ['blablabla', 'Blabla blabla', 'Blablablabla bla']],
-      ['Tid og sted', ['blablabla', 'Blabla blabla', 'Blablablabla bla']],
-      ['Øvrig informasjon', ['blablabla', 'Blabla blabla', 'Blablablabla bla']],
+      [
+        'Formål og innhold',
+        [
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec iaculis lacus. Sed facilisis risus eu elit condimentum porttitor eu a eros. Fusce ut interdum justo.',
+          'Suspendisse id est erat. Morbi non euismod diam. Pellentesque eu gravida diam. Cras ultricies ipsum maximus tempus fringilla.',
+          'Pellentesque sagittis ligula nisi, et mollis neque eleifend in. Phasellus nec velit a dui convallis hendrerit et aliquam diam. Aenean ut dui sollicitudin, malesuada risus vel, feugiat nulla.',
+        ],
+      ],
+      [
+        'Opptakskrav',
+        [
+          'Suspendisse id est erat. Morbi non euismod diam. Pellentesque eu gravida diam. Cras ultricies ipsum maximus tempus fringilla.',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec iaculis lacus. Sed facilisis risus eu elit condimentum porttitor eu a eros. Fusce ut interdum justo.',
+          'Vivamus metus massa, vehicula ac euismod non, dapibus imperdiet sapien. Nullam id viverra neque. Fusce ut justo volutpat, consequat lacus a, elementum dolor. Aenean vel pellentesque massa. Fusce accumsan erat at blandit imperdiet. Praesent convallis nisl est, vel finibus justo commodo id.',
+        ],
+      ],
+      [
+        'Tid og sted',
+        [
+          'Suspendisse id est erat. Morbi non euismod diam. Pellentesque eu gravida diam. Cras ultricies ipsum maximus tempus fringilla.',
+          'Vivamus metus massa, vehicula ac euismod non, dapibus imperdiet sapien. Nullam id viverra neque. Fusce ut justo volutpat, consequat lacus a, elementum dolor. Aenean vel pellentesque massa. Fusce accumsan erat at blandit imperdiet. Praesent convallis nisl est, vel finibus justo commodo id.',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec iaculis lacus. Sed facilisis risus eu elit condimentum porttitor eu a eros. Fusce ut interdum justo.',
+        ],
+      ],
+      [
+        'Øvrig informasjon',
+        [
+          'Vivamus metus massa, vehicula ac euismod non, dapibus imperdiet sapien. Nullam id viverra neque. Fusce ut justo volutpat, consequat lacus a, elementum dolor. Aenean vel pellentesque massa. Fusce accumsan erat at blandit imperdiet. Praesent convallis nisl est, vel finibus justo commodo id.',
+          'Suspendisse id est erat. Morbi non euismod diam. Pellentesque eu gravida diam. Cras ultricies ipsum maximus tempus fringilla.',
+          'Pellentesque sagittis ligula nisi, et mollis neque eleifend in. Phasellus nec velit a dui convallis hendrerit et aliquam diam. Aenean ut dui sollicitudin, malesuada risus vel, feugiat nulla.',
+        ],
+      ],
     ]),
   };
 
-  const tabs: TabProps[] | { label: string }[] | undefined = [];
-  Array.from(tiltak.faner.keys()).forEach(fane => tabs.push({ label: fane }));
+  const faner = Array.from(tiltak.faner.keys());
 
-  const endreInnholdsvisning = () => {};
+  const tabs: TabProps[] = [];
+  faner.forEach(fane => tabs.push({ label: fane }));
+
+  const [aktivFaneBeskrivelse, setAktivFaneBeskrivelse] = useState<Array<string>>(tiltak.faner.get(faner[0]) || []);
+
+  const endreInnholdsvisning = (e: SyntheticEvent<EventTarget, Event>, index: number) => {
+    setAktivFaneBeskrivelse(tiltak.faner.get(faner[index]) || []);
+  };
 
   return (
     <>
@@ -48,28 +82,9 @@ const Tiltaksvisning = () => {
           <Tabs tabs={tabs} onChange={endreInnholdsvisning} />
         </div>
         <div className="fane_innhold">
-          <Panel>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras scelerisque nisl ac bibendum sagittis. Proin
-            egestas in lorem et efficitur. Suspendisse in facilisis eros, faucibus fermentum magna. Praesent ante erat,
-            sollicitudin porta finibus ut, volutpat id magna. Suspendisse malesuada volutpat nibh eu vestibulum.
-            Maecenas mollis mauris id justo imperdiet fringilla. In interdum congue molestie. Pellentesque id tortor
-            faucibus, viverra sapien at, tristique risus. Integer consectetur auctor sem nec pulvinar. Phasellus
-            convallis risus risus, non hendrerit tellus ultrices nec. Vivamus sollicitudin viverra tellus, ut iaculis
-            justo vestibulum ut. Mauris facilisis magna ac arcu efficitur consectetur. Aliquam a velit finibus sem
-            aliquet mollis vel porta ipsum. Pellentesque a aliquam lorem.
-          </Panel>
-
-          <Panel>
-            Curabitur aliquam felis a lectus placerat finibus. Fusce id mi quam. Praesent efficitur fringilla arcu, eget
-            euismod arcu tempor in. Maecenas ornare ligula sit amet ex aliquet cursus. Phasellus imperdiet risus
-            vulputate mi pulvinar tempor. Maecenas in libero porttitor, sodales arcu et, lacinia mi. Nulla turpis justo,
-            blandit eu nibh eu, commodo feugiat purus. Donec nec nisi nisl. Quisque sapien dolor, egestas ut diam
-            malesuada, viverra semper erat. Sed pellentesque purus sem, aliquet molestie ligula sagittis quis. Duis
-            egestas, augue sit amet ornare ornare, sapien leo cursus tellus, ut feugiat risus augue non erat. Proin eu
-            tortor magna. Mauris maximus quis neque vitae efficitur. Proin consectetur vitae nulla non rhoncus. Sed diam
-            lectus, dignissim eget eros id, viverra hendrerit lacus. Quisque elementum ornare ante, sed pellentesque
-            orci faucibus eget.
-          </Panel>
+          {aktivFaneBeskrivelse?.map((fane, index) => (
+            <Panel key={index}>{fane}</Panel>
+          ))}
         </div>
       </div>
     </>
