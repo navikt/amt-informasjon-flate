@@ -9,10 +9,10 @@ spec:
   image: {{image}}:{{image_tag}}
   port: 80
   {{#if ingresses}}
-    ingresses:
-      {{#each ingresses}}
-         - {{this}}
-        {{/each}}
+  ingresses:
+    {{#each ingresses}}
+    - {{this}}
+    {{/each}}
   {{/if}}
   liveness:
     path: /

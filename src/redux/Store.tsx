@@ -2,7 +2,8 @@ import { configureStore as store } from '@reduxjs/toolkit';
 import tiltaktypeFilterReducer from './filtreringer/TiltakstypeFilterSlice';
 import kategoriFilterReducer from './filtreringer/KategoriFilterSlice';
 import innsatsgruppeFilterReducer from './filtreringer/InnsatsgruppeFilterSlice';
-import visningsReducer from './VisningsToggleSlice';
+import brukerVisningsReducer from './toggle/BrukerVisningsToggleSlice';
+import bildeListeVisningsReducer from './toggle/BildeListeVisningsToggleSlice';
 import stedFilterReducer from './filtreringer/StedFilterSlice';
 
 export default store({
@@ -11,6 +12,7 @@ export default store({
     kategoriFilterReducer,
     innsatsgruppeFilterReducer,
     stedFilterReducer,
-    visningsToggle: visningsReducer,
+    brukerVisningsReducer,
+    bildeListeVisningsReducer,
   },
 });

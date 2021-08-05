@@ -29,7 +29,7 @@ const RegionFilter = ({ region }: RegionFilterProps) => {
       />
       <div
         style={{ display: aktiveRegionerFiltere.includes(region) ? 'block' : 'none' }}
-        className="innrykket_checkbox"
+        className="innrykket__checkbox"
       >
         {tilhorendeKommuner.get(region)?.map((kommune, kommuneIndex) => (
           <KommuneFilter kommune={kommune} key={kommuneIndex} />
