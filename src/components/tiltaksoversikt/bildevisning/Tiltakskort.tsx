@@ -15,8 +15,6 @@ const Tiltakskort = ({ tittel, ingress, bilde, id }: TiltakskortProps) => {
 
   return (
     <a href={'tiltak/' + id} className="remove-link-style">
-      {/* TODO: legg til lenke for visning av tiltaket */}
-
       <div className="tiltakskort">
         <img src={imgUrl} alt={tittel} />
         <div>
