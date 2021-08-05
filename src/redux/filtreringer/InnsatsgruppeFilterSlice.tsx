@@ -10,7 +10,7 @@ const InnsatsgruppeFilter = createSlice({
   name: 'innsatsgruppeFilter',
   initialState,
   reducers: {
-    toggleInnsatsgruppeFilter: (state, action: PayloadAction<string>) => {
+    hentInnsatsgruppeFilter: (state, action: PayloadAction<string>) => {
       const index = state.aktiveInnsatsgruppeFilter.findIndex(filter => filter === action.payload);
       index < 0
         ? state.aktiveInnsatsgruppeFilter.push(action.payload)
@@ -19,6 +19,6 @@ const InnsatsgruppeFilter = createSlice({
   },
 });
 
-export const { toggleInnsatsgruppeFilter } = InnsatsgruppeFilter.actions;
+export const { hentInnsatsgruppeFilter } = InnsatsgruppeFilter.actions;
 
 export default InnsatsgruppeFilter.reducer;

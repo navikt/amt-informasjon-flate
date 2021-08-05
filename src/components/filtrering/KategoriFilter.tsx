@@ -1,16 +1,17 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { toggleKategoriFilter } from '../../redux/filtreringer/KategoriFilterSlice';
+import { hentKategoriFilter } from '../../redux/filtreringer/KategoriFilterSlice';
 import DropdownFilter from './DropdownFilter';
+import { Kategori } from '../../data/Tiltakstyper';
 
 //Dette må hentes et eller annet sted
-const kategorier: Array<string> = ['Kartlegging', 'Kompetanseheving', 'Tilrettelegging'];
+const kategorier: Array<Kategori> = [Kategori.KARTLEGGING, Kategori.KOMPETANSEHEVING, Kategori.TILRETTELEGGING];
 
 const KategoriFilter = () => {
   const dispatch = useDispatch();
 
   const oppdaterFiltere = (filter: string) => {
-    dispatch(toggleKategoriFilter(filter));
+    dispatch(hentKategoriFilter(filter));
   };
 
   return (

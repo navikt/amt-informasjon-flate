@@ -1,14 +1,20 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { toggleInnsatsgruppeFilter } from '../../redux/filtreringer/InnsatsgruppeFilterSlice';
+import { hentInnsatsgruppeFilter } from '../../redux/filtreringer/InnsatsgruppeFilterSlice';
 import DropdownFilter from './DropdownFilter';
+import { Innsatsgruppe } from '../../data/Tiltakstyper';
 
-const innsatsgrupper: Array<string> = ['Standard', 'Situasjonsbestemt', 'Spesielt tilpasset', 'Varig tilpasset'];
+const innsatsgrupper: Array<Innsatsgruppe> = [
+  Innsatsgruppe.STANDARD,
+  Innsatsgruppe.SITUASJONSBESTEMT,
+  Innsatsgruppe.SPESIELT_TILPASSET,
+  Innsatsgruppe.VARIG_TILPASSET,
+];
 
 const InnsatsgruppeFilter = () => {
   const dispatch = useDispatch();
   const oppdaterFiltere = (filter: string) => {
-    dispatch(toggleInnsatsgruppeFilter(filter));
+    dispatch(hentInnsatsgruppeFilter(filter));
   };
 
   return (

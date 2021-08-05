@@ -1,9 +1,12 @@
 import React from 'react';
 import '../Tiltak.less';
 import { Undertittel } from 'nav-frontend-typografi';
+import { Kategori, Tiltakstype } from '../../../data/Tiltakstyper';
 
 export interface TiltakskortProps {
   id: number;
+  tiltakstype: Tiltakstype;
+  kategori: Kategori;
   tittel: string;
   ingress: string;
   bilde?: Blob;

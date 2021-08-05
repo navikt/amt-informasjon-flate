@@ -1,7 +1,7 @@
 import React from 'react';
 import { Checkbox } from 'nav-frontend-skjema';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleKommuneFilter } from '../../redux/filtreringer/StedFilterSlice';
+import { hentKommuneFilter } from '../../redux/filtreringer/StedFilterSlice';
 
 interface KommuneFilterProps {
   kommune: string;
@@ -10,7 +10,7 @@ interface KommuneFilterProps {
 const KommuneFilter = ({ kommune }: KommuneFilterProps) => {
   const dispatch = useDispatch();
   const oppdaterKommuneFilter = (kommune: string) => {
-    dispatch(toggleKommuneFilter(kommune));
+    dispatch(hentKommuneFilter(kommune));
   };
 
   const aktiveKommuneFiltere = useSelector((state: any) => state.stedFilterReducer.aktiveKommunerFilter);

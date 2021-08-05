@@ -11,11 +11,13 @@ const Tiltaksliste = ({ tiltaksliste }: TiltakslisteProps) => {
   const veilederToggle = useSelector((state: any) => state.brukerVisningsReducer.brukerVisning);
 
   return (
-    <div className="tiltaksoversikt_listevisning">
+    <div className="tiltaksoversikt__listevisning">
       <table className="tabell tabell--stripet">
         <thead>
           <tr>
             {veilederToggle && <th>ID</th>}
+            {veilederToggle && <th>Tiltakstype</th>}
+            {veilederToggle && <th>Kategori</th>}
             <th>Tittel</th>
             <th>Ingress</th>
           </tr>
