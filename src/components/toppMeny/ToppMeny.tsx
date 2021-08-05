@@ -9,7 +9,7 @@ function ToppMeny() {
   const veilederToggle = useSelector((state: any) => state.brukerVisningsReducer.brukerVisning);
 
   return (
-    <div className="topp-meny">
+    <div className="topp__meny">
       {veilederToggle === false && (
         <AlertStripe type="info" className="alertstripe__brukervisning">
           Brukervisning
