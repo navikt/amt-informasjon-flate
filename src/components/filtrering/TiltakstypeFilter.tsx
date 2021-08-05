@@ -19,7 +19,7 @@ const TiltakstypeFilter = () => {
       filtreringsmuligheter={tiltakstyper}
       onChange={oppdaterFiltere}
       tittel="Tiltakstyper"
-      className="custom_ekspanderbart_panel"
+      className="custom__ekspanderbartpanel"
     />
   );
 };

@@ -24,12 +24,12 @@ const RegionFilter = ({ region }: RegionFilterProps) => {
         label={region}
         value={region}
         checked={aktiveRegionerFiltere.includes(region)}
-        className="ekspanderbartpanel_checkbox"
+        className="ekspanderbartpanel__checkbox"
         onChange={() => oppdaterRegionFilter(region)}
       />
       <div
         style={{ display: aktiveRegionerFiltere.includes(region) ? 'block' : 'none' }}
-        className="innrykket__checkbox"
+        className="innrykket-checkbox"
       >
         {tilhorendeKommuner.get(region)?.map((kommune, kommuneIndex) => (
           <KommuneFilter kommune={kommune} key={kommuneIndex} />

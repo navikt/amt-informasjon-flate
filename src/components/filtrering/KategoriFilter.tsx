@@ -18,7 +18,7 @@ const KategoriFilter = () => {
       filtreringsmuligheter={kategorier}
       onChange={oppdaterFiltere}
       tittel="Kategori"
-      className="custom_ekspanderbart_panel"
+      className="custom__ekspanderbartpanel"
     />
   );
 };

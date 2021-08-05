@@ -66,7 +66,7 @@ const Tiltaksvisning = () => {
   return (
     <>
       <Link to="/">Tilbake</Link>
-      <div className="tiltaksvisning_grid">
+      <div className="tiltaksvisning__grid">
         <div className="midten">
           <img src={tiltak.bilde} alt={'bilde av ' + tiltak.tittel} />
 
@@ -77,10 +77,10 @@ const Tiltaksvisning = () => {
           </div>
         </div>
 
-        <div className="fane_oversikt">
+        <div className="fane__oversikt">
           <Tabs tabs={tabs} onChange={endreInnholdsvisning} />
         </div>
-        <div className="fane_innhold">
+        <div className="fane__innhold">
           {aktivFaneBeskrivelse?.map((fane, index) => (
             <Panel key={index}>{fane}</Panel>
           ))}

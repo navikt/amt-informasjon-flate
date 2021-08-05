@@ -8,7 +8,7 @@ const BrukerVisningsToggle = () => {
   const veilederToggle = useSelector((state: any) => state.brukerVisningsReducer.brukerVisning);
 
   return (
-    <div className="veiledervisning-toggle">
+    <div className="veiledervisning__toggle">
       <Toggle toggle={veilederToggle} onChange={toggleBrukerVisning} venstreTekst="Veileder" hoyreTekst="Bruker" />
     </div>
   );
