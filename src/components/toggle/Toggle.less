@@ -1,3 +1,5 @@
+@import '../../App.less';
+
 .veiledervisning-toggle {
   justify-self: end;
 
@@ -10,7 +12,7 @@
     letter-spacing: 1px;
     position: relative;
     padding-right: 120px;
-    box-shadow: 1px 4px 5px #34675c;
+    box-shadow: 1px 4px 5px @nav_teal;
 
     &_venstre-tekst {
       position: relative;
@@ -28,7 +30,8 @@
       pointer-events: none;
     }
 
-    &_hoyre-tekst, &_venstre-tekst {
+    &_hoyre-tekst,
+    &_venstre-tekst {
       width: 120px;
     }
 
@@ -57,7 +60,7 @@
 
         &:before {
           content: '';
-          background: #34675c;
+          background: @nav_teal;
           height: 100%;
           width: 100%;
           position: absolute;

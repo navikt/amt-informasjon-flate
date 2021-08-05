@@ -2,14 +2,18 @@ apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
   name: arbeidstiltak-visning
-  namespace: pto
+  namespace: {{namespace}}
   labels:
     team: pto
 spec:
   image: {{image}}:{{image_tag}}
   port: 80
+  {{#if ingresses}}
   ingresses:
-    - https://arbeidstiltak-visning.dev.intern.nav.no
+    {{#each ingresses}}
+    - {{this}}
+    {{/each}}
+  {{/if}}
   liveness:
     path: /
     initialDelay: 10
