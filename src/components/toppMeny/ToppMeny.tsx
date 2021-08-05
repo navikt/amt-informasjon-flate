@@ -11,7 +11,7 @@ function ToppMeny() {
   return (
     <div className="topp-meny">
       {veilederToggle === false && (
-        <AlertStripe type="info" className="visningsmodus">
+        <AlertStripe type="info" className="alertstripe__brukervisning">
           Brukervisning
         </AlertStripe>
       )}
