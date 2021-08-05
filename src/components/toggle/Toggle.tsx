@@ -40,10 +40,10 @@ const Toggle = ({ toggle, onChange, venstreTekst, hoyreTekst }: ToggleProps) => 
         id="switch-button"
       />
       <label className="switch-button-label" htmlFor="switch-button">
-        <span className={classNames('switch-button_venstre-tekst', venstreTekst)}>{venstreTekst}</span>
+        <span className={classNames('switch-button__venstre-tekst', venstreTekst)}>{venstreTekst}</span>
       </label>
       <label>
-        <span className={classNames('switch-button_hoyre-tekst', hoyreTekst)}>{hoyreTekst}</span>
+        <span className={classNames('switch-button__hoyre-tekst', hoyreTekst)}>{hoyreTekst}</span>
       </label>
     </div>
   );

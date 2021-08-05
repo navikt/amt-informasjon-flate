@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import '../visning/TiltakOgFilterOversikt.less';
 import 'nav-frontend-tabell-style';
 import Tiltaksliste from './listevisning/Tiltaksliste';
+import { Tiltakstype } from '../../utils/Enums';
 
 const Tiltaksoversikt = () => {
   //TODO fjern når vi får koblet til backend
@@ -22,7 +23,7 @@ const Tiltaksoversikt = () => {
   return (
     <div className="tiltaksoversikt">
       {bildeToggle ? (
-        <div className="tiltaksoversikt_bildevisning">
+        <div className="tiltaksoversikt__bildevisning">
           {tiltaksliste.map((tiltak: TiltakskortProps) => (
             <Tiltakskort {...tiltak} key={tiltak.id} />
           ))}
