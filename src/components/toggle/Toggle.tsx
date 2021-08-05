@@ -34,7 +34,7 @@ const Toggle = ({ toggle, onChange, venstreTekst, hoyreTekst }: ToggleProps) => 
   return (
     <div className="switch-button">
       <input
-        className="switch-button--checkbox"
+        className="switch-button__checkbox"
         type="checkbox"
         onChange={() => dispatch(onChange())}
         id="switch-button"

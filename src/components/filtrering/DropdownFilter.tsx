@@ -19,7 +19,7 @@ const DropdownFilter = ({ filtreringsmuligheter, onChange, tittel, style, classN
             label={filtreringsmulighet}
             value={filtreringsmulighet}
             key={index}
-            className="ekspanderbartpanel_checkbox"
+            className="ekspanderbartpanel__checkbox"
             onChange={() => onChange(filtreringsmulighet)}
           />
         ))}

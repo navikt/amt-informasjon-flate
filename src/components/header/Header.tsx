@@ -5,11 +5,11 @@ import './Header.less';
 
 const Header = () => {
   return (
-    <div className="header-border">
+    <div className="header__border">
       <div className="header">
-        <Logo className="header_logo" />
-        <Sidetittel className="header_tittel">Mulighetsrommet</Sidetittel>
-        <Undertittel className="header_undertittel">NAV tilbyr et hav av muligheter</Undertittel>
+        <Logo className="header__logo" />
+        <Sidetittel className="header__tittel">Mulighetsrommet</Sidetittel>
+        <Undertittel className="header__undertittel">NAV tilbyr et hav av muligheter</Undertittel>
       </div>
     </div>
   );

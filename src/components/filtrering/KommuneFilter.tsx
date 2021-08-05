@@ -20,7 +20,7 @@ const KommuneFilter = ({ kommune }: KommuneFilterProps) => {
       checked={aktiveKommuneFiltere.includes(kommune)}
       label={kommune}
       value={kommune}
-      className="ekspanderbartpanel_checkbox"
+      className="ekspanderbartpanel__checkbox"
       onChange={() => oppdaterKommuneFilter(kommune)}
     />
   );
