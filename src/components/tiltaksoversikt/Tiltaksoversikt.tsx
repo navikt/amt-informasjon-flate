@@ -1,5 +1,5 @@
 import React from 'react';
-import Tiltakskort, { TiltakskortProps } from './bildevisning/Tiltakskort';
+import Tiltakskort, { TiltakProps } from './bildevisning/Tiltakskort';
 import './Tiltak.less';
 import { useSelector } from 'react-redux';
 import '../visning/TiltakOgFilterOversikt.less';
@@ -60,7 +60,7 @@ const Tiltaksoversikt = () => {
     <div className="tiltaksoversikt">
       {bildeToggle ? (
         <div className="tiltaksoversikt__bildevisning">
-          {tiltaksliste.map((tiltak: TiltakskortProps) => (
+          {tiltaksliste.map((tiltak: TiltakProps) => (
             <Tiltakskort {...tiltak} key={tiltak.id} />
           ))}
         </div>

@@ -10,13 +10,13 @@ const TiltakstypeFilter = createSlice({
   name: 'tiltakstypeFilter',
   initialState,
   reducers: {
-    hentTiltakstypeFilter: (state, action: PayloadAction<string>) => {
+    velgTiltakstypeFilter: (state, action: PayloadAction<string>) => {
       const index = state.aktiveTiltakstypeFilter.findIndex(filter => filter === action.payload);
       index < 0 ? state.aktiveTiltakstypeFilter.push(action.payload) : state.aktiveTiltakstypeFilter.splice(index, 1);
     },
   },
 });
 
-export const { hentTiltakstypeFilter } = TiltakstypeFilter.actions;
+export const { velgTiltakstypeFilter } = TiltakstypeFilter.actions;
 
 export default TiltakstypeFilter.reducer;

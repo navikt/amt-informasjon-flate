@@ -12,8 +12,7 @@ const StedFilter = createSlice({
   name: 'stedFilter',
   initialState,
   reducers: {
-    hentRegionFilter: (state, action: PayloadAction<string>) => {
-      //TODO fjerne filter på kommuner som tilhører regionen når man fjerner filter på regionen
+    oppdaterRegionFilter: (state, action: PayloadAction<string>) => {
       const index = state.aktiveRegionerFilter.findIndex(filter => filter === action.payload);
       index < 0 ? state.aktiveRegionerFilter.push(action.payload) : state.aktiveRegionerFilter.splice(index, 1);
 
@@ -24,13 +23,13 @@ const StedFilter = createSlice({
         if (kommuneIndex >= 0) state.aktiveKommunerFilter.splice(kommuneIndex, 1);
       });
     },
-    hentKommuneFilter: (state, action: PayloadAction<string>) => {
+    oppdaterKommuneFilter: (state, action: PayloadAction<string>) => {
       const index = state.aktiveKommunerFilter.findIndex(filter => filter === action.payload);
       index < 0 ? state.aktiveKommunerFilter.push(action.payload) : state.aktiveKommunerFilter.splice(index, 1);
     },
   },
 });
 
-export const { hentRegionFilter, hentKommuneFilter } = StedFilter.actions;
+export const { oppdaterRegionFilter, oppdaterKommuneFilter } = StedFilter.actions;
 
 export default StedFilter.reducer;

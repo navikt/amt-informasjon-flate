@@ -1,17 +1,8 @@
 import React from 'react';
 import '../Tiltak.less';
-import { Kategori, Tiltakstype } from '../../../data/Tiltakstyper';
+import { TiltakProps } from '../bildevisning/Tiltakskort';
 
-export interface TiltakRadProps {
-  id: number;
-  tiltakstype: Tiltakstype;
-  kategori: Kategori;
-  tittel: string;
-  ingress: string;
-  veilederToggle: boolean;
-}
-
-const TiltakRad = ({ id, tiltakstype, kategori, tittel, ingress, veilederToggle }: TiltakRadProps) => {
+const TiltakRad = ({ id, tiltakstype, kategori, tittel, ingress, veilederToggle }: TiltakProps) => {
   return (
     <tr>
       {veilederToggle && <td>{id}</td>}

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Checkbox } from 'nav-frontend-skjema';
 import { useDispatch, useSelector } from 'react-redux';
-import { hentRegionFilter } from '../../redux/filtreringer/StedFilterSlice';
 import tilhorendeKommuner from '../../data/Geografi';
 import KommuneFilter from './KommuneFilter';
 import './Filtrering.less';
+import { oppdaterRegionFilter } from '../../redux/filtreringer/StedFilterSlice';
 
 interface RegionFilterProps {
   region: string;
@@ -12,9 +12,6 @@ interface RegionFilterProps {
 
 const RegionFilter = ({ region }: RegionFilterProps) => {
   const dispatch = useDispatch();
-  const oppdaterRegionFilter = (region: string) => {
-    dispatch(hentRegionFilter(region));
-  };
 
   const aktiveRegionerFiltere = useSelector((state: any) => state.stedFilterReducer.aktiveRegionerFilter);
 
@@ -25,7 +22,7 @@ const RegionFilter = ({ region }: RegionFilterProps) => {
         value={region}
         checked={aktiveRegionerFiltere.includes(region)}
         className="ekspanderbartpanel__checkbox"
-        onChange={() => oppdaterRegionFilter(region)}
+        onChange={() => dispatch(oppdaterRegionFilter(region))}
       />
       <div
         style={{ display: aktiveRegionerFiltere.includes(region) ? 'block' : 'none' }}

@@ -10,13 +10,13 @@ const KategoriFilter = createSlice({
   name: 'kategoriFilter',
   initialState,
   reducers: {
-    hentKategoriFilter: (state, action: PayloadAction<string>) => {
+    velgKategoriFilter: (state, action: PayloadAction<string>) => {
       const index = state.aktiveKategoriFilter.findIndex(filter => filter === action.payload);
       index < 0 ? state.aktiveKategoriFilter.push(action.payload) : state.aktiveKategoriFilter.splice(index, 1);
     },
   },
 });
 
-export const { hentKategoriFilter } = KategoriFilter.actions;
+export const { velgKategoriFilter } = KategoriFilter.actions;
 
 export default KategoriFilter.reducer;

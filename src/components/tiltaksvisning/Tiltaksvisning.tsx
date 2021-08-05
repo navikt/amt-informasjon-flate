@@ -52,7 +52,6 @@ const Tiltaksvisning = () => {
         ],
       ],
     ]),
-    tiltakstype: Tiltakstype.ARBEIDSMARKEDSOPPLAERING,
   };
 
   const faner = Array.from(tiltak.faner.keys());
