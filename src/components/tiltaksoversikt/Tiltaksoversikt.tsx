@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 import '../visning/TiltakOgFilterOversikt.less';
 import 'nav-frontend-tabell-style';
 import Tiltaksliste from './listevisning/Tiltaksliste';
-import { Tiltakstype } from '../../utils/Enums';
 
 const Tiltaksoversikt = () => {
   //TODO fjern når vi får koblet til backend
