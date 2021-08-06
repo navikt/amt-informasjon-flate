@@ -1,20 +1,23 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { toggleInnsatsgruppeFilter } from '../../redux/filtreringer/InnsatsgruppeFilterSlice';
 import DropdownFilter from './DropdownFilter';
+import { Innsatsgruppe } from '../../data/Tiltakstyper';
+import { velgInnsatsgruppe } from '../../redux/filtreringer/FiltreringSlice';
 
-const innsatsgrupper: Array<string> = ['Standard', 'Situasjonsbestemt', 'Spesielt tilpasset', 'Varig tilpasset'];
+const innsatsgrupper: Array<Innsatsgruppe> = [
+  Innsatsgruppe.STANDARD,
+  Innsatsgruppe.SITUASJONSBESTEMT,
+  Innsatsgruppe.SPESIELT_TILPASSET,
+  Innsatsgruppe.VARIG_TILPASSET,
+];
 
 const InnsatsgruppeFilter = () => {
   const dispatch = useDispatch();
-  const oppdaterFiltere = (filter: string) => {
-    dispatch(toggleInnsatsgruppeFilter(filter));
-  };
 
   return (
     <DropdownFilter
       filtreringsmuligheter={innsatsgrupper}
-      onChange={oppdaterFiltere}
+      onChange={filter => dispatch(velgInnsatsgruppe(filter))}
       tittel="Innsatsgrupper"
       className="custom__ekspanderbartpanel"
     />
