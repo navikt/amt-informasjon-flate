@@ -1,7 +1,7 @@
 import React from 'react';
 import { Checkbox } from 'nav-frontend-skjema';
 import { useDispatch, useSelector } from 'react-redux';
-import { velgKommuneFilter } from '../../redux/filtreringer/FiltreringSlice';
+import { velgKommune } from '../../redux/filtreringer/FiltreringSlice';
 
 interface KommuneFilterProps {
   kommune: string;
@@ -18,7 +18,7 @@ const KommuneFilter = ({ kommune }: KommuneFilterProps) => {
       label={kommune}
       value={kommune}
       className="ekspanderbartpanel__checkbox"
-      onChange={() => dispatch(velgKommuneFilter(kommune))}
+      onChange={() => dispatch(velgKommune(kommune))}
     />
   );
 };

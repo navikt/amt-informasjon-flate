@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import tilhorendeKommuner from '../../data/Geografi';
 import KommuneFilter from './KommuneFilter';
 import './Filtrering.less';
-import { velgFylkeFilter } from '../../redux/filtreringer/FiltreringSlice';
+import { velgFylke } from '../../redux/filtreringer/FiltreringSlice';
 
 interface FylkeFilterProps {
   fylke: string;
@@ -22,7 +22,7 @@ const FylkeFilter = ({ fylke }: FylkeFilterProps) => {
         value={fylke}
         checked={aktiveFylkeFiltere.includes(fylke)}
         className="ekspanderbartpanel__checkbox"
-        onChange={() => dispatch(velgFylkeFilter(fylke))}
+        onChange={() => dispatch(velgFylke(fylke))}
       />
       <div style={{ display: aktiveFylkeFiltere.includes(fylke) ? 'block' : 'none' }} className="innrykket-checkbox">
         {tilhorendeKommuner.get(fylke)?.map((kommune, kommuneIndex) => (

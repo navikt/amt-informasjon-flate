@@ -21,7 +21,7 @@ const Filtrering = createSlice({
   name: 'filtrering',
   initialState,
   reducers: {
-    velgFylkeFilter: (state: FilterState = initialState, action: PayloadAction<string>) => {
+    velgFylke: (state: FilterState = initialState, action: PayloadAction<string>) => {
       const index = state.fylke.findIndex(filter => filter === action.payload);
       index < 0 ? state.fylke.push(action.payload) : state.fylke.splice(index, 1);
 
@@ -32,26 +32,25 @@ const Filtrering = createSlice({
         if (kommuneIndex >= 0) state.kommune.splice(kommuneIndex, 1);
       });
     },
-    velgKommuneFilter: (state, action: PayloadAction<string>) => {
+    velgKommune: (state, action: PayloadAction<string>) => {
       const index = state.kommune.findIndex(filter => filter === action.payload);
       index < 0 ? state.kommune.push(action.payload) : state.kommune.splice(index, 1);
     },
-    velgKategoriFilter: (state, action: PayloadAction<string>) => {
+    velgKategori: (state, action: PayloadAction<string>) => {
       const index = state.kategori.findIndex(filter => filter === action.payload);
       index < 0 ? state.kategori.push(action.payload) : state.kategori.splice(index, 1);
     },
-    velgTiltaksypeFilter: (state, action: PayloadAction<string>) => {
+    velgTiltaksype: (state, action: PayloadAction<string>) => {
       const index = state.tiltaksype.findIndex(filter => filter === action.payload);
       index < 0 ? state.tiltaksype.push(action.payload) : state.tiltaksype.splice(index, 1);
     },
-    velgInnsatsgruppeFilter: (state, action: PayloadAction<string>) => {
+    velgInnsatsgruppe: (state, action: PayloadAction<string>) => {
       const index = state.innsatsgrupper.findIndex(filter => filter === action.payload);
       index < 0 ? state.innsatsgrupper.push(action.payload) : state.innsatsgrupper.splice(index, 1);
     },
   },
 });
 
-export const { velgFylkeFilter, velgKommuneFilter, velgKategoriFilter, velgTiltaksypeFilter, velgInnsatsgruppeFilter } =
-  Filtrering.actions;
+export const { velgFylke, velgKommune, velgKategori, velgTiltaksype, velgInnsatsgruppe } = Filtrering.actions;
 
 export default Filtrering.reducer;
