@@ -6,12 +6,18 @@ import { Link, useParams } from 'react-router-dom';
 import './Tiltaksvisning.less';
 import BrukerVisningsToggle from '../toggle/BrukerVisningsToggle';
 import { Innholdstittel, Undertittel } from 'nav-frontend-typografi';
+import { InformationFilled } from '@navikt/ds-icons';
+import { useSelector } from 'react-redux';
+import Popover, { PopoverOrientering } from 'nav-frontend-popover';
+import { Knapp } from 'nav-frontend-knapper';
 
 interface routeParams {
   id: string;
 }
 
 const Tiltaksvisning = () => {
+  const veilederToggle = useSelector((state: any) => state.brukerVisningsReducer.brukerVisning);
+
   const { id }: routeParams = useParams();
 
   const tiltak = {
@@ -69,14 +75,32 @@ const Tiltaksvisning = () => {
     setAktivFaneBeskrivelse(tiltak.faner.get(faner[index]) || []);
   };
 
+  const [togglePopover, setTogglePopover] = useState<(EventTarget & HTMLButtonElement) | undefined>();
+
   return (
     <>
       <div className="tiltaksvisning__grid">
         <Link to="/" className="tilbakeknapp">
           Tilbake
         </Link>
-        <Undertittel className="tiltaksnummer">{`Tiltaksnummer: ${tiltak.id}`}</Undertittel>
-        <BrukerVisningsToggle />
+        {veilederToggle && <Undertittel className="tiltaksnummer">{`Tiltaksnummer: ${tiltak.id}`}</Undertittel>}
+        <div className="veiledervisning__toggle__container">
+          <BrukerVisningsToggle />
+
+          <Knapp onClick={e => setTogglePopover(e.currentTarget)}>
+            Veiledervisning
+            <InformationFilled title="Visningsmodus" color="red" />
+          </Knapp>
+          <Popover
+            ankerEl={togglePopover}
+            onRequestClose={() => setTogglePopover(undefined)}
+            orientering={PopoverOrientering.Under}
+          >
+            <p style={{ padding: '1rem' }}>
+              Veiledervisning lar deg enkelt bytte mellom veileder og bruker sitt perspektiv
+            </p>
+          </Popover>
+        </div>
 
         <div className="generell-informasjon">
           <img src={tiltak.bilde} alt={'bilde av ' + tiltak.tittel} />
