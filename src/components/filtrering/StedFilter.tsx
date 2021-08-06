@@ -6,7 +6,7 @@ import { regioner } from '../../data/Geografi';
 const StedFilter = () => {
   return (
     <div className="omrade__filter">
-      <Ekspanderbartpanel renderContentWhenClosed={true} tittel={'Velg NAV region'} className={'stedsfilter'}>
+      <Ekspanderbartpanel renderContentWhenClosed={true} tittel={'Velg område'} className={'stedsfilter'}>
         {regioner.map((region, index) => (
           <FylkeFilter fylke={region} key={index} />
         ))}

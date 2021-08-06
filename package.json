@@ -26,6 +26,7 @@
     "*.{js,ts,tsx,jsx,less,json,css,md}": "prettier --write"
   },
   "dependencies": {
+    "@navikt/ds-icons": "^0.3.3",
     "@navikt/fnrvalidator": "^1.1.4",
     "@navikt/navspa": "^3.0.0",
     "@reduxjs/toolkit": "^1.6.1",

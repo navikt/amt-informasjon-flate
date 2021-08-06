@@ -4,12 +4,18 @@ import Tabs from 'nav-frontend-tabs';
 import { TabProps } from 'nav-frontend-tabs/lib/tab';
 import { Link, useParams } from 'react-router-dom';
 import './Tiltaksvisning.less';
+import BrukerVisningsToggle from '../toggle/BrukerVisningsToggle';
+import { Innholdstittel, Undertittel } from 'nav-frontend-typografi';
+
+interface routeParams {
+  id: string;
+}
 
 const Tiltaksvisning = () => {
-  const id: number = useParams();
+  const { id }: routeParams = useParams();
 
   const tiltak = {
-    id: id,
+    id,
     tittel: 'Truckførerkurs',
     ingress:
       'Truckførerkurset gir grunnleggende sikkerhetsopplæring for førere av truck. Opplæringen er todelt, med én teoretisk del og én praktisk del, og er delt opp i fire moduler.',
@@ -65,13 +71,18 @@ const Tiltaksvisning = () => {
 
   return (
     <>
-      <Link to="/">Tilbake</Link>
       <div className="tiltaksvisning__grid">
-        <div className="midten">
+        <Link to="/" className="tilbakeknapp">
+          Tilbake
+        </Link>
+        <Undertittel className="tiltaksnummer">{`Tiltaksnummer: ${tiltak.id}`}</Undertittel>
+        <BrukerVisningsToggle />
+
+        <div className="generell-informasjon">
           <img src={tiltak.bilde} alt={'bilde av ' + tiltak.tittel} />
 
           <div className="beskrivelse">
-            <h1>{tiltak.tittel}</h1>
+            <Innholdstittel>{tiltak.tittel}</Innholdstittel>
             <p>{tiltak.ingress}</p>
             <p>{tiltak.beskrivelse}</p>
           </div>
