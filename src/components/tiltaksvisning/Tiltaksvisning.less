@@ -4,7 +4,7 @@
 .tiltaksvisning__grid {
   display: grid;
   grid-template-columns: 15vw 1fr 15vw;
-  grid-template-rows: 3rem auto 3rem auto;
+  grid-template-rows: auto auto 3rem auto;
 
   .tilbakeknapp {
     grid-row: 1;
@@ -18,7 +18,7 @@
     grid-column: 2;
   }
 
-  .veiledervisning__toggle {
+  .veiledervisning__toggle__container {
     grid-row: 1;
     grid-column: 2 / 4;
     margin-left: auto;
@@ -61,27 +61,28 @@
     border-top-right-radius: 5px;
     border-bottom: 4px solid @nav_teal;
 
-    ul {
-      justify-content: space-evenly;
+    .nav-frontend-tabs {
+      border: 0;
 
-      button {
+      &__tab-list {
+        justify-content: space-evenly;
+      }
+
+      &__tab-inner {
         background-color: white;
+
+        &--aktiv {
+          padding-bottom: calc(0.3rem + 4px);
+          margin-bottom: -4px;
+          background-color: @navLysGra;
+          border-bottom: 0;
+          box-shadow: none;
+        }
 
         .nav-frontend-tabs__tab-label {
           .remove-link-style;
         }
       }
-    }
-
-    .nav-frontend-tabs {
-      border: 0;
-    }
-
-    .nav-frontend-tabs__tab-inner--aktiv {
-      padding-bottom: calc(0.3rem + 4px);
-      margin-bottom: -4px;
-      background-color: @navLysGra;
-      border-bottom: 0;
     }
   }
 
