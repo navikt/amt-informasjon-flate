@@ -20,7 +20,7 @@ module.exports = {
     'no-use-before-define': 'off',
     'space-before-function-paren': ['off'],
     'prettier/prettier': ['off'],
-    'no-unused-vars': ['warn'],
+    '@typescript-eslint/no-unused-vars': ['warn'],
     'no-useless-return': ['off'],
     'spaced-comment': ['off'],
   },

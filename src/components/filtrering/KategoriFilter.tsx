@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { velgKategoriFilter } from '../../redux/filtreringer/KategoriFilterSlice';
 import DropdownFilter from './DropdownFilter';
 import { Kategori } from '../../data/Tiltakstyper';
+import { velgKategoriFilter } from '../../redux/filtreringer/FiltreringSlice';
 
 //TODO Dette må hentes et eller annet sted
 const kategorier: Array<Kategori> = [Kategori.KARTLEGGING, Kategori.KOMPETANSEHEVING, Kategori.TILRETTELEGGING];

@@ -4,7 +4,6 @@ import Tabs from 'nav-frontend-tabs';
 import { TabProps } from 'nav-frontend-tabs/lib/tab';
 import { Link, useParams } from 'react-router-dom';
 import './Tiltaksvisning.less';
-import { Tiltakstype } from '../../data/Tiltakstyper';
 
 const Tiltaksvisning = () => {
   const id: number = useParams();

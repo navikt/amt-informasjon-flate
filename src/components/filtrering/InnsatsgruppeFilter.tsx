@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { velgInnsatsgruppeFilter } from '../../redux/filtreringer/InnsatsgruppeFilterSlice';
 import DropdownFilter from './DropdownFilter';
 import { Innsatsgruppe } from '../../data/Tiltakstyper';
+import { velgInnsatsgruppeFilter } from '../../redux/filtreringer/FiltreringSlice';
 
 const innsatsgrupper: Array<Innsatsgruppe> = [
   Innsatsgruppe.STANDARD,

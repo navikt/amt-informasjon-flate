@@ -16,10 +16,10 @@ const Tiltaksliste = ({ tiltaksliste }: TiltakslisteProps) => {
         <thead>
           <tr>
             {veilederToggle && <th>ID</th>}
-            {veilederToggle && <th>Tiltakstype</th>}
-            {veilederToggle && <th>Kategori</th>}
             <th>Tittel</th>
             <th>Ingress</th>
+            {veilederToggle && <th>Tiltakstype</th>}
+            {veilederToggle && <th>Kategori</th>}
           </tr>
         </thead>
         <tbody>

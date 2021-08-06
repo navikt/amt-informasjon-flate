@@ -1,7 +1,6 @@
 import Ekspanderbartpanel from 'nav-frontend-ekspanderbartpanel';
 import { Checkbox } from 'nav-frontend-skjema';
 import React from 'react';
-import { Tiltakstype } from '../../data/Tiltakstyper';
 
 interface DropDownFilterProps {
   filtreringsmuligheter: Array<string>;

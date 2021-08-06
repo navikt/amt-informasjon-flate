@@ -6,12 +6,12 @@ const TiltakRad = ({ id, tiltakstype, kategori, tittel, ingress, veilederToggle 
   return (
     <tr>
       {veilederToggle && <td>{id}</td>}
-      {veilederToggle && <td>{tiltakstype}</td>}
-      {veilederToggle && <td>{kategori}</td>}
       <td>
         <a href={'tiltak/' + id}>{tittel}</a>
       </td>
       <td>{ingress}</td>
+      {veilederToggle && <td>{tiltakstype}</td>}
+      {veilederToggle && <td>{kategori}</td>}
     </tr>
   );
 };
