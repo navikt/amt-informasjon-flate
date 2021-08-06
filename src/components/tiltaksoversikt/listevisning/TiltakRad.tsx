@@ -10,8 +10,8 @@ const TiltakRad = ({ id, tiltakstype, kategori, tittel, ingress, veilederToggle 
         <a href={'tiltak/' + id}>{tittel}</a>
       </td>
       <td>{ingress}</td>
-      {veilederToggle && <td>{tiltakstype}</td>}
       {veilederToggle && <td>{kategori}</td>}
+      {veilederToggle && <td>{tiltakstype}</td>}
     </tr>
   );
 };

@@ -18,8 +18,8 @@ const Tiltaksoversikt = () => {
       .slice()
       .filter(
         tiltak =>
-          (filterState.kategori.length === 0 || filterState.kategori.includes(tiltak.kategori)) &&
-          (filterState.tiltakstype.length === 0 || filterState.tiltakstype.includes(tiltak.tiltakstype))
+          (filterState.tiltakstype.length === 0 || filterState.tiltakstype.includes(tiltak.tiltakstype)) &&
+          (filterState.kategori.length === 0 || filterState.kategori.includes(tiltak.kategori))
       );
 
     setTiltaksliste(filtrertListe);

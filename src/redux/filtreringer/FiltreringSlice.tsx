@@ -40,9 +40,11 @@ const Filtrering = createSlice({
       const index = state.kategori.findIndex(filter => filter === action.payload);
       index < 0 ? state.kategori.push(action.payload) : state.kategori.splice(index, 1);
     },
-    velgTiltaksype: (state, action: PayloadAction<string>) => {
+    velgTiltakstype: (state, action: PayloadAction<string>) => {
       const index = state.tiltakstype.findIndex(filter => filter === action.payload);
       index < 0 ? state.tiltakstype.push(action.payload) : state.tiltakstype.splice(index, 1);
+
+      //velgKategori(kategorivelger(action.payload));
     },
     velgInnsatsgruppe: (state, action: PayloadAction<string>) => {
       const index = state.innsatsgrupper.findIndex(filter => filter === action.payload);
@@ -51,6 +53,6 @@ const Filtrering = createSlice({
   },
 });
 
-export const { velgFylke, velgKommune, velgKategori, velgTiltaksype, velgInnsatsgruppe } = Filtrering.actions;
+export const { velgFylke, velgKommune, velgKategori, velgTiltakstype, velgInnsatsgruppe } = Filtrering.actions;
 
 export default Filtrering.reducer;
