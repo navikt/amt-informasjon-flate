@@ -5,7 +5,7 @@ interface FilterState {
   fylke: string[];
   kommune: string[];
   kategori: string[];
-  tiltaksype: string[];
+  tiltakstype: string[];
   innsatsgrupper: string[];
 }
 
@@ -13,7 +13,7 @@ const initialState: FilterState = {
   fylke: [],
   kommune: [],
   kategori: [],
-  tiltaksype: [],
+  tiltakstype: [],
   innsatsgrupper: [],
 };
 
@@ -41,8 +41,8 @@ const Filtrering = createSlice({
       index < 0 ? state.kategori.push(action.payload) : state.kategori.splice(index, 1);
     },
     velgTiltaksype: (state, action: PayloadAction<string>) => {
-      const index = state.tiltaksype.findIndex(filter => filter === action.payload);
-      index < 0 ? state.tiltaksype.push(action.payload) : state.tiltaksype.splice(index, 1);
+      const index = state.tiltakstype.findIndex(filter => filter === action.payload);
+      index < 0 ? state.tiltakstype.push(action.payload) : state.tiltakstype.splice(index, 1);
     },
     velgInnsatsgruppe: (state, action: PayloadAction<string>) => {
       const index = state.innsatsgrupper.findIndex(filter => filter === action.payload);
