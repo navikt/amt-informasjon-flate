@@ -1,7 +1,7 @@
 import React from 'react';
 import { Checkbox } from 'nav-frontend-skjema';
 import { useDispatch, useSelector } from 'react-redux';
-import tilhorendeKommuner from '../../data/Geografi';
+import regionerMedKommuner from '../../data/Geografi';
 import KommuneFilter from './KommuneFilter';
 import './Filtrering.less';
 import { velgFylke } from '../../redux/filtreringer/FiltreringSlice';
@@ -25,7 +25,7 @@ const FylkeFilter = ({ fylke }: FylkeFilterProps) => {
         onChange={() => dispatch(velgFylke(fylke))}
       />
       <div style={{ display: aktiveFylkeFiltere.includes(fylke) ? 'block' : 'none' }} className="innrykket-checkbox">
-        {tilhorendeKommuner.get(fylke)?.map((kommune, kommuneIndex) => (
+        {regionerMedKommuner.get(fylke)?.map((kommune, kommuneIndex) => (
           <KommuneFilter kommune={kommune} key={kommuneIndex} />
         ))}
       </div>
