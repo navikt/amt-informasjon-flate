@@ -4,7 +4,7 @@ import Tabs from 'nav-frontend-tabs';
 import { TabProps } from 'nav-frontend-tabs/lib/tab';
 import { useHistory, useParams } from 'react-router-dom';
 import './Tiltaksvisning.less';
-import BrukerVisningsToggleForside from '../toggle/BrukerVisningsToggleProps';
+import BrukerVisningsToggle from '../toggle/BrukerVisningsToggle';
 import { Innholdstittel, Undertittel } from 'nav-frontend-typografi';
 import { useSelector } from 'react-redux';
 import { Tilbakeknapp } from 'nav-frontend-ikonknapper';
@@ -14,7 +14,7 @@ interface routeParams {
 }
 
 const Tiltaksvisning = () => {
-  const veilederToggle = useSelector((state: any) => state.brukerVisningsReducer.brukerVisning);
+  const brukervisningsToggle = useSelector((state: any) => state.brukerVisningsReducer.brukerVisning);
 
   const { id }: routeParams = useParams();
 
@@ -80,8 +80,8 @@ const Tiltaksvisning = () => {
       <div className="tiltaksvisning__grid">
         <Tilbakeknapp className="tilbakeknapp" onClick={() => history.push('/')} />
 
-        {veilederToggle && <Undertittel className="tiltaksnummer">{`Tiltaksnummer: ${tiltak.id}`}</Undertittel>}
-        <BrukerVisningsToggleForside />
+        {brukervisningsToggle && <Undertittel className="tiltaksnummer">{`Tiltaksnummer: ${tiltak.id}`}</Undertittel>}
+        <BrukerVisningsToggle className="tiltaksvisning__brukervisningstoggle__container" />
 
         <div className="generell-informasjon">
           <img src={tiltak.bilde} alt={'bilde av ' + tiltak.tittel} />

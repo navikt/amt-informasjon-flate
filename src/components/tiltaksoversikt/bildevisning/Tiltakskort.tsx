@@ -13,7 +13,7 @@ export interface TiltakProps {
   kommune?: string;
   beskrivelse?: string;
   bilde?: Blob;
-  veilederToggle?: boolean;
+  brukervisningsToggle?: boolean;
 }
 
 const Tiltakskort = ({ tittel, ingress, bilde, id }: TiltakProps) => {
