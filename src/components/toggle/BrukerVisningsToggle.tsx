@@ -6,14 +6,18 @@ import '../toppMeny/ToppMeny.less';
 import Hjelpetekst from 'nav-frontend-hjelpetekst';
 import { PopoverOrientering } from 'nav-frontend-popover';
 
-const BrukerVisningsToggle = () => {
-  const veilederToggle = useSelector((state: any) => state.brukerVisningsReducer.brukerVisning);
-  const id = 'veiledervisning';
+interface BrukerVisningsToggleProps {
+  className: string;
+}
+
+const BrukerVisningsToggle = ({ className }: BrukerVisningsToggleProps) => {
+  const brukervisningsToggle = useSelector((state: any) => state.brukerVisningsReducer.brukerVisning);
+  const id = 'brukervisning';
 
   return (
-    <div className="veiledervisning__toggle">
+    <div className={className}>
       <Toggle
-        toggle={veilederToggle}
+        toggle={brukervisningsToggle}
         onChange={toggleBrukerVisning}
         venstreTekst="Veileder"
         hoyreTekst="Bruker"

@@ -6,16 +6,16 @@ import AlertStripe from 'nav-frontend-alertstriper';
 import { useSelector } from 'react-redux';
 
 function ToppMeny() {
-  const veilederToggle = useSelector((state: any) => state.brukerVisningsReducer.brukerVisning);
+  const brukervisningsToggle = useSelector((state: any) => state.brukerVisningsReducer.brukerVisning);
 
   return (
     <div className="topp__meny">
-      {veilederToggle === false && (
+      {brukervisningsToggle === false && (
         <AlertStripe type="info" className="alertstripe__brukervisning">
           Brukervisning
         </AlertStripe>
       )}
-      <BrukerVisningsToggle />
+      <BrukerVisningsToggle className="forside__brukervisningstoggle" />
       <div className="om-mulighetsrommet">
         <Ekspanderbartpanel tittel="Om mulighetsrommet">
           Mulighetsrommet lar deg se tiltak som kan gjøre det mulig for deg å få eller beholde arbeid. Tiltakene du

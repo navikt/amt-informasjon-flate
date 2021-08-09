@@ -14,7 +14,7 @@ interface routeParams {
 }
 
 const Tiltaksvisning = () => {
-  const veilederToggle = useSelector((state: any) => state.brukerVisningsReducer.brukerVisning);
+  const brukervisningsToggle = useSelector((state: any) => state.brukerVisningsReducer.brukerVisning);
 
   const { id }: routeParams = useParams();
 
@@ -80,8 +80,8 @@ const Tiltaksvisning = () => {
       <div className="tiltaksvisning__grid">
         <Tilbakeknapp className="tilbakeknapp" onClick={() => history.push('/')} />
 
-        {veilederToggle && <Undertittel className="tiltaksnummer">{`Tiltaksnummer: ${tiltak.id}`}</Undertittel>}
-        <BrukerVisningsToggle />
+        {brukervisningsToggle && <Undertittel className="tiltaksnummer">{`Tiltaksnummer: ${tiltak.id}`}</Undertittel>}
+        <BrukerVisningsToggle className="tiltaksvisning__brukervisningstoggle" />
 
         <div className="generell-informasjon">
           <img src={tiltak.bilde} alt={'bilde av ' + tiltak.tittel} />
