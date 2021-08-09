@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import './Filtrering.less';
 import DropdownFilter from './DropdownFilter';
 import { Tiltakstype } from '../../data/Tiltakstyper';
-import { velgTiltaksype } from '../../redux/filtreringer/FiltreringSlice';
+import { velgTiltakstype } from '../../redux/filtreringer/FiltreringSlice';
 
 const tiltakstyper: Tiltakstype[] = [
   Tiltakstype.ARBEIDSFORBEDRENDE_TRENING,
@@ -35,7 +35,7 @@ const TiltakstypeFilter = () => {
   return (
     <DropdownFilter
       filtreringsmuligheter={tiltakstyper}
-      onChange={filter => dispatch(velgTiltaksype(filter))}
+      onChange={filter => dispatch(velgTiltakstype(filter))}
       tittel="Tiltakstyper"
       className="custom__ekspanderbartpanel"
     />
