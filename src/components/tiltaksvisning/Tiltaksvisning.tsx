@@ -2,14 +2,12 @@ import React, { SyntheticEvent, useState } from 'react';
 import Panel from 'nav-frontend-paneler';
 import Tabs from 'nav-frontend-tabs';
 import { TabProps } from 'nav-frontend-tabs/lib/tab';
-import { Link, useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import './Tiltaksvisning.less';
 import BrukerVisningsToggle from '../toggle/BrukerVisningsToggle';
 import { Innholdstittel, Undertittel } from 'nav-frontend-typografi';
-import { InformationFilled } from '@navikt/ds-icons';
 import { useSelector } from 'react-redux';
-import Popover, { PopoverOrientering } from 'nav-frontend-popover';
-import { Knapp } from 'nav-frontend-knapper';
+import { Tilbakeknapp } from 'nav-frontend-ikonknapper';
 
 interface routeParams {
   id: string;
@@ -75,31 +73,16 @@ const Tiltaksvisning = () => {
     setAktivFaneBeskrivelse(tiltak.faner.get(faner[index]) || []);
   };
 
-  const [togglePopover, setTogglePopover] = useState<(EventTarget & HTMLButtonElement) | undefined>();
+  const history = useHistory();
 
   return (
     <>
       <div className="tiltaksvisning__grid">
-        <Link to="/" className="tilbakeknapp">
-          Tilbake
-        </Link>
+        <Tilbakeknapp className="tiltakbakeknapp" onClick={() => history.push('/')} />
+
         {veilederToggle && <Undertittel className="tiltaksnummer">{`Tiltaksnummer: ${tiltak.id}`}</Undertittel>}
         <div className="veiledervisning__toggle__container">
           <BrukerVisningsToggle />
-
-          <Knapp onClick={e => setTogglePopover(e.currentTarget)}>
-            Veiledervisning
-            <InformationFilled title="Visningsmodus" color="red" />
-          </Knapp>
-          <Popover
-            ankerEl={togglePopover}
-            onRequestClose={() => setTogglePopover(undefined)}
-            orientering={PopoverOrientering.Under}
-          >
-            <p style={{ padding: '1rem' }}>
-              Veiledervisning lar deg enkelt bytte mellom veileder og bruker sitt perspektiv
-            </p>
-          </Popover>
         </div>
 
         <div className="generell-informasjon">
