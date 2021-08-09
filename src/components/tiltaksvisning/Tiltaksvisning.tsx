@@ -4,7 +4,7 @@ import Tabs from 'nav-frontend-tabs';
 import { TabProps } from 'nav-frontend-tabs/lib/tab';
 import { Link, useParams } from 'react-router-dom';
 import './Tiltaksvisning.less';
-import BrukerVisningsToggle from '../toggle/BrukerVisningsToggle';
+import BrukerVisningsToggleForside from '../toggle/BrukerVisningsToggleProps';
 import { Innholdstittel, Undertittel } from 'nav-frontend-typografi';
 
 interface routeParams {
@@ -76,7 +76,7 @@ const Tiltaksvisning = () => {
           Tilbake
         </Link>
         <Undertittel className="tiltaksnummer">{`Tiltaksnummer: ${tiltak.id}`}</Undertittel>
-        <BrukerVisningsToggle />
+        <BrukerVisningsToggleForside className="tiltaksvisning__toggle__container" />
 
         <div className="generell-informasjon">
           <img src={tiltak.bilde} alt={'bilde av ' + tiltak.tittel} />

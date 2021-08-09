@@ -4,14 +4,18 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import '../toppMeny/ToppMeny.less';
 
-const BrukerVisningsToggle = () => {
+interface BrukerVisningsToggleProps {
+  className: string;
+}
+
+const BrukerVisningsToggleForside = ({ className }: BrukerVisningsToggleProps) => {
   const veilederToggle = useSelector((state: any) => state.brukerVisningsReducer.brukerVisning);
 
   return (
-    <div className="veiledervisning__toggle">
+    <div className={className}>
       <Toggle toggle={veilederToggle} onChange={toggleBrukerVisning} venstreTekst="Veileder" hoyreTekst="Bruker" />
     </div>
   );
 };
 
-export default BrukerVisningsToggle;
+export default BrukerVisningsToggleForside;

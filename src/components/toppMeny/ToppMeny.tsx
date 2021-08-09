@@ -1,4 +1,4 @@
-import BrukerVisningsToggle from '../toggle/BrukerVisningsToggle';
+import BrukerVisningsToggleForside from '../toggle/BrukerVisningsToggleProps';
 import React from 'react';
 import './ToppMeny.less';
 import Ekspanderbartpanel from 'nav-frontend-ekspanderbartpanel';
@@ -15,7 +15,7 @@ function ToppMeny() {
           Brukervisning
         </AlertStripe>
       )}
-      <BrukerVisningsToggle />
+      <BrukerVisningsToggleForside className="veiledervisning__toggle" />
       <div className="om-mulighetsrommet">
         <Ekspanderbartpanel tittel="Om mulighetsrommet">
           Mulighetsrommet lar deg se tiltak som kan gjøre det mulig for deg å få eller beholde arbeid. Tiltakene du
