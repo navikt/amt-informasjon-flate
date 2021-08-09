@@ -78,7 +78,7 @@ const Tiltaksvisning = () => {
   return (
     <>
       <div className="tiltaksvisning__grid">
-        <Tilbakeknapp className="tiltakbakeknapp" onClick={() => history.push('/')} />
+        <Tilbakeknapp className="tilbakeknapp" onClick={() => history.push('/')} />
 
         {veilederToggle && <Undertittel className="tiltaksnummer">{`Tiltaksnummer: ${tiltak.id}`}</Undertittel>}
         <div className="veiledervisning__toggle__container">
