@@ -81,9 +81,7 @@ const Tiltaksvisning = () => {
         <Tilbakeknapp className="tilbakeknapp" onClick={() => history.push('/')} />
 
         {veilederToggle && <Undertittel className="tiltaksnummer">{`Tiltaksnummer: ${tiltak.id}`}</Undertittel>}
-        <div className="veiledervisning__toggle__container">
-          <BrukerVisningsToggle />
-        </div>
+        <BrukerVisningsToggle />
 
         <div className="generell-informasjon">
           <img src={tiltak.bilde} alt={'bilde av ' + tiltak.tittel} />
