@@ -1,19 +1,5 @@
 import { kategorivelger, Tiltakstype } from '../../data/Tiltakstyper';
 
-export const tiltakslisteDB = fetch('https://arbeidstiltak-api.dev.intern.nav.no/api/tiltak').then(responseToJson);
-
-function responseToJson(response: Response) {
-  if (response.status >= 500) {
-    // Internal error
-    throw Error('Bad response 500');
-  }
-  if (response.status !== 204) {
-    // No content
-    return response.json();
-  }
-  return response;
-}
-
 export const tiltakslisteMock = [
   {
     id: 1,

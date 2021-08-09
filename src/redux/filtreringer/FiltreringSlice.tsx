@@ -43,8 +43,6 @@ const Filtrering = createSlice({
     velgTiltakstype: (state, action: PayloadAction<string>) => {
       const index = state.tiltakstype.findIndex(filter => filter === action.payload);
       index < 0 ? state.tiltakstype.push(action.payload) : state.tiltakstype.splice(index, 1);
-
-      //velgKategori(kategorivelger(action.payload));
     },
     velgInnsatsgruppe: (state, action: PayloadAction<string>) => {
       const index = state.innsatsgrupper.findIndex(filter => filter === action.payload);
