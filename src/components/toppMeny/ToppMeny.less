@@ -1,11 +1,11 @@
 @import '~nav-frontend-core/less/core';
 
-.topp__meny {
+.topp-meny {
   grid-row: 1;
   display: grid;
   grid-gap: 0.5rem;
   margin-bottom: 2rem;
-  grid-template-rows: 4rem auto;
+  grid-template-rows: auto auto;
   grid-template-columns: auto auto;
 
   .forside__brukervisningstoggle {
@@ -17,31 +17,31 @@
     grid-row: 1;
     grid-column: 1;
   }
-}
 
-.om-mulighetsrommet {
-  grid-row: 2;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  width: 60%;
-  justify-self: center;
+  .om-mulighetsrommet {
+    grid-row: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    width: 60%;
+    justify-self: center;
 
-  .ekspanderbartPanel {
-    background-color: rgba(179, 193, 0, 0.4);
+    .ekspanderbartPanel {
+      background-color: rgba(179, 193, 0, 0.4);
 
-    &__innhold {
-      border: 1px solid black;
-      background-color: white;
-      width: 80%;
-      margin: 0 auto 1rem;
-    }
+      &__innhold {
+        border: 1px solid black;
+        background-color: white;
+        width: 80%;
+        margin: 0 auto 1rem;
+      }
 
-    &__hode:focus {
-      box-shadow: none;
-    }
+      &__hode:focus {
+        box-shadow: none;
+      }
 
-    &__tittel {
-      margin: 0 auto;
+      &__tittel {
+        margin: 0 auto;
+      }
     }
   }
 }
