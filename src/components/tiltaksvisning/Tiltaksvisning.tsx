@@ -2,16 +2,20 @@ import React, { SyntheticEvent, useState } from 'react';
 import Panel from 'nav-frontend-paneler';
 import Tabs from 'nav-frontend-tabs';
 import { TabProps } from 'nav-frontend-tabs/lib/tab';
-import { Link, useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import './Tiltaksvisning.less';
 import BrukerVisningsToggleForside from '../toggle/BrukerVisningsToggleProps';
 import { Innholdstittel, Undertittel } from 'nav-frontend-typografi';
+import { useSelector } from 'react-redux';
+import { Tilbakeknapp } from 'nav-frontend-ikonknapper';
 
 interface routeParams {
   id: string;
 }
 
 const Tiltaksvisning = () => {
+  const veilederToggle = useSelector((state: any) => state.brukerVisningsReducer.brukerVisning);
+
   const { id }: routeParams = useParams();
 
   const tiltak = {
@@ -69,14 +73,15 @@ const Tiltaksvisning = () => {
     setAktivFaneBeskrivelse(tiltak.faner.get(faner[index]) || []);
   };
 
+  const history = useHistory();
+
   return (
     <>
       <div className="tiltaksvisning__grid">
-        <Link to="/" className="tilbakeknapp">
-          Tilbake
-        </Link>
-        <Undertittel className="tiltaksnummer">{`Tiltaksnummer: ${tiltak.id}`}</Undertittel>
-        <BrukerVisningsToggleForside className="tiltaksvisning__toggle__container" />
+        <Tilbakeknapp className="tilbakeknapp" onClick={() => history.push('/')} />
+
+        {veilederToggle && <Undertittel className="tiltaksnummer">{`Tiltaksnummer: ${tiltak.id}`}</Undertittel>}
+        <BrukerVisningsToggleForside />
 
         <div className="generell-informasjon">
           <img src={tiltak.bilde} alt={'bilde av ' + tiltak.tittel} />
