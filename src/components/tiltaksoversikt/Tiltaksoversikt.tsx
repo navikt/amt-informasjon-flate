@@ -1,29 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Tiltakskort, { TiltakProps } from './bildevisning/Tiltakskort';
 import './Tiltak.less';
 import { useSelector } from 'react-redux';
 import '../visning/TiltakOgFilterOversikt.less';
 import 'nav-frontend-tabell-style';
 import Tiltaksliste from './listevisning/Tiltaksliste';
+import { tiltakslisteMock } from '../mocks/TiltakslisteMock';
 
 const Tiltaksoversikt = () => {
-  const [tiltaksliste, setTiltaksliste] = useState<TiltakProps[]>([]);
-  const [tiltakslisteFiltrert, setTiltakslisteFiltrert] = useState<TiltakProps[]>([]);
   const bildeToggle: boolean = useSelector((state: any) => state.bildeListeVisningsReducer.bildeListeVisning);
   const filterState = useSelector((state: any) => state.filterReducer);
 
-  const fetchAllTiltakFromDB = (setTiltaksliste: (value: []) => void) => {
-    fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak')
-      .then(res => res.json())
-      .then(data => setTiltaksliste(data));
-  };
+  const [tiltaksliste, setTiltaksliste] = useState(tiltakslisteMock);
 
   useEffect(() => {
-    fetchAllTiltakFromDB(setTiltaksliste);
-  }, []);
-
-  useEffect(() => {
-    const filtrertListe = tiltaksliste
+    const filtrertListe = tiltakslisteMock
       .slice()
       .filter(
         tiltak =>
@@ -31,18 +22,19 @@ const Tiltaksoversikt = () => {
           (filterState.kategori.length === 0 || filterState.kategori.includes(tiltak.kategori))
       );
 
-    setTiltakslisteFiltrert(filtrertListe);
-  }, [filterState, tiltaksliste]);
+    setTiltaksliste(filtrertListe);
+  }, [filterState]);
 
   return (
     <div className="tiltaksoversikt">
       {bildeToggle ? (
         <div className="tiltaksoversikt__bildevisning">
-          {tiltakslisteFiltrert &&
-            tiltakslisteFiltrert.map((tiltak: TiltakProps) => <Tiltakskort {...tiltak} key={tiltak.id} />)}
+          {tiltaksliste.map((tiltak: TiltakProps) => (
+            <Tiltakskort {...tiltak} key={tiltak.id} />
+          ))}
         </div>
       ) : (
-        <Tiltaksliste tiltaksliste={tiltakslisteFiltrert} />
+        <Tiltaksliste tiltaksliste={tiltaksliste} />
       )}
     </div>
   );
