@@ -11,6 +11,7 @@ export enum Kategori {
   TILRETTELEGGING = 'Tilrettelegging',
 }
 
+
 export enum Tiltakstype {
   ARBEIDSFORBEDRENDE_TRENING = 'Arbeidsforberedende trening',
   ARBEIDSMARKEDSOPPLAERING = 'Arbeidsmarkedsopplæring',
@@ -47,7 +48,7 @@ export const kategorivelger = (tiltakstype: string) => {
     Tiltakstype.ARBEIDSTRENING,
   ];
   const kartleggingsliste: Array<string> = [Tiltakstype.AVKLARING, Tiltakstype.ARBEIDSFORBEDRENDE_TRENING];
-
+  
   const tilretteleggingsliste: Array<string> = [
     Tiltakstype.MIDLERTIDIG_LONNSTILSKUDD,
     Tiltakstype.VARIG_LONNSTILSKUDD,
@@ -61,7 +62,7 @@ export const kategorivelger = (tiltakstype: string) => {
     Tiltakstype.INDIVIDUELL_JOBBSTOTTE,
     Tiltakstype.TILSKUDD_TIL_SOMMERJOBB,
   ];
-
+  
   if (kompetansehevingsliste.includes(tiltakstype)) {
     return Kategori.KOMPETANSEHEVING;
   } else if (kartleggingsliste.includes(tiltakstype)) {
