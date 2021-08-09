@@ -20,7 +20,6 @@ const Tiltaksoversikt = () => {
 
   useEffect(() => {
     fetchAllTiltakFromDB(setTiltaksliste);
-    console.log('TEST', tiltaksliste);
   }, []);
 
   useEffect(() => {
