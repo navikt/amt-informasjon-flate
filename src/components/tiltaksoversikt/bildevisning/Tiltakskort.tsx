@@ -9,6 +9,9 @@ export interface TiltakProps {
   kategori: Kategori;
   tittel: string;
   ingress: string;
+  fylke?: string;
+  kommune?: string;
+  beskrivelse?: string;
   bilde?: Blob;
   veilederToggle?: boolean;
 }

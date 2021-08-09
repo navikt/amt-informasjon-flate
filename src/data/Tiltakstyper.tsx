@@ -35,8 +35,8 @@ export enum Tiltakstype {
   VARIG_TILRETTELAGT_ARBEID_I_SKJERMET_VIRKSOMHET = 'Varig tilrettelagt arbeid i skjermet virksomhet',
 }
 
-export const kategorivelger = (tiltakstype: Tiltakstype) => {
-  const kompetansehevingsliste: Array<Tiltakstype> = [
+export const kategorivelger = (tiltakstype: string) => {
+  const kompetansehevingsliste: Array<string> = [
     Tiltakstype.UTVIDET_OPPFOLGING,
     Tiltakstype.OPPFOLGING,
     Tiltakstype.JOBBKLUBB,
@@ -46,9 +46,9 @@ export const kategorivelger = (tiltakstype: Tiltakstype) => {
     Tiltakstype.HOYERE_UTDANNING,
     Tiltakstype.ARBEIDSTRENING,
   ];
-  const kartleggingsliste: Array<Tiltakstype> = [Tiltakstype.AVKLARING, Tiltakstype.ARBEIDSFORBEDRENDE_TRENING];
+  const kartleggingsliste: Array<string> = [Tiltakstype.AVKLARING, Tiltakstype.ARBEIDSFORBEDRENDE_TRENING];
 
-  const tilretteleggingsliste: Array<Tiltakstype> = [
+  const tilretteleggingsliste: Array<string> = [
     Tiltakstype.MIDLERTIDIG_LONNSTILSKUDD,
     Tiltakstype.VARIG_LONNSTILSKUDD,
     Tiltakstype.VARIG_TILRETTELAGT_ARBEID_I_SKJERMET_VIRKSOMHET,
