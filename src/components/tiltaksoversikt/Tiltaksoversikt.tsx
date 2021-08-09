@@ -6,12 +6,11 @@ import '../visning/TiltakOgFilterOversikt.less';
 import 'nav-frontend-tabell-style';
 import Tiltaksliste from './listevisning/Tiltaksliste';
 
-
 const Tiltaksoversikt = () => {
   const [data, setData] = useState([]);
 
   const fetchAllTiltakFromDB = (setData: (value: []) => void) => {
-    fetch('http://localhost:8080/api/tiltak')
+    fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak')
       .then(res => res.json())
       .then(data => setData(data));
   };
