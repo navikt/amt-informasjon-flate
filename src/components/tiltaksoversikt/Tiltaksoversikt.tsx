@@ -7,16 +7,16 @@ import 'nav-frontend-tabell-style';
 import Tiltaksliste from './listevisning/Tiltaksliste';
 
 const Tiltaksoversikt = () => {
-  const [data, setData] = useState([]);
+  const [tiltaksliste, setTiltaksliste] = useState([]);
 
-  const fetchAllTiltakFromDB = (setData: (value: []) => void) => {
+  const fetchAllTiltakFromDB = (setTiltaksliste: (value: []) => void) => {
     fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak')
       .then(res => res.json())
-      .then(data => setData(data));
+      .then(data => setTiltaksliste(data));
   };
 
   useEffect(() => {
-    fetchAllTiltakFromDB(setData);
+    fetchAllTiltakFromDB(setTiltaksliste);
   }, []);
 
   const bildeToggle: boolean = useSelector((state: any) => state.bildeListeVisningsReducer.bildeListeVisning);
@@ -25,10 +25,10 @@ const Tiltaksoversikt = () => {
     <div className="tiltaksoversikt">
       {bildeToggle ? (
         <div className="tiltaksoversikt__bildevisning">
-          {data && data.map((tiltak: TiltakProps) => <Tiltakskort {...tiltak} key={tiltak.id} />)}
+          {tiltaksliste && tiltaksliste.map((tiltak: TiltakProps) => <Tiltakskort {...tiltak} key={tiltak.id} />)}
         </div>
       ) : (
-        <Tiltaksliste tiltaksliste={data} />
+        <Tiltaksliste tiltaksliste={tiltaksliste} />
       )}
     </div>
   );
