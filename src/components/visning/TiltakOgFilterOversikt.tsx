@@ -9,7 +9,7 @@ import BildeListeVisningsToggle from '../toggle/BildeListeVisningsToggle';
 
 const TiltakOgFilterOversikt = () => {
   return (
-    <div className="tiltak_og_filter_grid">
+    <div className="tiltak-og-filter__grid">
       <Innholdstittel>
         <span>Muligheter</span>
       </Innholdstittel>

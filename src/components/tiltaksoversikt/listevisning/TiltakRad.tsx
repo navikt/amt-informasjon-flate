@@ -1,14 +1,8 @@
 import React from 'react';
 import '../Tiltak.less';
+import { TiltakProps } from '../bildevisning/Tiltakskort';
 
-export interface TiltakRadProps {
-  id: number;
-  tittel: string;
-  ingress: string;
-  veilederToggle: boolean;
-}
-
-const TiltakRad = ({ tittel, ingress, id, veilederToggle }: TiltakRadProps) => {
+const TiltakRad = ({ id, tiltakstype, kategori, tittel, ingress, veilederToggle }: TiltakProps) => {
   return (
     <tr>
       {veilederToggle && <td>{id}</td>}
@@ -16,6 +10,8 @@ const TiltakRad = ({ tittel, ingress, id, veilederToggle }: TiltakRadProps) => {
         <a href={'tiltak/' + id}>{tittel}</a>
       </td>
       <td>{ingress}</td>
+      {veilederToggle && <td>{kategori}</td>}
+      {veilederToggle && <td>{tiltakstype}</td>}
     </tr>
   );
 };

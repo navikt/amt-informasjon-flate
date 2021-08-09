@@ -1,22 +1,19 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { toggleKategoriFilter } from '../../redux/filtreringer/KategoriFilterSlice';
 import DropdownFilter from './DropdownFilter';
+import { Kategori } from '../../data/Tiltakstyper';
+import { velgKategori } from '../../redux/filtreringer/FiltreringSlice';
 
-//Dette må hentes et eller annet sted
-const kategorier: Array<string> = ['Kartlegging', 'Kompetanseheving', 'Tilrettelegging'];
+//TODO Dette må hentes et eller annet sted
+const kategorier: Array<Kategori> = [Kategori.KARTLEGGING, Kategori.KOMPETANSEHEVING, Kategori.TILRETTELEGGING];
 
 const KategoriFilter = () => {
   const dispatch = useDispatch();
 
-  const oppdaterFiltere = (filter: string) => {
-    dispatch(toggleKategoriFilter(filter));
-  };
-
   return (
     <DropdownFilter
       filtreringsmuligheter={kategorier}
-      onChange={oppdaterFiltere}
+      onChange={filter => dispatch(velgKategori(filter))}
       tittel="Kategori"
       className="custom__ekspanderbartpanel"
     />

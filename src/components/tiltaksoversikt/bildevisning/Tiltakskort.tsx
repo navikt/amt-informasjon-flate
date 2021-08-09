@@ -1,15 +1,22 @@
 import React from 'react';
 import '../Tiltak.less';
 import { Undertittel } from 'nav-frontend-typografi';
+import { Kategori, Tiltakstype } from '../../../data/Tiltakstyper';
 
-export interface TiltakskortProps {
+export interface TiltakProps {
   id: number;
+  tiltakstype: Tiltakstype;
+  kategori: Kategori;
   tittel: string;
   ingress: string;
+  fylke?: string;
+  kommune?: string;
+  beskrivelse?: string;
   bilde?: Blob;
+  veilederToggle?: boolean;
 }
 
-const Tiltakskort = ({ tittel, ingress, bilde, id }: TiltakskortProps) => {
+const Tiltakskort = ({ tittel, ingress, bilde, id }: TiltakProps) => {
   //TODO: legge til et grunnleggende bilde?
   const imgUrl = bilde ? URL.createObjectURL(bilde) : '';
 

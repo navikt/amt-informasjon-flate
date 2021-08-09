@@ -1,5 +1,5 @@
-import React from 'react';
-import Tiltakskort, { TiltakskortProps } from './bildevisning/Tiltakskort';
+import React, { useState, useEffect } from 'react';
+import Tiltakskort, { TiltakProps } from './bildevisning/Tiltakskort';
 import './Tiltak.less';
 import { useSelector } from 'react-redux';
 import '../visning/TiltakOgFilterOversikt.less';
@@ -7,28 +7,42 @@ import 'nav-frontend-tabell-style';
 import Tiltaksliste from './listevisning/Tiltaksliste';
 
 const Tiltaksoversikt = () => {
-  //TODO fjern når vi får koblet til backend
-  const tiltaksliste = [
-    { id: 1, tittel: 'Truckførerkurs', ingress: 'Lorem Ipsum dolor sit amet' },
-    { id: 2, tittel: 'Servicehund', ingress: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { id: 3, tittel: 'Tittel', ingress: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dignissim.' },
-    { id: 4, tittel: 'Tittel', ingress: 'Lorem Ipsum dolor sit amet' },
-    { id: 5, tittel: 'Tittel', ingress: 'Lorem Ipsum dolor sit amet' },
-    { id: 6, tittel: 'Tittel', ingress: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-  ];
-
+  const [tiltaksliste, setTiltaksliste] = useState<TiltakProps[]>([]);
+  const [tiltakslisteFiltrert, setTiltakslisteFiltrert] = useState<TiltakProps[]>([]);
   const bildeToggle: boolean = useSelector((state: any) => state.bildeListeVisningsReducer.bildeListeVisning);
+  const filterState = useSelector((state: any) => state.filterReducer);
+
+  const fetchAllTiltakFromDB = (setTiltaksliste: (value: []) => void) => {
+    fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak')
+      .then(res => res.json())
+      .then(data => setTiltaksliste(data));
+  };
+
+  useEffect(() => {
+    fetchAllTiltakFromDB(setTiltaksliste);
+  }, []);
+
+  useEffect(() => {
+    const filtrertListe = tiltaksliste
+      .slice()
+      .filter(
+        tiltak =>
+          (filterState.tiltakstype.length === 0 || filterState.tiltakstype.includes(tiltak.tiltakstype)) &&
+          (filterState.kategori.length === 0 || filterState.kategori.includes(tiltak.kategori))
+      );
+
+    setTiltakslisteFiltrert(filtrertListe);
+  }, [filterState, tiltaksliste]);
 
   return (
     <div className="tiltaksoversikt">
       {bildeToggle ? (
         <div className="tiltaksoversikt__bildevisning">
-          {tiltaksliste.map((tiltak: TiltakskortProps) => (
-            <Tiltakskort {...tiltak} key={tiltak.id} />
-          ))}
+          {tiltakslisteFiltrert &&
+            tiltakslisteFiltrert.map((tiltak: TiltakProps) => <Tiltakskort {...tiltak} key={tiltak.id} />)}
         </div>
       ) : (
-        <Tiltaksliste tiltaksliste={tiltaksliste} />
+        <Tiltaksliste tiltaksliste={tiltakslisteFiltrert} />
       )}
     </div>
   );

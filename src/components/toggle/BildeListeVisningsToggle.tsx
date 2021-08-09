@@ -6,7 +6,7 @@ import { toggleBildeListeVisning } from '../../redux/toggle/BildeListeVisningsTo
 const BildeListeVisningsToggle = () => {
   const bildeListeToggle = useSelector((state: any) => state.bildeListeVisningsReducer.bildeListeVisning);
   return (
-    <div className="bildelistevisning-toggle">
+    <div className="bildelistevisning__toggle">
       <Toggle
         toggle={bildeListeToggle}
         onChange={toggleBildeListeVisning}
