@@ -14,9 +14,8 @@ const OpprettTiltak = () => {
   const [tittel, setTittel] = useState<String>('');
   const [beskrivelse, setBeskrivelse] = useState<String>('');
   const [feilmelding, setFeilmelding] = useState({} as InputValideringsError);
-  const leggTilTiltakLoading: boolean = useSelector((state: any) => state.tiltaksdata.loading);
-  const leggTilTiltakError: string | null = useSelector((state: any) => state.tiltaksdata.error);
-  const tiltaksliste: Array<TiltakState> = useSelector((state: any) => state.tiltaksdata.tiltaksliste);
+  const leggTilTiltakLoading: boolean = useSelector((state: any) => state.opprettTiltakReducer.loading);
+  const leggTilTiltakError: string | null = useSelector((state: any) => state.opprettTiltakReducer.error);
 
   const submit = (e: Event) => {
     e.preventDefault();
@@ -29,7 +28,6 @@ const OpprettTiltak = () => {
         leggTilTiltak({
           tittel: tittel.trim(),
           beskrivelse: beskrivelse.trim(),
-          id: (tiltaksliste.length + 1).toString(),
         } as TiltakState)
       );
 

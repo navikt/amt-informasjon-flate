@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface TiltakState {
-  id: string;
   tittel: String;
   beskrivelse: String;
 }
@@ -23,20 +22,14 @@ export const tiltaklisteSlice = createSlice({
       state.error = null;
     },
     leggTilTiltakSuccess: (state, action: PayloadAction<TiltakState>) => {
-      state.tiltaksliste.push({ ...action.payload, id: (state.tiltaksliste.length + 1).toString() });
+      state.tiltaksliste.push({ ...action.payload });
       state.loading = false;
     },
     leggTilTiltakError: state => {
       state.loading = false;
       state.error = 'Det har skjedd en teknisk feil';
     },
-    fjernTiltak: (state, action: PayloadAction<string>) => {
-      const index = state.tiltaksliste.findIndex(tiltak => tiltak.id === action.payload);
-      state.tiltaksliste.splice(index, 1);
-    },
   },
 });
-
-export const { fjernTiltak } = tiltaklisteSlice.actions;
 
 export default tiltaklisteSlice.reducer;
