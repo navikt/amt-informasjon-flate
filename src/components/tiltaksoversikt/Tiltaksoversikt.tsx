@@ -12,25 +12,25 @@ const Tiltaksoversikt = () => {
   const bildeToggle: boolean = useSelector((state: any) => state.bildeListeVisningsReducer.bildeListeVisning);
   const filterState = useSelector((state: any) => state.filterReducer);
 
-  const fetchAllTiltakFromDB = (setTiltaksliste: (value: []) => void) => {
+  const hentAlleTiltakFraDB = (setTiltaksliste: (value: []) => void) => {
     fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak')
       .then(res => res.json())
       .then(data => setTiltaksliste(data));
   };
 
   useEffect(() => {
-    fetchAllTiltakFromDB(setTiltaksliste);
+    hentAlleTiltakFraDB(setTiltaksliste);
   }, []);
 
   useEffect(() => {
-    const filtrertListe = tiltaksliste
-      .slice()
-      .filter(
-        tiltak =>
-          (filterState.tiltakstype.length === 0 || filterState.tiltakstype.includes(tiltak.tiltakstype)) &&
-          (filterState.kategori.length === 0 || filterState.kategori.includes(tiltak.kategori))
+    const filtrertListe = tiltaksliste.slice().filter(tiltak => {
+      console.log(tiltak.kategori);
+      console.log(tiltak.tiltakstype);
+      return (
+        (filterState.tiltakstype.length === 0 || filterState.tiltakstype.includes(tiltak.tiltakstype)) &&
+        (filterState.kategori.length === 0 || filterState.kategori.includes(tiltak.kategori))
       );
-
+    });
     setTiltakslisteFiltrert(filtrertListe);
   }, [filterState, tiltaksliste]);
 
