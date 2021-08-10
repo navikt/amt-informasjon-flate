@@ -1,0 +1,28 @@
+{
+  "tiltak": [{
+    "id": "1",
+    "tittel": "Mock title",
+    "beskrivelse": "Mock beskrivelse",
+    "tiltakstype": "AVKLARING",
+    "ingress": "Mock ingress",
+    "kommuner": [
+      {
+        "navn": "Eidsvoll"
+      }
+    ],
+    "kategori": "KARTLEGGING"
+  },
+    {
+      "id": "2",
+      "tittel": "Mock title2",
+      "beskrivelse": "Mock beskrivelse2",
+      "tiltakstype": "AVKLARING",
+      "ingress": "Mock ingress2",
+      "kommuner": [
+        {
+          "navn": "Oslo"
+        }
+      ],
+      "kategori": "KARTLEGGING"
+    }]
+}
