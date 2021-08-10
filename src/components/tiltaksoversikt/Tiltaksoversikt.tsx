@@ -23,7 +23,7 @@ const Tiltaksoversikt = () => {
   }, []);
 
   useEffect(() => {
-    const filtrertListe = tiltaksliste.slice().filter(tiltak => {
+    const filtrertListe = tiltaksliste.filter(tiltak => {
       return (
         (filterState.tiltakstype.length === 0 || filterState.tiltakstype.includes(tiltak.tiltakstype)) &&
         (filterState.kategori.length === 0 || filterState.kategori.includes(tiltak.kategori))
