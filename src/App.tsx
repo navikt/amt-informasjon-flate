@@ -6,6 +6,7 @@ import Header from './components/header/Header';
 import ToppMeny from './components/toppMeny/ToppMeny';
 import TiltakOgFilterOversikt from './components/visning/TiltakOgFilterOversikt';
 import Tiltaksvisning from './components/tiltaksvisning/Tiltaksvisning';
+import OpprettTiltak from './components/redigering/OpprettTiltak';
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         <Switch>
           <Route path="/tiltak/:id">
             <Tiltaksvisning />
+          </Route>
+          <Route path="/admin/opprett-tiltak">
+            <OpprettTiltak />
           </Route>
           <Route path="/">
             <ToppMeny />

@@ -1,7 +1,7 @@
 import React from 'react';
 import Ekspanderbartpanel from 'nav-frontend-ekspanderbartpanel';
 import { Checkbox } from 'nav-frontend-skjema';
-import { formatering } from '../../utils/utils';
+import { formatering } from '../../utils/Utils';
 
 interface DropDownFilterProps {
   filtreringsmuligheter: Array<string>;
