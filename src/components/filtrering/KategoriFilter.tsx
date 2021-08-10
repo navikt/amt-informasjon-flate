@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import DropdownFilter from './DropdownFilter';
-import { Kategori } from '../../data/Tiltakstyper';
 import { velgKategori } from '../../redux/filtreringer/FiltreringSlice';
-
-//TODO Dette må hentes et eller annet sted
-const kategorier: Array<Kategori> = [Kategori.KARTLEGGING, Kategori.KOMPETANSEHEVING, Kategori.TILRETTELEGGING];
 
 const KategoriFilter = () => {
   const dispatch = useDispatch();
+  const [kategorier, setKategorier] = useState<string[]>([]);
+
+  const hentAlleKategorierFraDB = (setKategorier: (value: []) => void) => {
+    fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak/kategorier')
+      .then(res => res.json())
+      .then(data => setKategorier(data));
+  };
+
+  useEffect(() => {
+    hentAlleKategorierFraDB(setKategorier);
+  }, []);
 
   return (
     <DropdownFilter

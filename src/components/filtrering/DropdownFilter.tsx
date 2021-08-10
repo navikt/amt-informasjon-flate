@@ -1,6 +1,7 @@
+import React from 'react';
 import Ekspanderbartpanel from 'nav-frontend-ekspanderbartpanel';
 import { Checkbox } from 'nav-frontend-skjema';
-import React from 'react';
+import { formatering } from '../../utils/utils';
 
 interface DropDownFilterProps {
   filtreringsmuligheter: Array<string>;
@@ -15,7 +16,7 @@ const DropdownFilter = ({ filtreringsmuligheter, onChange, tittel, className }: 
       <Ekspanderbartpanel renderContentWhenClosed={true} tittel={tittel} className={className}>
         {filtreringsmuligheter.map((filtreringsmulighet, index) => (
           <Checkbox
-            label={filtreringsmulighet}
+            label={formatering(filtreringsmulighet)}
             value={filtreringsmulighet}
             key={index}
             className="ekspanderbartpanel__checkbox"

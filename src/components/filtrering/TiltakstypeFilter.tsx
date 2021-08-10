@@ -1,36 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import './Filtrering.less';
 import DropdownFilter from './DropdownFilter';
-import { Tiltakstype } from '../../data/Tiltakstyper';
 import { velgTiltakstype } from '../../redux/filtreringer/FiltreringSlice';
-
-const tiltakstyper: Tiltakstype[] = [
-  Tiltakstype.ARBEIDSFORBEDRENDE_TRENING,
-  Tiltakstype.ARBEIDSMARKEDSOPPLAERING,
-  Tiltakstype.ARBEIDSRETTET_REHABILITERING,
-  Tiltakstype.ARBEIDSTRENING,
-  Tiltakstype.AVKLARING,
-  Tiltakstype.DIGITAL_JOBBKLUBB,
-  Tiltakstype.EKSPERTBISTAND,
-  Tiltakstype.FAG_OG_YRKES_OPPLAERING,
-  Tiltakstype.FUNKSJONSASSISTANSE,
-  Tiltakstype.HOYERE_UTDANNING,
-  Tiltakstype.INDIVIDUELL_JOBBSTOTTE,
-  Tiltakstype.INKLUDERINGSTILSKUDD,
-  Tiltakstype.JOBBKLUBB,
-  Tiltakstype.MENTOR,
-  Tiltakstype.MIDLERTIDIG_LONNSTILSKUDD,
-  Tiltakstype.OPPFOLGING,
-  Tiltakstype.TILSKUDD_TIL_SOMMERJOBB,
-  Tiltakstype.UTVIDET_OPPFOLGING,
-  Tiltakstype.VARIG_LONNSTILSKUDD,
-  Tiltakstype.VARIG_TILRETTELAGT_ARBEID_I_ORDINAER_VIRKSOMHET,
-  Tiltakstype.VARIG_TILRETTELAGT_ARBEID_I_SKJERMET_VIRKSOMHET,
-];
 
 const TiltakstypeFilter = () => {
   const dispatch = useDispatch();
+  const [tiltakstyper, setTiltakstyper] = useState<string[]>([]);
+
+  const hentAlleTiltakstyperFraDB = (setTiltakstyper: (value: []) => void) => {
+    fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak/typer')
+      .then(res => res.json())
+      .then(data => setTiltakstyper(data));
+  };
+
+  useEffect(() => {
+    hentAlleTiltakstyperFraDB(setTiltakstyper);
+  }, []);
 
   return (
     <DropdownFilter
