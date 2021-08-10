@@ -1,6 +1,7 @@
 import React from 'react';
 import Ekspanderbartpanel from 'nav-frontend-ekspanderbartpanel';
 import { Checkbox } from 'nav-frontend-skjema';
+import { formatering } from '../../utils/utils';
 
 interface DropDownFilterProps {
   filtreringsmuligheter: Array<string>;
@@ -8,11 +9,6 @@ interface DropDownFilterProps {
   tittel: string;
   className: string;
 }
-
-const formatering = (ord: string) => {
-  const res = ord.replaceAll('_', ' ').toLowerCase();
-  return res.charAt(0).toUpperCase() + res.slice(1);
-};
 
 const DropdownFilter = ({ filtreringsmuligheter, onChange, tittel, className }: DropDownFilterProps) => {
   return (

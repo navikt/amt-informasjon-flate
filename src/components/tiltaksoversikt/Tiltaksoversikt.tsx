@@ -24,8 +24,6 @@ const Tiltaksoversikt = () => {
 
   useEffect(() => {
     const filtrertListe = tiltaksliste.slice().filter(tiltak => {
-      console.log(tiltak.kategori);
-      console.log(tiltak.tiltakstype);
       return (
         (filterState.tiltakstype.length === 0 || filterState.tiltakstype.includes(tiltak.tiltakstype)) &&
         (filterState.kategori.length === 0 || filterState.kategori.includes(tiltak.kategori))
