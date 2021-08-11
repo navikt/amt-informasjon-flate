@@ -7,27 +7,32 @@ import ToppMeny from './components/toppMeny/ToppMeny';
 import TiltakOgFilterOversikt from './components/visning/TiltakOgFilterOversikt';
 import Tiltaksvisning from './components/tiltaksvisning/Tiltaksvisning';
 import OpprettTiltak from './components/redigering/OpprettTiltak';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 function App() {
+  const queryClient = new QueryClient();
+
   return (
-    <Router>
-      <Decorator />
-      <Header />
-      <div className="main-app">
-        <Switch>
-          <Route path="/tiltak/:id">
-            <Tiltaksvisning />
-          </Route>
-          <Route path="/admin/opprett-tiltak">
-            <OpprettTiltak />
-          </Route>
-          <Route path="/">
-            <ToppMeny />
-            <TiltakOgFilterOversikt />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <Decorator />
+        <Header />
+        <div className="main-app">
+          <Switch>
+            <Route path="/tiltak/:id">
+              <Tiltaksvisning />
+            </Route>
+            <Route path="/admin/opprett-tiltak">
+              <OpprettTiltak />
+            </Route>
+            <Route path="/">
+              <ToppMeny />
+              <TiltakOgFilterOversikt />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </QueryClientProvider>
   );
 }
 

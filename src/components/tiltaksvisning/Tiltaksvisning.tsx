@@ -8,15 +8,29 @@ import BrukerVisningsToggle from '../toggle/BrukerVisningsToggle';
 import { Innholdstittel, Undertittel } from 'nav-frontend-typografi';
 import { useSelector } from 'react-redux';
 import { Tilbakeknapp } from 'nav-frontend-ikonknapper';
+import { useQuery } from 'react-query';
 
 interface routeParams {
   id: string;
+}
+
+export interface Tiltak {
+  id: String;
+  tittel: String;
+  ingress: String;
+  beskrivelse: String;
 }
 
 const Tiltaksvisning = () => {
   const brukervisningsToggle = useSelector((state: any) => state.brukerVisningsReducer.brukerVisning);
 
   const { id }: routeParams = useParams();
+
+  const { isLoading, data } = useQuery('tiltak' + id, () =>
+    fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak/' + id).then(res => res.json())
+  );
+
+  console.log(isLoading, data);
 
   const tiltak = {
     id,
@@ -84,12 +98,12 @@ const Tiltaksvisning = () => {
         <BrukerVisningsToggle className="tiltaksvisning__brukervisningstoggle info__brukervisningstoggle" />
 
         <div className="generell-informasjon">
-          <img src={tiltak.bilde} alt={'bilde av ' + tiltak.tittel} />
+          <img src={tiltak.bilde} alt={'bilde av ' + data?.tittel} />
 
           <div className="beskrivelse">
-            <Innholdstittel>{tiltak.tittel}</Innholdstittel>
-            <p>{tiltak.ingress}</p>
-            <p>{tiltak.beskrivelse}</p>
+            <Innholdstittel>{data?.tittel}</Innholdstittel>
+            <p>{data?.ingress}</p>
+            <p>{data?.beskrivelse}</p>
           </div>
         </div>
 
