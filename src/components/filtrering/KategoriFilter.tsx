@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import DropdownFilter from './DropdownFilter';
-import { velgKategori } from '../../redux/filtreringer/FiltreringSlice';
+import { velgKategori } from '../../redux/slice/FiltreringSlice';
 
 const KategoriFilter = () => {
   const dispatch = useDispatch();

@@ -1,4 +1,4 @@
-import { kategorivelger, Tiltakstype } from '../../data/Tiltakstyper';
+import { kategorivelger, Tiltakstype } from '../data/Tiltakstyper';
 
 export const tiltakslisteMock = [
   {

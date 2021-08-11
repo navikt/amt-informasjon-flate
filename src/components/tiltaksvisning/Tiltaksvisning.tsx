@@ -14,7 +14,7 @@ interface routeParams {
 }
 
 const Tiltaksvisning = () => {
-  const brukervisningsToggle = useSelector((state: any) => state.brukerVisningsReducer.brukerVisning);
+  const brukervisningsToggle = useSelector((state: any) => state.toggleReducer.brukerVisning);
 
   const { id }: routeParams = useParams();
 

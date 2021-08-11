@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import DropdownFilter from './DropdownFilter';
 import { Innsatsgruppe } from '../../data/Tiltakstyper';
-import { velgInnsatsgruppe } from '../../redux/filtreringer/FiltreringSlice';
+import { velgInnsatsgruppe } from '../../redux/slice/FiltreringSlice';
 
 const innsatsgrupper: Array<Innsatsgruppe> = [
   Innsatsgruppe.STANDARD,

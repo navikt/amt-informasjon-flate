@@ -9,7 +9,7 @@ import Tiltaksliste from './listevisning/Tiltaksliste';
 const Tiltaksoversikt = () => {
   const [tiltaksliste, setTiltaksliste] = useState<TiltakProps[]>([]);
   const [tiltakslisteFiltrert, setTiltakslisteFiltrert] = useState<TiltakProps[]>([]);
-  const bildeToggle: boolean = useSelector((state: any) => state.bildeListeVisningsReducer.bildeListeVisning);
+  const bildeToggle: boolean = useSelector((state: any) => state.toggleReducer.bildeListeVisning);
   const filterState = useSelector((state: any) => state.filterReducer);
 
   const hentAlleTiltakFraDB = (setTiltaksliste: (value: []) => void) => {

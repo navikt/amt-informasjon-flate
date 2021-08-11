@@ -1,17 +1,17 @@
-import { toggleBrukerVisning } from '../../redux/toggle/BrukerVisningsToggleSlice';
 import Toggle from './Toggle';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import '../toppMeny/ToppMeny.less';
 import Hjelpetekst from 'nav-frontend-hjelpetekst';
 import { PopoverOrientering } from 'nav-frontend-popover';
+import { toggleBrukerVisning } from '../../redux/slice/ToggleSlice';
 
 interface BrukerVisningsToggleProps {
   className: string;
 }
 
 const BrukerVisningsToggle = ({ className }: BrukerVisningsToggleProps) => {
-  const brukervisningsToggle = useSelector((state: any) => state.brukerVisningsReducer.brukerVisning);
+  const brukervisningsToggle = useSelector((state: any) => state.toggleReducer.brukerVisning);
   const id = 'brukervisning';
 
   return (
