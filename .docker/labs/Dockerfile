@@ -1,18 +1,15 @@
 FROM node:lts
-EXPOSE 8080
 LABEL org.opencontainers.image.source="https://github.com/navikt/arbeidstiltak-visning"
 LABEL org.opencontainers.image.title="arbeidstiltak-visning-labs"
-WORKDIR /arbeidstiltak-visning-labs
+WORKDIR /arbeidstiltak-visning
 
-COPY package.json /arbeidstiltak-visning-labs/package.json
-COPY package-lock.json /arbeidstiltak-visning-labs/package-lock.json
+COPY . /arbeidstiltak-visning/
 
 RUN npm install
-RUN npm build
+RUN npm run build
 RUN npm install -g json-server
 
-COPY ../../build /arbeidstiltak-visning-labs/build
-COPY ../../mock /arbeidstiltak-visning-labs/mock
+#COPY build build/
+COPY mock/ /arbeidstiltak-visning/mock/
 
-#CMD ["npm", "i", "-g", "json-server"]
-CMD [ "json-server", "--watch", "/arbeidstiltak-visning-labs/mock/db.json", "--static", "/arbeidstiltak-visning-labs/build/", "--host", "0.0.0.0", "--port", "8080", "--routes", "/arbeidstiltak-visning-labs/mock/routes.json" ]
+CMD [ "json-server", "/arbeidstiltak-visning/mock/db.json", "--static", "/b:uild", "--routes", "/arbeidstiltak-visning/mock/routes.json", "--host", "0.0.0.0", "--port", "8080"]

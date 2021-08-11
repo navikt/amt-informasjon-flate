@@ -1,4 +1,3 @@
 {
-  "/api/tiltak": "/tiltak",
-  "/api/tiltak/:id": "/tiltak/:id"
+  "/api/*": "/$1"
 }

@@ -1,17 +1,18 @@
 {
-  "tiltak": [{
-    "id": "1",
-    "tittel": "Mock title",
-    "beskrivelse": "Mock beskrivelse",
-    "tiltakstype": "AVKLARING",
-    "ingress": "Mock ingress",
-    "kommuner": [
-      {
-        "navn": "Eidsvoll"
-      }
-    ],
-    "kategori": "KARTLEGGING"
-  },
+  "tiltak": [
+    {
+      "id": "1",
+      "tittel": "Mock title",
+      "beskrivelse": "Mock beskrivelse",
+      "tiltakstype": "AVKLARING",
+      "ingress": "Mock ingress",
+      "kommuner": [
+        {
+          "navn": "Eidsvoll"
+        }
+      ],
+      "kategori": "KARTLEGGING"
+    },
     {
       "id": "2",
       "tittel": "Mock title2",
@@ -24,5 +25,6 @@
         }
       ],
       "kategori": "KARTLEGGING"
-    }]
+    }
+  ]
 }
