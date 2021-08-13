@@ -13,4 +13,4 @@ RUN npm install -g json-server
 #COPY build build/
 COPY mock/ /arbeidstiltak-visning/mock/
 
-CMD [ "json-server", "/arbeidstiltak-visning/mock/db.json", "--static", "/build", "--routes", "/arbeidstiltak-visning/mock/routes.json", "--host", "https://arbeidstiltak-visning.labs.nais.io", "--port", "80"]
+CMD [ "json-server", "/arbeidstiltak-visning/mock/db.json", "--static", "/build", "--routes", "/arbeidstiltak-visning/mock/routes.json", "--host", "0.0.0.0", "--port", "80"]
