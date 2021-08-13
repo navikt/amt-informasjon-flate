@@ -57,7 +57,7 @@ jobs:
         run: |
           echo ${GITHUB_TOKEN} | docker login docker.pkg.github.com -u ${GITHUB_REPOSITORY} --password-stdin
           echo ${GITHUB_TOKEN} | docker login ghcr.io -u ${{github.actor}} --password-stdin
-          docker build -t ${IMAGE}-${IMAGE_LABEL}:${IMAGE_TAG} -f .docker/dev/Dockerfile .
+          docker build -t ${IMAGE}-${IMAGE_LABEL}:${IMAGE_TAG} -f .docker/labs/Dockerfile .
           docker push ${IMAGE}-${IMAGE_LABEL}:${IMAGE_TAG}
 
   deploy-labs:
