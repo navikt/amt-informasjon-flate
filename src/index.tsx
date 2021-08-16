@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import mockServer from './mock/mirage-js';
 require('dotenv').config();
 
-if (process.env.ENABLE_LABS) {
+if (process.env.REACT_APP_ENABLE_MOCK) {
   mockServer();
 }
 

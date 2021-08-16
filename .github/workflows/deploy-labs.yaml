@@ -7,7 +7,6 @@ env:
   IMAGE: ghcr.io/navikt/arbeidstiltak-visning
   IMAGE_LABEL: labs
   RESOURCE: .nais/nais.yaml
-  ENABLE_LABS: true
   REACT_APP_BACKEND_API_ROOT: ''
   CI: true
   TZ: Europe/Amsterdam
@@ -51,7 +50,7 @@ jobs:
       - name: Install production artifact
         run: npm ci
       - name: Build production artifact
-        run: npm run build
+        run: npm run build:labs
       - name: Build and publish Docker image
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

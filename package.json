@@ -5,6 +5,7 @@
   "scripts": {
     "start": "cross-env REACT_APP_DEV=true craco start",
     "build": "craco build",
+    "build:labs": "cross-env REACT_APP_ENABLE_MOCK=true craco build",
     "json-server": "json-server --watch mock/db.json --port 8080 --routes mock/routes.json",
     "eject": "craco eject",
     "clean": "rimraf build",
