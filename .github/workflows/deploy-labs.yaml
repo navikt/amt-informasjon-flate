@@ -1,7 +1,7 @@
 name: Deploy (labs)
 on:
   push:
-    branches: [dev]
+    branches: [dev, feature/miragejs]
 env:
   IMAGE_TAG: ${{ github.sha }}
   IMAGE: ghcr.io/navikt/arbeidstiltak-visning
@@ -50,7 +50,7 @@ jobs:
       - name: Install production artifact
         run: npm ci
       - name: Build production artifact
-        run: npm run build
+        run: npm run build:labs
       - name: Build and publish Docker image
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
