@@ -1,6 +1,6 @@
 import React from 'react';
 import Filtreringsoversikt from '../filtrering/Filtreringsoversikt';
-import StedFilter from '../filtrering/StedFilter';
+import StedFilter from '../filtrering/dropdowns/StedFilter';
 import Tiltaksoversikt from '../tiltaksoversikt/Tiltaksoversikt';
 import './TiltakOgFilterOversikt.less';
 import { Innholdstittel } from 'nav-frontend-typografi';

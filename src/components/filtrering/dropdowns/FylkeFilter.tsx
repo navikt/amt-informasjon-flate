@@ -1,10 +1,10 @@
 import React from 'react';
 import { Checkbox } from 'nav-frontend-skjema';
 import { useDispatch, useSelector } from 'react-redux';
-import regionerMedKommuner from '../../data/Geografi';
+import regionerMedKommuner from '../../../data/Geografi';
 import KommuneFilter from './KommuneFilter';
-import './Filtrering.less';
-import { velgFylke } from '../../redux/slice/FiltreringSlice';
+import '../Filtrering.less';
+import { velgFylke } from '../../../redux/slice/FiltreringSlice';
 
 interface FylkeFilterProps {
   fylke: string;

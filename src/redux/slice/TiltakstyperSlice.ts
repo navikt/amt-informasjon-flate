@@ -8,11 +8,11 @@ export interface TiltakstyperState {
 
 const initialState: TiltakstyperState = { tiltakstype: '', loading: false, error: null };
 
-const hentAlleTiltakstyperFraDB = (setTiltakstyper: (value: []) => void) => {
-  fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak/typer')
-    .then(res => res.json())
-    .then(data => setTiltakstyper(data));
-};
+// const hentAlleTiltakstyperFraDB = (setTiltakstyper: (value: []) => void) => {
+//   fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak/typer')
+//     .then(res => res.json())
+//     .then(data => setTiltakstyper(data));
+// };
 
 export const tiltakstyperSlice = createSlice({
   name: 'tiltakstyper',
@@ -23,8 +23,6 @@ export const tiltakstyperSlice = createSlice({
       state.error = null;
     },
     hentTiltakstyperSuccess: (state, action: PayloadAction<TiltakstyperState>) => {
-      console.log(action.payload);
-      // hentAlleTiltakstyperFraDB(state.tiltakstype);
       state.loading = false;
     },
     hentTiltakstyperError: state => {

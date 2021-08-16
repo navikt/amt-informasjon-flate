@@ -10,26 +10,29 @@ import { useSelector } from 'react-redux';
 import { Tilbakeknapp } from 'nav-frontend-ikonknapper';
 import { useQuery } from 'react-query';
 import NavFrontendSpinner from 'nav-frontend-spinner';
+import AlertStripe from 'nav-frontend-alertstriper';
 
 interface routeParams {
   id: string;
 }
 
-export interface Tiltak {
-  id: String;
-  tittel: String;
-  ingress: String;
-  beskrivelse: String;
-}
+// export interface Tiltak {
+//   id: String;
+//   tittel: String;
+//   ingress: String;
+//   beskrivelse: String;
+// }
 
 const Tiltaksvisning = () => {
   const brukervisningsToggle = useSelector((state: any) => state.toggleReducer.brukerVisning);
-
   const { id }: routeParams = useParams();
 
   const { isLoading, data, error } = useQuery('tiltak' + id, () =>
     fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak/' + id).then(res => res.json())
   );
+
+  // console.log('data', data);
+  // console.log('faner', data?.faner);
 
   const faner = Array.from(data?.faner.keys());
 
@@ -51,7 +54,7 @@ const Tiltaksvisning = () => {
   }
 
   if (error) {
-    return <p>Det skjedde en feil</p>;
+    return <AlertStripe type="feil">Det skjedde en feil</AlertStripe>;
   }
 
   return (

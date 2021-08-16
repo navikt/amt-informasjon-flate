@@ -1,8 +1,8 @@
 import React from 'react';
 import './Filtrering.less';
-import InnsatsgruppeFilter from './InnsatsgruppeFilter';
-import KategoriFilter from './KategoriFilter';
-import TiltakstypeFilter from './TiltakstypeFilter';
+import InnsatsgruppeFilter from './dropdowns/InnsatsgruppeFilter';
+import KategoriFilter from './dropdowns/KategoriFilter';
+import TiltakstypeFilter from './dropdowns/TiltakstypeFilter';
 
 const Filtreringsoversikt = () => {
   return (

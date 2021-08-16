@@ -8,6 +8,7 @@ import { leggTilTiltak } from '../../redux/ApiService';
 import { erTomtObjekt } from '../../utils/Utils';
 import { feilValidering, InputValideringsError } from '../../utils/Validering';
 import './OpprettTiltak.less';
+import { useMutation, useQuery } from 'react-query';
 
 const OpprettTiltak = () => {
   const dispatch = useDispatch();
@@ -35,6 +36,24 @@ const OpprettTiltak = () => {
       setBeskrivelse('');
     }
   };
+  //trenger kanskje id for å poste?
+  //   const requestOptions = {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/json' },
+  //       body: JSON.stringify({ title: 'React POST Request Example' })
+  //   };
+
+  const { isLoading, data, error } = useMutation(
+    'opprettTiltak',
+    () => fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak').then(res => res.json())
+    // .then(data => setpostId({ postId: data.id }))
+  );
+
+  // useQuery(
+  // 'opprettTiltak',
+  // () => postMessage(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak').then(res => res.json())
+  // fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak').then(res => res.json())
+  // );
 
   return (
     <form onSubmit={(e: any) => submit(e)}>
