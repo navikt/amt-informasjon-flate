@@ -1,7 +1,7 @@
 name: Deploy (labs)
 on:
   push:
-    branches: [dev]
+    branches: [dev, feature/miragejs]
 env:
   IMAGE_TAG: ${{ github.sha }}
   IMAGE: ghcr.io/navikt/arbeidstiltak-visning
