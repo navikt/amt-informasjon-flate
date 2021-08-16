@@ -1,12 +1,13 @@
 name: Deploy (labs)
 on:
   push:
-    branches: [dev]
+    branches: [dev, feature/miragejs]
 env:
   IMAGE_TAG: ${{ github.sha }}
   IMAGE: ghcr.io/navikt/arbeidstiltak-visning
   IMAGE_LABEL: labs
   RESOURCE: .nais/nais.yaml
+  REACT_APP_BACKEND_API_ROOT: ''
   CI: true
   TZ: Europe/Amsterdam
   NODE_VERSION: '14.x'
@@ -49,7 +50,7 @@ jobs:
       - name: Install production artifact
         run: npm ci
       - name: Build production artifact
-        run: npm run build:labs
+        run: npm run build
       - name: Build and publish Docker image
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
