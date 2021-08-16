@@ -1,0 +1,5 @@
+{ "/api/tiltak/kategorier": "/kategorier",
+  "/api/tiltak/typer": "/typer",
+  "/api/*": "/$1",
+  "/static/*": "/$1"
+}

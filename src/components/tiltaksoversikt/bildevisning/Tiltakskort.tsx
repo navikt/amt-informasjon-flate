@@ -1,6 +1,7 @@
 import React from 'react';
 import '../Tiltak.less';
 import { Undertittel } from 'nav-frontend-typografi';
+import { Link } from 'react-router-dom';
 
 export interface TiltakProps {
   id: number;
@@ -20,7 +21,7 @@ const Tiltakskort = ({ tittel, ingress, bilde, id }: TiltakProps) => {
   const imgUrl = bilde ? URL.createObjectURL(bilde) : '';
 
   return (
-    <a href={'tiltak/' + id} className="remove-link-style">
+    <Link to={'tiltak/' + id} className="remove-link-style">
       <div className="tiltakskort">
         <img src={imgUrl} alt={tittel} />
         <div>
@@ -28,7 +29,7 @@ const Tiltakskort = ({ tittel, ingress, bilde, id }: TiltakProps) => {
           <p>{ingress}</p>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
 

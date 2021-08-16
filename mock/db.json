@@ -1,0 +1,1133 @@
+{
+  "tiltak": [
+    {
+      "id": "1",
+      "tittel": "Mock title",
+      "beskrivelse": "Mock beskrivelse",
+      "tiltakstype": "AVKLARING",
+      "ingress": "Mock ingress",
+      "kommuner": [
+        {
+          "navn": "Eidsvoll"
+        }
+      ],
+      "kategori": "KARTLEGGING"
+    },
+    {
+      "id": "2",
+      "tittel": "Mock title2",
+      "beskrivelse": "Mock beskrivelse2",
+      "tiltakstype": "AVKLARING",
+      "ingress": "Mock ingress2",
+      "kommuner": [
+        {
+          "navn": "Oslo"
+        }
+      ],
+      "kategori": "KARTLEGGING"
+    },
+    {
+      "tittel": "Mock 3",
+      "beskrivelse": "3",
+      "id": "yoT1daB"
+    }
+  ],
+  "kategorier":[
+    "KARTLEGGING",
+    "KOMPETANSEHEVING",
+    "TILRETTELEGGING"
+  ],
+  "kommuner": [
+    {
+      "navn": "Evje og Hornnes"
+    },
+    {
+      "navn": "Grimstad"
+    },
+    {
+      "navn": "Arendal"
+    },
+    {
+      "navn": "Bykle"
+    },
+    {
+      "navn": "Bygland"
+    },
+    {
+      "navn": "Lillesand"
+    },
+    {
+      "navn": "Farsund"
+    },
+    {
+      "navn": "Lyngdal"
+    },
+    {
+      "navn": "Vennesla"
+    },
+    {
+      "navn": "Hægebostad"
+    },
+    {
+      "navn": "Åmli"
+    },
+    {
+      "navn": "Kristiansand"
+    },
+    {
+      "navn": "Kvinesdal"
+    },
+    {
+      "navn": "Flekkefjord"
+    },
+    {
+      "navn": "Sirdal"
+    },
+    {
+      "navn": "Froland"
+    },
+    {
+      "navn": "Birkenes"
+    },
+    {
+      "navn": "Vegårshei"
+    },
+    {
+      "navn": "Valle"
+    },
+    {
+      "navn": "Lindesnes"
+    },
+    {
+      "navn": "Gjerstad"
+    },
+    {
+      "navn": "Iveland"
+    },
+    {
+      "navn": "Åseral"
+    },
+    {
+      "navn": "Tvedestrand"
+    },
+    {
+      "navn": "Risør"
+    },
+    {
+      "navn": "Vang"
+    },
+    {
+      "navn": "Stor-Elvdal"
+    },
+    {
+      "navn": "Rendalen"
+    },
+    {
+      "navn": "Nord-Aurdal"
+    },
+    {
+      "navn": "Elverum"
+    },
+    {
+      "navn": "Lesja"
+    },
+    {
+      "navn": "Sør-Aurdal"
+    },
+    {
+      "navn": "Øyer"
+    },
+    {
+      "navn": "Kongsvinger"
+    },
+    {
+      "navn": "Alvdal"
+    },
+    {
+      "navn": "Vågå"
+    },
+    {
+      "navn": "Sør-Fron"
+    },
+    {
+      "navn": "Engerdal"
+    },
+    {
+      "navn": "Tynset"
+    },
+    {
+      "navn": "Gran"
+    },
+    {
+      "navn": "Folldal"
+    },
+    {
+      "navn": "Sel"
+    },
+    {
+      "navn": "Gausdal"
+    },
+    {
+      "navn": "Hamar"
+    },
+    {
+      "navn": "Ringebu"
+    },
+    {
+      "navn": "Tolga"
+    },
+    {
+      "navn": "Vestre Slidre"
+    },
+    {
+      "navn": "Stange"
+    },
+    {
+      "navn": "Lunner"
+    },
+    {
+      "navn": "Åsnes"
+    },
+    {
+      "navn": "Dovre"
+    },
+    {
+      "navn": "Nord-Odal"
+    },
+    {
+      "navn": "Lom"
+    },
+    {
+      "navn": "Åmot"
+    },
+    {
+      "navn": "Løten"
+    },
+    {
+      "navn": "Lillehammer"
+    },
+    {
+      "navn": "Øystre Slidre"
+    },
+    {
+      "navn": "Østre Toten"
+    },
+    {
+      "navn": "Gjøvik"
+    },
+    {
+      "navn": "Våler (Innlandet)"
+    },
+    {
+      "navn": "Søndre Land"
+    },
+    {
+      "navn": "Sør-Odal"
+    },
+    {
+      "navn": "Etnedal"
+    },
+    {
+      "navn": "Nord-Fron"
+    },
+    {
+      "navn": "Vestre Toten"
+    },
+    {
+      "navn": "Eidskog"
+    },
+    {
+      "navn": "Grue"
+    },
+    {
+      "navn": "Skjåk"
+    },
+    {
+      "navn": "Trysil"
+    },
+    {
+      "navn": "Nordre Land"
+    },
+    {
+      "navn": "Ringsaker"
+    },
+    {
+      "navn": "Sunndal"
+    },
+    {
+      "navn": "Gjemnes"
+    },
+    {
+      "navn": "Hustadvika"
+    },
+    {
+      "navn": "Ørsta"
+    },
+    {
+      "navn": "Fjord"
+    },
+    {
+      "navn": "Molde"
+    },
+    {
+      "navn": "Vestnes"
+    },
+    {
+      "navn": "Vanylven"
+    },
+    {
+      "navn": "Rauma"
+    },
+    {
+      "navn": "Surnadal"
+    },
+    {
+      "navn": "Sykkylven"
+    },
+    {
+      "navn": "Tingvoll"
+    },
+    {
+      "navn": "Ulstein"
+    },
+    {
+      "navn": "Aukra"
+    },
+    {
+      "navn": "Sula"
+    },
+    {
+      "navn": "Stranda"
+    },
+    {
+      "navn": "Averøy"
+    },
+    {
+      "navn": "Ålesund"
+    },
+    {
+      "navn": "Giske"
+    },
+    {
+      "navn": "Rindal"
+    },
+    {
+      "navn": "Volda"
+    },
+    {
+      "navn": "Smøla"
+    },
+    {
+      "navn": "Hareid"
+    },
+    {
+      "navn": "Herøy (Møre og Romsdal)"
+    },
+    {
+      "navn": "Kristiansund"
+    },
+    {
+      "navn": "Sande"
+    },
+    {
+      "navn": "Aure"
+    },
+    {
+      "navn": "Bodø"
+    },
+    {
+      "navn": "Sørfold"
+    },
+    {
+      "navn": "Narvik"
+    },
+    {
+      "navn": "Gildeskål"
+    },
+    {
+      "navn": "Andøy"
+    },
+    {
+      "navn": "Vega"
+    },
+    {
+      "navn": "Vågan"
+    },
+    {
+      "navn": "Alstahaug"
+    },
+    {
+      "navn": "Moskenes"
+    },
+    {
+      "navn": "Lødingen"
+    },
+    {
+      "navn": "Meløy"
+    },
+    {
+      "navn": "Sortland"
+    },
+    {
+      "navn": "Leirfjord"
+    },
+    {
+      "navn": "Bø"
+    },
+    {
+      "navn": "Sømna"
+    },
+    {
+      "navn": "Vevelstad"
+    },
+    {
+      "navn": "Aarborte - Hattfjelldal"
+    },
+    {
+      "navn": "Fauske - Fuossko"
+    },
+    {
+      "navn": "Øksnes"
+    },
+    {
+      "navn": "Hamarøy"
+    },
+    {
+      "navn": "Grane"
+    },
+    {
+      "navn": "Evenes"
+    },
+    {
+      "navn": "Værøy"
+    },
+    {
+      "navn": "Herøy (Nordland)"
+    },
+    {
+      "navn": "Flakstad"
+    },
+    {
+      "navn": "Nesna"
+    },
+    {
+      "navn": "Beiarn"
+    },
+    {
+      "navn": "Gratangen"
+    },
+    {
+      "navn": "Brønnøy"
+    },
+    {
+      "navn": "Vefsn"
+    },
+    {
+      "navn": "Lurøy"
+    },
+    {
+      "navn": "Steigen"
+    },
+    {
+      "navn": "Hadsel"
+    },
+    {
+      "navn": "Dønna"
+    },
+    {
+      "navn": "Hemnes"
+    },
+    {
+      "navn": "Saltdal"
+    },
+    {
+      "navn": "Vestvågøy"
+    },
+    {
+      "navn": "Rødøy"
+    },
+    {
+      "navn": "Rana"
+    },
+    {
+      "navn": "Oslo"
+    },
+    {
+      "navn": "Lund"
+    },
+    {
+      "navn": "Time"
+    },
+    {
+      "navn": "Suldal"
+    },
+    {
+      "navn": "Strand"
+    },
+    {
+      "navn": "Hjelmeland"
+    },
+    {
+      "navn": "Sola"
+    },
+    {
+      "navn": "Klepp"
+    },
+    {
+      "navn": "Stavanger"
+    },
+    {
+      "navn": "Vindafjord"
+    },
+    {
+      "navn": "Eigersund"
+    },
+    {
+      "navn": "Haugesund"
+    },
+    {
+      "navn": "Bokn"
+    },
+    {
+      "navn": "Utsira"
+    },
+    {
+      "navn": "Sokndal"
+    },
+    {
+      "navn": "Gjesdal"
+    },
+    {
+      "navn": "Tysvær"
+    },
+    {
+      "navn": "Bjerkreim"
+    },
+    {
+      "navn": "Karmøy"
+    },
+    {
+      "navn": "Hå"
+    },
+    {
+      "navn": "Randaberg"
+    },
+    {
+      "navn": "Sauda"
+    },
+    {
+      "navn": "Sandnes"
+    },
+    {
+      "navn": "Kvitsøy"
+    },
+    {
+      "navn": "Bardu"
+    },
+    {
+      "navn": "Salangen"
+    },
+    {
+      "navn": "Storfjord - Omasvuotna - Omasvuono"
+    },
+    {
+      "navn": "Unjárga - Nesseby"
+    },
+    {
+      "navn": "Dyrøy"
+    },
+    {
+      "navn": "Vadsø"
+    },
+    {
+      "navn": "Nordkapp"
+    },
+    {
+      "navn": "Porsanger - Porsángu - Porsanki"
+    },
+    {
+      "navn": "Nordreisa"
+    },
+    {
+      "navn": "Skjervøy"
+    },
+    {
+      "navn": "Båtsfjord"
+    },
+    {
+      "navn": "Senja"
+    },
+    {
+      "navn": "Sørreisa"
+    },
+    {
+      "navn": "Vardø"
+    },
+    {
+      "navn": "Lyngen"
+    },
+    {
+      "navn": "Kvænangen"
+    },
+    {
+      "navn": "Kárášjohka - Karasjok"
+    },
+    {
+      "navn": "Harstad"
+    },
+    {
+      "navn": "Målselv"
+    },
+    {
+      "navn": "Guovdageaidnu - Kautokeino"
+    },
+    {
+      "navn": "Hasvik"
+    },
+    {
+      "navn": "Lebesby"
+    },
+    {
+      "navn": "Ibestad"
+    },
+    {
+      "navn": "Gamvik"
+    },
+    {
+      "navn": "Deatnu - Tana"
+    },
+    {
+      "navn": "Måsøy"
+    },
+    {
+      "navn": "Karlsøy"
+    },
+    {
+      "navn": "Loabák - Lavangen"
+    },
+    {
+      "navn": "Kvæfjord"
+    },
+    {
+      "navn": "Berlevåg"
+    },
+    {
+      "navn": "Balsfjord"
+    },
+    {
+      "navn": "Alta"
+    },
+    {
+      "navn": "Tjeldsund"
+    },
+    {
+      "navn": "Loppa"
+    },
+    {
+      "navn": "Tromsø"
+    },
+    {
+      "navn": "Hammerfest"
+    },
+    {
+      "navn": "Gáivuotna - Kåfjord - Kaivuono"
+    },
+    {
+      "navn": "Sør-Varanger"
+    },
+    {
+      "navn": "Holtålen"
+    },
+    {
+      "navn": "Rennebu"
+    },
+    {
+      "navn": "Osen"
+    },
+    {
+      "navn": "Stjørdal"
+    },
+    {
+      "navn": "Ørland"
+    },
+    {
+      "navn": "Overhalla"
+    },
+    {
+      "navn": "Heim"
+    },
+    {
+      "navn": "Malvik"
+    },
+    {
+      "navn": "Namsskogan"
+    },
+    {
+      "navn": "Hitra"
+    },
+    {
+      "navn": "Skaun"
+    },
+    {
+      "navn": "Nærøysund"
+    },
+    {
+      "navn": "Raarvihke - Røyrvik"
+    },
+    {
+      "navn": "Melhus"
+    },
+    {
+      "navn": "Os"
+    },
+    {
+      "navn": "Inderøy"
+    },
+    {
+      "navn": "Lierne"
+    },
+    {
+      "navn": "Midtre Gauldal"
+    },
+    {
+      "navn": "Namsos"
+    },
+    {
+      "navn": "Meråker"
+    },
+    {
+      "navn": "Rindal"
+    },
+    {
+      "navn": "Orkland"
+    },
+    {
+      "navn": "Frøya"
+    },
+    {
+      "navn": "Flatanger"
+    },
+    {
+      "navn": "Trondheim"
+    },
+    {
+      "navn": "Snåase - Snåsa"
+    },
+    {
+      "navn": "Røros"
+    },
+    {
+      "navn": "Oppdal"
+    },
+    {
+      "navn": "Levanger"
+    },
+    {
+      "navn": "Åfjord"
+    },
+    {
+      "navn": "Høylandet"
+    },
+    {
+      "navn": "Verdal"
+    },
+    {
+      "navn": "Leka"
+    },
+    {
+      "navn": "Grong"
+    },
+    {
+      "navn": "Indre Fosen"
+    },
+    {
+      "navn": "Bindal"
+    },
+    {
+      "navn": "Tydal"
+    },
+    {
+      "navn": "Selbu"
+    },
+    {
+      "navn": "Steinkjer"
+    },
+    {
+      "navn": "Frosta"
+    },
+    {
+      "navn": "Ringerike"
+    },
+    {
+      "navn": "Asker"
+    },
+    {
+      "navn": "Bærum"
+    },
+    {
+      "navn": "Ål"
+    },
+    {
+      "navn": "Nore og Uvdal"
+    },
+    {
+      "navn": "Drammen"
+    },
+    {
+      "navn": "Øvre Eiker"
+    },
+    {
+      "navn": "Flesberg"
+    },
+    {
+      "navn": "Modum"
+    },
+    {
+      "navn": "Rollag"
+    },
+    {
+      "navn": "Hole"
+    },
+    {
+      "navn": "Lier"
+    },
+    {
+      "navn": "Kongsberg"
+    },
+    {
+      "navn": "Flå"
+    },
+    {
+      "navn": "Hol"
+    },
+    {
+      "navn": "Sigdal"
+    },
+    {
+      "navn": "Hemsedal"
+    },
+    {
+      "navn": "Gol"
+    },
+    {
+      "navn": "Jevnaker"
+    },
+    {
+      "navn": "Krødsherad"
+    },
+    {
+      "navn": "Nesbyen"
+    },
+    {
+      "navn": "Larvik"
+    },
+    {
+      "navn": "Bamble"
+    },
+    {
+      "navn": "Seljord"
+    },
+    {
+      "navn": "Tønsberg"
+    },
+    {
+      "navn": "Holmestrand"
+    },
+    {
+      "navn": "Kviteseid"
+    },
+    {
+      "navn": "Hjartdal"
+    },
+    {
+      "navn": "Vinje"
+    },
+    {
+      "navn": "Nissedal"
+    },
+    {
+      "navn": "Skien"
+    },
+    {
+      "navn": "Horten"
+    },
+    {
+      "navn": "Fyresdal"
+    },
+    {
+      "navn": "Porsgrunn"
+    },
+    {
+      "navn": "Tinn"
+    },
+    {
+      "navn": "Sandefjord"
+    },
+    {
+      "navn": "Tokke"
+    },
+    {
+      "navn": "Nome"
+    },
+    {
+      "navn": "Siljan"
+    },
+    {
+      "navn": "Kragerø"
+    },
+    {
+      "navn": "Færder"
+    },
+    {
+      "navn": "Notodden"
+    },
+    {
+      "navn": "Drangedal"
+    },
+    {
+      "navn": "Midt-Telemark"
+    },
+    {
+      "navn": "Vik"
+    },
+    {
+      "navn": "Alver"
+    },
+    {
+      "navn": "Sunnfjord"
+    },
+    {
+      "navn": "Voss"
+    },
+    {
+      "navn": "Gulen"
+    },
+    {
+      "navn": "Årdal"
+    },
+    {
+      "navn": "Lærdal"
+    },
+    {
+      "navn": "Ullensvang"
+    },
+    {
+      "navn": "Etne"
+    },
+    {
+      "navn": "Vindafjord"
+    },
+    {
+      "navn": "Vaksdal"
+    },
+    {
+      "navn": "Bremanger"
+    },
+    {
+      "navn": "Hyllestad"
+    },
+    {
+      "navn": "Gloppen"
+    },
+    {
+      "navn": "Austrheim"
+    },
+    {
+      "navn": "Masfjorden"
+    },
+    {
+      "navn": "Solund"
+    },
+    {
+      "navn": "Askøy"
+    },
+    {
+      "navn": "Ulvik"
+    },
+    {
+      "navn": "Eidfjord"
+    },
+    {
+      "navn": "Stryn"
+    },
+    {
+      "navn": "Modalen"
+    },
+    {
+      "navn": "Tysnes"
+    },
+    {
+      "navn": "Samnanger"
+    },
+    {
+      "navn": "Høyanger"
+    },
+    {
+      "navn": "Aurland"
+    },
+    {
+      "navn": "Luster"
+    },
+    {
+      "navn": "Austevoll"
+    },
+    {
+      "navn": "Stord"
+    },
+    {
+      "navn": "Bjørnafjorden"
+    },
+    {
+      "navn": "Fitjar"
+    },
+    {
+      "navn": "Kvam"
+    },
+    {
+      "navn": "Kinn"
+    },
+    {
+      "navn": "Bergen"
+    },
+    {
+      "navn": "Sogndal"
+    },
+    {
+      "navn": "Askvoll"
+    },
+    {
+      "navn": "Sveio"
+    },
+    {
+      "navn": "Øygarden"
+    },
+    {
+      "navn": "Fjaler"
+    },
+    {
+      "navn": "Stad"
+    },
+    {
+      "navn": "Osterøy"
+    },
+    {
+      "navn": "Fedje"
+    },
+    {
+      "navn": "Kvinnherad"
+    },
+    {
+      "navn": "Bømlo"
+    },
+    {
+      "navn": "Rælingen"
+    },
+    {
+      "navn": "Våler (Viken)"
+    },
+    {
+      "navn": "Frogn"
+    },
+    {
+      "navn": "Nes"
+    },
+    {
+      "navn": "Indre Østfold"
+    },
+    {
+      "navn": "Eidsvoll"
+    },
+    {
+      "navn": "Moss"
+    },
+    {
+      "navn": "Nittedal"
+    },
+    {
+      "navn": "Hvaler"
+    },
+    {
+      "navn": "Nordre Follo"
+    },
+    {
+      "navn": "Skiptvet"
+    },
+    {
+      "navn": "Nannestad"
+    },
+    {
+      "navn": "Aremark"
+    },
+    {
+      "navn": "Råde"
+    },
+    {
+      "navn": "Ås"
+    },
+    {
+      "navn": "Fredrikstad"
+    },
+    {
+      "navn": "Ullensaker"
+    },
+    {
+      "navn": "Rakkestad"
+    },
+    {
+      "navn": "Lillestrøm"
+    },
+    {
+      "navn": "Enebakk"
+    },
+    {
+      "navn": "Marker"
+    },
+    {
+      "navn": "Nesodden"
+    },
+    {
+      "navn": "Gjerdrum"
+    },
+    {
+      "navn": "Halden"
+    },
+    {
+      "navn": "Vestby"
+    },
+    {
+      "navn": "Sarpsborg"
+    },
+    {
+      "navn": "Hurdal"
+    },
+    {
+      "navn": "Lørenskog"
+    },
+    {
+      "navn": "Aurskog-Høland"
+    }
+  ],
+  "typer": [
+    "AVKLARING",
+    "ARBEIDSFORBEREDENDE_TRENING",
+    "UTVIDET_OPPFØLGING_I_NAV",
+    "OPPFØLGING",
+    "JOBBKLUBB",
+    "DIGITAL_JOBBKLUBB",
+    "ARBEIDSMARKEDSOPPLÆRING",
+    "FAG_OG_YRKESOPPLÆRING_PÅ_VIDEREGÅENDE_SKOLE_NIVÅ_ELLER_HØYERE_YRKESFAGLIG_UTDANNING",
+    "HØYERE_UTDANNING",
+    "ARBEIDSTRENING",
+    "MIDLERTIDIG_LØNNSTILSKUDD",
+    "VARIG_LØNNSTILSKUDD",
+    "VARIG_TILRETTELAGT_ARBEID_I_ORDINÆR_VIRKSOMHET",
+    "VARIG_TILRETTELAGT_ARBEID_I_SKJERMET_VIRKSOMHET",
+    "EKSPERT_BISTAND",
+    "INKLUDERINGSTILSKUDD",
+    "FUNKSJONSASSISTANSE",
+    "MENTOR",
+    "ARBEIDSRETTET_REHABILITERING",
+    "INDIVIDUELL_JOBBSTØTTE",
+    "TILSKUDD_TIL_SOMMERJOBB"
+  ]
+}

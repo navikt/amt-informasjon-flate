@@ -1,13 +1,13 @@
-name: Deploy (dev)
+name: Deploy (labs)
 on:
   push:
     branches: [dev]
 env:
   IMAGE_TAG: ${{ github.sha }}
   IMAGE: ghcr.io/navikt/arbeidstiltak-visning
-  IMAGE_LABEL: dev
+  IMAGE_LABEL: labs
   RESOURCE: .nais/nais.yaml
-  REACT_APP_BACKEND_API_ROOT: https://arbeidstiltak-api.dev.intern.nav.no
+  REACT_APP_BACKEND_API_ROOT: https://arbeidstiltak-visning.labs.nais.io
   CI: true
   TZ: Europe/Amsterdam
   NODE_VERSION: '14.x'
@@ -57,21 +57,20 @@ jobs:
         run: |
           echo ${GITHUB_TOKEN} | docker login docker.pkg.github.com -u ${GITHUB_REPOSITORY} --password-stdin
           echo ${GITHUB_TOKEN} | docker login ghcr.io -u ${{github.actor}} --password-stdin
-          docker build -t ${IMAGE}-${IMAGE_LABEL}:${IMAGE_TAG} -f .docker/dev/Dockerfile .
+          docker build -t ${IMAGE}-${IMAGE_LABEL}:${IMAGE_TAG} -f .docker/labs/Dockerfile .
           docker push ${IMAGE}-${IMAGE_LABEL}:${IMAGE_TAG}
 
-  deploy-dev:
-    name: Deploy application to dev
+  deploy-labs:
+    name: Deploy application to labs
     needs:
       - build-docker-image
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
+      - uses: actions/checkout@v1
       - uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          CLUSTER: dev-gcp
-          VARS: .nais/dev-gcp.yaml
+          CLUSTER: labs-gcp
+          PRINT_PAYLOAD: true
+          VARS: .nais/labs-gcp.yaml
           VAR: image_tag=${{env.IMAGE_TAG}},image_label=${{env.IMAGE_LABEL}}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

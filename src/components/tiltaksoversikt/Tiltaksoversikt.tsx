@@ -23,13 +23,15 @@ const Tiltaksoversikt = () => {
   }, []);
 
   useEffect(() => {
-    const filtrertListe = tiltaksliste.filter(tiltak => {
-      return (
-        (filterState.tiltakstype.length === 0 || filterState.tiltakstype.includes(tiltak.tiltakstype)) &&
-        (filterState.kategori.length === 0 || filterState.kategori.includes(tiltak.kategori))
-      );
-    });
-    setTiltakslisteFiltrert(filtrertListe);
+    if (tiltaksliste.length > 0) {
+      const filtrertListe = tiltaksliste.filter(tiltak => {
+        return (
+          (filterState.tiltakstype.length === 0 || filterState.tiltakstype.includes(tiltak.tiltakstype)) &&
+          (filterState.kategori.length === 0 || filterState.kategori.includes(tiltak.kategori))
+        );
+      });
+      setTiltakslisteFiltrert(filtrertListe);
+    }
   }, [filterState, tiltaksliste]);
 
   return (

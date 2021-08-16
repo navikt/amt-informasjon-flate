@@ -14,7 +14,7 @@ const DropdownFilter = ({ filtreringsmuligheter, onChange, tittel, className }: 
   return (
     <div>
       <Ekspanderbartpanel renderContentWhenClosed={true} tittel={tittel} className={className}>
-        {filtreringsmuligheter.map((filtreringsmulighet, index) => (
+        {filtreringsmuligheter.length > 0 && filtreringsmuligheter.map((filtreringsmulighet, index) => (
           <Checkbox
             label={formatering(filtreringsmulighet)}
             value={filtreringsmulighet}

@@ -5,6 +5,7 @@
   "scripts": {
     "start": "cross-env REACT_APP_DEV=true craco start",
     "build": "craco build",
+    "json-server": "json-server --watch mock/db.json --port 8080 --routes mock/routes.json",
     "eject": "craco eject",
     "clean": "rimraf build",
     "prepare": "husky install"
@@ -38,6 +39,7 @@
     "dotenv": "^8.2.0",
     "hosted-git-info": "^2.8.9",
     "is-svg": "^4.2.2",
+    "json-server": "^0.16.3",
     "lodash.throttle": "^4.1.1",
     "nav-frontend-alertstriper": "^4.0.1",
     "nav-frontend-alertstriper-style": "^3.0.1",
@@ -61,6 +63,8 @@
     "nav-frontend-popover-style": "^2.0.1",
     "nav-frontend-skjema": "^4.0.1",
     "nav-frontend-skjema-style": "^3.0.1",
+    "nav-frontend-spinner": "^3.0.1",
+    "nav-frontend-spinner-style": "^1.0.2",
     "nav-frontend-tabell-style": "^2.0.2",
     "nav-frontend-tabs": "^2.0.1",
     "nav-frontend-tabs-style": "^2.0.1",
@@ -71,6 +75,7 @@
     "react": "^17.0.2",
     "react-collapse": "^5.1.0",
     "react-dom": "^17.0.2",
+    "react-query": "^3.19.4",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",

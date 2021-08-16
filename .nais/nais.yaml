@@ -6,7 +6,7 @@ metadata:
   labels:
     team: pto
 spec:
-  image: {{image}}:{{image_tag}}
+  image: {{image}}-{{image_label}}:{{image_tag}}
   port: 80
   {{#if ingresses}}
   ingresses:
