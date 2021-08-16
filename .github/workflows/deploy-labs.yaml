@@ -7,6 +7,7 @@ env:
   IMAGE: ghcr.io/navikt/arbeidstiltak-visning
   IMAGE_LABEL: labs
   RESOURCE: .nais/nais.yaml
+  ENABLE_LABS: true
   REACT_APP_BACKEND_API_ROOT: https://arbeidstiltak-visning.labs.nais.io
   CI: true
   TZ: Europe/Amsterdam
