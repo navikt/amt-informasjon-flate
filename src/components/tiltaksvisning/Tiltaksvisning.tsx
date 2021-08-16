@@ -1,7 +1,4 @@
-import React, { SyntheticEvent, useState } from 'react';
-import Panel from 'nav-frontend-paneler';
-import Tabs from 'nav-frontend-tabs';
-import { TabProps } from 'nav-frontend-tabs/lib/tab';
+import React from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import './Tiltaksvisning.less';
 import BrukerVisningsToggle from '../toggle/BrukerVisningsToggle';
