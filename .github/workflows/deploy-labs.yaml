@@ -8,7 +8,7 @@ env:
   IMAGE_LABEL: labs
   RESOURCE: .nais/nais.yaml
   ENABLE_LABS: true
-  REACT_APP_BACKEND_API_ROOT: https://arbeidstiltak-visning.labs.nais.io
+  REACT_APP_BACKEND_API_ROOT: ''
   CI: true
   TZ: Europe/Amsterdam
   NODE_VERSION: '14.x'
