@@ -7,7 +7,7 @@ import { useQuery } from 'react-query';
 const KategoriFilter = () => {
   const dispatch = useDispatch();
 
-  const { isLoading, data } = useQuery('kategorier', () =>
+  const { isLoading, data, error } = useQuery('kategorier', () =>
     fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak/kategorier').then(res => res.json())
   );
 
@@ -17,6 +17,7 @@ const KategoriFilter = () => {
       onChange={filter => dispatch(velgKategori(filter))}
       tittel="Kategori"
       isLoading={isLoading}
+      error={error}
     />
   );
 };

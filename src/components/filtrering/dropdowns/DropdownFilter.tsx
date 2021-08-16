@@ -10,18 +10,19 @@ interface DropDownFilterProps {
   onChange: (filter: string) => void;
   tittel: string;
   isLoading: React.ReactNode;
+  error: React.ReactNode | unknown;
 }
 
-const DropdownFilter = ({ onChange, tittel, data, isLoading }: DropDownFilterProps) => {
+const DropdownFilter = ({ onChange, tittel, data, isLoading, error }: DropDownFilterProps) => {
   const className = 'custom__ekspanderbartpanel';
 
-  if (isLoading) {
-    return <NavFrontendSpinner />;
-  } else if (data) {
-    return (
-      <div>
-        <Ekspanderbartpanel renderContentWhenClosed={true} tittel={tittel} className={className}>
-          {data.map((filtreringsmulighet, index) => (
+  return (
+    <div>
+      <Ekspanderbartpanel renderContentWhenClosed={true} tittel={tittel} className={className}>
+        {isLoading && <NavFrontendSpinner />}
+
+        {data &&
+          data.map((filtreringsmulighet, index) => (
             <Checkbox
               label={formatering(filtreringsmulighet)}
               value={filtreringsmulighet}
@@ -30,15 +31,7 @@ const DropdownFilter = ({ onChange, tittel, data, isLoading }: DropDownFilterPro
               onChange={() => onChange(filtreringsmulighet)}
             />
           ))}
-        </Ekspanderbartpanel>
-      </div>
-    );
-  }
-
-  return (
-    <div>
-      <Ekspanderbartpanel renderContentWhenClosed={true} tittel={tittel} className={className}>
-        <AlertStripe type="feil">Feil i systemet</AlertStripe>
+        {error && <AlertStripe type="feil">Feil i systemet</AlertStripe>}
       </Ekspanderbartpanel>
     </div>
   );

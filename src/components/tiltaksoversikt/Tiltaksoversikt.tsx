@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Tiltakskort, { TiltakProps } from './bildevisning/Tiltakskort';
 import './Tiltak.less';
 import { useSelector } from 'react-redux';
@@ -10,7 +10,6 @@ import NavFrontendSpinner from 'nav-frontend-spinner';
 import AlertStripe from 'nav-frontend-alertstriper';
 
 const Tiltaksoversikt = () => {
-  // const [tiltaksliste, setTiltaksliste] = useState<TiltakProps[]>([]);
   const [tiltakslisteFiltrert, setTiltakslisteFiltrert] = useState<TiltakProps[]>([]);
   const bildeToggle: boolean = useSelector((state: any) => state.toggleReducer.bildeListeVisning);
   const filterState = useSelector((state: any) => state.filterReducer);
@@ -19,27 +18,17 @@ const Tiltaksoversikt = () => {
     fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak').then(res => res.json())
   );
 
-  // const hentAlleTiltakFraDB = (setTiltaksliste: (value: []) => void) => {
-  //   fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak')
-  //     .then(res => res.json())
-  //     .then(data => setTiltaksliste(data));
-  // };
-  //
-  // useEffect(() => {
-  //   hentAlleTiltakFraDB(setTiltaksliste);
-  // }, []);
-
-  // useEffect(() => {
-  //   if (data && data.length > 0) {
-  //     const filtrertListe = data.filter((tiltak: any) => {
-  //       return (
-  //         (filterState.tiltakstype.length === 0 || filterState.tiltakstype.includes(tiltak.tiltakstype)) &&
-  //         (filterState.kategori.length === 0 || filterState.kategori.includes(tiltak.kategori))
-  //       );
-  //     });
-  //     setTiltakslisteFiltrert(filtrertListe);
-  //   }
-  // }, [filterState, data]);
+  useEffect(() => {
+    if (data) {
+      const filtrertListe = data.filter((tiltak: any) => {
+        return (
+          (filterState.tiltakstype.length === 0 || filterState.tiltakstype.includes(tiltak.tiltakstype)) &&
+          (filterState.kategori.length === 0 || filterState.kategori.includes(tiltak.kategori))
+        );
+      });
+      setTiltakslisteFiltrert(filtrertListe);
+    }
+  }, [filterState, data]);
 
   const bildetoggle = () => {
     return bildeToggle ? (
@@ -51,10 +40,10 @@ const Tiltaksoversikt = () => {
       <Tiltaksliste tiltaksliste={tiltakslisteFiltrert} />
     );
   };
+
   return (
     <div className="tiltaksoversikt">
       {isLoading && <NavFrontendSpinner />}
-
       {data && bildetoggle()}
       {error && <AlertStripe type="feil">Det har oppstått en feil</AlertStripe>}
     </div>

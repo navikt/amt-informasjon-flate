@@ -8,7 +8,7 @@ import { leggTilTiltak } from '../../redux/ApiService';
 import { erTomtObjekt } from '../../utils/Utils';
 import { feilValidering, InputValideringsError } from '../../utils/Validering';
 import './OpprettTiltak.less';
-import { useMutation, useQuery } from 'react-query';
+import { useMutation } from 'react-query';
 
 const OpprettTiltak = () => {
   const dispatch = useDispatch();
