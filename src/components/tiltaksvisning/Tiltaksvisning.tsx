@@ -1,7 +1,4 @@
-import React, { SyntheticEvent, useState } from 'react';
-import Panel from 'nav-frontend-paneler';
-import Tabs from 'nav-frontend-tabs';
-import { TabProps } from 'nav-frontend-tabs/lib/tab';
+import React from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import './Tiltaksvisning.less';
 import BrukerVisningsToggle from '../toggle/BrukerVisningsToggle';
@@ -31,18 +28,18 @@ const Tiltaksvisning = () => {
     fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak/' + id).then(res => res.json())
   );
 
-  const faner = Array.from(data?.faner.keys());
+  // const faner = Array.from(data?.faner.keys());
 
-  const tabs: TabProps[] = data?.faner.map((fane: String) => ({ label: fane }));
+  // const tabs: TabProps[] = data?.faner.map((fane: String) => ({ label: fane }));
 
-  const [aktivFaneBeskrivelse, setAktivFaneBeskrivelse] = useState<Array<string>>(data?.faner.get(faner[0]) || []);
+  // const [aktivFaneBeskrivelse, setAktivFaneBeskrivelse] = useState<Array<string>>(data?.faner.get(faner[0]) || []);
 
-  const endreInnholdsvisning = (e: SyntheticEvent<EventTarget, Event>, index: number) => {
-    setAktivFaneBeskrivelse(data?.faner.get(faner[index]) || []);
-  };
+  // const endreInnholdsvisning = (e: SyntheticEvent<EventTarget, Event>, index: number) => {
+  //   setAktivFaneBeskrivelse(data?.faner.get(faner[index]) || []);
+  // };
 
-  data.bilde =
-    'https://assets.website-files.com/5f0454ca439d52fef0fb4143/600e78d9b3db13ded972087f_shutterstock_1075806023-p-1600.jpeg';
+  // data.bilde =
+  //   'https://assets.website-files.com/5f0454ca439d52fef0fb4143/600e78d9b3db13ded972087f_shutterstock_1075806023-p-1600.jpeg';
 
   const history = useHistory();
 
@@ -72,14 +69,14 @@ const Tiltaksvisning = () => {
           </div>
         </div>
 
-        <div className="fane__oversikt">
+        {/* <div className="fane__oversikt">
           <Tabs tabs={tabs} onChange={endreInnholdsvisning} />
         </div>
         <div className="fane__innhold">
           {aktivFaneBeskrivelse?.map((fane, index) => (
             <Panel key={index}>{fane}</Panel>
           ))}
-        </div>
+        </div> */}
       </div>
     </>
   );
