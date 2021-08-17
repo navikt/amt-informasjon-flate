@@ -6,7 +6,6 @@
     "start": "cross-env REACT_APP_DEV=true craco start",
     "build": "craco build",
     "build:labs": "cross-env REACT_APP_ENABLE_MOCK=true craco build",
-    "json-server": "json-server --watch mock/db.json --port 8080 --routes mock/routes.json",
     "eject": "craco eject",
     "clean": "rimraf build",
     "prepare": "husky install"
@@ -40,7 +39,6 @@
     "dotenv": "^8.2.0",
     "hosted-git-info": "^2.8.9",
     "is-svg": "^4.2.2",
-    "json-server": "^0.16.3",
     "lodash.throttle": "^4.1.1",
     "miragejs": "^0.1.41",
     "nav-frontend-alertstriper": "^4.0.1",
