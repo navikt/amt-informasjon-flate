@@ -12,12 +12,7 @@ interface routeParams {
   id: string;
 }
 
-export interface Tiltak {
-  id: String;
-  tittel: String;
-  ingress: String;
-  beskrivelse: String;
-}
+
 
 const Tiltaksvisning = () => {
   const brukervisningsToggle = useSelector((state: any) => state.brukerVisningsReducer.brukerVisning);
