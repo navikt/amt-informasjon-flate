@@ -36,22 +36,21 @@ export enum Tiltakstype {
 }
 
 export interface Tiltak {
-  id: String;
+  id: number;
   tittel: String;
   ingress: String;
   beskrivelse: String;
-  tiltakstype: Tiltakstype,
-  kategori: Kategori
-
+  tiltakstype: Tiltakstype;
+  kategori: Kategori;
 }
 
-export interface Kommune{
-  id: number,
-  navn: string
+export interface Kommune {
+  id: number;
+  navn: string;
 }
 
 export interface Region {
-  id: number,
-  navn: string,
-  kommuner: Kommune[]
+  id: number;
+  navn: string;
+  kommuner: Kommune[];
 }

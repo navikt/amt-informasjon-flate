@@ -1,11 +1,10 @@
 import faker from 'faker';
-import {  Region, Tiltak, Tiltakstype } from '../domain/domain';
+import { Region, Tiltak, Tiltakstype } from '../domain/domain';
 import { kategorivelger } from '../utils/Kategorivelger';
-
 
 const tiltakslisteMock: Tiltak[] = [
   {
-    id: "1",
+    id: 1,
     tittel: 'Truckførerkurs',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
@@ -13,7 +12,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: kategorivelger(Tiltakstype.ARBEIDSMARKEDSOPPLAERING),
   },
   {
-    id: "2",
+    id: 2,
     tittel: 'Funksjonsassistanse',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
@@ -21,7 +20,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: kategorivelger(Tiltakstype.FUNKSJONSASSISTANSE),
   },
   {
-    id: "3",
+    id: 3,
     tittel: 'Utvidet oppfølging',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
@@ -29,7 +28,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: kategorivelger(Tiltakstype.UTVIDET_OPPFOLGING),
   },
   {
-    id: "4",
+    id: 4,
     tittel: 'Avklaring',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
@@ -37,7 +36,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: kategorivelger(Tiltakstype.AVKLARING),
   },
   {
-    id: "5",
+    id: 5,
     tittel: 'Hundefrisør',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
@@ -45,7 +44,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: kategorivelger(Tiltakstype.ARBEIDSMARKEDSOPPLAERING),
   },
   {
-    id: "6",
+    id: 6,
     tittel: 'Ekspertbistand',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
@@ -53,7 +52,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: kategorivelger(Tiltakstype.EKSPERTBISTAND),
   },
   {
-    id: "7",
+    id: 7,
     tittel: 'Jobbklubb',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
@@ -61,7 +60,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: kategorivelger(Tiltakstype.JOBBKLUBB),
   },
   {
-    id: "8",
+    id: 8,
     tittel: 'Oppfølging',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
@@ -69,7 +68,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: kategorivelger(Tiltakstype.OPPFOLGING),
   },
   {
-    id: "9",
+    id: 9,
     tittel: 'Digital jobbklubb',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
@@ -77,7 +76,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: kategorivelger(Tiltakstype.DIGITAL_JOBBKLUBB),
   },
   {
-    id: "10",
+    id: 10,
     tittel: 'Fag- og yrkesopplæring',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
@@ -85,7 +84,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: kategorivelger(Tiltakstype.FAG_OG_YRKES_OPPLAERING),
   },
   {
-    id: "11",
+    id: 11,
     tittel: 'Arbeidstrening',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
@@ -93,7 +92,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: kategorivelger(Tiltakstype.ARBEIDSTRENING),
   },
   {
-    id: "12",
+    id: 12,
     tittel: 'Arbeidsforberedende trening',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
@@ -101,7 +100,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: kategorivelger(Tiltakstype.ARBEIDSFORBEDRENDE_TRENING),
   },
   {
-    id: "13",
+    id: 13,
     tittel: 'Midlertidig lønnstilskudd',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
@@ -109,7 +108,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: kategorivelger(Tiltakstype.MIDLERTIDIG_LONNSTILSKUDD),
   },
   {
-    id: "14",
+    id: 14,
     tittel: 'Varig lønnstilskudd',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
@@ -117,7 +116,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: kategorivelger(Tiltakstype.VARIG_LONNSTILSKUDD),
   },
   {
-    id: "15",
+    id: 15,
     tittel: 'Varig tilrettelagt arbeid i skjermet virksomhet',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
@@ -125,7 +124,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: kategorivelger(Tiltakstype.VARIG_TILRETTELAGT_ARBEID_I_SKJERMET_VIRKSOMHET),
   },
   {
-    id: "16",
+    id: 16,
     tittel: 'Varig tilrettelagt arbeid i ordinær virksomhet',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
@@ -133,7 +132,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: kategorivelger(Tiltakstype.VARIG_TILRETTELAGT_ARBEID_I_ORDINAER_VIRKSOMHET),
   },
   {
-    id: "17",
+    id: 17,
     tittel: 'Inkluderingstilskudd',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
@@ -141,7 +140,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: kategorivelger(Tiltakstype.INKLUDERINGSTILSKUDD),
   },
   {
-    id: "18",
+    id: 18,
     tittel: 'Funksjonsassistanse',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
@@ -149,7 +148,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: kategorivelger(Tiltakstype.FUNKSJONSASSISTANSE),
   },
   {
-    id: "19",
+    id: 19,
     tittel: 'Mentor',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
@@ -157,7 +156,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: kategorivelger(Tiltakstype.MENTOR),
   },
   {
-    id: "20",
+    id: 20,
     tittel: 'Arbeidsrettet rehabilitering',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
@@ -165,7 +164,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: kategorivelger(Tiltakstype.ARBEIDSRETTET_REHABILITERING),
   },
   {
-    id: "21",
+    id: 21,
     tittel: 'Individuell jobbstøtte',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
@@ -173,7 +172,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: kategorivelger(Tiltakstype.INDIVIDUELL_JOBBSTOTTE),
   },
   {
-    id: "22",
+    id: 22,
     tittel: 'Tilskudd til sommerjobb',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
@@ -182,21 +181,18 @@ const tiltakslisteMock: Tiltak[] = [
   },
 ];
 
-
 const regionlisteMock: Region[] = [
   {
     id: 1,
-    navn: "Rommerike",
-    kommuner:[
+    navn: 'Rommerike',
+    kommuner: [
       {
         id: 2,
-        navn: "Eidsvoll"
+        navn: 'Eidsvoll',
       },
-      {id: 3,
-        navn: "Hurdal"
-      }
-    ]
-  }
-]
+      { id: 3, navn: 'Hurdal' },
+    ],
+  },
+];
 
-export { tiltakslisteMock, regionlisteMock};
+export { tiltakslisteMock, regionlisteMock };
