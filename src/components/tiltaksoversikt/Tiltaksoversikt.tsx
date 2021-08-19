@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import 'nav-frontend-tabell-style';
-import { Region, Kommune, Tiltakstype, Kategori } from '../../domain/domain';
 import Tiltakskort, { TiltakProps } from './bildevisning/Tiltakskort';
 import Tiltaksliste from './listevisning/Tiltaksliste';
+import {
+  isKategoriInFilter,
+  isKommuneInFilter,
+  isRegionInFilter,
+  isTiltaktypeInFilter,
+} from './TiltaksoversiktFilterUtils';
 import './Tiltak.less';
 import '../visning/TiltakOgFilterOversikt.less';
 
@@ -17,30 +22,6 @@ const Tiltaksoversikt = () => {
     fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak')
       .then(res => res.json())
       .then(data => setTiltaksliste(data));
-  };
-
-  const isTiltaktypeInFilter = (tiltakstype: Tiltakstype, filterlistetiltakstype: Tiltakstype[]): boolean => {
-    return filterlistetiltakstype.length === 0 || filterlistetiltakstype.includes(tiltakstype);
-  };
-
-  const isKategoriInFilter = (kategori: Kategori, filterlisteKategori: Kategori[]): boolean => {
-    return filterlisteKategori.length === 0 || filterlisteKategori.includes(kategori);
-  };
-
-  const isRegionInFilter = (region: Region, filterlisteRegion: Region[]): boolean => {
-    return (
-      filterlisteRegion.length === 0 ||
-      filterlisteRegion.some((filterRegion: Region) => filterRegion.navn === region.navn)
-    );
-  };
-
-  const isKommuneInFilter = (kommuner: Kommune[], filterlisteKommune: Kommune[]): boolean => {
-    return (
-      filterlisteKommune.length === 0 ||
-      filterlisteKommune.some(
-        (kommune: Kommune) => kommune && kommuner.some((tiltakKommune: Kommune) => tiltakKommune.navn === kommune.navn)
-      )
-    );
   };
 
   useEffect(() => {
