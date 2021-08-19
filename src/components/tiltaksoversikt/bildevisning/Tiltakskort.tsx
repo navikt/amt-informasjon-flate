@@ -1,12 +1,13 @@
 import React from 'react';
-import '../Tiltak.less';
-import { Undertittel } from 'nav-frontend-typografi';
 import { Link } from 'react-router-dom';
+import { Undertittel } from 'nav-frontend-typografi';
+import { Kategori, Region, Tiltakstype } from '../../../domain/domain';
+import '../Tiltak.less';
 
 export interface TiltakProps {
   id: number;
-  tiltakstype: string;
-  kategori: string;
+  tiltakstype: Tiltakstype;
+  kategori: Kategori;
   tittel: string;
   ingress: string;
   fylke?: string;
@@ -14,6 +15,7 @@ export interface TiltakProps {
   beskrivelse?: string;
   bilde?: Blob;
   brukervisningsToggle?: boolean;
+  region: Region;
 }
 
 const Tiltakskort = ({ tittel, ingress, bilde, id }: TiltakProps) => {

@@ -10,6 +10,17 @@ const tiltakslisteMock: Tiltak[] = [
     ingress: faker.lorem.sentence(1),
     tiltakstype: Tiltakstype.ARBEIDSMARKEDSOPPLAERING,
     kategori: kategorivelger(Tiltakstype.ARBEIDSMARKEDSOPPLAERING),
+    region: {
+      id: 1,
+      navn: 'Rommerike',
+      kommuner: [
+        {
+          id: 2,
+          navn: 'Eidsvoll',
+        },
+        { id: 3, navn: 'Hurdal' },
+      ],
+    },
   },
   {
     id: 2,
@@ -18,6 +29,17 @@ const tiltakslisteMock: Tiltak[] = [
     ingress: faker.lorem.sentence(1),
     tiltakstype: Tiltakstype.FUNKSJONSASSISTANSE,
     kategori: kategorivelger(Tiltakstype.FUNKSJONSASSISTANSE),
+    region: {
+      id: 1,
+      navn: 'Rommerike',
+      kommuner: [
+        {
+          id: 2,
+          navn: 'Eidsvoll',
+        },
+        { id: 3, navn: 'Hurdal' },
+      ],
+    },
   },
   {
     id: 3,
@@ -26,6 +48,17 @@ const tiltakslisteMock: Tiltak[] = [
     ingress: faker.lorem.sentence(1),
     tiltakstype: Tiltakstype.UTVIDET_OPPFOLGING,
     kategori: kategorivelger(Tiltakstype.UTVIDET_OPPFOLGING),
+    region: {
+      id: 1,
+      navn: 'Rommerike',
+      kommuner: [
+        {
+          id: 2,
+          navn: 'Eidsvoll',
+        },
+        { id: 3, navn: 'Hurdal' },
+      ],
+    },
   },
   {
     id: 4,
@@ -34,6 +67,17 @@ const tiltakslisteMock: Tiltak[] = [
     ingress: faker.lorem.sentence(1),
     tiltakstype: Tiltakstype.AVKLARING,
     kategori: kategorivelger(Tiltakstype.AVKLARING),
+    region: {
+      id: 1,
+      navn: 'Rommerike',
+      kommuner: [
+        {
+          id: 2,
+          navn: 'Eidsvoll',
+        },
+        { id: 3, navn: 'Hurdal' },
+      ],
+    },
   },
   {
     id: 5,
@@ -42,6 +86,17 @@ const tiltakslisteMock: Tiltak[] = [
     ingress: faker.lorem.sentence(1),
     tiltakstype: Tiltakstype.ARBEIDSMARKEDSOPPLAERING,
     kategori: kategorivelger(Tiltakstype.ARBEIDSMARKEDSOPPLAERING),
+    region: {
+      id: 1,
+      navn: 'Rommerike',
+      kommuner: [
+        {
+          id: 2,
+          navn: 'Eidsvoll',
+        },
+        { id: 3, navn: 'Hurdal' },
+      ],
+    },
   },
   {
     id: 6,
@@ -50,6 +105,17 @@ const tiltakslisteMock: Tiltak[] = [
     ingress: faker.lorem.sentence(1),
     tiltakstype: Tiltakstype.EKSPERTBISTAND,
     kategori: kategorivelger(Tiltakstype.EKSPERTBISTAND),
+    region: {
+      id: 1,
+      navn: 'Rommerike',
+      kommuner: [
+        {
+          id: 2,
+          navn: 'Eidsvoll',
+        },
+        { id: 3, navn: 'Hurdal' },
+      ],
+    },
   },
   {
     id: 7,
@@ -58,6 +124,17 @@ const tiltakslisteMock: Tiltak[] = [
     ingress: faker.lorem.sentence(1),
     tiltakstype: Tiltakstype.JOBBKLUBB,
     kategori: kategorivelger(Tiltakstype.JOBBKLUBB),
+    region: {
+      id: 1,
+      navn: 'Rommerike',
+      kommuner: [
+        {
+          id: 2,
+          navn: 'Eidsvoll',
+        },
+        { id: 3, navn: 'Hurdal' },
+      ],
+    },
   },
   {
     id: 8,
@@ -66,6 +143,17 @@ const tiltakslisteMock: Tiltak[] = [
     ingress: faker.lorem.sentence(1),
     tiltakstype: Tiltakstype.OPPFOLGING,
     kategori: kategorivelger(Tiltakstype.OPPFOLGING),
+    region: {
+      id: 1,
+      navn: 'Rommerike',
+      kommuner: [
+        {
+          id: 2,
+          navn: 'Eidsvoll',
+        },
+        { id: 3, navn: 'Hurdal' },
+      ],
+    },
   },
   {
     id: 9,
@@ -74,6 +162,17 @@ const tiltakslisteMock: Tiltak[] = [
     ingress: faker.lorem.sentence(1),
     tiltakstype: Tiltakstype.DIGITAL_JOBBKLUBB,
     kategori: kategorivelger(Tiltakstype.DIGITAL_JOBBKLUBB),
+    region: {
+      id: 1,
+      navn: 'Rommerike',
+      kommuner: [
+        {
+          id: 2,
+          navn: 'Eidsvoll',
+        },
+        { id: 3, navn: 'Hurdal' },
+      ],
+    },
   },
   {
     id: 10,
@@ -82,6 +181,17 @@ const tiltakslisteMock: Tiltak[] = [
     ingress: faker.lorem.sentence(1),
     tiltakstype: Tiltakstype.FAG_OG_YRKES_OPPLAERING,
     kategori: kategorivelger(Tiltakstype.FAG_OG_YRKES_OPPLAERING),
+    region: {
+      id: 1,
+      navn: 'Rommerike',
+      kommuner: [
+        {
+          id: 2,
+          navn: 'Eidsvoll',
+        },
+        { id: 3, navn: 'Hurdal' },
+      ],
+    },
   },
   {
     id: 11,
@@ -90,6 +200,17 @@ const tiltakslisteMock: Tiltak[] = [
     ingress: faker.lorem.sentence(1),
     tiltakstype: Tiltakstype.ARBEIDSTRENING,
     kategori: kategorivelger(Tiltakstype.ARBEIDSTRENING),
+    region: {
+      id: 1,
+      navn: 'Rommerike',
+      kommuner: [
+        {
+          id: 2,
+          navn: 'Eidsvoll',
+        },
+        { id: 3, navn: 'Hurdal' },
+      ],
+    },
   },
   {
     id: 12,
@@ -98,6 +219,17 @@ const tiltakslisteMock: Tiltak[] = [
     ingress: faker.lorem.sentence(1),
     tiltakstype: Tiltakstype.ARBEIDSFORBEDRENDE_TRENING,
     kategori: kategorivelger(Tiltakstype.ARBEIDSFORBEDRENDE_TRENING),
+    region: {
+      id: 1,
+      navn: 'Rommerike',
+      kommuner: [
+        {
+          id: 2,
+          navn: 'Eidsvoll',
+        },
+        { id: 3, navn: 'Hurdal' },
+      ],
+    },
   },
   {
     id: 13,
@@ -106,6 +238,17 @@ const tiltakslisteMock: Tiltak[] = [
     ingress: faker.lorem.sentence(1),
     tiltakstype: Tiltakstype.MIDLERTIDIG_LONNSTILSKUDD,
     kategori: kategorivelger(Tiltakstype.MIDLERTIDIG_LONNSTILSKUDD),
+    region: {
+      id: 1,
+      navn: 'Rommerike',
+      kommuner: [
+        {
+          id: 2,
+          navn: 'Eidsvoll',
+        },
+        { id: 3, navn: 'Hurdal' },
+      ],
+    },
   },
   {
     id: 14,
@@ -114,6 +257,17 @@ const tiltakslisteMock: Tiltak[] = [
     ingress: faker.lorem.sentence(1),
     tiltakstype: Tiltakstype.VARIG_LONNSTILSKUDD,
     kategori: kategorivelger(Tiltakstype.VARIG_LONNSTILSKUDD),
+    region: {
+      id: 1,
+      navn: 'Rommerike',
+      kommuner: [
+        {
+          id: 2,
+          navn: 'Eidsvoll',
+        },
+        { id: 3, navn: 'Hurdal' },
+      ],
+    },
   },
   {
     id: 15,
@@ -122,6 +276,17 @@ const tiltakslisteMock: Tiltak[] = [
     ingress: faker.lorem.sentence(1),
     tiltakstype: Tiltakstype.VARIG_TILRETTELAGT_ARBEID_I_SKJERMET_VIRKSOMHET,
     kategori: kategorivelger(Tiltakstype.VARIG_TILRETTELAGT_ARBEID_I_SKJERMET_VIRKSOMHET),
+    region: {
+      id: 1,
+      navn: 'Rommerike',
+      kommuner: [
+        {
+          id: 2,
+          navn: 'Eidsvoll',
+        },
+        { id: 3, navn: 'Hurdal' },
+      ],
+    },
   },
   {
     id: 16,
@@ -130,6 +295,17 @@ const tiltakslisteMock: Tiltak[] = [
     ingress: faker.lorem.sentence(1),
     tiltakstype: Tiltakstype.VARIG_TILRETTELAGT_ARBEID_I_ORDINAER_VIRKSOMHET,
     kategori: kategorivelger(Tiltakstype.VARIG_TILRETTELAGT_ARBEID_I_ORDINAER_VIRKSOMHET),
+    region: {
+      id: 1,
+      navn: 'Rommerike',
+      kommuner: [
+        {
+          id: 2,
+          navn: 'Eidsvoll',
+        },
+        { id: 3, navn: 'Hurdal' },
+      ],
+    },
   },
   {
     id: 17,
@@ -138,6 +314,11 @@ const tiltakslisteMock: Tiltak[] = [
     ingress: faker.lorem.sentence(1),
     tiltakstype: Tiltakstype.INKLUDERINGSTILSKUDD,
     kategori: kategorivelger(Tiltakstype.INKLUDERINGSTILSKUDD),
+    region: {
+      id: 1,
+      navn: 'Rommerike',
+      kommuner: [{ id: 3, navn: 'Hurdal' }],
+    },
   },
   {
     id: 18,
@@ -146,6 +327,11 @@ const tiltakslisteMock: Tiltak[] = [
     ingress: faker.lorem.sentence(1),
     tiltakstype: Tiltakstype.FUNKSJONSASSISTANSE,
     kategori: kategorivelger(Tiltakstype.FUNKSJONSASSISTANSE),
+    region: {
+      id: 1,
+      navn: 'Rommerike',
+      kommuner: [{ id: 3, navn: 'Hurdal' }],
+    },
   },
   {
     id: 19,
@@ -154,6 +340,11 @@ const tiltakslisteMock: Tiltak[] = [
     ingress: faker.lorem.sentence(1),
     tiltakstype: Tiltakstype.MENTOR,
     kategori: kategorivelger(Tiltakstype.MENTOR),
+    region: {
+      id: 1,
+      navn: 'Rommerike',
+      kommuner: [{ id: 3, navn: 'Hurdal' }],
+    },
   },
   {
     id: 20,
@@ -162,6 +353,11 @@ const tiltakslisteMock: Tiltak[] = [
     ingress: faker.lorem.sentence(1),
     tiltakstype: Tiltakstype.ARBEIDSRETTET_REHABILITERING,
     kategori: kategorivelger(Tiltakstype.ARBEIDSRETTET_REHABILITERING),
+    region: {
+      id: 1,
+      navn: 'Rommerike',
+      kommuner: [{ id: 3, navn: 'Hurdal' }],
+    },
   },
   {
     id: 21,
@@ -170,6 +366,11 @@ const tiltakslisteMock: Tiltak[] = [
     ingress: faker.lorem.sentence(1),
     tiltakstype: Tiltakstype.INDIVIDUELL_JOBBSTOTTE,
     kategori: kategorivelger(Tiltakstype.INDIVIDUELL_JOBBSTOTTE),
+    region: {
+      id: 2,
+      navn: 'Østre-Viken',
+      kommuner: [{ id: 3, navn: 'Sarpsborg' }],
+    },
   },
   {
     id: 22,
@@ -178,10 +379,32 @@ const tiltakslisteMock: Tiltak[] = [
     ingress: faker.lorem.sentence(1),
     tiltakstype: Tiltakstype.TILSKUDD_TIL_SOMMERJOBB,
     kategori: kategorivelger(Tiltakstype.TILSKUDD_TIL_SOMMERJOBB),
+    region: {
+      id: 2,
+      navn: 'Østre-Viken',
+      kommuner: [
+        {
+          id: 2,
+          navn: 'Ullensaker',
+        },
+        { id: 3, navn: 'Sarpsborg' },
+      ],
+    },
   },
 ];
 
 const regionlisteMock: Region[] = [
+  {
+    id: 2,
+    navn: 'Østre-Viken',
+    kommuner: [
+      {
+        id: 2,
+        navn: 'Ullensaker',
+      },
+      { id: 3, navn: 'Sarpsborg' },
+    ],
+  },
   {
     id: 1,
     navn: 'Rommerike',

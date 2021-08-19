@@ -42,6 +42,7 @@ export interface Tiltak {
   beskrivelse: String;
   tiltakstype: Tiltakstype;
   kategori: Kategori;
+  region: Region;
 }
 
 export interface Kommune {
