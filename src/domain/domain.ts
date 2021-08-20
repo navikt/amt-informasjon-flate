@@ -37,9 +37,9 @@ export enum Tiltakstype {
 
 export interface Tiltak {
   id: number;
-  tittel: String;
-  ingress: String;
-  beskrivelse: String;
+  tittel: string;
+  ingress: string;
+  beskrivelse: string;
   tiltakstype: Tiltakstype;
   kategori: Kategori;
   region: Region;

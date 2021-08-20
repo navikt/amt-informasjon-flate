@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import 'nav-frontend-tabell-style';
-import Tiltakskort, { TiltakProps } from './bildevisning/Tiltakskort';
+import { Tiltak } from '../../domain/domain';
+import Tiltakskort from './bildevisning/Tiltakskort';
 import Tiltaksliste from './listevisning/Tiltaksliste';
 import {
   isKategoriInFilter,
@@ -9,12 +10,12 @@ import {
   isRegionInFilter,
   isTiltaktypeInFilter,
 } from './TiltaksoversiktFilterUtils';
-import './Tiltak.less';
+import './bildevisning/Tiltakskort.less';
 import '../visning/TiltakOgFilterOversikt.less';
 
 const Tiltaksoversikt = () => {
-  const [tiltaksliste, setTiltaksliste] = useState<TiltakProps[]>([]);
-  const [tiltakslisteFiltrert, setTiltakslisteFiltrert] = useState<TiltakProps[]>([]);
+  const [tiltaksliste, setTiltaksliste] = useState<Tiltak[]>([]);
+  const [tiltakslisteFiltrert, setTiltakslisteFiltrert] = useState<Tiltak[]>([]);
   const bildeToggle: boolean = useSelector((state: any) => state.bildeListeVisningsReducer.bildeListeVisning);
   const filterState = useSelector((state: any) => state.filterReducer);
 
@@ -46,7 +47,7 @@ const Tiltaksoversikt = () => {
       {bildeToggle ? (
         <div className="tiltaksoversikt__bildevisning">
           {tiltakslisteFiltrert &&
-            tiltakslisteFiltrert.map((tiltak: TiltakProps) => <Tiltakskort {...tiltak} key={tiltak.id} />)}
+            tiltakslisteFiltrert.map((tiltak: Tiltak) => <Tiltakskort {...tiltak} key={tiltak.id} />)}
         </div>
       ) : (
         <Tiltaksliste tiltaksliste={tiltakslisteFiltrert} />

@@ -22,12 +22,12 @@ const Filtrering = createSlice({
   initialState,
   reducers: {
     velgRegion: (state: FilterState = initialState, action: PayloadAction<Region>) => {
-      const selectedFylke: Region = action.payload;
-      const index = state.region.findIndex(filter => filter.id === selectedFylke.id);
-      index < 0 ? state.region.push(selectedFylke) : state.region.splice(index, 1);
+      const selectedRegion: Region = action.payload;
+      const index = state.region.findIndex(filter => filter.id === selectedRegion.id);
+      index < 0 ? state.region.push(selectedRegion) : state.region.splice(index, 1);
 
       //fjerner filter på kommune hvis regionen fjernes
-      const tilhorendeKommuner = selectedFylke.kommuner;
+      const tilhorendeKommuner = selectedRegion.kommuner;
       tilhorendeKommuner?.forEach(kommune => {
         const kommuneIndex = state.kommuner.findIndex(filter => filter.id === kommune.id);
         if (kommuneIndex >= 0) state.kommuner.splice(kommuneIndex, 1);

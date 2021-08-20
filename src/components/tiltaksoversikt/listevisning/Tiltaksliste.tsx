@@ -1,10 +1,10 @@
-import TiltakRad from './TiltakRad';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { TiltakProps } from '../bildevisning/Tiltakskort';
+import TiltakRad from './TiltakRad';
+import { Tiltak } from '../../../domain/domain';
 
 export interface TiltakslisteProps {
-  tiltaksliste: Array<TiltakProps>;
+  tiltaksliste: Array<Tiltak>;
 }
 
 const Tiltaksliste = ({ tiltaksliste }: TiltakslisteProps) => {
@@ -23,8 +23,8 @@ const Tiltaksliste = ({ tiltaksliste }: TiltakslisteProps) => {
           </tr>
         </thead>
         <tbody>
-          {tiltaksliste.map((tiltak: TiltakProps) => (
-            <TiltakRad {...tiltak} key={tiltak.id} brukervisningsToggle={brukervisningsToggle} />
+          {tiltaksliste.map((tiltak: Tiltak) => (
+            <TiltakRad key={tiltak.id} tiltak={tiltak} brukervisningsToggle={brukervisningsToggle} />
           ))}
         </tbody>
       </table>
