@@ -1,9 +1,11 @@
-## Kjøre applikasjonen stand alone
+# arbeidstiltak-visning
 
-Fra `.`, kjør:
+## setup
 
-```
-npm start
-```
+opprett en .env-fil med `REACT_APP_BACKEND_API_ROOT `og `REACT_APP_ENABLE_MOCK` eller export disse.
 
-P.S. Husk og kjøre en `npm i` før du bygger
+### lokal kjøring
+`REACT_APP_BACKEND_API_ROOT=''` og `REACT_API_ROOT=true`
+
+### kjøring mot dev
+`REACT_APP:BACKEND_API_ROOT=[URL_TIL_DEV_MILJØ]` eks https://arbeidstiltak-api.dev.intern.nav.no

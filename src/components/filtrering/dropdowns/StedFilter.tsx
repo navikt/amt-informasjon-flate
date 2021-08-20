@@ -1,7 +1,7 @@
 import React from 'react';
 import Ekspanderbartpanel from 'nav-frontend-ekspanderbartpanel';
 import FylkeFilter from './FylkeFilter';
-import { regioner } from '../../../data/Geografi';
+import { regioner } from '../../../utils/Geografi';
 
 const StedFilter = () => {
   return (

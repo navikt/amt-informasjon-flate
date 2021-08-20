@@ -1,7 +1,4 @@
 import React, { SyntheticEvent, useState } from 'react';
-import Panel from 'nav-frontend-paneler';
-import Tabs from 'nav-frontend-tabs';
-import { TabProps } from 'nav-frontend-tabs/lib/tab';
 import { useHistory, useParams } from 'react-router-dom';
 import './Tiltaksvisning.less';
 import BrukerVisningsToggle from '../toggle/BrukerVisningsToggle';
@@ -11,17 +8,13 @@ import { Tilbakeknapp } from 'nav-frontend-ikonknapper';
 import { useQuery } from 'react-query';
 import NavFrontendSpinner from 'nav-frontend-spinner';
 import AlertStripe from 'nav-frontend-alertstriper';
+import Tabs from 'nav-frontend-tabs';
+import Panel from 'nav-frontend-paneler';
+import { TabProps } from 'nav-frontend-tabs/lib/tab';
 
 interface routeParams {
   id: string;
 }
-
-// export interface Tiltak {
-//   id: String;
-//   tittel: String;
-//   ingress: String;
-//   beskrivelse: String;
-// }
 
 const Tiltaksvisning = () => {
   const brukervisningsToggle = useSelector((state: any) => state.toggleReducer.brukerVisning);
@@ -30,9 +23,6 @@ const Tiltaksvisning = () => {
   const { isLoading, data, error } = useQuery('tiltak' + id, () =>
     fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak/' + id).then(res => res.json())
   );
-
-  // console.log('data', data);
-  // console.log('faner', data?.faner);
 
   const faner = Array.from(data?.faner.keys());
 
@@ -44,8 +34,8 @@ const Tiltaksvisning = () => {
     setAktivFaneBeskrivelse(data?.faner.get(faner[index]) || []);
   };
 
-  data.bilde =
-    'https://assets.website-files.com/5f0454ca439d52fef0fb4143/600e78d9b3db13ded972087f_shutterstock_1075806023-p-1600.jpeg';
+  // data.bilde =
+  //   'https://assets.website-files.com/5f0454ca439d52fef0fb4143/600e78d9b3db13ded972087f_shutterstock_1075806023-p-1600.jpeg';
 
   const history = useHistory();
 

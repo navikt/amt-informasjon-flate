@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import regionerMedKommuner from '../../data/Geografi';
+import regionerMedKommuner from '../../utils/Geografi';
 
 interface FilterState {
   fylke: string[];
