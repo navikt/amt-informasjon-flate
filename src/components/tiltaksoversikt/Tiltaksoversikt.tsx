@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import Tiltakskort, { TiltakProps } from './bildevisning/Tiltakskort';
-import './Tiltak.less';
 import { useSelector } from 'react-redux';
-import '../visning/TiltakOgFilterOversikt.less';
 import 'nav-frontend-tabell-style';
+import { Tiltak } from '../../domain/domain';
+import Tiltakskort from './bildevisning/Tiltakskort';
 import Tiltaksliste from './listevisning/Tiltaksliste';
+import {
+  isKategoriInFilter,
+  isKommuneInFilter,
+  isRegionInFilter,
+  isTiltaktypeInFilter,
+} from './TiltaksoversiktFilterUtils';
+import './bildevisning/Tiltakskort.less';
+import '../visning/TiltakOgFilterOversikt.less';
 
 const Tiltaksoversikt = () => {
-  const [tiltaksliste, setTiltaksliste] = useState<TiltakProps[]>([]);
-  const [tiltakslisteFiltrert, setTiltakslisteFiltrert] = useState<TiltakProps[]>([]);
+  const [tiltaksliste, setTiltaksliste] = useState<Tiltak[]>([]);
+  const [tiltakslisteFiltrert, setTiltakslisteFiltrert] = useState<Tiltak[]>([]);
   const bildeToggle: boolean = useSelector((state: any) => state.bildeListeVisningsReducer.bildeListeVisning);
   const filterState = useSelector((state: any) => state.filterReducer);
 
@@ -26,20 +33,21 @@ const Tiltaksoversikt = () => {
     if (tiltaksliste.length > 0) {
       const filtrertListe = tiltaksliste.filter(tiltak => {
         return (
-          (filterState.tiltakstype.length === 0 || filterState.tiltakstype.includes(tiltak.tiltakstype)) &&
-          (filterState.kategori.length === 0 || filterState.kategori.includes(tiltak.kategori))
+          isTiltaktypeInFilter(tiltak.tiltakstype, filterState.tiltakstype) &&
+          isKategoriInFilter(tiltak.kategori, filterState.kategori) &&
+          isRegionInFilter(tiltak.region, filterState.region) &&
+          isKommuneInFilter(tiltak.region.kommuner, filterState.kommuner)
         );
       });
       setTiltakslisteFiltrert(filtrertListe);
     }
   }, [filterState, tiltaksliste]);
-
   return (
     <div className="tiltaksoversikt">
       {bildeToggle ? (
         <div className="tiltaksoversikt__bildevisning">
           {tiltakslisteFiltrert &&
-            tiltakslisteFiltrert.map((tiltak: TiltakProps) => <Tiltakskort {...tiltak} key={tiltak.id} />)}
+            tiltakslisteFiltrert.map((tiltak: Tiltak) => <Tiltakskort {...tiltak} key={tiltak.id} />)}
         </div>
       ) : (
         <Tiltaksliste tiltaksliste={tiltakslisteFiltrert} />
