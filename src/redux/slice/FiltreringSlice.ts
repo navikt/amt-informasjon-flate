@@ -1,17 +1,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import regionerMedKommuner from '../../utils/Geografi';
+import { Kommune, Region } from '../../domain/domain';
 
 interface FilterState {
-  fylke: string[];
-  kommune: string[];
+  region: Region[];
+  kommuner: Kommune[];
   kategori: string[];
   tiltakstype: string[];
   innsatsgrupper: string[];
 }
 
 const initialState: FilterState = {
-  fylke: [],
-  kommune: [],
+  region: [],
+  kommuner: [],
   kategori: [],
   tiltakstype: [],
   innsatsgrupper: [],
@@ -21,20 +21,22 @@ const Filtrering = createSlice({
   name: 'filtrering',
   initialState,
   reducers: {
-    velgFylke: (state: FilterState = initialState, action: PayloadAction<string>) => {
-      const index = state.fylke.findIndex(filter => filter === action.payload);
-      index < 0 ? state.fylke.push(action.payload) : state.fylke.splice(index, 1);
+    velgRegion: (state: FilterState = initialState, action: PayloadAction<Region>) => {
+      const selectedRegion: Region = action.payload;
+      const index = state.region.findIndex(filter => filter.id === selectedRegion.id);
+      index < 0 ? state.region.push(selectedRegion) : state.region.splice(index, 1);
 
       //fjerner filter på kommune hvis regionen fjernes
-      const tilhorendeKommuner = regionerMedKommuner.get(action.payload);
+      const tilhorendeKommuner = selectedRegion.kommuner;
       tilhorendeKommuner?.forEach(kommune => {
-        const kommuneIndex = state.kommune.indexOf(kommune);
-        if (kommuneIndex >= 0) state.kommune.splice(kommuneIndex, 1);
+        const kommuneIndex = state.kommuner.findIndex(filter => filter.id === kommune.id);
+        if (kommuneIndex >= 0) state.kommuner.splice(kommuneIndex, 1);
       });
     },
-    velgKommune: (state, action: PayloadAction<string>) => {
-      const index = state.kommune.findIndex(filter => filter === action.payload);
-      index < 0 ? state.kommune.push(action.payload) : state.kommune.splice(index, 1);
+    velgKommune: (state, action: PayloadAction<Kommune>) => {
+      const selectedKommune: Kommune = action.payload;
+      const index = state.kommuner.findIndex(filter => filter.id === selectedKommune.id);
+      index < 0 ? state.kommuner.push(selectedKommune) : state.kommuner.splice(index, 1);
     },
     velgKategori: (state, action: PayloadAction<string>) => {
       const index = state.kategori.findIndex(filter => filter === action.payload);
@@ -51,6 +53,6 @@ const Filtrering = createSlice({
   },
 });
 
-export const { velgFylke, velgKommune, velgKategori, velgTiltakstype, velgInnsatsgruppe } = Filtrering.actions;
+export const { velgRegion, velgKommune, velgKategori, velgTiltakstype, velgInnsatsgruppe } = Filtrering.actions;
 
 export default Filtrering.reducer;

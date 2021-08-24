@@ -1,18 +1,23 @@
 import React from 'react';
-import '../Tiltak.less';
-import { TiltakProps } from '../bildevisning/Tiltakskort';
+import '../bildevisning/Tiltakskort.less';
+import { Tiltak } from '../../../domain/domain';
 import { Link } from 'react-router-dom';
 
-const TiltakRad = ({ id, tiltakstype, kategori, tittel, ingress, brukervisningsToggle }: TiltakProps) => {
+interface TiltakRadProps {
+  tiltak: Tiltak;
+  brukervisningsToggle?: boolean;
+}
+
+const TiltakRad = ({ tiltak, brukervisningsToggle }: TiltakRadProps) => {
   return (
     <tr>
-      {brukervisningsToggle && <td>{id}</td>}
+      {brukervisningsToggle && <td>{tiltak.id}</td>}
       <td>
-        <Link to={'tiltak/' + id}>{tittel}</Link>
+        <Link to={'tiltak/' + tiltak.id}>{tiltak.tittel}</Link>
       </td>
-      <td>{ingress}</td>
-      {brukervisningsToggle && <td>{kategori}</td>}
-      {brukervisningsToggle && <td>{tiltakstype}</td>}
+      <td>{tiltak.ingress}</td>
+      {brukervisningsToggle && <td>{tiltak.kategori}</td>}
+      {brukervisningsToggle && <td>{tiltak.tiltakstype}</td>}
     </tr>
   );
 };

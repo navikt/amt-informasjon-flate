@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "cross-env REACT_APP_DEV=true craco start",
+    "start:mock": "cross-env REACT_APP_ENABLE_MOCK=true REACT_APP_BACKEND_API_ROOT='' craco start",
     "build": "craco build",
     "build:labs": "cross-env REACT_APP_ENABLE_MOCK=true craco build",
     "eject": "craco eject",
