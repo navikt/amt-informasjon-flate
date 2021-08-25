@@ -15,13 +15,13 @@ const innsatsgrupper: Array<Innsatsgruppe> = [
 const InnsatsgruppeFilter = () => {
   const dispatch = useDispatch();
 
-  const { isLoading, data, error } = useQuery('innsatsgrupper', () =>
+  //TODO legg til data her når innsatsgrupper er i databasen
+  const { isLoading, error } = useQuery('innsatsgrupper', () =>
     fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak/innsatsgrupper').then(res => res.json())
   );
 
   return (
     <DropdownFilter
-      //bytt denne når innsatsgrupper er i databasen
       data={innsatsgrupper}
       // data={data}
       onChange={filter => dispatch(velgInnsatsgruppe(filter))}

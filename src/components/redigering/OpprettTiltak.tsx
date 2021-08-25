@@ -8,7 +8,7 @@ import { useMutation, useQueryClient } from 'react-query';
 import axios from 'axios';
 import NavFrontendSpinner from 'nav-frontend-spinner';
 import { erTomtObjekt } from '../../utils/Utils';
-import { Region, Tiltakstype } from '../../domain/Domain';
+import { Tiltakstype } from '../../domain/Domain';
 import KommuneFilter from '../filtrering/dropdowns/KommuneFilter';
 
 const postTiltak = (tittel: String, beskrivelse: String) => {
