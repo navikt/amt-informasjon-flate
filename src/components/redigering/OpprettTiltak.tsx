@@ -8,10 +8,10 @@ import { useMutation, useQueryClient } from 'react-query';
 import axios from 'axios';
 import NavFrontendSpinner from 'nav-frontend-spinner';
 import { erTomtObjekt } from '../../utils/Utils';
-import { Tiltakstype } from '../../domain/Domain';
+import { Region, Tiltakstype } from '../../domain/Domain';
 import KommuneFilter from '../filtrering/dropdowns/KommuneFilter';
 
-const postaxios = (tittel: String, beskrivelse: String) => {
+const postTiltak = (tittel: String, beskrivelse: String) => {
   return axios.post(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak', {
     tittel,
     beskrivelse,
@@ -27,7 +27,7 @@ const OpprettTiltak = () => {
 
   const queryClient = useQueryClient();
 
-  const mutation = useMutation('tiltak', () => postaxios(tittel, beskrivelse), {
+  const mutation = useMutation('tiltak', () => postTiltak(tittel, beskrivelse), {
     onSuccess: () => {
       queryClient.invalidateQueries('tiltak');
     },
