@@ -1,5 +1,5 @@
 import faker from 'faker';
-import { Kategori, Region, Tiltak, Tiltakstype } from '../domain/domain';
+import { Region, Tiltak, Tiltakstype } from '../domain/Domain';
 import { kategorivelger } from '../utils/Kategorivelger';
 
 const tiltakslisteMock: Tiltak[] = [
@@ -8,11 +8,11 @@ const tiltakslisteMock: Tiltak[] = [
     tittel: 'Truckførerkurs',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
-    tiltakstype: 'ARBEIDSMARKEDSOPPLAERING' as Tiltakstype,
-    kategori: 'KOMPETANSEHEVING' as Kategori,
+    tiltakstype: Tiltakstype.ARBEIDSMARKEDSOPPLAERING,
+    kategori: kategorivelger(Tiltakstype.ARBEIDSMARKEDSOPPLAERING),
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -27,11 +27,11 @@ const tiltakslisteMock: Tiltak[] = [
     tittel: 'Funksjonsassistanse',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
-    tiltakstype: 'FUNKSJONSASSISTANSE' as Tiltakstype,
-    kategori: 'TILRETTELEGGING' as Kategori,
+    tiltakstype: Tiltakstype.FUNKSJONSASSISTANSE,
+    kategori: kategorivelger(Tiltakstype.FUNKSJONSASSISTANSE),
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -46,11 +46,11 @@ const tiltakslisteMock: Tiltak[] = [
     tittel: 'Utvidet oppfølging',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
-    tiltakstype: 'UTVIDET_OPPFOLGING' as Tiltakstype,
-    kategori: 'KOMPETANSEHEVING' as Kategori,
+    tiltakstype: Tiltakstype.UTVIDET_OPPFOLGING,
+    kategori: kategorivelger(Tiltakstype.UTVIDET_OPPFOLGING),
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -65,11 +65,11 @@ const tiltakslisteMock: Tiltak[] = [
     tittel: 'Avklaring',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
-    tiltakstype: 'AVKLARING' as Tiltakstype,
-    kategori: 'KARTLEGGING' as Kategori,
+    tiltakstype: Tiltakstype.AVKLARING,
+    kategori: kategorivelger(Tiltakstype.AVKLARING),
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -84,11 +84,11 @@ const tiltakslisteMock: Tiltak[] = [
     tittel: 'Hundefrisør',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
-    tiltakstype: 'ARBEIDSMARKEDSOPPLAERING' as Tiltakstype,
-    kategori: 'KOMPETANSEHEVING' as Kategori,
+    tiltakstype: Tiltakstype.ARBEIDSMARKEDSOPPLAERING,
+    kategori: kategorivelger(Tiltakstype.ARBEIDSMARKEDSOPPLAERING),
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -103,11 +103,11 @@ const tiltakslisteMock: Tiltak[] = [
     tittel: 'Ekspertbistand',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
-    tiltakstype: 'EKSPERTBISTAND' as Tiltakstype,
-    kategori: 'TILRETTELEGGING' as Kategori,
+    tiltakstype: Tiltakstype.EKSPERTBISTAND,
+    kategori: kategorivelger(Tiltakstype.EKSPERTBISTAND),
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -122,11 +122,11 @@ const tiltakslisteMock: Tiltak[] = [
     tittel: 'Jobbklubb',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
-    tiltakstype: 'JOBBKLUBB' as Tiltakstype,
-    kategori: 'KOMPETANSEHEVING' as Kategori,
+    tiltakstype: Tiltakstype.JOBBKLUBB,
+    kategori: kategorivelger(Tiltakstype.JOBBKLUBB),
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -141,11 +141,11 @@ const tiltakslisteMock: Tiltak[] = [
     tittel: 'Oppfølging',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
-    tiltakstype: 'OPPFOLGING' as Tiltakstype,
-    kategori: 'KOMPETANSEHEVING' as Kategori,
+    tiltakstype: Tiltakstype.OPPFOLGING,
+    kategori: kategorivelger(Tiltakstype.OPPFOLGING),
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -160,11 +160,11 @@ const tiltakslisteMock: Tiltak[] = [
     tittel: 'Digital jobbklubb',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
-    tiltakstype: 'DIGITAL_JOBBKLUBB' as Tiltakstype,
+    tiltakstype: Tiltakstype.DIGITAL_JOBBKLUBB,
     kategori: kategorivelger(Tiltakstype.DIGITAL_JOBBKLUBB),
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -179,11 +179,11 @@ const tiltakslisteMock: Tiltak[] = [
     tittel: 'Fag- og yrkesopplæring',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
-    tiltakstype: 'FAG_OG_YRKES_OPPLAERING' as Tiltakstype,
-    kategori: 'KARTLEGGING' as Kategori,
+    tiltakstype: Tiltakstype.FAG_OG_YRKES_OPPLAERING,
+    kategori: kategorivelger(Tiltakstype.FAG_OG_YRKES_OPPLAERING),
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -198,11 +198,11 @@ const tiltakslisteMock: Tiltak[] = [
     tittel: 'Arbeidstrening',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
-    tiltakstype: 'ARBEIDSTRENING' as Tiltakstype,
-    kategori: 'TILRETTELEGGING' as Kategori,
+    tiltakstype: Tiltakstype.ARBEIDSTRENING,
+    kategori: kategorivelger(Tiltakstype.ARBEIDSTRENING),
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -217,11 +217,11 @@ const tiltakslisteMock: Tiltak[] = [
     tittel: 'Arbeidsforberedende trening',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
-    tiltakstype: 'ARBEIDSFORBEDRENDE_TRENING' as Tiltakstype,
-    kategori: 'TILRETTELEGGING' as Kategori,
+    tiltakstype: Tiltakstype.ARBEIDSFORBEDRENDE_TRENING,
+    kategori: kategorivelger(Tiltakstype.ARBEIDSFORBEDRENDE_TRENING),
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -236,11 +236,11 @@ const tiltakslisteMock: Tiltak[] = [
     tittel: 'Midlertidig lønnstilskudd',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
-    tiltakstype: 'MIDLERTIDIG_LONNSTILSKUDD' as Tiltakstype,
-    kategori: 'TILRETTELEGGING' as Kategori,
+    tiltakstype: Tiltakstype.MIDLERTIDIG_LONNSTILSKUDD,
+    kategori: kategorivelger(Tiltakstype.MIDLERTIDIG_LONNSTILSKUDD),
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -255,11 +255,11 @@ const tiltakslisteMock: Tiltak[] = [
     tittel: 'Varig lønnstilskudd',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
-    tiltakstype: 'VARIG_LONNSTILSKUDD' as Tiltakstype,
-    kategori: 'TILRETTELEGGING' as Kategori,
+    tiltakstype: Tiltakstype.VARIG_LONNSTILSKUDD,
+    kategori: kategorivelger(Tiltakstype.VARIG_LONNSTILSKUDD),
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -274,11 +274,11 @@ const tiltakslisteMock: Tiltak[] = [
     tittel: 'Varig tilrettelagt arbeid i skjermet virksomhet',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
-    tiltakstype: 'VARIG_TILRETTELAGT_ARBEID_I_SKJERMET_VIRKSOMHET' as Tiltakstype,
+    tiltakstype: Tiltakstype.VARIG_TILRETTELAGT_ARBEID_I_SKJERMET_VIRKSOMHET,
     kategori: kategorivelger(Tiltakstype.VARIG_TILRETTELAGT_ARBEID_I_SKJERMET_VIRKSOMHET),
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -293,11 +293,11 @@ const tiltakslisteMock: Tiltak[] = [
     tittel: 'Varig tilrettelagt arbeid i ordinær virksomhet',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
-    tiltakstype: 'VARIG_TILRETTELAGT_ARBEID_I_ORDINAER_VIRKSOMHET' as Tiltakstype,
-    kategori: 'TILRETTELEGGING' as Kategori,
+    tiltakstype: Tiltakstype.VARIG_TILRETTELAGT_ARBEID_I_ORDINAER_VIRKSOMHET,
+    kategori: kategorivelger(Tiltakstype.VARIG_TILRETTELAGT_ARBEID_I_ORDINAER_VIRKSOMHET),
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -312,11 +312,11 @@ const tiltakslisteMock: Tiltak[] = [
     tittel: 'Inkluderingstilskudd',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
-    tiltakstype: 'INKLUDERINGSTILSKUDD' as Tiltakstype,
-    kategori: 'TILRETTELEGGING' as Kategori,
+    tiltakstype: Tiltakstype.INKLUDERINGSTILSKUDD,
+    kategori: kategorivelger(Tiltakstype.INKLUDERINGSTILSKUDD),
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [{ id: 3, navn: 'Hurdal' }],
     },
   },
@@ -325,11 +325,11 @@ const tiltakslisteMock: Tiltak[] = [
     tittel: 'Funksjonsassistanse',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
-    tiltakstype: 'FUNKSJONSASSISTANSE' as Tiltakstype,
-    kategori: 'TILRETTELEGGING' as Kategori,
+    tiltakstype: Tiltakstype.FUNKSJONSASSISTANSE,
+    kategori: kategorivelger(Tiltakstype.FUNKSJONSASSISTANSE),
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [{ id: 3, navn: 'Hurdal' }],
     },
   },
@@ -338,11 +338,11 @@ const tiltakslisteMock: Tiltak[] = [
     tittel: 'Mentor',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
-    tiltakstype: 'MENTOR' as Tiltakstype,
-    kategori: 'TILRETTELEGGING' as Kategori,
+    tiltakstype: Tiltakstype.MENTOR,
+    kategori: kategorivelger(Tiltakstype.MENTOR),
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [{ id: 3, navn: 'Hurdal' }],
     },
   },
@@ -351,11 +351,11 @@ const tiltakslisteMock: Tiltak[] = [
     tittel: 'Arbeidsrettet rehabilitering',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
-    tiltakstype: 'ARBEIDSRETTET_REHABILITERING' as Tiltakstype,
-    kategori: 'TILRETTELEGGING' as Kategori,
+    tiltakstype: Tiltakstype.ARBEIDSRETTET_REHABILITERING,
+    kategori: kategorivelger(Tiltakstype.ARBEIDSRETTET_REHABILITERING),
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [{ id: 3, navn: 'Hurdal' }],
     },
   },
@@ -364,8 +364,8 @@ const tiltakslisteMock: Tiltak[] = [
     tittel: 'Individuell jobbstøtte',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
-    tiltakstype: 'INDIVIDUELL_JOBBSTOTTE' as Tiltakstype,
-    kategori: 'TILRETTELEGGING' as Kategori,
+    tiltakstype: Tiltakstype.INDIVIDUELL_JOBBSTOTTE,
+    kategori: kategorivelger(Tiltakstype.INDIVIDUELL_JOBBSTOTTE),
     region: {
       id: 2,
       navn: 'Østre-Viken',
@@ -377,8 +377,8 @@ const tiltakslisteMock: Tiltak[] = [
     tittel: 'Tilskudd til sommerjobb',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(1),
-    tiltakstype: 'TILSKUDD_TIL_SOMMERJOBB' as Tiltakstype,
-    kategori: 'TILRETTELEGGING' as Kategori,
+    tiltakstype: Tiltakstype.TILSKUDD_TIL_SOMMERJOBB,
+    kategori: kategorivelger(Tiltakstype.TILSKUDD_TIL_SOMMERJOBB),
     region: {
       id: 2,
       navn: 'Østre-Viken',
@@ -407,7 +407,7 @@ const regionlisteMock: Region[] = [
   },
   {
     id: 1,
-    navn: 'Rommerike',
+    navn: 'Romerike',
     kommuner: [
       {
         id: 2,

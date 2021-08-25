@@ -10,23 +10,27 @@ const mockServer = () =>
       });
     },
     routes() {
-      this.namespace = 'api';
+      this.namespace = '/api';
       this.timing = 500;
-      this.get('/tiltak', (schema, request) => {
+      this.get('/tiltak', schema => {
         return schema.db.tiltak;
       });
       this.get('/tiltak/:id', (schema, request) => {
         const id = request.params.id;
         return schema.db.tiltak.find(id);
       });
-      this.get('/tiltak/kategorier', (schema, request) => {
+      this.get('/tiltak/kategorier', () => {
         return Object.keys(Kategori);
       });
-      this.get('/tiltak/typer', (schema, request) => {
+      this.get('/tiltak/typer', () => {
         return Object.keys(Tiltakstype);
       });
-      this.get('/regioner', (schema, request) => {
+      this.get('/regioner', () => {
         return regionlisteMock;
+      });
+      this.post('/tiltak', (schema, request) => {
+        const tiltak = JSON.parse(request.requestBody);
+        return schema.db.tiltak.insert(tiltak);
       });
     },
   });

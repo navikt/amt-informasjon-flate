@@ -3,8 +3,8 @@ import { useQuery } from 'react-query';
 import AlertStripe from 'nav-frontend-alertstriper';
 import Ekspanderbartpanel from 'nav-frontend-ekspanderbartpanel';
 import NavFrontendSpinner from 'nav-frontend-spinner';
-import { Region } from '../../domain/domain';
 import RegionFilter from './RegionFilter';
+import { Region } from '../../../domain/Domain';
 
 const StedFilter = () => {
   const { isLoading, data, error } = useQuery('regioner', () =>

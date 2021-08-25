@@ -1,8 +1,8 @@
 import React from 'react';
 import { Checkbox } from 'nav-frontend-skjema';
 import { useDispatch, useSelector } from 'react-redux';
-import { velgKommune } from '../../redux/filtreringer/FiltreringSlice';
-import { Kommune } from '../../domain/domain';
+import { velgKommune } from '../../../redux/slice/FiltreringSlice';
+import { Kommune } from '../../../domain/Domain';
 
 interface KommuneFilterProps {
   kommune: Kommune;

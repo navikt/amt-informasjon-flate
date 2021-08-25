@@ -1,7 +1,7 @@
 import React from 'react';
 import Ekspanderbartpanel from 'nav-frontend-ekspanderbartpanel';
 import { Checkbox } from 'nav-frontend-skjema';
-import { formatering } from '../../../utils/Utils';
+import { stringFormatting } from '../../../utils/Utils';
 import AlertStripe from 'nav-frontend-alertstriper';
 import NavFrontendSpinner from 'nav-frontend-spinner';
 
@@ -24,7 +24,7 @@ const DropdownFilter = ({ onChange, tittel, data, isLoading, error }: DropDownFi
         {data &&
           data.map((filtreringsmulighet, index) => (
             <Checkbox
-              label={formatering(filtreringsmulighet)}
+              label={stringFormatting(filtreringsmulighet)}
               value={filtreringsmulighet}
               key={index}
               className="ekspanderbartpanel__checkbox"

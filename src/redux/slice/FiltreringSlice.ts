@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Kommune, Region } from '../../domain/domain';
+import { Kommune, Region } from '../../domain/Domain';
 
 interface FilterState {
   region: Region[];

@@ -11,6 +11,7 @@ const TiltakstypeFilter = () => {
   const { isLoading, data, error } = useQuery('tiltakstyper', () =>
     fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak/typer').then(res => res.json())
   );
+
   return (
     <DropdownFilter
       data={data}

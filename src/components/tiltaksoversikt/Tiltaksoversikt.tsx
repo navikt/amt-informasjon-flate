@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import Tiltakskort  from './bildevisning/Tiltakskort';
-import './Tiltak.less';
+import Tiltakskort from './bildevisning/Tiltakskort';
 import { useSelector } from 'react-redux';
 import '../visning/TiltakOgFilterOversikt.less';
 import 'nav-frontend-tabell-style';
-import { Tiltak } from '../../domain/domain';
+import { Tiltak } from '../../domain/Domain';
 import Tiltaksliste from './listevisning/Tiltaksliste';
 import { useQuery } from 'react-query';
 import NavFrontendSpinner from 'nav-frontend-spinner';
@@ -16,15 +15,13 @@ import {
   isTiltaktypeInFilter,
 } from './TiltaksoversiktFilterUtils';
 import './bildevisning/Tiltakskort.less';
-import '../visning/TiltakOgFilterOversikt.less';
 
 const Tiltaksoversikt = () => {
   const bildeToggle: boolean = useSelector((state: any) => state.toggleReducer.bildeListeVisning);
-  const [tiltaksliste, setTiltaksliste] = useState<Tiltak[]>([]);
   const [tiltakslisteFiltrert, setTiltakslisteFiltrert] = useState<Tiltak[]>([]);
   const filterState = useSelector((state: any) => state.filterReducer);
 
-  const { isLoading, data, error } = useQuery('tiltaksoversikt', () =>
+  const { isLoading, data, error } = useQuery('tiltak', () =>
     fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak').then(res => res.json())
   );
 
@@ -46,7 +43,7 @@ const Tiltaksoversikt = () => {
     return bildeToggle ? (
       <div className="tiltaksoversikt__bildevisning">
         {tiltakslisteFiltrert &&
-          tiltakslisteFiltrert.map((tiltak: TiltakProps) => <Tiltakskort {...tiltak} key={tiltak.id} />)}
+          tiltakslisteFiltrert.map((tiltak: Tiltak) => <Tiltakskort {...tiltak} key={tiltak.id} />)}
       </div>
     ) : (
       <Tiltaksliste tiltaksliste={tiltakslisteFiltrert} />

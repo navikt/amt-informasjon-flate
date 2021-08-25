@@ -33,6 +33,7 @@
     "@navikt/navspa": "^3.0.0",
     "@reduxjs/toolkit": "^1.6.1",
     "@types/react-collapse": "^5.0.1",
+    "axios": "^0.21.1",
     "browserlist": "^1.0.1",
     "classnames": "^2.3.1",
     "color-string": "^1.6.0",

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import TiltakRad from './TiltakRad';
-import { Tiltak } from '../../../domain/domain';
+import { Tiltak } from '../../../domain/Domain';
 
 export interface TiltakslisteProps {
   tiltaksliste: Array<Tiltak>;
