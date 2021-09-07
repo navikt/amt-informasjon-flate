@@ -5,18 +5,23 @@ import { Knapp } from 'nav-frontend-knapper';
 import { feilValidering, InputValideringsError } from '../../utils/Validering';
 import './OpprettTiltak.less';
 import { useMutation, useQueryClient } from 'react-query';
-import axios from 'axios';
 import NavFrontendSpinner from 'nav-frontend-spinner';
 import { erTomtObjekt } from '../../utils/Utils';
-import { Tiltakstype } from '../../domain/Domain';
+import { Kategori, Tiltakstype } from '../../domain/Domain';
 import KommuneFilter from '../filtrering/dropdowns/KommuneFilter';
 
 const postTiltak = (tittel: String, beskrivelse: String) => {
-  return axios.post(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak', {
-    tittel,
-    beskrivelse,
-    region: { kommuner: KommuneFilter },
-    tiltakstype: Tiltakstype,
+  return fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak', {
+    method: 'POST',
+    body: JSON.stringify({
+      tittel,
+      beskrivelse,
+      region: { kommuner: KommuneFilter },
+      tiltakstype: 'ARBEIDSFORBEDRENDE_TRENING' as Tiltakstype,
+      kategori: 'TILRETTELEGGING' as Kategori,
+    }),
+  }).then(res => {
+    res.json();
   });
 };
 
