@@ -1,4 +1,4 @@
-import { Kategori, Tiltakstype } from '../domain/domain';
+import { Kategori, Tiltakstype } from '../domain/Domain';
 
 export const kategorivelger = (tiltakstype: string) => {
   const kompetansehevingsliste: Array<string> = [

@@ -1,8 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import {Innsatsgruppe} from '../../domain/domain';
 import DropdownFilter from './DropdownFilter';
-import { velgInnsatsgruppe } from '../../redux/filtreringer/FiltreringSlice';
+import { velgInnsatsgruppe } from '../../../redux/slice/FiltreringSlice';
+import { useQuery } from 'react-query';
+import { Innsatsgruppe } from '../../../domain/Domain';
 
 const innsatsgrupper: Array<Innsatsgruppe> = [
   Innsatsgruppe.STANDARD,
@@ -14,12 +15,19 @@ const innsatsgrupper: Array<Innsatsgruppe> = [
 const InnsatsgruppeFilter = () => {
   const dispatch = useDispatch();
 
+  //TODO legg til data her når innsatsgrupper er i databasen
+  const { isLoading, error } = useQuery('innsatsgrupper', () =>
+    fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak/innsatsgrupper').then(res => res.json())
+  );
+
   return (
     <DropdownFilter
-      filtreringsmuligheter={innsatsgrupper}
+      data={innsatsgrupper}
+      // data={data}
       onChange={filter => dispatch(velgInnsatsgruppe(filter))}
       tittel="Innsatsgrupper"
-      className="custom__ekspanderbartpanel"
+      isLoading={isLoading}
+      error={error}
     />
   );
 };

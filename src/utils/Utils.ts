@@ -1,9 +1,8 @@
-export const formatering = (ord: string) => {
-  const res = ord.replaceAll('_', ' ').toLowerCase();
+export const stringFormatting = (str: string) => {
+  const res = str.replaceAll('_', ' ').toLowerCase();
   return res.charAt(0).toUpperCase() + res.slice(1);
 };
 
-//ulik kodestil på denne og den over, noe vi skal endre på?
-export function erTomtObjekt(objekt: Object): boolean {
+export const erTomtObjekt = (objekt: Object): boolean => {
   return Object.keys(objekt).length === 0;
-}
+};

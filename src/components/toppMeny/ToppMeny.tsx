@@ -6,7 +6,7 @@ import AlertStripe from 'nav-frontend-alertstriper';
 import { useSelector } from 'react-redux';
 
 function ToppMeny() {
-  const brukervisningsToggle = useSelector((state: any) => state.brukerVisningsReducer.brukerVisning);
+  const brukervisningsToggle = useSelector((state: any) => state.toggleReducer.brukerVisning);
 
   return (
     <div className="topp-meny">

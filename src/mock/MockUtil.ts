@@ -1,6 +1,7 @@
 import faker from 'faker';
-import { Kategori, Region, Tiltak, Tiltakstype } from '../domain/domain';
+
 import { kategorivelger } from '../utils/Kategorivelger';
+import { Kategori, Region, Tiltak, Tiltakstype } from '../domain/Domain';
 
 const tiltakslisteMock: Tiltak[] = [
   {
@@ -12,7 +13,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: 'KOMPETANSEHEVING' as Kategori,
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -31,7 +32,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: 'TILRETTELEGGING' as Kategori,
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -50,7 +51,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: 'KOMPETANSEHEVING' as Kategori,
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -69,7 +70,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: 'KARTLEGGING' as Kategori,
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -88,7 +89,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: 'KOMPETANSEHEVING' as Kategori,
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -107,7 +108,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: 'TILRETTELEGGING' as Kategori,
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -126,7 +127,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: 'KOMPETANSEHEVING' as Kategori,
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -145,7 +146,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: 'KOMPETANSEHEVING' as Kategori,
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -164,7 +165,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: kategorivelger(Tiltakstype.DIGITAL_JOBBKLUBB),
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -183,7 +184,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: 'KARTLEGGING' as Kategori,
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -202,7 +203,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: 'TILRETTELEGGING' as Kategori,
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -221,7 +222,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: 'TILRETTELEGGING' as Kategori,
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -240,7 +241,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: 'TILRETTELEGGING' as Kategori,
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -259,7 +260,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: 'TILRETTELEGGING' as Kategori,
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -278,7 +279,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: kategorivelger(Tiltakstype.VARIG_TILRETTELAGT_ARBEID_I_SKJERMET_VIRKSOMHET),
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -297,7 +298,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: 'TILRETTELEGGING' as Kategori,
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [
         {
           id: 2,
@@ -316,7 +317,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: 'TILRETTELEGGING' as Kategori,
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [{ id: 3, navn: 'Hurdal' }],
     },
   },
@@ -329,7 +330,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: 'TILRETTELEGGING' as Kategori,
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [{ id: 3, navn: 'Hurdal' }],
     },
   },
@@ -342,7 +343,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: 'TILRETTELEGGING' as Kategori,
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [{ id: 3, navn: 'Hurdal' }],
     },
   },
@@ -355,7 +356,7 @@ const tiltakslisteMock: Tiltak[] = [
     kategori: 'TILRETTELEGGING' as Kategori,
     region: {
       id: 1,
-      navn: 'Rommerike',
+      navn: 'Romerike',
       kommuner: [{ id: 3, navn: 'Hurdal' }],
     },
   },
@@ -407,7 +408,7 @@ const regionlisteMock: Region[] = [
   },
   {
     id: 1,
-    navn: 'Rommerike',
+    navn: 'Romerike',
     kommuner: [
       {
         id: 2,

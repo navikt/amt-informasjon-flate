@@ -1,14 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import TiltakRad from './TiltakRad';
-import { Tiltak } from '../../../domain/domain';
+import { Tiltak } from '../../../domain/Domain';
 
 export interface TiltakslisteProps {
   tiltaksliste: Array<Tiltak>;
 }
 
 const Tiltaksliste = ({ tiltaksliste }: TiltakslisteProps) => {
-  const brukervisningsToggle = useSelector((state: any) => state.brukerVisningsReducer.brukerVisning);
+  const brukervisningsToggle = useSelector((state: any) => state.toggleReducer.brukerVisning);
 
   return (
     <div className="tiltaksoversikt__listevisning">

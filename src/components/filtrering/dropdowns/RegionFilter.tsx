@@ -1,10 +1,10 @@
 import React from 'react';
 import { Checkbox } from 'nav-frontend-skjema';
 import { useDispatch, useSelector } from 'react-redux';
-import { Region } from '../../domain/domain';
 import KommuneFilter from './KommuneFilter';
-import { velgRegion } from '../../redux/filtreringer/FiltreringSlice';
-import './Filtrering.less';
+import '../Filtrering.less';
+import { Region } from '../../../domain/Domain';
+import { velgRegion } from '../../../redux/slice/FiltreringSlice';
 
 interface RegionFilterProps {
   region: Region;
