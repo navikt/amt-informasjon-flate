@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useState } from 'react';
+import React from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import './Tiltaksvisning.less';
 import BrukerVisningsToggle from '../toggle/BrukerVisningsToggle';
@@ -8,9 +8,6 @@ import { Tilbakeknapp } from 'nav-frontend-ikonknapper';
 import { useQuery } from 'react-query';
 import NavFrontendSpinner from 'nav-frontend-spinner';
 import AlertStripe from 'nav-frontend-alertstriper';
-import Tabs from 'nav-frontend-tabs';
-import Panel from 'nav-frontend-paneler';
-import { TabProps } from 'nav-frontend-tabs/lib/tab';
 
 interface routeParams {
   id: string;
@@ -23,19 +20,6 @@ const Tiltaksvisning = () => {
   const { isLoading, data, error } = useQuery('tiltak' + id, () =>
     fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak/' + id).then(res => res.json())
   );
-
-  const faner = Array.from(data?.faner.keys());
-
-  const tabs: TabProps[] = data?.faner.map((fane: String) => ({ label: fane }));
-
-  const [aktivFaneBeskrivelse, setAktivFaneBeskrivelse] = useState<Array<string>>(data?.faner.get(faner[0]) || []);
-
-  const endreInnholdsvisning = (e: SyntheticEvent<EventTarget, Event>, index: number) => {
-    setAktivFaneBeskrivelse(data?.faner.get(faner[index]) || []);
-  };
-
-  // data.bilde =
-  //   'https://assets.website-files.com/5f0454ca439d52fef0fb4143/600e78d9b3db13ded972087f_shutterstock_1075806023-p-1600.jpeg';
 
   const history = useHistory();
 
@@ -56,22 +40,13 @@ const Tiltaksvisning = () => {
         <BrukerVisningsToggle className="tiltaksvisning__brukervisningstoggle info__brukervisningstoggle" />
 
         <div className="generell-informasjon">
-          <img src={data?.bilde} alt={'bilde av ' + data?.tittel} />
+          <img src={'https://picsum.photos/500/500'} alt={'bilde av ' + data?.tittel} />
 
           <div className="beskrivelse">
             <Innholdstittel>{data?.tittel}</Innholdstittel>
             <p>{data?.ingress}</p>
             <p>{data?.beskrivelse}</p>
           </div>
-        </div>
-
-        <div className="fane__oversikt">
-          <Tabs tabs={tabs} onChange={endreInnholdsvisning} />
-        </div>
-        <div className="fane__innhold">
-          {aktivFaneBeskrivelse?.map((fane, index) => (
-            <Panel key={index}>{fane}</Panel>
-          ))}
         </div>
       </div>
     </>

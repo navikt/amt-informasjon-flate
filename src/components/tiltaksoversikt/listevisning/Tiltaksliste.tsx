@@ -11,7 +11,7 @@ const Tiltaksliste = ({ tiltaksliste }: TiltakslisteProps) => {
   const brukervisningsToggle = useSelector((state: any) => state.toggleReducer.brukerVisning);
 
   return (
-    <div className="tiltaksoversikt__listevisning">
+    <div className="tiltaksoversikt--listevisning">
       <table className="tabell tabell--stripet">
         <thead>
           <tr>

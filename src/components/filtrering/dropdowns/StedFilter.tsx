@@ -13,7 +13,7 @@ const StedFilter = () => {
   const regioner: Region[] | undefined = data;
 
   return (
-    <div className="omrade__filter">
+    <div className="filter__omrade">
       <Ekspanderbartpanel renderContentWhenClosed={true} tittel={'Velg område'} className={'stedsfilter'}>
         {isLoading && <NavFrontendSpinner />}
         {regioner && regioner.map((region, index) => <RegionFilter region={region} key={index} />)}
