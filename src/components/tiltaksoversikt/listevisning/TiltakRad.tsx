@@ -1,6 +1,6 @@
 import React from 'react';
 import '../bildevisning/Tiltakskort.less';
-import { Kategori, Tiltak, Tiltakstype } from '../../../domain/Domain';
+import { Tiltak } from '../../../domain/Domain';
 import { Link } from 'react-router-dom';
 import { stringFormatting } from '../../../utils/Utils';
 
