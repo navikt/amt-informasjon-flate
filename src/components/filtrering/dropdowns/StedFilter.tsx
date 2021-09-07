@@ -13,17 +13,15 @@ const StedFilter = () => {
   const regioner: Region[] | undefined = data;
 
   return (
-    <div className="omrade__filter">
-      <Ekspanderbartpanel renderContentWhenClosed={true} tittel={'Velg område'} className={'stedsfilter'}>
-        {isLoading && <NavFrontendSpinner />}
-        {regioner && regioner.map((region, index) => <RegionFilter region={region} key={index} />)}
-        {error && (
-          <AlertStripe type="feil" className="tiltak__alert-stripe__wrapper">
-            {'Teknisk feil'}
-          </AlertStripe>
-        )}
-      </Ekspanderbartpanel>
-    </div>
+    <Ekspanderbartpanel renderContentWhenClosed={true} tittel={'Velg område'} className={'stedsfilter'}>
+      {isLoading && <NavFrontendSpinner />}
+      {regioner && regioner.map((region, index) => <RegionFilter region={region} key={index} />)}
+      {error && (
+        <AlertStripe type="feil" className="tiltak__alert-stripe__wrapper">
+          {'Teknisk feil'}
+        </AlertStripe>
+      )}
+    </Ekspanderbartpanel>
   );
 };
 

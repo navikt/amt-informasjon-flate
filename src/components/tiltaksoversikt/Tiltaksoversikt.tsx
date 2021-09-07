@@ -41,7 +41,7 @@ const Tiltaksoversikt = () => {
 
   const bildetoggle = () => {
     return bildeToggle ? (
-      <div className="tiltaksoversikt__bildevisning">
+      <div className="tiltaksoversikt--bildevisning">
         {tiltakslisteFiltrert &&
           tiltakslisteFiltrert.map((tiltak: Tiltak) => <Tiltakskort {...tiltak} key={tiltak.id} />)}
       </div>

@@ -46,24 +46,18 @@
     gap: 2rem;
   }
 
-  .omrade__filter {
-    grid-column: 1;
-    grid-row-start: 3;
-    grid-row-end: 5;
-  }
-
   .tiltaksoversikt {
     grid-column: 2;
     grid-row: 4;
 
-    &__bildevisning {
+    &--bildevisning {
       display: grid;
       grid-template-columns: repeat(auto-fit, 15rem);
       grid-gap: 4rem;
       justify-content: space-between;
     }
 
-    &__listevisning {
+    &--listevisning {
       border: 1px solid black;
     }
   }
