@@ -37,20 +37,13 @@
     width: 50%;
   }
 
-  .filter {
-    &__wrapper {
-      grid-column: 2;
-      grid-row: 3;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      gap: 2rem;
-    }
-    &__omrade {
-      grid-column: 1;
-      grid-row-start: 3;
-      grid-row-end: 5;
-    }
+  .filter__wrapper {
+    grid-column: 2;
+    grid-row: 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
   }
 
   .tiltaksoversikt {
@@ -61,6 +54,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, 15rem);
       grid-gap: 4rem;
+      justify-content: space-between;
     }
 
     &--listevisning {
