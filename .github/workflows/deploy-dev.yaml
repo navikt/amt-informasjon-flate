@@ -5,9 +5,7 @@ on:
 env:
   IMAGE_TAG: ${{ github.sha }}
   IMAGE: ghcr.io/navikt/arbeidstiltak-visning
-#  IMAGE_LABEL: dev
   RESOURCE: .nais/nais.yaml
-#  REACT_APP_BACKEND_API_ROOT: https://arbeidstiltak-api.dev.intern.nav.no
   CI: true
   TZ: Europe/Amsterdam
   NODE_VERSION: '14.x'
@@ -62,24 +60,24 @@ jobs:
 
   deploy-dev:
     name: Deploy application to dev
+    if: github.ref == 'refs/heads/dev'
     needs:
       - build-docker-image
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
+      - uses: actions/checkout@v1
       - uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
           VARS: .nais/dev-gcp.yaml
-          VAR: image_tag=${{env.IMAGE_TAG}},image_label=${{env.IMAGE_LABEL}}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           IMAGE_LABEL: dev
           REACT_APP_BACKEND_API_ROOT: https://arbeidstiltak-api.dev.intern.nav.no
 
   deploy-labs:
     name: Deploy application to labs
+    if: github.ref == 'refs/heads/dev'
     needs:
       - build-docker-image
     runs-on: ubuntu-latest
@@ -91,6 +89,5 @@ jobs:
           CLUSTER: labs-gcp
           PRINT_PAYLOAD: true
           VARS: .nais/labs-gcp.yaml
-          VAR: image_tag=${{env.IMAGE_TAG}},image_label=${{env.IMAGE_LABEL}}
           IMAGE_LABEL: labs
           REACT_APP_BACKEND_API_ROOT: ''
