@@ -1,13 +1,13 @@
-name: Deploy (dev)
+name: Deploy (dev & labs)
 on:
   push:
     branches: [dev]
 env:
   IMAGE_TAG: ${{ github.sha }}
   IMAGE: ghcr.io/navikt/arbeidstiltak-visning
-  IMAGE_LABEL: dev
+#  IMAGE_LABEL: dev
   RESOURCE: .nais/nais.yaml
-  REACT_APP_BACKEND_API_ROOT: https://arbeidstiltak-api.dev.intern.nav.no
+#  REACT_APP_BACKEND_API_ROOT: https://arbeidstiltak-api.dev.intern.nav.no
   CI: true
   TZ: Europe/Amsterdam
   NODE_VERSION: '14.x'
@@ -75,3 +75,22 @@ jobs:
           VARS: .nais/dev-gcp.yaml
           VAR: image_tag=${{env.IMAGE_TAG}},image_label=${{env.IMAGE_LABEL}}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          IMAGE_LABEL: dev
+          REACT_APP_BACKEND_API_ROOT: https://arbeidstiltak-api.dev.intern.nav.no
+
+  deploy-labs:
+    name: Deploy application to labs
+    needs:
+      - build-docker-image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: labs-gcp
+          PRINT_PAYLOAD: true
+          VARS: .nais/labs-gcp.yaml
+          VAR: image_tag=${{env.IMAGE_TAG}},image_label=${{env.IMAGE_LABEL}}
+          IMAGE_LABEL: labs
+          REACT_APP_BACKEND_API_ROOT: ''
