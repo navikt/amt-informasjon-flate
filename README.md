@@ -1,6 +1,6 @@
 # arbeidstiltak-visning
 
-## setup
+## setup 
 
 opprett en .env-fil med `REACT_APP_BACKEND_API_ROOT `og `REACT_APP_ENABLE_MOCK` eller export disse.
 
