@@ -10,18 +10,19 @@ interface DropDownFilterProps {
   onChange: (filter: string) => void;
   tittel: string;
   isLoading: React.ReactNode;
-  error: React.ReactNode | unknown;
+  isSuccess: React.ReactNode;
+  isError: React.ReactNode | unknown;
 }
 
-const DropdownFilter = ({ onChange, tittel, data, isLoading, error }: DropDownFilterProps) => {
+const DropdownFilter = ({ onChange, tittel, data, isLoading, isError, isSuccess }: DropDownFilterProps) => {
   const className = 'custom__ekspanderbartpanel';
 
   return (
-    <div>
+    <div className={`ekspanderbartpanel__${tittel.toLocaleLowerCase().split(' ').join('-')}`}>
       <Ekspanderbartpanel renderContentWhenClosed={true} tittel={tittel} className={className}>
         {isLoading && <NavFrontendSpinner />}
 
-        {data &&
+        {isSuccess &&
           data.map((filtreringsmulighet, index) => (
             <Checkbox
               label={stringFormatting(filtreringsmulighet)}
@@ -31,7 +32,8 @@ const DropdownFilter = ({ onChange, tittel, data, isLoading, error }: DropDownFi
               onChange={() => onChange(filtreringsmulighet)}
             />
           ))}
-        {error && <AlertStripe type="feil">Feil i systemet</AlertStripe>}
+
+        {isError && <AlertStripe type="feil">Feil i systemet</AlertStripe>}
       </Ekspanderbartpanel>
     </div>
   );

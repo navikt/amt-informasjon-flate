@@ -1,22 +1,16 @@
 import React from 'react';
-import Filtreringsoversikt from '../filtrering/Filtreringsoversikt';
-import StedFilter from '../filtrering/dropdowns/StedFilter';
 import Tiltaksoversikt from '../tiltaksoversikt/Tiltaksoversikt';
 import './TiltakOgFilterOversikt.less';
-import { Innholdstittel } from 'nav-frontend-typografi';
 import Sokefelt from '../filtrering/Sokefelt';
 import BildeListeVisningsToggle from '../toggle/BildeListeVisningsToggle';
+import TiltakstypeFilter from '../filtrering/dropdowns/TiltakstypeFilter';
 
 const TiltakOgFilterOversikt = () => {
   return (
     <div className="tiltak-og-filter__grid">
-      <Innholdstittel>
-        <span>Muligheter</span>
-      </Innholdstittel>
-      <BildeListeVisningsToggle />
       <Sokefelt />
-      <StedFilter />
-      <Filtreringsoversikt />
+      <BildeListeVisningsToggle />
+      <TiltakstypeFilter />
       <Tiltaksoversikt />
     </div>
   );

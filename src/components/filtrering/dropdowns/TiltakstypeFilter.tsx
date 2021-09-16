@@ -8,7 +8,7 @@ import { velgTiltakstype } from '../../../redux/slice/FiltreringSlice';
 const TiltakstypeFilter = () => {
   const dispatch = useDispatch();
 
-  const { isLoading, data, error } = useQuery('tiltakstyper', () =>
+  const { isLoading, data, isSuccess, isError } = useQuery('tiltakstyper', () =>
     fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak/typer').then(res => res.json())
   );
 
@@ -18,7 +18,8 @@ const TiltakstypeFilter = () => {
       onChange={filter => dispatch(velgTiltakstype(filter))}
       tittel="Tiltakstyper"
       isLoading={isLoading}
-      error={error}
+      isError={isError}
+      isSuccess={isSuccess}
     />
   );
 };
