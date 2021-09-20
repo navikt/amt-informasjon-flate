@@ -1,6 +1,6 @@
 import { createServer } from 'miragejs';
-import { Kategori, Tiltakstype } from '../domain/Domain';
-import { tiltakslisteMock, regionlisteMock } from './MockUtil';
+import { Tiltakstype } from '../domain/Domain';
+import { tiltakslisteMock } from './MockUtil';
 
 const mockServer = () =>
   createServer({
@@ -19,14 +19,8 @@ const mockServer = () =>
         const id = request.params.id;
         return schema.db.tiltak.find(id);
       });
-      this.get('/tiltak/kategorier', () => {
-        return Object.keys(Kategori);
-      });
       this.get('/tiltak/typer', () => {
         return Object.keys(Tiltakstype);
-      });
-      this.get('/regioner', () => {
-        return regionlisteMock;
       });
       this.post('/tiltak', (schema, request) => {
         const tiltak = JSON.parse(request.requestBody);

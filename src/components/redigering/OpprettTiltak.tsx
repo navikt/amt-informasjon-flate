@@ -7,8 +7,6 @@ import './OpprettTiltak.less';
 import { useMutation, useQueryClient } from 'react-query';
 import NavFrontendSpinner from 'nav-frontend-spinner';
 import { erTomtObjekt } from '../../utils/Utils';
-import { Kategori, Tiltakstype } from '../../domain/Domain';
-import KommuneFilter from '../filtrering/dropdowns/KommuneFilter';
 
 const postTiltak = (tittel: String, beskrivelse: String) => {
   return fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak', {
@@ -16,9 +14,6 @@ const postTiltak = (tittel: String, beskrivelse: String) => {
     body: JSON.stringify({
       tittel,
       beskrivelse,
-      region: { kommuner: KommuneFilter },
-      tiltakstype: 'ARBEIDSFORBEDRENDE_TRENING' as Tiltakstype,
-      kategori: 'TILRETTELEGGING' as Kategori,
     }),
   }).then(res => {
     res.json();

@@ -1,19 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Tiltakskort from './bildevisning/Tiltakskort';
 import { useSelector } from 'react-redux';
-import '../visning/TiltakOgFilterOversikt.less';
+import '../body/TiltakOgFilterOversikt.less';
 import 'nav-frontend-tabell-style';
 import { Tiltak } from '../../domain/Domain';
 import Tiltaksliste from './listevisning/Tiltaksliste';
 import { useQuery } from 'react-query';
 import NavFrontendSpinner from 'nav-frontend-spinner';
 import AlertStripe from 'nav-frontend-alertstriper';
-import {
-  isKategoriInFilter,
-  isKommuneInFilter,
-  isRegionInFilter,
-  isTiltaktypeInFilter,
-} from './TiltaksoversiktFilterUtils';
+import { isTiltaktypeInFilter } from './TiltaksoversiktFilterUtils';
 import './bildevisning/Tiltakskort.less';
 
 const Tiltaksoversikt = () => {
@@ -21,23 +16,18 @@ const Tiltaksoversikt = () => {
   const [tiltakslisteFiltrert, setTiltakslisteFiltrert] = useState<Tiltak[]>([]);
   const filterState = useSelector((state: any) => state.filterReducer);
 
-  const { isLoading, data, error } = useQuery('tiltak', () =>
+  const { isLoading, isSuccess, data, isError } = useQuery('tiltak', () =>
     fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak').then(res => res.json())
   );
 
   useEffect(() => {
-    if (data) {
+    if (isSuccess) {
       const filtrertListe = data.filter((tiltak: any) => {
-        return (
-          isTiltaktypeInFilter(tiltak.tiltakstype, filterState.tiltakstype) &&
-          isKategoriInFilter(tiltak.kategori, filterState.kategori) &&
-          isRegionInFilter(tiltak.region, filterState.region) &&
-          isKommuneInFilter(tiltak.region.kommuner, filterState.kommuner)
-        );
+        return isTiltaktypeInFilter(tiltak.tiltakstype, filterState.tiltakstype);
       });
       setTiltakslisteFiltrert(filtrertListe);
     }
-  }, [filterState, data]);
+  }, [filterState, data, isSuccess]);
 
   const bildetoggle = () => {
     return bildeToggle ? (
@@ -53,8 +43,8 @@ const Tiltaksoversikt = () => {
   return (
     <div className="tiltaksoversikt">
       {isLoading && <NavFrontendSpinner />}
-      {data && bildetoggle()}
-      {error && <AlertStripe type="feil">Det har oppstått en feil</AlertStripe>}
+      {isSuccess && bildetoggle()}
+      {isError && <AlertStripe type="feil">Det har oppstått en feil</AlertStripe>}
     </div>
   );
 };

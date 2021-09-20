@@ -4,10 +4,10 @@ on:
     branches: [dev]
 env:
   IMAGE_TAG: ${{ github.sha }}
-  IMAGE: ghcr.io/navikt/arbeidstiltak-visning
+  IMAGE: ghcr.io/navikt/amt-informasjon-flate
   IMAGE_LABEL: dev
   RESOURCE: .nais/nais.yaml
-  REACT_APP_BACKEND_API_ROOT: https://arbeidstiltak-api.dev.intern.nav.no
+  REACT_APP_BACKEND_API_ROOT: https://amt-informasjon-api.dev.intern.nav.no
   CI: true
   TZ: Europe/Amsterdam
   NODE_VERSION: '14.x'

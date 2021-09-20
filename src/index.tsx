@@ -15,5 +15,5 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('arbeidstiltak-visning-root')
+  document.getElementById('amt-informasjon-flate-root')
 );

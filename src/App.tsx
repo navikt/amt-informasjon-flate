@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Decorator from './decorator/Decorator';
 import './App.less';
 import Header from './components/header/Header';
-import ToppMeny from './components/toppMeny/ToppMeny';
-import TiltakOgFilterOversikt from './components/visning/TiltakOgFilterOversikt';
+import TiltakOgFilterOversikt from './components/body/TiltakOgFilterOversikt';
 import Tiltaksvisning from './components/tiltaksvisning/Tiltaksvisning';
 import OpprettTiltak from './components/redigering/OpprettTiltak';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -25,7 +24,6 @@ function App() {
               <OpprettTiltak />
             </Route>
             <Route path="/">
-              <ToppMeny />
               <TiltakOgFilterOversikt />
             </Route>
           </Switch>

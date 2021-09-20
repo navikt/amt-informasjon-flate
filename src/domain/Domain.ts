@@ -1,16 +1,3 @@
-export enum Innsatsgruppe {
-  STANDARD = 'Standard',
-  SITUASJONSBESTEMT = 'Situasjonsbestemt',
-  SPESIELT_TILPASSET = 'Spesielt tilpasset',
-  VARIG_TILPASSET = 'Varig tilpasset',
-}
-
-export enum Kategori {
-  KARTLEGGING = 'Kartlegging',
-  KOMPETANSEHEVING = 'Kompetanseheving',
-  TILRETTELEGGING = 'Tilrettelegging',
-}
-
 export enum Tiltakstype {
   ARBEIDSFORBEDRENDE_TRENING = 'Arbeidsforberedende trening',
   ARBEIDSMARKEDSOPPLAERING = 'Arbeidsmarkedsopplæring',
@@ -21,13 +8,13 @@ export enum Tiltakstype {
   EKSPERTBISTAND = 'Ekspertbistand',
   FAG_OG_YRKES_OPPLAERING = 'Fag- og yrkesopplæring',
   FUNKSJONSASSISTANSE = 'Funksjonsassistanse',
-  HOYERE_UTDANNING = 'Høyere utdanning',
   INDIVIDUELL_JOBBSTOTTE = 'Individuell jobbstøtte',
   INKLUDERINGSTILSKUDD = 'Inkluderingstilskudd',
   JOBBKLUBB = 'Jobbklubb',
   MENTOR = 'Mentor',
   MIDLERTIDIG_LONNSTILSKUDD = 'Midlertidig lønnstilskudd',
   OPPFOLGING = 'Oppfølging',
+  OPPLAERING = 'Opplæring',
   TILSKUDD_TIL_SOMMERJOBB = 'Tilskudd til sommerjobb',
   UTVIDET_OPPFOLGING = 'Utvidet oppfølging',
   VARIG_LONNSTILSKUDD = 'Varig lønnstilskudd',
@@ -41,17 +28,4 @@ export interface Tiltak {
   ingress: string;
   beskrivelse: string;
   tiltakstype: Tiltakstype;
-  kategori: Kategori;
-  region: Region;
-}
-
-export interface Kommune {
-  id: number;
-  navn: string;
-}
-
-export interface Region {
-  id: number;
-  navn: string;
-  kommuner: Kommune[];
 }

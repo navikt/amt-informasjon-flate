@@ -2,10 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export interface ToggleState {
   bildeListeVisning: boolean;
-  brukerVisning: boolean;
 }
 
-const initialState: ToggleState = { bildeListeVisning: true, brukerVisning: true };
+const initialState: ToggleState = { bildeListeVisning: true };
 
 export const toggle = createSlice({
   name: 'toggle',
@@ -14,12 +13,9 @@ export const toggle = createSlice({
     toggleBildeListeVisning: state => {
       state.bildeListeVisning = !state.bildeListeVisning;
     },
-    toggleBrukerVisning: state => {
-      state.brukerVisning = !state.brukerVisning;
-    },
   },
 });
 
-export const { toggleBildeListeVisning, toggleBrukerVisning } = toggle.actions;
+export const { toggleBildeListeVisning } = toggle.actions;
 
 export default toggle.reducer;

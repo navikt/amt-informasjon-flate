@@ -9,10 +9,10 @@ export interface ToggleProps {
   onChange: ActionCreatorWithoutPayload;
   venstreTekst: string;
   hoyreTekst: string;
-  id?: string;
+  className?: string;
 }
 
-const Toggle = ({ toggle, onChange, venstreTekst, hoyreTekst, id }: ToggleProps) => {
+const Toggle = ({ toggle, onChange, venstreTekst, hoyreTekst, className }: ToggleProps) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,12 +33,13 @@ const Toggle = ({ toggle, onChange, venstreTekst, hoyreTekst, id }: ToggleProps)
   }, [toggle, hoyreTekst, venstreTekst]);
 
   return (
-    <div className="switch-button" id={id}>
+    <div className={classNames('switch-button', className)}>
       <input
         className="switch-button__checkbox"
         type="checkbox"
         onChange={() => dispatch(onChange())}
         id="switch-button"
+        checked={!toggle}
       />
       <label className="switch-button-label" htmlFor="switch-button">
         <span className={classNames('switch-button__venstre-tekst', venstreTekst)}>{venstreTekst}</span>
