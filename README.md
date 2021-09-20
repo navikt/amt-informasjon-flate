@@ -1,4 +1,4 @@
-# arbeidstiltak-visning
+# amt-informasjon-flate
 
 ## setup
 
@@ -14,4 +14,4 @@ der etter kjør
 
 ### kjøring mot dev
 
-`REACT_APP:BACKEND_API_ROOT=[URL_TIL_DEV_MILJØ]` eks https://arbeidstiltak-api.dev.intern.nav.no
+`REACT_APP:BACKEND_API_ROOT=[URL_TIL_DEV_MILJØ]` eks https://amt-informasjon-api.dev.intern.nav.no

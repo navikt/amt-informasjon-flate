@@ -4,7 +4,7 @@ on:
     branches: [dev]
 env:
   IMAGE_TAG: ${{ github.sha }}
-  IMAGE: ghcr.io/navikt/arbeidstiltak-visning
+  IMAGE: ghcr.io/navikt/amt-informasjon-flate
   IMAGE_LABEL: labs
   RESOURCE: .nais/nais.yaml
   REACT_APP_BACKEND_API_ROOT: ''
