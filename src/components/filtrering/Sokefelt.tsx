@@ -13,6 +13,7 @@ const Sokefelt = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSok(e.target.value);
+    dispatch(skrivSokefelt(sok))
   };
 
   return (

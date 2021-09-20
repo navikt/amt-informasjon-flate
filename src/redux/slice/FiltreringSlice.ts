@@ -19,7 +19,6 @@ const Filtrering = createSlice({
       index < 0 ? state.tiltakstype.push(action.payload) : state.tiltakstype.splice(index, 1);
     },
     skrivSokefelt: (state, action: PayloadAction<string>) => {
-      //todo - legg til action
       state.sokefelt = action.payload;
     },
   },
