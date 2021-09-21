@@ -26,30 +26,32 @@
     grid-row: 2;
     justify-self: center;
 
-    .tiltaksvisning__topptekst {
-      display: flex;
-      justify-content: space-between;
-      margin: 1rem 0;
+    .tiltaksvisning {
+      &__topptekst {
+        display: flex;
+        justify-content: space-between;
+        margin: 1rem 0;
 
-      .topptekst__tiltaksnummer {
-        align-self: end;
+        .topptekst__tiltaksnummer {
+          align-self: end;
+        }
       }
-    }
 
-    .tiltaksvisning__bilde {
-      height: auto;
-      max-width: 100%;
-      max-height: 50vh;
-    }
+      &__bilde {
+        height: auto;
+        max-width: 100%;
+        max-height: 50vh;
+      }
 
-    .tiltaksvisning__beskrivelse {
-      margin-top: -150px;
-      position: relative;
-      margin-left: auto;
-      width: 70%;
-      background-color: @navLysGra;
-      padding: 2rem;
-      box-shadow: 10px 10px @nav_teal;
+      &__beskrivelse {
+        margin-top: -150px;
+        position: relative;
+        margin-left: auto;
+        width: 70%;
+        background-color: @navLysGra;
+        padding: 2rem;
+        box-shadow: 10px 10px @nav_teal;
+      }
     }
   }
 }
