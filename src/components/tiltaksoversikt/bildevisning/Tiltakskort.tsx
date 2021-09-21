@@ -4,7 +4,7 @@ import { Undertittel } from 'nav-frontend-typografi';
 import { Tiltak } from '../../../domain/Domain';
 import './Tiltakskort.less';
 
-const Tiltakskort = ({ tittel, beskrivelse, id }: Tiltak) => {
+const Tiltakskort = ({ tittel, ingress, id }: Tiltak) => {
   const imgUrl = 'https://picsum.photos/200/300';
 
   return (
@@ -13,7 +13,7 @@ const Tiltakskort = ({ tittel, beskrivelse, id }: Tiltak) => {
         <img src={imgUrl} alt={tittel} />
         <div>
           <Undertittel className="tiltakskort__tittel">{tittel}</Undertittel>
-          <p>{beskrivelse}</p>
+          <p>{ingress}</p>
         </div>
       </div>
     </Link>

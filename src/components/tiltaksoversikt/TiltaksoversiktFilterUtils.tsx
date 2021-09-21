@@ -5,6 +5,6 @@ export const isTiltaktypeInFilter = (tiltakstype: Tiltakstype, filterlistetiltak
 };
 
 export const isSearchTextInFilter  = (tiltak: Tiltak, searchText: string)=>{
-  return tiltak.tittel.toLowerCase().includes(searchText.toLowerCase()) || tiltak.beskrivelse.toLowerCase().includes((searchText.toLowerCase()))
+  return tiltak.tittel.toLowerCase().includes(searchText.toLowerCase()) || tiltak.ingress.toLowerCase().includes((searchText.toLowerCase()))
 }
 
