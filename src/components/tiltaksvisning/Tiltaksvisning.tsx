@@ -9,6 +9,7 @@ import NavFrontendSpinner from 'nav-frontend-spinner';
 import AlertStripe from 'nav-frontend-alertstriper';
 import { Knapp } from 'nav-frontend-knapper';
 import Lenke from 'nav-frontend-lenker';
+import { stringFormatting } from '../../utils/Utils';
 
 interface routeParams {
   id: string;
@@ -50,6 +51,7 @@ const Tiltaksvisning = () => {
         </div>
         <img className="tiltaksvisning__bilde" src="https://picsum.photos/500/500" alt={'Bilde av ' + data?.tittel} />
         <div className="tiltaksvisning__beskrivelse">
+          <p>Tiltakstype: {data?.tiltakstype}</p>
           <p>{data?.ingress}</p>
           <p>{data?.beskrivelse}</p>
         </div>
