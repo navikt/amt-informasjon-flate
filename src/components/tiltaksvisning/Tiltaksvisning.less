@@ -1,108 +1,56 @@
 @import '../../App.less';
 @import '~nav-frontend-core/less/core';
 
-.tiltaksvisning__grid {
-  display: grid;
-  grid-template-columns: 15vw 1fr 15vw;
-  grid-template-rows: 4rem auto 3rem auto;
-
-  .tilbakeknapp {
+.tiltaksvisning {
+  &__grid {
+    display: grid;
+    grid-template-columns: 8rem 1fr auto;
+    grid-template-rows: auto auto auto auto;
+    grid-row-gap: 1rem;
+  }
+  &__tilbakeknapp {
     grid-row: 1;
     grid-column: 1;
     padding: 0.5rem;
   }
 
-  .tiltaksnummer {
-    .tilbakeknapp;
-    grid-column: 2;
-    align-self: center;
-  }
-
-  .tiltaksvisning__brukervisningstoggle {
+  &__rediger-knapp {
     grid-row: 1;
     grid-column: 3;
-    justify-self: end;
+    text-decoration: none;
+
   }
 
-  .generell-informasjon {
+  &__informasjon {
     grid-column: 2;
-    grid-row: 2/4;
+    grid-row: 2;
+    justify-self: center;
 
-    img {
+    .tiltaksvisning__topptekst {
+      display: flex;
+      justify-content: space-between;
+      margin: 1rem 0;
+
+      .topptekst__tiltaksnummer {
+        margin-right: 6.5rem;
+        align-self: center;
+      }
+    }
+
+    .tiltaksvisning__bilde {
       height: auto;
       max-width: 100%;
       max-height: 50vh;
     }
 
-    .beskrivelse {
+    .tiltaksvisning__beskrivelse {
       margin-top: -150px;
       position: relative;
       margin-left: auto;
       width: 67%;
       background-color: @navLysGra;
       padding: 2rem;
-
       box-shadow: 10px 10px @nav_teal;
-
-      h1 {
-        text-align: center;
-        margin: auto;
-      }
-    }
-  }
-
-  .fane__oversikt {
-    grid-column: 1 / 4;
-    grid-row-start: 4;
-    background-color: rgba(179, 193, 0, 0.4);
-    padding-top: 0.7rem;
-    margin-top: 3rem;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom: 4px solid @nav_teal;
-
-    .nav-frontend-tabs {
-      border: 0;
-
-      &__tab-list {
-        justify-content: space-evenly;
-      }
-
-      &__tab-inner {
-        background-color: white;
-
-        &--aktiv {
-          padding-bottom: calc(0.3rem + 4px);
-          margin-bottom: -4px;
-          background-color: @navLysGra;
-          border-bottom: 0;
-          box-shadow: none;
-        }
-
-        .nav-frontend-tabs__tab-label {
-          .remove-link-style;
-        }
-      }
-    }
-  }
-
-  .fane__innhold {
-    grid-row: 5;
-    grid-column: 1 / 4;
-    background-color: @navLysGra;
-    width: 100%;
-    padding: 3.5rem 0;
-
-    .panel {
-      margin: auto;
-      margin-top: 2rem;
-      width: 70%;
-      background-color: white;
-      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    }
-
-    .panel :first-child {
-      margin-top: 0;
     }
   }
 }

@@ -5,7 +5,7 @@ import './App.less';
 import Header from './components/header/Header';
 import TiltakOgFilterOversikt from './components/body/TiltakOgFilterOversikt';
 import Tiltaksvisning from './components/tiltaksvisning/Tiltaksvisning';
-import OpprettTiltak from './components/redigering/OpprettTiltak';
+import RedigerTiltak from './components/redigering/RedigerTiltak';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 function App() {
@@ -20,8 +20,8 @@ function App() {
             <Route path="/tiltak/:id">
               <Tiltaksvisning />
             </Route>
-            <Route path="/admin/opprett-tiltak">
-              <OpprettTiltak />
+            <Route path="/admin/rediger-tiltak">
+              <RedigerTiltak />
             </Route>
             <Route path="/">
               <TiltakOgFilterOversikt />
