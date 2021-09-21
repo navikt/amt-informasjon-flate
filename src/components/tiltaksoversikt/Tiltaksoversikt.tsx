@@ -8,7 +8,7 @@ import Tiltaksliste from './listevisning/Tiltaksliste';
 import { useQuery } from 'react-query';
 import NavFrontendSpinner from 'nav-frontend-spinner';
 import AlertStripe from 'nav-frontend-alertstriper';
-import { isTiltaktypeInFilter } from './TiltaksoversiktFilterUtils';
+import { isTiltaktypeInFilter, isSearchTextInFilter } from './TiltaksoversiktFilterUtils';
 import './bildevisning/Tiltakskort.less';
 
 const Tiltaksoversikt = () => {
@@ -23,7 +23,7 @@ const Tiltaksoversikt = () => {
   useEffect(() => {
     if (isSuccess) {
       const filtrertListe = data.filter((tiltak: any) => {
-        return isTiltaktypeInFilter(tiltak.tiltakstype, filterState.tiltakstype);
+        return isTiltaktypeInFilter(tiltak.tiltakstype, filterState.tiltakstype) && isSearchTextInFilter(tiltak, filterState.sokefelt);
       });
       setTiltakslisteFiltrert(filtrertListe);
     }

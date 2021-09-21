@@ -11,15 +11,11 @@ const Sokefelt = () => {
 
   useDebounce(() => dispatch(skrivSokefelt(sok)), 500, [sok]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSok(e.target.value);
-  };
-
   return (
     <Input
       label="Søk etter mulighet:"
       className="sok-mulighet"
-      onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e)}
+      onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSok(e.target.value)}
       value={sok}
     />
   );
