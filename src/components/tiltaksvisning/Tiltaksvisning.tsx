@@ -9,7 +9,6 @@ import NavFrontendSpinner from 'nav-frontend-spinner';
 import AlertStripe from 'nav-frontend-alertstriper';
 import { Knapp } from 'nav-frontend-knapper';
 import Lenke from 'nav-frontend-lenker';
-import { stringFormatting } from '../../utils/Utils';
 
 interface routeParams {
   id: string;
