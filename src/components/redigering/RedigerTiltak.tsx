@@ -3,10 +3,11 @@ import AlertStripe from 'nav-frontend-alertstriper';
 import { Input } from 'nav-frontend-skjema';
 import { Knapp } from 'nav-frontend-knapper';
 import { feilValidering, InputValideringsError } from '../../utils/Validering';
-import './OpprettTiltak.less';
+import './RedigerTiltak.less';
 import { useMutation, useQueryClient } from 'react-query';
 import NavFrontendSpinner from 'nav-frontend-spinner';
 import { erTomtObjekt } from '../../utils/Utils';
+import RadiogruppeTiltakstype from './RadiogruppeTiltakstype';
 
 const postTiltak = (tittel: String, beskrivelse: String) => {
   return fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak', {
@@ -20,7 +21,7 @@ const postTiltak = (tittel: String, beskrivelse: String) => {
   });
 };
 
-const OpprettTiltak = () => {
+const RedigerTiltak = () => {
   const [tittel, setTittel] = useState<String>('');
   const [beskrivelse, setBeskrivelse] = useState<String>('');
   const [feilmelding, setFeilmelding] = useState({} as InputValideringsError);
@@ -54,30 +55,31 @@ const OpprettTiltak = () => {
         value={tittel.valueOf()}
         feil={feilmelding.tittel}
       />
-      <br />
+
       <Input
         label="beskrivelse"
         onChange={e => setBeskrivelse(e.target.value)}
         value={beskrivelse.valueOf()}
         feil={feilmelding.beskrivelse}
       />
-      <br />
+
+      <RadiogruppeTiltakstype />
+
       <Knapp htmlType="submit" spinner={mutation.isLoading}>
         Legg til tiltak
       </Knapp>
-      <br />
 
       {mutation.isLoading && <NavFrontendSpinner />}
 
-      {mutation.isSuccess && <AlertStripe type="suksess">Tiltak opprettet</AlertStripe>}
+      {mutation.isSuccess && <AlertStripe type="suksess">Tiltak redigert</AlertStripe>}
 
       {mutation.isError && (
         <AlertStripe type="feil" className="tiltak__alert-stripe__wrapper">
-          Kunne ikke opprette tiltak. Det har oppstått en feil.
+          Kunne ikke redigere tiltak. Det har oppstått en feil.
         </AlertStripe>
       )}
     </form>
   );
 };
 
-export default OpprettTiltak;
+export default RedigerTiltak;
