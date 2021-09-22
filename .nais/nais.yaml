@@ -7,7 +7,7 @@ metadata:
     team: amt
 spec:
   image: {{image}}-{{image_label}}:{{image_tag}}
-  port: 80:8080
+  port: "80:8080"
   {{#if ingresses}}
   ingresses:
     {{#each ingresses}}
