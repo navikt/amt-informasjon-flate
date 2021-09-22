@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Undertittel } from 'nav-frontend-typografi';
-import { Tiltak } from '../../../domain/Domain';
+import { Tiltakstype } from '../../../domain/Domain';
 import './Tiltakskort.less';
 
-const Tiltakskort = ({ tittel, ingress, id }: Tiltak) => {
+const Tiltakskort = ({ tittel, ingress, id }: Tiltakstype) => {
   const imgUrl = 'https://picsum.photos/200/300';
 
   return (
-    <Link to={'tiltak/' + id} className="remove-link-style">
+    <Link to={'tiltakstyper/' + id} className="remove-link-style">
       <div className="tiltakskort">
         <img src={imgUrl} alt={tittel} />
         <div>

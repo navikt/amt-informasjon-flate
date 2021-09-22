@@ -17,7 +17,7 @@ function App() {
         <Header />
         <div className="main-app">
           <Switch>
-            <Route path="/tiltak/:id">
+            <Route path="/tiltakstyper/:id">
               <Tiltaksvisning />
             </Route>
             <Route path="/admin/rediger-tiltak">

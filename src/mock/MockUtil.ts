@@ -1,161 +1,139 @@
 import faker from 'faker';
-import { Tiltak, Tiltakstype } from '../domain/Domain';
+import { Tiltakstype } from '../domain/Domain';
 
-const tiltakslisteMock: Tiltak[] = [
+const tiltakstypelisteMock: Tiltakstype[] = [
   {
     id: 1,
     tittel: 'Opplæring',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(10),
-    tiltakstype: 'OPPLAERING' as Tiltakstype,
   },
   {
     id: 2,
     tittel: 'Funksjonsassistanse',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(10),
-    tiltakstype: 'FUNKSJONSASSISTANSE' as Tiltakstype,
   },
   {
     id: 3,
     tittel: 'Utvidet oppfølging',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(10),
-    tiltakstype: 'UTVIDET_OPPFOLGING' as Tiltakstype,
   },
   {
     id: 4,
     tittel: 'Avklaring',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(10),
-    tiltakstype: 'AVKLARING' as Tiltakstype,
   },
   {
     id: 5,
     tittel: 'Arbeidsmarkedsopplæring (AMO)',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(10),
-    tiltakstype: 'ARBEIDSMARKEDSOPPLAERING' as Tiltakstype,
   },
   {
     id: 6,
     tittel: 'Ekspertbistand',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(10),
-    tiltakstype: 'EKSPERTBISTAND' as Tiltakstype,
   },
   {
     id: 7,
     tittel: 'Jobbklubb',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(10),
-    tiltakstype: 'JOBBKLUBB' as Tiltakstype,
   },
   {
     id: 8,
     tittel: 'Oppfølging',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(10),
-    tiltakstype: 'OPPFOLGING' as Tiltakstype,
   },
   {
     id: 9,
     tittel: 'Digital jobbklubb',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(10),
-    tiltakstype: 'DIGITAL_JOBBKLUBB' as Tiltakstype,
   },
   {
     id: 10,
     tittel: 'Fag- og yrkesopplæring',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(10),
-    tiltakstype: 'FAG_OG_YRKES_OPPLAERING' as Tiltakstype,
   },
   {
     id: 11,
     tittel: 'Arbeidstrening',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(10),
-    tiltakstype: 'ARBEIDSTRENING' as Tiltakstype,
   },
   {
     id: 12,
     tittel: 'Arbeidsforberedende trening',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(10),
-    tiltakstype: 'ARBEIDSFORBEDRENDE_TRENING' as Tiltakstype,
   },
   {
     id: 13,
     tittel: 'Midlertidig lønnstilskudd',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(10),
-    tiltakstype: 'MIDLERTIDIG_LONNSTILSKUDD' as Tiltakstype,
   },
   {
     id: 14,
     tittel: 'Varig lønnstilskudd',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(10),
-    tiltakstype: 'VARIG_LONNSTILSKUDD' as Tiltakstype,
   },
   {
     id: 15,
     tittel: 'Varig tilrettelagt arbeid i skjermet virksomhet',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(10),
-    tiltakstype: 'VARIG_TILRETTELAGT_ARBEID_I_SKJERMET_VIRKSOMHET' as Tiltakstype,
   },
   {
     id: 16,
     tittel: 'Varig tilrettelagt arbeid i ordinær virksomhet',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(10),
-    tiltakstype: 'VARIG_TILRETTELAGT_ARBEID_I_ORDINAER_VIRKSOMHET' as Tiltakstype,
   },
   {
     id: 17,
     tittel: 'Inkluderingstilskudd',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(10),
-    tiltakstype: 'INKLUDERINGSTILSKUDD' as Tiltakstype,
   },
   {
     id: 18,
     tittel: 'Funksjonsassistanse i arbeidslivet',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(10),
-    tiltakstype: 'FUNKSJONSASSISTANSE' as Tiltakstype,
   },
   {
     id: 19,
     tittel: 'Mentor',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(10),
-    tiltakstype: 'MENTOR' as Tiltakstype,
   },
   {
     id: 20,
     tittel: 'Arbeidsrettet rehabilitering',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(10),
-    tiltakstype: 'ARBEIDSRETTET_REHABILITERING' as Tiltakstype,
   },
   {
     id: 21,
     tittel: 'Individuell jobbstøtte',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(10),
-    tiltakstype: 'INDIVIDUELL_JOBBSTOTTE' as Tiltakstype,
   },
   {
     id: 22,
     tittel: 'Tilskudd til sommerjobb',
     beskrivelse: faker.lorem.paragraph(1),
     ingress: faker.lorem.sentence(10),
-    tiltakstype: 'TILSKUDD_TIL_SOMMERJOBB' as Tiltakstype,
   },
 ];
 
-export { tiltakslisteMock };
+export { tiltakstypelisteMock };
