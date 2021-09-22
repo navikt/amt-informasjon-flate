@@ -4,7 +4,7 @@ metadata:
   name: amt-informasjon-flate
   namespace: {{namespace}}
   labels:
-    team: pto
+    team: team-valp
 spec:
   image: {{image}}-{{image_label}}:{{image_tag}}
   port: 80
