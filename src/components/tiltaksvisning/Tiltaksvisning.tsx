@@ -17,8 +17,8 @@ interface routeParams {
 const Tiltaksvisning = () => {
   const { id }: routeParams = useParams();
 
-  const { isLoading, data, isError } = useQuery('tiltak' + id, () =>
-    fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak/' + id).then(res => res.json())
+  const { isLoading, data, isError } = useQuery('tiltakstyper' + id, () =>
+    fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltakstyper/' + id).then(res => res.json())
   );
 
   const history = useHistory();

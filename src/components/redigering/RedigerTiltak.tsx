@@ -7,14 +7,14 @@ import './RedigerTiltak.less';
 import { useMutation, useQueryClient } from 'react-query';
 import NavFrontendSpinner from 'nav-frontend-spinner';
 import { erTomtObjekt } from '../../utils/Utils';
-import RadiogruppeTiltakstype from './RadiogruppeTiltakstype';
 
-const postTiltak = (tittel: String, beskrivelse: String) => {
-  return fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak', {
+const postTiltak = (tittel: String, beskrivelse: String, ingress: String) => {
+  return fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltakstyper', {
     method: 'POST',
     body: JSON.stringify({
       tittel,
       beskrivelse,
+      ingress,
     }),
   }).then(res => {
     res.json();
@@ -24,19 +24,20 @@ const postTiltak = (tittel: String, beskrivelse: String) => {
 const RedigerTiltak = () => {
   const [tittel, setTittel] = useState<String>('');
   const [beskrivelse, setBeskrivelse] = useState<String>('');
+  const [ingress, setIngress] = useState<String>('');
   const [feilmelding, setFeilmelding] = useState({} as InputValideringsError);
 
   const queryClient = useQueryClient();
 
-  const mutation = useMutation('tiltak', () => postTiltak(tittel, beskrivelse), {
+  const mutation = useMutation('tiltakstyper', () => postTiltak(tittel, beskrivelse, ingress), {
     onSuccess: () => {
-      queryClient.invalidateQueries('tiltak');
+      queryClient.invalidateQueries('tiltakstyper');
     },
   });
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const feilValideringsresponse: InputValideringsError = feilValidering(tittel, beskrivelse);
+    const feilValideringsresponse: InputValideringsError = feilValidering(tittel, beskrivelse, ingress);
     setFeilmelding(feilValideringsresponse);
 
     if (erTomtObjekt(feilValideringsresponse)) {
@@ -45,6 +46,7 @@ const RedigerTiltak = () => {
 
     setTittel('');
     setBeskrivelse('');
+    setIngress('')
   };
 
   return (
@@ -62,8 +64,14 @@ const RedigerTiltak = () => {
         value={beskrivelse.valueOf()}
         feil={feilmelding.beskrivelse}
       />
+      <Input
+        label="ingress"
+        onChange={e => setIngress(e.target.value)}
+        value={ingress.valueOf()}
+        feil={feilmelding.ingress}
+      />
 
-      <RadiogruppeTiltakstype />
+
 
       <Knapp htmlType="submit" spinner={mutation.isLoading}>
         Legg til tiltak

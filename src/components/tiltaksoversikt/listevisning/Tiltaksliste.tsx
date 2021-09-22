@@ -1,9 +1,9 @@
 import React from 'react';
 import TiltakRad from './TiltakRad';
-import { Tiltak } from '../../../domain/Domain';
+import { Tiltakstype } from '../../../domain/Domain';
 
 export interface TiltakslisteProps {
-  tiltaksliste: Array<Tiltak>;
+  tiltaksliste: Array<Tiltakstype>;
 }
 
 const Tiltaksliste = ({ tiltaksliste }: TiltakslisteProps) => {
@@ -15,12 +15,11 @@ const Tiltaksliste = ({ tiltaksliste }: TiltakslisteProps) => {
             <th>ID</th>
             <th>Tittel</th>
             <th>Ingress</th>
-            <th>Tiltakstype</th>
           </tr>
         </thead>
         <tbody>
-          {tiltaksliste.map((tiltak: Tiltak) => (
-            <TiltakRad key={tiltak.id} tiltak={tiltak} />
+          {tiltaksliste.map((tiltakstype: Tiltakstype) => (
+            <TiltakRad key={tiltakstype.id} tiltak={tiltakstype} />
           ))}
         </tbody>
       </table>

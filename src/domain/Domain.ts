@@ -1,4 +1,4 @@
-export enum Tiltakstype {
+/*export enum Tiltakstype {
   ARBEIDSFORBEDRENDE_TRENING = 'Arbeidsforberedende trening',
   ARBEIDSMARKEDSOPPLAERING = 'Arbeidsmarkedsopplæring',
   ARBEIDSRETTET_REHABILITERING = 'Arbeidsrettet rehabilitering',
@@ -20,12 +20,11 @@ export enum Tiltakstype {
   VARIG_LONNSTILSKUDD = 'Varig lønnstilskudd',
   VARIG_TILRETTELAGT_ARBEID_I_ORDINAER_VIRKSOMHET = 'Varig tilrettelagt arbeid i ordinær virksomhet',
   VARIG_TILRETTELAGT_ARBEID_I_SKJERMET_VIRKSOMHET = 'Varig tilrettelagt arbeid i skjermet virksomhet',
-}
+}*/
 
-export interface Tiltak {
+export interface Tiltakstype {
   id: number;
   tittel: string;
   ingress: string;
   beskrivelse: string;
-  tiltakstype: Tiltakstype;
 }

@@ -1,29 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import Tiltakskort from './bildevisning/Tiltakskort';
 import { useSelector } from 'react-redux';
-import '../body/TiltakOgFilterOversikt.less';
-import 'nav-frontend-tabell-style';
-import { Tiltak } from '../../domain/Domain';
-import Tiltaksliste from './listevisning/Tiltaksliste';
 import { useQuery } from 'react-query';
 import NavFrontendSpinner from 'nav-frontend-spinner';
 import AlertStripe from 'nav-frontend-alertstriper';
-import { isTiltaktypeInFilter, isSearchTextInFilter } from './TiltaksoversiktFilterUtils';
+import 'nav-frontend-tabell-style';
+import Tiltakskort from './bildevisning/Tiltakskort';
+import { Tiltakstype } from '../../domain/Domain';
+import Tiltaksliste from './listevisning/Tiltaksliste';
+import { isSearchTextInFilter } from './TiltaksoversiktFilterUtils';
 import './bildevisning/Tiltakskort.less';
+import '../body/TiltakOgFilterOversikt.less';
 
 const Tiltaksoversikt = () => {
   const bildeToggle: boolean = useSelector((state: any) => state.toggleReducer.bildeListeVisning);
-  const [tiltakslisteFiltrert, setTiltakslisteFiltrert] = useState<Tiltak[]>([]);
+  const [tiltakslisteFiltrert, setTiltakslisteFiltrert] = useState<Tiltakstype[]>([]);
   const filterState = useSelector((state: any) => state.filterReducer);
 
-  const { isLoading, isSuccess, data, isError } = useQuery('tiltak', () =>
-    fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltak').then(res => res.json())
+  const { isLoading, isSuccess, data, isError } = useQuery('tiltakstyper', () =>
+    fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltakstyper').then(res => res.json())
   );
 
   useEffect(() => {
     if (isSuccess) {
       const filtrertListe = data.filter((tiltak: any) => {
-        return isTiltaktypeInFilter(tiltak.tiltakstype, filterState.tiltakstype) && isSearchTextInFilter(tiltak, filterState.sokefelt);
+        return  isSearchTextInFilter(tiltak, filterState.sokefelt);
       });
       setTiltakslisteFiltrert(filtrertListe);
     }
@@ -33,7 +33,7 @@ const Tiltaksoversikt = () => {
     return bildeToggle ? (
       <div className="tiltaksoversikt--bildevisning">
         {tiltakslisteFiltrert &&
-          tiltakslisteFiltrert.map((tiltak: Tiltak) => <Tiltakskort {...tiltak} key={tiltak.id} />)}
+          tiltakslisteFiltrert.map((tiltak: Tiltakstype) => <Tiltakskort {...tiltak} key={tiltak.id} />)}
       </div>
     ) : (
       <Tiltaksliste tiltaksliste={tiltakslisteFiltrert} />
