@@ -5,6 +5,8 @@ metadata:
   namespace: {{namespace}}
   labels:
     team: amt
+  annotations:
+    nais.io/security-does-not-matter: "true"
 spec:
   image: {{image}}-{{image_label}}:{{image_tag}}
   port: "80:8080"
