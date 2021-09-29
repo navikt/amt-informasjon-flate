@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react';
 
-export default function useTimeout(callback: () => { payload: string; type: string; }, delay: number | undefined) {
+export default function useTimeout(callback: () => { payload: string; type: string }, delay: number | undefined) {
   const callbackRef = useRef(callback);
   const timeoutRef: any = useRef();
 

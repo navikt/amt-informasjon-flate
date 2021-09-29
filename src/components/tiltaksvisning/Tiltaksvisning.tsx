@@ -9,6 +9,7 @@ import NavFrontendSpinner from 'nav-frontend-spinner';
 import AlertStripe from 'nav-frontend-alertstriper';
 import { Knapp } from 'nav-frontend-knapper';
 import Lenke from 'nav-frontend-lenker';
+import { ReactComponent as Edit } from '../../ikoner/Edit.svg';
 
 interface routeParams {
   id: string;
@@ -31,15 +32,13 @@ const Tiltaksvisning = () => {
     return <AlertStripe type="feil">Det skjedde en feil</AlertStripe>;
   }
 
-
-
   return (
     <div className="tiltaksvisning__grid">
       <Tilbakeknapp className="tiltaksvisning__tilbakeknapp" onClick={() => history.push('/')} />
 
-      <Lenke href={'../admin/rediger-tiltak/' + id} className="tiltaksvisning__rediger-knapp">
+      <Lenke href={'../admin/rediger-tiltakstype/' + id} className="tiltaksvisning__rediger-knapp">
         <Knapp>
-          Rediger tiltak
+          Rediger tiltak <Edit />
         </Knapp>
       </Lenke>
 
@@ -50,13 +49,11 @@ const Tiltaksvisning = () => {
         </div>
         <img className="tiltaksvisning__bilde" src="https://picsum.photos/500/500" alt={'Bilde av ' + data?.tittel} />
         <div className="tiltaksvisning__beskrivelse">
-          <p>Tiltakstype: {data?.tiltakstype}</p>
           <p>{data?.ingress}</p>
           <p>{data?.beskrivelse}</p>
         </div>
       </div>
     </div>
-
   );
 };
 

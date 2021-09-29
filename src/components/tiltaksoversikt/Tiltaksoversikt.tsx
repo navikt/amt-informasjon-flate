@@ -23,7 +23,7 @@ const Tiltaksoversikt = () => {
   useEffect(() => {
     if (isSuccess) {
       const filtrertListe = data.filter((tiltak: any) => {
-        return  isSearchTextInFilter(tiltak, filterState.sokefelt);
+        return isSearchTextInFilter(tiltak, filterState.sokefelt);
       });
       setTiltakslisteFiltrert(filtrertListe);
     }

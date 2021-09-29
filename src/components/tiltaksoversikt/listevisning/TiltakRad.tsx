@@ -12,7 +12,7 @@ const TiltakRad = ({ tiltak }: TiltakRadProps) => {
     <tr key={tiltak.id}>
       <td>{tiltak.id}</td>
       <td>
-        <Link to={'tiltakstyper/' + tiltak.id} className="tabell__link">
+        <Link to={'../tiltakstype/' + tiltak.id} className="tabell__link">
           {tiltak.tittel}
         </Link>
       </td>

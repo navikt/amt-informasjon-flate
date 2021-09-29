@@ -4,6 +4,8 @@ import Tiltaksoversikt from '../tiltaksoversikt/Tiltaksoversikt';
 import Sokefelt from '../filtrering/Sokefelt';
 import { toggleBildeListeVisning } from '../../redux/slice/ToggleSlice';
 import Toggle from '../toggle/Toggle';
+import { Knapp } from 'nav-frontend-knapper';
+import Lenke from 'nav-frontend-lenker';
 import './TiltakOgFilterOversikt.less';
 
 const TiltakOgFilterOversikt = () => {
@@ -12,6 +14,10 @@ const TiltakOgFilterOversikt = () => {
   return (
     <div className="tiltak-og-filter__grid">
       <Sokefelt />
+
+      <Lenke href="../admin/opprett-tiltakstype" className="opprett-nytt-tiltak__knapp">
+        <Knapp>Opprett ny tiltakstype</Knapp>
+      </Lenke>
       <Toggle
         toggle={bildeListeToggle}
         onChange={toggleBildeListeVisning}

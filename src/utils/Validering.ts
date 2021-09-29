@@ -1,28 +1,29 @@
-
 export interface InputValideringsError {
-  tittel?: String;
-  beskrivelse?: String;
-  ingress?: String;
+  tittel?: string;
+  ingress?: string;
+  beskrivelse?: string;
 }
 
-export const feilValidering = (tittel: String, beskrivelse: String, ingress: String) => {
+export const feilValidering = (tittel: string, ingress: string, beskrivelse: string) => {
   const melding: InputValideringsError = {};
 
   tittel = tittel.trim();
-  beskrivelse = beskrivelse.trim();
   ingress = ingress.trim();
+  beskrivelse = beskrivelse.trim();
+
+  const tomtFelt = 'Dette feltet kan ikke være tomt';
 
   if (!tittel) {
-    melding.tittel = 'Dette feltet kan ikke være tomt';
+    melding.tittel = tomtFelt;
   }
   if (tittel.length >= 10) {
     melding.tittel = 'Maks 10 tegn.';
   }
   if (!beskrivelse) {
-    melding.beskrivelse = 'Dette feltet kan ikke være tomt';
+    melding.beskrivelse = tomtFelt;
   }
   if (!ingress) {
-    melding.ingress = 'Dette feltet kan ikke være tomt';
+    melding.ingress = tomtFelt;
   }
 
   return melding;
