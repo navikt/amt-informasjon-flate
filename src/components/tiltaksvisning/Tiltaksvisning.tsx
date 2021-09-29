@@ -38,7 +38,7 @@ const Tiltaksvisning = () => {
 
       <Lenke href={'../admin/rediger-tiltakstype/' + id} className="tiltaksvisning__rediger-knapp">
         <Knapp>
-          Rediger tiltak <Edit className="edit-ikon" />
+          Rediger tiltak <Edit />
         </Knapp>
       </Lenke>
 
