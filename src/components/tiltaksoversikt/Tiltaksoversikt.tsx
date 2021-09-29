@@ -20,12 +20,10 @@ const Tiltaksoversikt = () => {
     fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltakstyper').then(res => res.json())
   );
 
-  console.log(data);
-
   useEffect(() => {
     if (isSuccess) {
       const filtrertListe = data.filter((tiltak: any) => {
-        return  isSearchTextInFilter(tiltak, filterState.sokefelt);
+        return isSearchTextInFilter(tiltak, filterState.sokefelt);
       });
       setTiltakslisteFiltrert(filtrertListe);
     }

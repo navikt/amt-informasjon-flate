@@ -12,7 +12,7 @@ interface SlettModalProps {
   handleDelete: () => void;
 }
 
-const Modal = ({ modalOpen, onRequestClose, handleDelete, tittel }: SlettModalProps) => {
+const SlettModal = ({ modalOpen, onRequestClose, handleDelete, tittel }: SlettModalProps) => {
   return (
     <NavFrontendModal
       contentLabel={tittel}
@@ -33,4 +33,4 @@ const Modal = ({ modalOpen, onRequestClose, handleDelete, tittel }: SlettModalPr
   );
 };
 
-export default Modal;
+export default SlettModal;

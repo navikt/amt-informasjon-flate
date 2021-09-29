@@ -95,9 +95,7 @@ const RedigeringsgrensesnittForm = ({
         )}
 
         <Lenke href={'../'}>
-          <Flatknapp htmlType="button">
-            Avbryt
-          </Flatknapp>
+          <Flatknapp htmlType="button">Avbryt</Flatknapp>
         </Lenke>
       </div>
 

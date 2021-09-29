@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import './Tiltaksvisning.less';
 import '../../App.less';
@@ -17,7 +17,6 @@ interface routeParams {
 
 const Tiltaksvisning = () => {
   const { id }: routeParams = useParams();
-
 
   const { isLoading, data, isError } = useQuery('tiltakstyper' + id, () =>
     fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltakstyper/' + id).then(res => res.json())

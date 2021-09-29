@@ -15,7 +15,7 @@ const TiltakOgFilterOversikt = () => {
     <div className="tiltak-og-filter__grid">
       <Sokefelt />
 
-      <Lenke href='../admin/opprett-tiltakstype' className="opprett-nytt-tiltak__knapp">
+      <Lenke href="../admin/opprett-tiltakstype" className="opprett-nytt-tiltak__knapp">
         <Knapp>Opprett ny tiltakstype</Knapp>
       </Lenke>
       <Toggle

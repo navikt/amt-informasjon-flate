@@ -18,6 +18,6 @@ const Filtrering = createSlice({
   },
 });
 
-export const {  skrivSokefelt } = Filtrering.actions;
+export const { skrivSokefelt } = Filtrering.actions;
 
 export default Filtrering.reducer;
