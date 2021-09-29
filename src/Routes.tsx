@@ -1,6 +1,6 @@
 import { Route, Switch } from 'react-router-dom';
 import Tiltaksvisning from './components/tiltaksvisning/Tiltaksvisning';
-import OpprettOgRedigerTiltak from './components/redigering/OpprettOgRedigerTiltak';
+import OpprettOgRedigerTiltak from './components/redigeringsgrensesnitt/OpprettOgRedigerTiltak';
 import TiltakOgFilterOversikt from './components/body/TiltakOgFilterOversikt';
 import React from 'react';
 
