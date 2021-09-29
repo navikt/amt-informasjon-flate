@@ -9,18 +9,30 @@ const mockServer = () =>
       });
     },
     routes() {
-      this.namespace = '/api';
-      this.timing = 500;
-      this.get('/tiltakstyper', schema => {
+      this.namespace = '/api/tiltakstyper';
+      this.get('/', schema => {
         return schema.db.tiltak;
       });
-      this.get('/tiltakstyper/:id', (schema, request) => {
+      this.get('/:id', (schema, request) => {
         const id = request.params.id;
         return schema.db.tiltak.find(id);
       });
-      this.post('/tiltakstyper', (schema, request) => {
-        const tiltak = JSON.parse(request.requestBody);
-        return schema.db.tiltak.insert(tiltak);
+      this.post('/', (schema, request) => {
+        const tiltakstyper = JSON.parse(request.requestBody);
+        return schema.db.tiltak.insert(tiltakstyper);
+      });
+      this.patch('/:id', (schema, request) => {
+        const id = request.params.id;
+        const tiltakstyper = JSON.parse(request.requestBody);
+        return schema.db.tiltak.update(id, {
+          tittel: tiltakstyper.tittel,
+          ingress: tiltakstyper.ingress,
+          beskrivelse: tiltakstyper.beskrivelse,
+        });
+      });
+      this.delete('/:id', (schema, request) => {
+        const id = request.params.id;
+        return schema.db.tiltak.find(id).destroy;
       });
     },
   });

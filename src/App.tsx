@@ -1,34 +1,33 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Decorator from './decorator/Decorator';
 import './App.less';
 import Header from './components/header/Header';
-import TiltakOgFilterOversikt from './components/body/TiltakOgFilterOversikt';
-import Tiltaksvisning from './components/tiltaksvisning/Tiltaksvisning';
-import RedigerTiltak from './components/redigering/RedigerTiltak';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ToastContainer } from 'react-toastify';
+import Routes from './Routes';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const queryClient = new QueryClient();
   return (
     <QueryClientProvider client={queryClient}>
+      <Decorator />
       <Router>
-        <Decorator />
         <Header />
-        <div className="main-app">
-          <Switch>
-            <Route path="/tiltakstyper/:id">
-              <Tiltaksvisning />
-            </Route>
-            <Route path="/admin/rediger-tiltak">
-              <RedigerTiltak />
-            </Route>
-            <Route path="/">
-              <TiltakOgFilterOversikt />
-            </Route>
-          </Switch>
-        </div>
+        <Routes />
       </Router>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </QueryClientProvider>
   );
 }

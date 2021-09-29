@@ -1,10 +1,35 @@
-.tiltak__alert-stripe__wrapper {
-  margin-top: 1rem;
-}
+.rediger-opprett-tiltakstype {
+  width: 60vw;
+  margin: 2rem auto;
+  max-width: 1000px;
 
-.radiogruppe__tiltakstype {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 15rem);
-  grid-gap: 1rem;
-  justify-content: space-between;
+  &__tilbakeknapp {
+    justify-self: start;
+  }
+
+  &__overskrift {
+    margin: 0 auto 2rem;
+  }
+  &__form {
+    &__tittel {
+      margin-bottom: 1rem;
+    }
+
+    &__beskrivelse {
+      margin-bottom: 1rem;
+    }
+
+    .knapperad {
+      display: flex;
+      justify-content: space-between;
+
+      svg {
+        margin-left: 0.3rem;
+      }
+    }
+
+    .tiltak__alert-stripe__wrapper {
+      margin-top: 1rem;
+    }
+  }
 }

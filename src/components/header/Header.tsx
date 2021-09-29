@@ -11,7 +11,6 @@ const Header = () => {
         <Link to="/" aria-label="Gå til forsiden" className="header__logo">
           <Logo />
         </Link>
-
         <Sidetittel className="header__tittel">Mulighetsrommet</Sidetittel>
         <Undertittel className="header__undertittel">NAV tilbyr et hav av muligheter</Undertittel>
       </div>
