@@ -10,10 +10,12 @@ import { feilValidering, InputValideringsError } from '../../utils/Validering';
 import { erTomtObjekt, opprettTiltakstype, redigerTiltakstype } from '../../utils/Utils';
 import { postTiltakstype, putTiltakstype } from './Crud';
 import { useMutation, useQueryClient } from 'react-query';
+import AlertStripe from 'nav-frontend-alertstriper';
 
 interface RedigeringsgrensesnittFormProps {
-  isLoading: any;
-  isSuccess: any;
+  isLoading: boolean;
+  isSuccess: boolean;
+  isError: boolean;
   id: string;
   tittel: string;
   ingress: string;
@@ -25,6 +27,7 @@ interface RedigeringsgrensesnittFormProps {
 const RedigeringsgrensesnittForm = ({
   isLoading,
   isSuccess,
+  isError,
   id,
   tittel,
   ingress,
@@ -79,7 +82,6 @@ const RedigeringsgrensesnittForm = ({
       />
 
       <div className="knapperad">
-
         <Hovedknapp htmlType="submit" spinner={isLoading}>
           {opprettTiltakstype ? 'Opprett tiltak' : 'Rediger tiltak'} <Edit />
         </Hovedknapp>
@@ -93,7 +95,7 @@ const RedigeringsgrensesnittForm = ({
         )}
 
         <Lenke href={'../'}>
-          <Flatknapp className="" htmlType="button">
+          <Flatknapp htmlType="button">
             Avbryt
           </Flatknapp>
         </Lenke>
@@ -108,6 +110,8 @@ const RedigeringsgrensesnittForm = ({
           <p>{beskrivelse}</p>
         </>
       )}
+
+      {isError && <AlertStripe type={'feil'}>Det har oppstått en feil</AlertStripe>}
     </form>
   );
 };

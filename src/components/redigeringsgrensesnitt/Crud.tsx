@@ -1,6 +1,5 @@
 import { toast } from 'react-toastify';
 
-
 export const postTiltakstype = (tittel: string, ingress: string, beskrivelse: string) => {
   return fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltakstyper', {
     method: 'POST',

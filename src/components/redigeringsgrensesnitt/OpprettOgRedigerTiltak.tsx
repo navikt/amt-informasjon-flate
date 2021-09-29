@@ -6,7 +6,7 @@ import { Innholdstittel, Undertittel } from 'nav-frontend-typografi';
 import { useHistory, useParams } from 'react-router-dom';
 import { Tilbakeknapp } from 'nav-frontend-ikonknapper';
 import { deleteTiltakstype } from './Crud';
-import SlettModal from '../modal/SlettModal';
+import Modal from '../modal/Modal';
 import RedigeringsgrensesnittForm from './RedigeringsgrensesnittForm';
 
 interface routeParams {
@@ -23,7 +23,7 @@ const OpprettOgRedigerTiltak = () => {
   const { id }: routeParams = useParams();
   const history = useHistory();
 
-  const { isLoading, data, isSuccess } = useQuery('tiltakstyper' + id, () =>
+  const { data, isLoading, isSuccess, isError } = useQuery('tiltakstyper' + id, () =>
     fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltakstyper/' + id).then(res => res.json())
   );
 
@@ -33,7 +33,7 @@ const OpprettOgRedigerTiltak = () => {
       setIngress(data?.ingress);
       setBeskrivelse(data?.beskrivelse);
     }
-  }, [redigerTiltakstype, data]);
+  }, [data]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>, input: string) => {
     if (input === 'tittel') {
@@ -65,6 +65,7 @@ const OpprettOgRedigerTiltak = () => {
         <RedigeringsgrensesnittForm
           isSuccess={isSuccess}
           isLoading={isLoading}
+          isError={isError}
           handleChange={handleChange}
           setModalOpen={setModalOpen}
           id={id}
@@ -74,7 +75,12 @@ const OpprettOgRedigerTiltak = () => {
         />
       </div>
 
-      <SlettModal modalOpen={modalOpen} onRequestClose={() => setModalOpen(false)} handleDelete={handleDelete} />
+      <Modal
+        tittel="Slett tiltak"
+        modalOpen={modalOpen}
+        onRequestClose={() => setModalOpen(false)}
+        handleDelete={handleDelete}
+      />
     </>
   );
 };
