@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Input } from 'nav-frontend-skjema';
-import '../body/TiltakOgFilterOversikt.less';
+import '../../views/tiltakstype-oversikt/TiltakOgFilterOversikt.less';
 import { useDispatch } from 'react-redux';
-import { skrivSokefelt } from '../../redux/slice/FiltreringSlice';
+import { skrivSokefelt } from '../../core/redux/slice/FiltreringSlice';
 import useDebounce from '../../hooks/useDebounce';
 
 const Sokefelt = () => {

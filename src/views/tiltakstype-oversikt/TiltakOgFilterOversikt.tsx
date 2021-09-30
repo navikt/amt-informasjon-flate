@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Tiltaksoversikt from '../tiltaksoversikt/Tiltaksoversikt';
-import Sokefelt from '../filtrering/Sokefelt';
-import { toggleBildeListeVisning } from '../../redux/slice/ToggleSlice';
-import Toggle from '../toggle/Toggle';
+import Tiltaksoversikt from '../../components/tiltaksoversikt/Tiltaksoversikt';
+import Sokefelt from '../../components/filtrering/Sokefelt';
+import { toggleBildeListeVisning } from '../../core/redux/slice/ToggleSlice';
+import Toggle from '../../components/toggle/Toggle';
 import { Knapp } from 'nav-frontend-knapper';
 import Lenke from 'nav-frontend-lenker';
 import './TiltakOgFilterOversikt.less';

@@ -5,11 +5,11 @@ import NavFrontendSpinner from 'nav-frontend-spinner';
 import AlertStripe from 'nav-frontend-alertstriper';
 import 'nav-frontend-tabell-style';
 import Tiltakskort from './bildevisning/Tiltakskort';
-import { Tiltakstype } from '../../domain/Domain';
+import { Tiltakstype } from '../../core/domain/Tiltakstype';
 import Tiltaksliste from './listevisning/Tiltaksliste';
 import { isSearchTextInFilter } from './TiltaksoversiktFilterUtils';
 import './bildevisning/Tiltakskort.less';
-import '../body/TiltakOgFilterOversikt.less';
+import '../../views/tiltakstype-oversikt/TiltakOgFilterOversikt.less';
 
 const Tiltaksoversikt = () => {
   const bildeToggle: boolean = useSelector((state: any) => state.toggleReducer.bildeListeVisning);

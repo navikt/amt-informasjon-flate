@@ -1,5 +1,5 @@
 import faker from 'faker';
-import { Tiltakstype } from '../domain/Domain';
+import { Tiltakstype } from '../core/domain/Tiltakstype';
 
 const tiltakstypelisteMock: Tiltakstype[] = [
   {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import Decorator from './decorator/Decorator';
+import Decorator from './components/decorator/Decorator';
 import './App.less';
 import Header from './components/header/Header';
 import { QueryClient, QueryClientProvider } from 'react-query';

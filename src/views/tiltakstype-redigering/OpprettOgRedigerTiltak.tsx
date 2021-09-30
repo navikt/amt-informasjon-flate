@@ -6,7 +6,7 @@ import { Innholdstittel, Undertittel } from 'nav-frontend-typografi';
 import { useHistory, useParams } from 'react-router-dom';
 import { Tilbakeknapp } from 'nav-frontend-ikonknapper';
 import { deleteTiltakstype } from './Crud';
-import SlettModal from '../modal/SlettModal';
+import SlettModal from '../../components/modal/SlettModal';
 import RedigeringsgrensesnittForm from './RedigeringsgrensesnittForm';
 
 interface routeParams {

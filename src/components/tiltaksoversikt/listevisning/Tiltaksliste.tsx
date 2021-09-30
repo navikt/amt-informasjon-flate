@@ -1,6 +1,6 @@
 import React from 'react';
 import TiltakRad from './TiltakRad';
-import { Tiltakstype } from '../../../domain/Domain';
+import { Tiltakstype } from '../../../core/domain/Tiltakstype';
 
 export interface TiltakslisteProps {
   tiltaksliste: Array<Tiltakstype>;
