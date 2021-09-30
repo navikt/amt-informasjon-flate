@@ -1,8 +1,7 @@
 import React from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams, Link } from 'react-router-dom';
 import './Tiltaksvisning.less';
 import '../../App.less';
-import { Link } from 'react-router-dom';
 import { Innholdstittel, Normaltekst } from 'nav-frontend-typografi';
 import { Tilbakeknapp } from 'nav-frontend-ikonknapper';
 import { useQuery } from 'react-query';
