@@ -2,13 +2,13 @@ import React from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import './Tiltaksvisning.less';
 import '../../App.less';
+import { Link } from 'react-router-dom';
 import { Innholdstittel, Normaltekst } from 'nav-frontend-typografi';
 import { Tilbakeknapp } from 'nav-frontend-ikonknapper';
 import { useQuery } from 'react-query';
 import NavFrontendSpinner from 'nav-frontend-spinner';
 import AlertStripe from 'nav-frontend-alertstriper';
 import { Knapp } from 'nav-frontend-knapper';
-import Lenke from 'nav-frontend-lenker';
 import { ReactComponent as Edit } from '../../ikoner/Edit.svg';
 
 interface routeParams {
@@ -36,11 +36,11 @@ const Tiltaksvisning = () => {
     <div className="tiltaksvisning__grid">
       <Tilbakeknapp className="tiltaksvisning__tilbakeknapp" onClick={() => history.push('/')} />
 
-      <Lenke href={'../admin/rediger-tiltakstype/' + id} className="tiltaksvisning__rediger-knapp">
+      <Link to={`/admin/rediger-tiltakstype/${id}`} className="tiltaksvisning__rediger-knapp">
         <Knapp>
           Rediger tiltak <Edit />
         </Knapp>
-      </Lenke>
+      </Link>
 
       <div className="tiltaksvisning__informasjon">
         <div className="tiltaksvisning__topptekst">

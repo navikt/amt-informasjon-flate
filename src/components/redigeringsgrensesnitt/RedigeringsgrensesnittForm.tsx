@@ -2,7 +2,7 @@ import { Input } from 'nav-frontend-skjema';
 import { Fareknapp, Flatknapp, Hovedknapp } from 'nav-frontend-knapper';
 import { ReactComponent as Edit } from '../../ikoner/Edit.svg';
 import { ReactComponent as Delete } from '../../ikoner/Delete.svg';
-import Lenke from 'nav-frontend-lenker';
+import { Link } from 'react-router-dom';
 import NavFrontendSpinner from 'nav-frontend-spinner';
 import { Innholdstittel } from 'nav-frontend-typografi';
 import React, { FormEvent, useState } from 'react';
@@ -94,9 +94,9 @@ const RedigeringsgrensesnittForm = ({
           </>
         )}
 
-        <Lenke href={'../'}>
+        <Link to="/">
           <Flatknapp htmlType="button">Avbryt</Flatknapp>
-        </Lenke>
+        </Link>
       </div>
 
       {isLoading && <NavFrontendSpinner />}
