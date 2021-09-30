@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './Toggle.less';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { useDispatch } from 'react-redux';
 import { ActionCreatorWithoutPayload } from '@reduxjs/toolkit';
 
@@ -33,7 +33,7 @@ const Toggle = ({ toggle, onChange, venstreTekst, hoyreTekst, className }: Toggl
   }, [toggle, hoyreTekst, venstreTekst]);
 
   return (
-    <div className={classNames('switch-button', className)}>
+    <div className={clsx('switch-button', className)}>
       <input
         className="switch-button__checkbox"
         type="checkbox"
@@ -42,10 +42,10 @@ const Toggle = ({ toggle, onChange, venstreTekst, hoyreTekst, className }: Toggl
         checked={!toggle}
       />
       <label className="switch-button-label" htmlFor="switch-button">
-        <span className={classNames('switch-button__venstre-tekst', venstreTekst)}>{venstreTekst}</span>
+        <span className={clsx('switch-button__venstre-tekst', venstreTekst)}>{venstreTekst}</span>
       </label>
       <label>
-        <span className={classNames('switch-button__hoyre-tekst', hoyreTekst)}>{hoyreTekst}</span>
+        <span className={clsx('switch-button__hoyre-tekst', hoyreTekst)}>{hoyreTekst}</span>
       </label>
     </div>
   );
