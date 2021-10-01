@@ -8,15 +8,16 @@ interface TiltakRadProps {
 }
 
 const TiltakRad = ({ tiltak }: TiltakRadProps) => {
+  const { id, tittel, ingress } = tiltak;
   return (
-    <tr key={tiltak.id}>
-      <td>{tiltak.id}</td>
+    <tr key={id}>
+      <td>{id}</td>
       <td>
-        <Link to={'../tiltakstype/' + tiltak.id} className="tabell__link">
-          {tiltak.tittel}
+        <Link to={`/tiltakstype/${id}`} className="tabell__link">
+          {tittel}
         </Link>
       </td>
-      <td>{tiltak.ingress}</td>
+      <td>{ingress}</td>
     </tr>
   );
 };
