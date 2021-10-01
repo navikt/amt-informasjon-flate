@@ -27,7 +27,7 @@ const OpprettOgRedigerTiltak = () => {
   const history = useHistory();
 
   const { data, isLoading, isSuccess, isError } = useQuery(
-    QueryKeys.Tiltakstyper,
+    [QueryKeys.Tiltakstyper, { id: id }],
     () => TiltakstypeService.getTiltakstypeById(id),
     {
       enabled: !!id,
@@ -54,7 +54,7 @@ const OpprettOgRedigerTiltak = () => {
     }
   );
   const putMutation = useMutation(
-    QueryKeys.Tiltakstyper,
+    [QueryKeys.Tiltakstyper, { id: id }],
     (tiltakstype: Tiltakstype) => TiltakstypeService.putTiltakstype(tiltakstype),
     {
       onSuccess: () => {
@@ -65,16 +65,20 @@ const OpprettOgRedigerTiltak = () => {
       },
     }
   );
-  const deleteMutation = useMutation(QueryKeys.Tiltakstyper, () => TiltakstypeService.deleteTiltakstype(id), {
-    onSuccess: () => {
-      setModalOpen(false);
-      toast.success('Sletting var vellykket.');
-      history.replace('/');
-    },
-    onError: () => {
-      toast.error('Oops! Sletting feilet.');
-    },
-  });
+  const deleteMutation = useMutation(
+    [QueryKeys.Tiltakstyper, { id: id }],
+    () => TiltakstypeService.deleteTiltakstype(id),
+    {
+      onSuccess: () => {
+        setModalOpen(false);
+        toast.success('Sletting var vellykket.');
+        history.replace('/');
+      },
+      onError: () => {
+        toast.error('Oops! Sletting feilet.');
+      },
+    }
+  );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>, input: string) => {
     if (input === 'tittel') {

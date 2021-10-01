@@ -15,7 +15,9 @@ interface TiltaksoversiktProps {
 const Tiltaksoversikt = (props: TiltaksoversiktProps) => {
   const { tiltakstyper } = props;
   const [tiltakslisteFiltrert, setTiltakslisteFiltrert] = useState<Tiltakstype[] | undefined>(tiltakstyper ?? []);
+  console.log('tiltakstyper FILTER', tiltakslisteFiltrert);
   const filterState = useSelector((state: any) => state.filterReducer);
+  console.log('filterState', filterState);
 
   useEffect(() => {
     const filtrertListe = tiltakstyper?.filter((tiltak: any) => {
@@ -24,7 +26,12 @@ const Tiltaksoversikt = (props: TiltaksoversiktProps) => {
     setTiltakslisteFiltrert(filtrertListe);
   }, [filterState, tiltakstyper]);
 
-  return <div className="tiltaksoversikt">{!tiltakstyper && <NavFrontendSpinner />}</div>;
+  return (
+    <div className="tiltaksoversikt">
+      {!tiltakstyper && <NavFrontendSpinner />}
+      {tiltakstyper && <Tiltaksliste tiltaksliste={tiltakslisteFiltrert} />}
+    </div>
+  );
 };
 
 export default Tiltaksoversikt;

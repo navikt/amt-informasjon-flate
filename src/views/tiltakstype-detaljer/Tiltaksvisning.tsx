@@ -19,9 +19,8 @@ interface routeParams {
 
 const Tiltaksvisning = () => {
   const { id }: routeParams = useParams();
-  const history = useHistory();
 
-  const { isLoading, isSuccess, data, isError } = useQuery(QueryKeys.Tiltakstyper, () =>
+  const { isLoading, isSuccess, data, isError } = useQuery([QueryKeys.Tiltakstyper, { id: id }], () =>
     TiltakstypeService.getTiltakstypeById(id)
   );
 
@@ -35,8 +34,9 @@ const Tiltaksvisning = () => {
 
   return (
     <div className="tiltaksvisning__grid">
-      <Tilbakeknapp className="tiltaksvisning__tilbakeknapp" onClick={() => history.push('/')} />
-
+      <Link to="/">
+        <Tilbakeknapp className="tiltaksvisning__tilbakeknapp" />
+      </Link>
       <Link to={`/admin/rediger-tiltakstype/${id}`} className="tiltaksvisning__rediger-knapp">
         <Knapp>
           Rediger tiltak <Edit />
