@@ -7,7 +7,6 @@ export interface TiltakslisteProps {
 }
 
 const Tiltaksliste = ({ tiltaksliste }: TiltakslisteProps) => {
-  console.log('tiltaksliste', tiltaksliste);
   return (
     <div className="tiltaksoversikt--listevisning">
       <table className="tabell tabell--stripet">
