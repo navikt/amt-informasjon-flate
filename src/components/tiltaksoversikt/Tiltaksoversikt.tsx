@@ -4,7 +4,6 @@ import { useQuery } from 'react-query';
 import NavFrontendSpinner from 'nav-frontend-spinner';
 import AlertStripe from 'nav-frontend-alertstriper';
 import 'nav-frontend-tabell-style';
-import Tiltakskort from './bildevisning/Tiltakskort';
 import { Tiltakstype } from '../../core/domain/Tiltakstype';
 import Tiltaksliste from './listevisning/Tiltaksliste';
 import { isSearchTextInFilter } from './TiltaksoversiktFilterUtils';
@@ -12,7 +11,6 @@ import './bildevisning/Tiltakskort.less';
 import '../../views/tiltakstype-oversikt/TiltakOgFilterOversikt.less';
 
 const Tiltaksoversikt = () => {
-  const bildeToggle: boolean = useSelector((state: any) => state.toggleReducer.bildeListeVisning);
   const [tiltakslisteFiltrert, setTiltakslisteFiltrert] = useState<Tiltakstype[]>([]);
   const filterState = useSelector((state: any) => state.filterReducer);
 
@@ -29,21 +27,11 @@ const Tiltaksoversikt = () => {
     }
   }, [filterState, data, isSuccess]);
 
-  const bildetoggle = () => {
-    return bildeToggle ? (
-      <div className="tiltaksoversikt--bildevisning">
-        {tiltakslisteFiltrert &&
-          tiltakslisteFiltrert.map((tiltak: Tiltakstype) => <Tiltakskort {...tiltak} key={tiltak.id} />)}
-      </div>
-    ) : (
-      <Tiltaksliste tiltaksliste={tiltakslisteFiltrert} />
-    );
-  };
 
   return (
     <div className="tiltaksoversikt">
       {isLoading && <NavFrontendSpinner />}
-      {isSuccess && bildetoggle()}
+      {isSuccess &&  <Tiltaksliste tiltaksliste={tiltakslisteFiltrert} />}
       {isError && <AlertStripe type="feil">Det har oppstått en feil</AlertStripe>}
     </div>
   );
