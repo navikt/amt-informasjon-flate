@@ -5,14 +5,10 @@ export function api<T>(input: RequestInfo, init?: RequestInit | undefined): Prom
   rInit.headers = {
     'Content-Type': 'application/json',
   };
-  return fetch(uri, rInit)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(response.statusText);
-      }
-      return response.json() as Promise<{ data: T }>;
-    })
-    .then(data => {
-      return data.data;
-    });
+  return fetch(uri, rInit).then(response => {
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+    return response.json() as Promise<T>;
+  });
 }

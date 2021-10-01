@@ -3,7 +3,7 @@ import TiltakRad from './TiltakRad';
 import { Tiltakstype } from '../../../core/domain/Tiltakstype';
 
 export interface TiltakslisteProps {
-  tiltaksliste: Array<Tiltakstype>;
+  tiltaksliste?: Array<Tiltakstype>;
 }
 
 const Tiltaksliste = ({ tiltaksliste }: TiltakslisteProps) => {
@@ -18,7 +18,7 @@ const Tiltaksliste = ({ tiltaksliste }: TiltakslisteProps) => {
           </tr>
         </thead>
         <tbody>
-          {tiltaksliste.map((tiltakstype: Tiltakstype) => (
+          {tiltaksliste?.map((tiltakstype: Tiltakstype) => (
             <TiltakRad key={tiltakstype.id} tiltak={tiltakstype} />
           ))}
         </tbody>
