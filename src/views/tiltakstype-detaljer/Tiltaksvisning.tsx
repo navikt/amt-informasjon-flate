@@ -9,6 +9,9 @@ import NavFrontendSpinner from 'nav-frontend-spinner';
 import AlertStripe from 'nav-frontend-alertstriper';
 import { Knapp } from 'nav-frontend-knapper';
 import { ReactComponent as Edit } from '../../ikoner/Edit.svg';
+import { Tiltakstype } from '../../core/domain/Tiltakstype';
+import { QueryKeys } from '../../core/api/QueryKeys';
+import TiltakstypeService from '../../core/api/TiltakstypeService';
 
 interface routeParams {
   id: string;
@@ -16,12 +19,11 @@ interface routeParams {
 
 const Tiltaksvisning = () => {
   const { id }: routeParams = useParams();
-
-  const { isLoading, data, isError } = useQuery('tiltakstyper' + id, () =>
-    fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltakstyper/' + id).then(res => res.json())
-  );
-
   const history = useHistory();
+
+  const { isLoading, isSuccess, data, isError } = useQuery(QueryKeys.Tiltakstyper, () =>
+    TiltakstypeService.getTiltakstypeById(id)
+  );
 
   if (isLoading) {
     return <NavFrontendSpinner />;

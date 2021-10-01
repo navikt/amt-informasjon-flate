@@ -2,15 +2,17 @@ import { Input } from 'nav-frontend-skjema';
 import { Fareknapp, Flatknapp, Hovedknapp } from 'nav-frontend-knapper';
 import { ReactComponent as Edit } from '../../ikoner/Edit.svg';
 import { ReactComponent as Delete } from '../../ikoner/Delete.svg';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import NavFrontendSpinner from 'nav-frontend-spinner';
 import { Innholdstittel } from 'nav-frontend-typografi';
 import React, { FormEvent, useState } from 'react';
 import { feilValidering, InputValideringsError } from '../../utils/Validering';
 import { erTomtObjekt, opprettTiltakstype, redigerTiltakstype } from '../../utils/Utils';
-import { postTiltakstype, putTiltakstype } from './Crud';
+import { putTiltakstype } from './Crud';
 import { useMutation, useQueryClient } from 'react-query';
 import AlertStripe from 'nav-frontend-alertstriper';
+import { QueryKeys } from '../../core/api/QueryKeys';
+import TiltakstypeService from '../../core/api/TiltakstypeService';
 
 interface RedigeringsgrensesnittFormProps {
   isLoading: boolean;
@@ -37,12 +39,18 @@ const RedigeringsgrensesnittForm = ({
 }: RedigeringsgrensesnittFormProps) => {
   const [feilmelding, setFeilmelding] = useState({} as InputValideringsError);
   const queryClient = useQueryClient();
+  const history = useHistory();
 
-  const mutation = useMutation('tiltakstype', () => postTiltakstype(tittel, ingress, beskrivelse), {
-    onSuccess: () => {
-      queryClient.invalidateQueries('tiltakstyper');
-    },
-  });
+  const mutation = useMutation(
+    QueryKeys.Tiltakstyper,
+    () => TiltakstypeService.postTiltakstype({ tittel: tittel, beskrivelse: beskrivelse, ingress: ingress }),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries(QueryKeys.Tiltakstyper);
+        history.replace('/');
+      },
+    }
+  );
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

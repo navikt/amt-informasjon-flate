@@ -8,6 +8,8 @@ import { Tilbakeknapp } from 'nav-frontend-ikonknapper';
 import { deleteTiltakstype } from './Crud';
 import SlettModal from '../../components/modal/SlettModal';
 import RedigeringsgrensesnittForm from './RedigeringsgrensesnittForm';
+import { QueryKeys } from '../../core/api/QueryKeys';
+import TiltakstypeService from '../../core/api/TiltakstypeService';
 
 interface routeParams {
   id: string;
@@ -23,17 +25,18 @@ const OpprettOgRedigerTiltak = () => {
   const { id }: routeParams = useParams();
   const history = useHistory();
 
-  const { data, isLoading, isSuccess, isError } = useQuery('tiltakstyper' + id, () =>
-    fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltakstyper/' + id).then(res => res.json())
-  );
-
-  useEffect(() => {
-    if (redigerTiltakstype) {
-      setTittel(data?.tittel);
-      setIngress(data?.ingress);
-      setBeskrivelse(data?.beskrivelse);
+  const { data, isLoading, isSuccess, isError } = useQuery(
+    QueryKeys.Tiltakstyper,
+    () => TiltakstypeService.getTiltakstypeById(id),
+    {
+      enabled: !!id,
+      onSuccess: data => {
+        setTittel(data.tittel);
+        setIngress(data.ingress);
+        setBeskrivelse(data.beskrivelse);
+      },
     }
-  }, [data]);
+  );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>, input: string) => {
     if (input === 'tittel') {
