@@ -14,7 +14,7 @@ interface TiltaksoversiktProps {
 
 const Tiltaksoversikt = (props: TiltaksoversiktProps) => {
   const { tiltakstyper } = props;
-  const [tiltakslisteFiltrert, setTiltakslisteFiltrert] = useState<Tiltakstype[] | undefined>(tiltakstyper);
+  const [tiltakslisteFiltrert, setTiltakslisteFiltrert] = useState<Tiltakstype[] | undefined>(tiltakstyper ?? []);
   const filterState = useSelector((state: any) => state.filterReducer);
 
   useEffect(() => {

@@ -18,9 +18,8 @@ const Tiltaksliste = ({ tiltaksliste }: TiltakslisteProps) => {
           </tr>
         </thead>
         <tbody>
-          {tiltaksliste?.map((tiltakstype: Tiltakstype) => (
-            <TiltakRad key={tiltakstype.id} tiltak={tiltakstype} />
-          ))}
+          {tiltaksliste &&
+            tiltaksliste?.map((tiltakstype: Tiltakstype) => <TiltakRad key={tiltakstype.id} tiltak={tiltakstype} />)}
         </tbody>
       </table>
     </div>
