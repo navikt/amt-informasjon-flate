@@ -1,4 +1,4 @@
-import { Tiltakstype } from '../../domain/Domain';
+import { Tiltakstype } from '../../core/domain/Tiltakstype';
 
 export const isSearchTextInFilter = (tiltak: Tiltakstype, searchText: string) => {
   return (

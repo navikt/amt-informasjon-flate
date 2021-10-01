@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tiltakstype } from '../../../domain/Domain';
+import { Tiltakstype } from '../../../core/domain/Tiltakstype';
 import { Link } from 'react-router-dom';
 import './TiltakListevisning.less';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Undertittel } from 'nav-frontend-typografi';
-import { Tiltakstype } from '../../../domain/Domain';
+import { Tiltakstype } from '../../../core/domain/Tiltakstype';
 import './Tiltakskort.less';
 
 const Tiltakskort = ({ tittel, ingress, id }: Tiltakstype) => {
