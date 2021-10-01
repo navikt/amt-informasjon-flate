@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory, useParams, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import './Tiltaksvisning.less';
 import '../../App.less';
 import { Innholdstittel, Normaltekst } from 'nav-frontend-typografi';
@@ -9,7 +9,6 @@ import NavFrontendSpinner from 'nav-frontend-spinner';
 import AlertStripe from 'nav-frontend-alertstriper';
 import { Knapp } from 'nav-frontend-knapper';
 import { ReactComponent as Edit } from '../../ikoner/Edit.svg';
-import { Tiltakstype } from '../../core/domain/Tiltakstype';
 import { QueryKeys } from '../../core/api/QueryKeys';
 import TiltakstypeService from '../../core/api/TiltakstypeService';
 
@@ -20,7 +19,7 @@ interface routeParams {
 const Tiltaksvisning = () => {
   const { id }: routeParams = useParams();
 
-  const { isLoading, isSuccess, data, isError } = useQuery([QueryKeys.Tiltakstyper, { id: id }], () =>
+  const { isLoading, data, isError } = useQuery([QueryKeys.Tiltakstyper, { id: id }], () =>
     TiltakstypeService.getTiltakstypeById(id)
   );
 

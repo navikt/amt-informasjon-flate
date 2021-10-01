@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './OpprettOgRedigerTiltak.less';
 import { useMutation, useQuery } from 'react-query';
 import { Innholdstittel, Undertittel } from 'nav-frontend-typografi';

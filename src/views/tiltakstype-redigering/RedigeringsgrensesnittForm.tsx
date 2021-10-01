@@ -1,5 +1,5 @@
 import { Input } from 'nav-frontend-skjema';
-import { Fareknapp, Flatknapp, Hovedknapp } from 'nav-frontend-knapper';
+import { Fareknapp, Hovedknapp } from 'nav-frontend-knapper';
 import { ReactComponent as Edit } from '../../ikoner/Edit.svg';
 import { ReactComponent as Delete } from '../../ikoner/Delete.svg';
 import NavFrontendSpinner from 'nav-frontend-spinner';

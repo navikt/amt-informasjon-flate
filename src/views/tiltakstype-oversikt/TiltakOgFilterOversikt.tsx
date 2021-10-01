@@ -10,10 +10,7 @@ import { Tiltakstype } from '../../core/domain/Tiltakstype';
 import { Link } from 'react-router-dom';
 
 const TiltakOgFilterOversikt = () => {
-  const { isLoading, isSuccess, data, isError } = useQuery<Tiltakstype[]>(
-    QueryKeys.Tiltakstyper,
-    TiltakstypeService.getAllTiltakstyper
-  );
+  const { data } = useQuery<Tiltakstype[]>(QueryKeys.Tiltakstyper, TiltakstypeService.getAllTiltakstyper);
 
   return (
     <div className="tiltak-og-filter__grid">
