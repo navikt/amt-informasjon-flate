@@ -6,9 +6,11 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { ToastContainer } from 'react-toastify';
 import Routes from './Routes';
 import 'react-toastify/dist/ReactToastify.css';
+import { ReactQueryDevtools } from 'react-query/devtools';
+
+const queryClient = new QueryClient();
 
 function App() {
-  const queryClient = new QueryClient();
   return (
     <QueryClientProvider client={queryClient}>
       <Decorator />
@@ -26,6 +28,7 @@ function App() {
         draggable
         pauseOnHover
       />
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }

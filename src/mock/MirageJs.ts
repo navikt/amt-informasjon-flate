@@ -1,4 +1,4 @@
-import { createServer } from 'miragejs';
+import { createServer, Response } from 'miragejs';
 import { tiltakstypelisteMock } from './MockUtil';
 
 const mockServer = () =>
@@ -21,7 +21,7 @@ const mockServer = () =>
         const tiltakstyper = JSON.parse(request.requestBody);
         return schema.db.tiltak.insert(tiltakstyper);
       });
-      this.patch('/:id', (schema, request) => {
+      this.put('/:id', (schema, request) => {
         const id = request.params.id;
         const tiltakstyper = JSON.parse(request.requestBody);
         return schema.db.tiltak.update(id, {
@@ -32,7 +32,12 @@ const mockServer = () =>
       });
       this.delete('/:id', (schema, request) => {
         const id = request.params.id;
-        return schema.db.tiltak.find(id).destroy;
+        const tiltakstype = schema.db.tiltak.find(id);
+        if (tiltakstype) {
+          schema.db.tiltak.remove(id);
+          return new Response(200);
+        }
+        return new Response(404);
       });
     },
   });

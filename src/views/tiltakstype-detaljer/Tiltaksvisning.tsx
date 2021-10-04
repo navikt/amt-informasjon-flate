@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory, useParams, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import './Tiltaksvisning.less';
 import '../../App.less';
 import { Innholdstittel, Normaltekst } from 'nav-frontend-typografi';
@@ -9,6 +9,8 @@ import NavFrontendSpinner from 'nav-frontend-spinner';
 import AlertStripe from 'nav-frontend-alertstriper';
 import { Knapp } from 'nav-frontend-knapper';
 import { ReactComponent as Edit } from '../../ikoner/Edit.svg';
+import { QueryKeys } from '../../core/api/QueryKeys';
+import TiltakstypeService from '../../core/api/TiltakstypeService';
 
 interface routeParams {
   id: string;
@@ -17,11 +19,9 @@ interface routeParams {
 const Tiltaksvisning = () => {
   const { id }: routeParams = useParams();
 
-  const { isLoading, data, isError } = useQuery('tiltakstyper' + id, () =>
-    fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltakstyper/' + id).then(res => res.json())
+  const { isLoading, data, isError } = useQuery([QueryKeys.Tiltakstyper, { id: id }], () =>
+    TiltakstypeService.getTiltakstypeById(id)
   );
-
-  const history = useHistory();
 
   if (isLoading) {
     return <NavFrontendSpinner />;
@@ -33,8 +33,9 @@ const Tiltaksvisning = () => {
 
   return (
     <div className="tiltaksvisning__grid">
-      <Tilbakeknapp className="tiltaksvisning__tilbakeknapp" onClick={() => history.push('/')} />
-
+      <Link to="/">
+        <Tilbakeknapp className="tiltaksvisning__tilbakeknapp" />
+      </Link>
       <Link to={`/admin/rediger-tiltakstype/${id}`} className="tiltaksvisning__rediger-knapp">
         <Knapp>
           Rediger tiltak <Edit />

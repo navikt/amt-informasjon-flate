@@ -1,22 +1,20 @@
 import { Input } from 'nav-frontend-skjema';
-import { Fareknapp, Flatknapp, Hovedknapp } from 'nav-frontend-knapper';
+import { Fareknapp, Hovedknapp } from 'nav-frontend-knapper';
 import { ReactComponent as Edit } from '../../ikoner/Edit.svg';
 import { ReactComponent as Delete } from '../../ikoner/Delete.svg';
-import { Link } from 'react-router-dom';
 import NavFrontendSpinner from 'nav-frontend-spinner';
 import { Innholdstittel } from 'nav-frontend-typografi';
 import React, { FormEvent, useState } from 'react';
 import { feilValidering, InputValideringsError } from '../../utils/Validering';
-import { erTomtObjekt, opprettTiltakstype, redigerTiltakstype } from '../../utils/Utils';
-import { postTiltakstype, putTiltakstype } from './Crud';
-import { useMutation, useQueryClient } from 'react-query';
+import { erTomtObjekt } from '../../utils/Utils';
 import AlertStripe from 'nav-frontend-alertstriper';
 
 interface RedigeringsgrensesnittFormProps {
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
-  id: string;
+  isEdit: boolean;
+  onSubmit: () => void;
   tittel: string;
   ingress: string;
   beskrivelse: string;
@@ -28,32 +26,26 @@ const RedigeringsgrensesnittForm = ({
   isLoading,
   isSuccess,
   isError,
-  id,
   tittel,
   ingress,
   beskrivelse,
+  isEdit,
   handleChange,
+  onSubmit,
   setModalOpen,
 }: RedigeringsgrensesnittFormProps) => {
   const [feilmelding, setFeilmelding] = useState({} as InputValideringsError);
-  const queryClient = useQueryClient();
-
-  const mutation = useMutation('tiltakstype', () => postTiltakstype(tittel, ingress, beskrivelse), {
-    onSuccess: () => {
-      queryClient.invalidateQueries('tiltakstyper');
-    },
-  });
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (opprettTiltakstype) {
+    if (!isEdit) {
       const feilValideringsresponse: InputValideringsError = feilValidering(tittel, ingress, beskrivelse);
       setFeilmelding(feilValideringsresponse);
       if (erTomtObjekt(feilValideringsresponse)) {
-        mutation.mutate({ tittel, ingress, beskrivelse } as any);
+        onSubmit();
       }
-    } else if (redigerTiltakstype) {
-      putTiltakstype(tittel, ingress, beskrivelse, id);
+    } else {
+      onSubmit();
     }
   };
 
@@ -83,20 +75,15 @@ const RedigeringsgrensesnittForm = ({
 
       <div className="knapperad">
         <Hovedknapp htmlType="submit" spinner={isLoading}>
-          {opprettTiltakstype ? 'Opprett tiltak' : 'Rediger tiltak'} <Edit />
+          {!isEdit ? 'Opprett tiltak' : 'Rediger tiltak'} <Edit />
         </Hovedknapp>
-
-        {redigerTiltakstype && (
+        {isEdit && (
           <>
             <Fareknapp spinner={isLoading} onClick={() => setModalOpen(true)} htmlType="button">
               Slett tiltak <Delete />
             </Fareknapp>
           </>
         )}
-
-        <Link to="/">
-          <Flatknapp htmlType="button">Avbryt</Flatknapp>
-        </Link>
       </div>
 
       {isLoading && <NavFrontendSpinner />}

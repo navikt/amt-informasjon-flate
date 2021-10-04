@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './OpprettOgRedigerTiltak.less';
-import { useQuery } from 'react-query';
-import { opprettTiltakstype, redigerTiltakstype } from '../../utils/Utils';
+import { useMutation, useQuery } from 'react-query';
 import { Innholdstittel, Undertittel } from 'nav-frontend-typografi';
 import { useHistory, useParams } from 'react-router-dom';
 import { Tilbakeknapp } from 'nav-frontend-ikonknapper';
-import { deleteTiltakstype } from './Crud';
 import SlettModal from '../../components/modal/SlettModal';
 import RedigeringsgrensesnittForm from './RedigeringsgrensesnittForm';
+import { QueryKeys } from '../../core/api/QueryKeys';
+import TiltakstypeService from '../../core/api/TiltakstypeService';
+import { Tiltakstype } from '../../core/domain/Tiltakstype';
+import { toast } from 'react-toastify';
 
 interface routeParams {
   id: string;
@@ -21,19 +23,62 @@ const OpprettOgRedigerTiltak = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
 
   const { id }: routeParams = useParams();
+  const isEditMode = !!id;
   const history = useHistory();
 
-  const { data, isLoading, isSuccess, isError } = useQuery('tiltakstyper' + id, () =>
-    fetch(process.env.REACT_APP_BACKEND_API_ROOT + '/api/tiltakstyper/' + id).then(res => res.json())
+  const { data, isLoading, isSuccess, isError } = useQuery(
+    [QueryKeys.Tiltakstyper, { id: id }],
+    () => TiltakstypeService.getTiltakstypeById(id),
+    {
+      enabled: !!id,
+      onSuccess: data => {
+        setTittel(data.tittel);
+        setIngress(data.ingress);
+        setBeskrivelse(data.beskrivelse);
+      },
+    }
   );
 
-  useEffect(() => {
-    if (redigerTiltakstype) {
-      setTittel(data?.tittel);
-      setIngress(data?.ingress);
-      setBeskrivelse(data?.beskrivelse);
+  // TODO: Finn en bedre måte å gjøre dette på, vi vil helst ha kun EN mutation per domene-objekt i context. Mulig vi må lage en HTTP method mapping.
+  // Lag potensielt egene hooks for disse så de kan gjenbrukes flere steder. Blir veldig mye likt som skjer, unødvendig for øya.
+  const postMutation = useMutation(
+    QueryKeys.Tiltakstyper,
+    (tiltakstype: Tiltakstype) => TiltakstypeService.postTiltakstype(tiltakstype),
+    {
+      onSuccess: () => {
+        toast.success('Oppretting var vellykket.');
+      },
+      onError: () => {
+        toast.error('Oops! Oppretting feilet.');
+      },
     }
-  }, [data]);
+  );
+  const putMutation = useMutation(
+    [QueryKeys.Tiltakstyper, { id: id }],
+    (tiltakstype: Tiltakstype) => TiltakstypeService.putTiltakstype(tiltakstype),
+    {
+      onSuccess: () => {
+        toast.success('Endring var vellykket.');
+      },
+      onError: () => {
+        toast.error('Oops! Endring feilet.');
+      },
+    }
+  );
+  const deleteMutation = useMutation(
+    [QueryKeys.Tiltakstyper, { id: id }],
+    () => TiltakstypeService.deleteTiltakstype(id),
+    {
+      onSuccess: () => {
+        setModalOpen(false);
+        toast.success('Sletting var vellykket.');
+        history.replace('/');
+      },
+      onError: () => {
+        toast.error('Oops! Sletting feilet.');
+      },
+    }
+  );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>, input: string) => {
     if (input === 'tittel') {
@@ -45,30 +90,31 @@ const OpprettOgRedigerTiltak = () => {
     }
   };
 
-  const handleDelete = () => {
-    deleteTiltakstype(tittel, ingress, beskrivelse, id);
-    setModalOpen(false);
+  const handleSubmit = () => {
+    if (isEditMode) {
+      putMutation.mutate({ id: id, tittel: tittel, beskrivelse: beskrivelse, ingress: ingress });
+    } else {
+      postMutation.mutate({ tittel: tittel, beskrivelse: beskrivelse, ingress: ingress });
+    }
   };
 
   return (
     <>
-      <Tilbakeknapp
-        className="rediger-opprett-tiltakstype__tilbakeknapp"
-        onClick={() => history.push(opprettTiltakstype ? '/' : '/tiltakstype/' + id)}
-      />
+      <Tilbakeknapp className="rediger-opprett-tiltakstype__tilbakeknapp" onClick={() => history.goBack()} />
       <div className="rediger-opprett-tiltakstype">
         <div className="rediger-opprett-tiltakstype__overskrift">
-          <Innholdstittel>{opprettTiltakstype ? 'Opprett tiltakstype' : 'Rediger tiltakstype'}</Innholdstittel>
-          {redigerTiltakstype && <Undertittel>Tiltaksnummer: {data?.id}</Undertittel>}
+          <Innholdstittel>{!isEditMode ? 'Opprett tiltakstype' : 'Rediger tiltakstype'}</Innholdstittel>
+          {isEditMode && <Undertittel>Tiltaksnummer: {data?.id}</Undertittel>}
         </div>
 
         <RedigeringsgrensesnittForm
           isSuccess={isSuccess}
           isLoading={isLoading}
           isError={isError}
+          isEdit={isEditMode}
+          onSubmit={handleSubmit}
           handleChange={handleChange}
           setModalOpen={setModalOpen}
-          id={id}
           tittel={tittel}
           ingress={ingress}
           beskrivelse={beskrivelse}
@@ -79,7 +125,7 @@ const OpprettOgRedigerTiltak = () => {
         tittel="Slett tiltak"
         modalOpen={modalOpen}
         onRequestClose={() => setModalOpen(false)}
-        handleDelete={handleDelete}
+        handleDelete={() => deleteMutation.mutate()}
       />
     </>
   );

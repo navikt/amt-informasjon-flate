@@ -1,3 +1,3 @@
 export const enum QueryKeys {
-  Tiltakstyper,
+  Tiltakstyper = 'tiltakstyper',
 }
