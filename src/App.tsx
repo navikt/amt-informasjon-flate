@@ -7,6 +7,7 @@ import { ToastContainer } from 'react-toastify';
 import Routes from './Routes';
 import 'react-toastify/dist/ReactToastify.css';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const queryClient = new QueryClient();
 
