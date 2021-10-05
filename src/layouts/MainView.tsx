@@ -12,7 +12,7 @@ const MainView: FunctionComponent<MainViewProps> = ({ isTilbakeknapp, children }
     <Container>
       {isTilbakeknapp && (
         <Link to="/">
-          <Tilbakeknapp />{' '}
+          <Tilbakeknapp />
         </Link>
       )}
       {children}
