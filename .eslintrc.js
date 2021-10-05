@@ -24,5 +24,6 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': ['warn'],
     'no-useless-return': ['off'],
     'spaced-comment': ['off'],
+    'react-hooks/exhaustive-deps': ['off'],
   },
 };
