@@ -1,16 +1,14 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import './Tiltaksvisning.less';
-import '../../App.less';
-import { Innholdstittel, Normaltekst } from 'nav-frontend-typografi';
-import { Tilbakeknapp } from 'nav-frontend-ikonknapper';
+import { Innholdstittel } from 'nav-frontend-typografi';
 import { useQuery } from 'react-query';
 import NavFrontendSpinner from 'nav-frontend-spinner';
 import AlertStripe from 'nav-frontend-alertstriper';
-import { Knapp } from 'nav-frontend-knapper';
-import { ReactComponent as Edit } from '../../ikoner/Edit.svg';
+import { Hovedknapp } from 'nav-frontend-knapper';
 import { QueryKeys } from '../../core/api/QueryKeys';
 import TiltakstypeService from '../../core/api/TiltakstypeService';
+import MainView from '../../layouts/MainView';
 
 interface routeParams {
   id: string;
@@ -18,6 +16,7 @@ interface routeParams {
 
 const Tiltaksvisning = () => {
   const { id }: routeParams = useParams();
+  const history = useHistory();
 
   const { isLoading, data, isError } = useQuery([QueryKeys.Tiltakstyper, { id: id }], () =>
     TiltakstypeService.getTiltakstypeById(id)
@@ -32,28 +31,15 @@ const Tiltaksvisning = () => {
   }
 
   return (
-    <div className="tiltaksvisning__grid">
-      <Link to="/">
-        <Tilbakeknapp className="tiltaksvisning__tilbakeknapp" />
-      </Link>
-      <Link to={`/admin/rediger-tiltakstype/${id}`} className="tiltaksvisning__rediger-knapp">
-        <Knapp>
-          Rediger tiltak <Edit />
-        </Knapp>
-      </Link>
+    <MainView isTilbakeknapp>
+      <div className="tiltaksvisning">
+        <Innholdstittel>{data?.tittel}</Innholdstittel>
 
-      <div className="tiltaksvisning__informasjon">
-        <div className="tiltaksvisning__topptekst">
-          <Innholdstittel className="topptekst__overskrift">{data?.tittel}</Innholdstittel>
-          <Normaltekst className="topptekst__tiltaksnummer">Tiltaksnummer: {data?.id}</Normaltekst>
-        </div>
-        <img className="tiltaksvisning__bilde" src="https://picsum.photos/500/500" alt={'Bilde av ' + data?.tittel} />
-        <div className="tiltaksvisning__beskrivelse">
-          <p>{data?.ingress}</p>
-          <p>{data?.beskrivelse}</p>
-        </div>
+        <p className="tiltaksvisning__beskrivelse">{data?.beskrivelse}</p>
+
+        <Hovedknapp onClick={() => history.push(`/admin/rediger-tiltakstype/${id}`)}>Rediger tiltak</Hovedknapp>
       </div>
-    </div>
+    </MainView>
   );
 };
 

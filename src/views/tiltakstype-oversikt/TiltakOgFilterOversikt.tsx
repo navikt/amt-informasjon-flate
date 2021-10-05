@@ -9,12 +9,13 @@ import { useQuery } from 'react-query';
 import { QueryKeys } from '../../core/api/QueryKeys';
 import TiltakstypeService from '../../core/api/TiltakstypeService';
 import { Tiltakstype } from '../../core/domain/Tiltakstype';
+import MainView from '../../layouts/MainView';
 
 const TiltakOgFilterOversikt = () => {
   const { data } = useQuery<Tiltakstype[]>(QueryKeys.Tiltakstyper, TiltakstypeService.getAllTiltakstyper);
 
   return (
-    <>
+    <MainView>
       <Row>
         <Col>
           <Sokefelt />
@@ -28,7 +29,7 @@ const TiltakOgFilterOversikt = () => {
       <Row>
         <Tiltaksoversikt tiltakstyper={data} />
       </Row>
-    </>
+    </MainView>
   );
 };
 
