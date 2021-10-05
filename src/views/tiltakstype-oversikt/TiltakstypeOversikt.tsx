@@ -1,28 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Col, Row } from 'react-bootstrap';
 import Tiltaksoversikt from '../../components/tiltaksoversikt/Tiltaksoversikt';
 import Sokefelt from '../../components/filtrering/Sokefelt';
-import { Knapp } from 'nav-frontend-knapper';
-import './TiltakOgFilterOversikt.less';
+import './TiltakstypeOversikt.less';
 import { useQuery } from 'react-query';
 import { QueryKeys } from '../../core/api/QueryKeys';
 import TiltakstypeService from '../../core/api/TiltakstypeService';
 import { Tiltakstype } from '../../core/domain/Tiltakstype';
 import MainView from '../../layouts/MainView';
+import Link from '../../components/link/Link';
 
-const TiltakOgFilterOversikt = () => {
+const TiltakstypeOversikt = () => {
   const { data } = useQuery<Tiltakstype[]>(QueryKeys.Tiltakstyper, TiltakstypeService.getAllTiltakstyper);
-
   return (
-    <MainView>
-      <Row>
+    <MainView title="Tiltakstyper" subTitle="Se en oversikt over alle nasjonale tiltakstyper">
+      <Row className="tiltakstyper-oversikt-actions">
         <Col>
           <Sokefelt />
         </Col>
         <Col className="opprett-nytt-tiltak__knapp__wrapper">
-          <Link to="/admin/opprett-tiltakstype">
-            <Knapp>Opprett ny tiltakstype</Knapp>
+          <Link to="/admin/opprett-tiltakstype" className="knapp">
+            Opprett tiltakstype
           </Link>
         </Col>
       </Row>
@@ -33,4 +31,4 @@ const TiltakOgFilterOversikt = () => {
   );
 };
 
-export default TiltakOgFilterOversikt;
+export default TiltakstypeOversikt;

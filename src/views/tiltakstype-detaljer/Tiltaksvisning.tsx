@@ -30,7 +30,7 @@ const Tiltaksvisning = () => {
   }
 
   return (
-    <MainView isTilbakeknapp>
+    <MainView showBackButton>
       <div className="tiltaksvisning">
         <Innholdstittel>{data?.tittel}</Innholdstittel>
 

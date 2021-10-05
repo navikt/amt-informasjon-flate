@@ -99,7 +99,7 @@ const OpprettOgRedigerTiltak = () => {
   };
 
   return (
-    <MainView isTilbakeknapp>
+    <MainView showBackButton>
       <div className="rediger-opprett-tiltakstype">
         <div className="rediger-opprett-tiltakstype__overskrift">
           <Innholdstittel>{!isEditMode ? 'Opprett tiltakstype' : 'Rediger tiltakstype'}</Innholdstittel>

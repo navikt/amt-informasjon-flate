@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import TiltakstypeDetaljer from './views/tiltakstype-detaljer/Tiltaksvisning';
 import OpprettOgRedigerTiltak from './views/tiltakstype-redigering/OpprettOgRedigerTiltak';
-import TiltakOgFilterOversikt from './views/tiltakstype-oversikt/TiltakOgFilterOversikt';
+import TiltakstypeOversikt from './views/tiltakstype-oversikt/TiltakstypeOversikt';
 
 const Routes = () => {
   return (
@@ -11,7 +11,7 @@ const Routes = () => {
         <Route path="/tiltakstype/:id" component={TiltakstypeDetaljer} />
         <Route path="/admin/rediger-tiltakstype/:id" component={OpprettOgRedigerTiltak} />
         <Route path="/admin/opprett-tiltakstype" component={OpprettOgRedigerTiltak} />
-        <Route path="/" component={TiltakOgFilterOversikt} />
+        <Route path="/" component={TiltakstypeOversikt} />
       </Switch>
     </div>
   );
