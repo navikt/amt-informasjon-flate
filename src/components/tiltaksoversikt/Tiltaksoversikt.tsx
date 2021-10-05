@@ -14,7 +14,11 @@ interface TiltaksoversiktProps {
 
 const Tiltaksoversikt = (props: TiltaksoversiktProps) => {
   const { tiltakstyper } = props;
-  const fuse = new Fuse(tiltakstyper ?? [], { keys: ['id', 'tittel', 'ingress'], shouldSort: false });
+  const fuse = new Fuse(tiltakstyper ?? [], {
+    keys: ['id', 'tittel', 'ingress'],
+    shouldSort: true,
+    threshold: 0.3,
+  });
   const [sok] = useAtom(tiltakstypeOversiktSok);
   const [queriedTiltakstyper, setQueriedTiltakstyper] = useState(tiltakstyper);
 
