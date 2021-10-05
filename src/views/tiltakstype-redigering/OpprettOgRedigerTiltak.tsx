@@ -3,13 +3,13 @@ import './OpprettOgRedigerTiltak.less';
 import { useMutation, useQuery } from 'react-query';
 import { Innholdstittel, Undertittel } from 'nav-frontend-typografi';
 import { useHistory, useParams } from 'react-router-dom';
-import { Tilbakeknapp } from 'nav-frontend-ikonknapper';
 import SlettModal from '../../components/modal/SlettModal';
 import RedigeringsgrensesnittForm from './RedigeringsgrensesnittForm';
 import { QueryKeys } from '../../core/api/QueryKeys';
 import TiltakstypeService from '../../core/api/TiltakstypeService';
 import { Tiltakstype } from '../../core/domain/Tiltakstype';
 import { toast } from 'react-toastify';
+import MainView from '../../layouts/MainView';
 
 interface routeParams {
   id: string;
@@ -99,8 +99,7 @@ const OpprettOgRedigerTiltak = () => {
   };
 
   return (
-    <>
-      <Tilbakeknapp className="rediger-opprett-tiltakstype__tilbakeknapp" onClick={() => history.goBack()} />
+    <MainView isTilbakeknapp>
       <div className="rediger-opprett-tiltakstype">
         <div className="rediger-opprett-tiltakstype__overskrift">
           <Innholdstittel>{!isEditMode ? 'Opprett tiltakstype' : 'Rediger tiltakstype'}</Innholdstittel>
@@ -127,7 +126,7 @@ const OpprettOgRedigerTiltak = () => {
         onRequestClose={() => setModalOpen(false)}
         handleDelete={() => deleteMutation.mutate()}
       />
-    </>
+    </MainView>
   );
 };
 

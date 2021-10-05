@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
+import { Link } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
+import { Tilbakeknapp } from 'nav-frontend-ikonknapper';
 
-// TODO: Lag en felles layout her
-function MainView() {
-  return <div></div>;
+interface MainViewProps {
+  isTilbakeknapp?: boolean;
 }
+
+const MainView: FunctionComponent<MainViewProps> = ({ isTilbakeknapp, children }) => {
+  return (
+    <Container>
+      {isTilbakeknapp && (
+        <Link to="/">
+          <Tilbakeknapp />
+        </Link>
+      )}
+      {children}
+    </Container>
+  );
+};
 
 export default MainView;

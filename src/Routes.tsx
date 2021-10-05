@@ -1,8 +1,8 @@
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import TiltakstypeDetaljer from './views/tiltakstype-detaljer/Tiltaksvisning';
 import OpprettOgRedigerTiltak from './views/tiltakstype-redigering/OpprettOgRedigerTiltak';
 import TiltakOgFilterOversikt from './views/tiltakstype-oversikt/TiltakOgFilterOversikt';
-import React from 'react';
 
 const Routes = () => {
   return (

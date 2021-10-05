@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Col, Row } from 'react-bootstrap';
 import Tiltaksoversikt from '../../components/tiltaksoversikt/Tiltaksoversikt';
 import Sokefelt from '../../components/filtrering/Sokefelt';
 import { Knapp } from 'nav-frontend-knapper';
@@ -7,20 +9,27 @@ import { useQuery } from 'react-query';
 import { QueryKeys } from '../../core/api/QueryKeys';
 import TiltakstypeService from '../../core/api/TiltakstypeService';
 import { Tiltakstype } from '../../core/domain/Tiltakstype';
-import { Link } from 'react-router-dom';
+import MainView from '../../layouts/MainView';
 
 const TiltakOgFilterOversikt = () => {
   const { data } = useQuery<Tiltakstype[]>(QueryKeys.Tiltakstyper, TiltakstypeService.getAllTiltakstyper);
 
   return (
-    <div className="tiltak-og-filter__grid">
-      <Sokefelt />
-
-      <Link to="/admin/opprett-tiltakstype" className="opprett-nytt-tiltak__knapp">
-        <Knapp>Opprett ny tiltakstype</Knapp>
-      </Link>
-      <Tiltaksoversikt tiltakstyper={data} />
-    </div>
+    <MainView>
+      <Row>
+        <Col>
+          <Sokefelt />
+        </Col>
+        <Col className="opprett-nytt-tiltak__knapp__wrapper">
+          <Link to="/admin/opprett-tiltakstype">
+            <Knapp>Opprett ny tiltakstype</Knapp>
+          </Link>
+        </Col>
+      </Row>
+      <Row>
+        <Tiltaksoversikt tiltakstyper={data} />
+      </Row>
+    </MainView>
   );
 };
 
