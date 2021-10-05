@@ -2,7 +2,6 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import Tiltaksoversikt from '../../components/tiltaksoversikt/Tiltaksoversikt';
 import Sokefelt from '../../components/filtrering/Sokefelt';
-import { Knapp } from 'nav-frontend-knapper';
 import './TiltakstypeOversikt.less';
 import { useQuery } from 'react-query';
 import { QueryKeys } from '../../core/api/QueryKeys';
@@ -13,10 +12,9 @@ import Link from '../../components/link/Link';
 
 const TiltakstypeOversikt = () => {
   const { data } = useQuery<Tiltakstype[]>(QueryKeys.Tiltakstyper, TiltakstypeService.getAllTiltakstyper);
-
   return (
     <MainView title="Tiltakstyper" subTitle="Se en oversikt over alle nasjonale tiltakstyper">
-      <Row>
+      <Row className="tiltakstyper-oversikt-actions">
         <Col>
           <Sokefelt />
         </Col>
