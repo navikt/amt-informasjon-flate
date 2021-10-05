@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import { Tilbakeknapp } from 'nav-frontend-ikonknapper';
 
@@ -8,10 +8,13 @@ interface MainViewProps {
 }
 
 const MainView: FunctionComponent<MainViewProps> = ({ isTilbakeknapp, children }) => {
-  const history = useHistory();
   return (
     <Container>
-      {isTilbakeknapp && <Tilbakeknapp onClick={() => history.goBack()} />}
+      {isTilbakeknapp && (
+        <Link to="/">
+          <Tilbakeknapp />{' '}
+        </Link>
+      )}
       {children}
     </Container>
   );

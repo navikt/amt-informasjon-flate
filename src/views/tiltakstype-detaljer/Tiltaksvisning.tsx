@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import './Tiltaksvisning.less';
 import { Innholdstittel } from 'nav-frontend-typografi';
 import { useQuery } from 'react-query';
@@ -16,7 +16,6 @@ interface routeParams {
 
 const Tiltaksvisning = () => {
   const { id }: routeParams = useParams();
-  const history = useHistory();
 
   const { isLoading, data, isError } = useQuery([QueryKeys.Tiltakstyper, { id: id }], () =>
     TiltakstypeService.getTiltakstypeById(id)
@@ -37,7 +36,9 @@ const Tiltaksvisning = () => {
 
         <p className="tiltaksvisning__beskrivelse">{data?.beskrivelse}</p>
 
-        <Hovedknapp onClick={() => history.push(`/admin/rediger-tiltakstype/${id}`)}>Rediger tiltak</Hovedknapp>
+        <Link to={`/admin/rediger-tiltakstype/${id}`}>
+          <Hovedknapp>Rediger tiltak</Hovedknapp>
+        </Link>
       </div>
     </MainView>
   );
