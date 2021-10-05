@@ -5,7 +5,7 @@ import 'nav-frontend-tabell-style';
 import { Tiltakstype } from '../../core/domain/Tiltakstype';
 import Tiltaksliste from './listevisning/Tiltaksliste';
 import { isSearchTextInFilter } from './TiltaksoversiktFilterUtils';
-import '../../views/tiltakstype-oversikt/TiltakOgFilterOversikt.less';
+import '../../views/tiltakstype-oversikt/TiltakstypeOversikt.less';
 
 interface TiltaksoversiktProps {
   tiltakstyper?: Tiltakstype[];
