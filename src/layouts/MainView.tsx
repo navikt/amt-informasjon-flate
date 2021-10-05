@@ -4,13 +4,13 @@ import { Container } from 'react-bootstrap';
 import { Tilbakeknapp } from 'nav-frontend-ikonknapper';
 
 interface MainViewProps {
-  isTilbakeknapp?: boolean;
+  showBackButton?: boolean;
 }
 
-const MainView: FunctionComponent<MainViewProps> = ({ isTilbakeknapp, children }) => {
+const MainView: FunctionComponent<MainViewProps> = ({ showBackButton, children }) => {
   return (
     <Container>
-      {isTilbakeknapp && (
+      {showBackButton && (
         <Link to="/">
           <Tilbakeknapp />
         </Link>
