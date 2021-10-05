@@ -26,7 +26,7 @@ const Tiltaksoversikt = (props: TiltaksoversiktProps) => {
         setQueriedTiltakstyper(tiltakstyper);
       }
     }
-  }, [tiltakstyper, sok]);
+  }, [tiltakstyper, sok, fuse]);
 
   return (
     <div className="tiltaksoversikt">

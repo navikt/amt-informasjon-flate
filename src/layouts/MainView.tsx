@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Container, Row } from 'react-bootstrap';
 import { Tilbakeknapp } from 'nav-frontend-ikonknapper';
 import './MainView.less';
-import { Innholdstittel, Sidetittel, Systemtittel } from 'nav-frontend-typografi';
+import { Sidetittel, Systemtittel } from 'nav-frontend-typografi';
 
 interface MainViewProps {
   showBackButton?: boolean;
