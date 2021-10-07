@@ -6,14 +6,12 @@ import TiltakstypeOversikt from './views/tiltakstype-oversikt/TiltakstypeOversik
 
 const Routes = () => {
   return (
-    <div className="main-app">
-      <Switch>
-        <Route path="/tiltakstype/:id" component={TiltakstypeDetaljer} />
-        <Route path="/admin/rediger-tiltakstype/:id" component={OpprettOgRedigerTiltak} />
-        <Route path="/admin/opprett-tiltakstype" component={OpprettOgRedigerTiltak} />
-        <Route path="/" component={TiltakstypeOversikt} />
-      </Switch>
-    </div>
+    <Switch>
+      <Route path="/tiltakstype/:id" component={TiltakstypeDetaljer} />
+      <Route path="/admin/rediger-tiltakstype/:id" component={OpprettOgRedigerTiltak} />
+      <Route path="/admin/opprett-tiltakstype" component={OpprettOgRedigerTiltak} />
+      <Route path="/" component={TiltakstypeOversikt} />
+    </Switch>
   );
 };
 

@@ -14,7 +14,7 @@ interface MainViewProps {
 const MainView: FunctionComponent<MainViewProps> = ({ showBackButton, title, subTitle, children }) => {
   return (
     <Container className="main-view">
-      <Row>
+      <Row className="main-view__header">
         {showBackButton && (
           <Link to="/">
             <Tilbakeknapp />
