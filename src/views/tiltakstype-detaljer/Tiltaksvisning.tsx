@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import './Tiltaksvisning.less';
 import { Innholdstittel } from 'nav-frontend-typografi';
 import { useQuery } from 'react-query';
@@ -9,6 +9,7 @@ import { Hovedknapp } from 'nav-frontend-knapper';
 import { QueryKeys } from '../../core/api/QueryKeys';
 import TiltakstypeService from '../../core/api/TiltakstypeService';
 import MainView from '../../layouts/MainView';
+import Link from '../../components/link/Link';
 
 interface routeParams {
   id: string;
@@ -36,8 +37,8 @@ const Tiltaksvisning = () => {
 
         <p className="tiltaksvisning__beskrivelse">{data?.beskrivelse}</p>
 
-        <Link to={`/admin/rediger-tiltakstype/${id}`}>
-          <Hovedknapp>Rediger tiltak</Hovedknapp>
+        <Link to={`/admin/rediger-tiltakstype/${id}`} className="knapp knapp--hoved">
+          Rediger
         </Link>
       </div>
     </MainView>

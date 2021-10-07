@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tiltakstype } from '../../../core/domain/Tiltakstype';
-import { Link } from 'react-router-dom';
+import Link from '../../link/Link';
 import './TiltakListevisning.less';
 
 interface TiltakRadProps {
@@ -13,7 +13,7 @@ const TiltakRad = ({ tiltak }: TiltakRadProps) => {
     <tr key={id}>
       <td>{id}</td>
       <td>
-        <Link to={`/tiltakstype/${id}`} className="tabell__link">
+        <Link to={`/tiltakstype/${id}`} isInline>
           {tittel}
         </Link>
       </td>

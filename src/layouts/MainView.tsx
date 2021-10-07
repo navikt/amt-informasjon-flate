@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
-import { Link } from 'react-router-dom';
 import { Container, Row } from 'react-bootstrap';
 import { Tilbakeknapp } from 'nav-frontend-ikonknapper';
 import './MainView.less';
 import { Sidetittel, Systemtittel } from 'nav-frontend-typografi';
+import Link from '../components/link/Link';
 
 interface MainViewProps {
   showBackButton?: boolean;
