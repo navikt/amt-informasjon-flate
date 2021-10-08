@@ -1,15 +1,15 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import TiltakstypeDetaljer from './views/tiltakstype-detaljer/Tiltaksvisning';
+import TiltakstypeDetaljer from './views/tiltakstype-detaljer/TiltaksDetaljer';
 import OpprettOgRedigerTiltak from './views/tiltakstype-redigering/OpprettOgRedigerTiltak';
 import TiltakstypeOversikt from './views/tiltakstype-oversikt/TiltakstypeOversikt';
 
 const Routes = () => {
   return (
     <Switch>
-      <Route path="/tiltakstype/:id" component={TiltakstypeDetaljer} />
-      <Route path="/admin/rediger-tiltakstype/:id" component={OpprettOgRedigerTiltak} />
-      <Route path="/admin/opprett-tiltakstype" component={OpprettOgRedigerTiltak} />
+      <Route exact path="/tiltakstyper/opprett" component={OpprettOgRedigerTiltak} />
+      <Route exact path="/tiltakstyper/:id" component={TiltakstypeDetaljer} />
+      <Route exact path="/tiltakstyper/:id/rediger" component={OpprettOgRedigerTiltak} />
       <Route path="/" component={TiltakstypeOversikt} />
     </Switch>
   );

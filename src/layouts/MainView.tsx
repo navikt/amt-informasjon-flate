@@ -2,8 +2,8 @@ import React, { FunctionComponent } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import { Tilbakeknapp } from 'nav-frontend-ikonknapper';
 import './MainView.less';
-import { Sidetittel, Systemtittel } from 'nav-frontend-typografi';
 import Link from '../components/link/Link';
+import MainViewTitle from './MainViewTitle';
 
 interface MainViewProps {
   showBackButton?: boolean;
@@ -12,6 +12,7 @@ interface MainViewProps {
 }
 
 const MainView: FunctionComponent<MainViewProps> = ({ showBackButton, title, subTitle, children }) => {
+  const renderTitleSection = () => (title ? <MainViewTitle title={title} subTitle={subTitle} /> : null);
   return (
     <Container className="main-view">
       <Row className="main-view__header">
@@ -21,10 +22,7 @@ const MainView: FunctionComponent<MainViewProps> = ({ showBackButton, title, sub
           </Link>
         )}
       </Row>
-      <Row className="main-view__title">
-        {title && <Sidetittel>{title}</Sidetittel>}
-        {subTitle && <Systemtittel>{subTitle}</Systemtittel>}
-      </Row>
+      {renderTitleSection()}
       {children}
     </Container>
   );

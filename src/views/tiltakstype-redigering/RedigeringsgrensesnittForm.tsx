@@ -3,15 +3,14 @@ import { Fareknapp, Hovedknapp } from 'nav-frontend-knapper';
 import { ReactComponent as Edit } from '../../ikoner/Edit.svg';
 import { ReactComponent as Delete } from '../../ikoner/Delete.svg';
 import NavFrontendSpinner from 'nav-frontend-spinner';
-import { Innholdstittel } from 'nav-frontend-typografi';
 import React, { FormEvent, useState } from 'react';
 import { feilValidering, InputValideringsError } from '../../utils/Validering';
 import { erTomtObjekt } from '../../utils/Utils';
 import AlertStripe from 'nav-frontend-alertstriper';
+import { Stack, Row } from 'react-bootstrap';
 
 interface RedigeringsgrensesnittFormProps {
   isLoading: boolean;
-  isSuccess: boolean;
   isError: boolean;
   isEdit: boolean;
   onSubmit: () => void;
@@ -24,7 +23,6 @@ interface RedigeringsgrensesnittFormProps {
 
 const RedigeringsgrensesnittForm = ({
   isLoading,
-  isSuccess,
   isError,
   tittel,
   ingress,
@@ -72,30 +70,21 @@ const RedigeringsgrensesnittForm = ({
         feil={feilmelding.beskrivelse}
         className="rediger-opprett-tiltakstype__form__beskrivelse"
       />
-
-      <div className="knapperad">
-        <Hovedknapp htmlType="submit" spinner={isLoading}>
-          {!isEdit ? 'Opprett tiltak' : 'Rediger tiltak'} <Edit />
-        </Hovedknapp>
-        {isEdit && (
-          <>
-            <Fareknapp spinner={isLoading} onClick={() => setModalOpen(true)} htmlType="button">
-              Slett tiltak <Delete />
-            </Fareknapp>
-          </>
-        )}
-      </div>
-
+      <Row className="rediger-opprett-tiltakstype__form knapperad">
+        <Stack direction="horizontal" gap={2}>
+          <Hovedknapp htmlType="submit">
+            {!isEdit ? 'Opprett tiltak' : 'Rediger tiltak'} <Edit />
+          </Hovedknapp>
+          {isEdit && (
+            <>
+              <Fareknapp spinner={isLoading} onClick={() => setModalOpen(true)} htmlType="button">
+                Slett tiltak <Delete />
+              </Fareknapp>
+            </>
+          )}
+        </Stack>
+      </Row>
       {isLoading && <NavFrontendSpinner />}
-
-      {isSuccess && (
-        <>
-          <Innholdstittel className="topptekst__overskrift">{tittel}</Innholdstittel>
-          <p>{ingress}</p>
-          <p>{beskrivelse}</p>
-        </>
-      )}
-
       {isError && <AlertStripe type={'feil'}>Det har oppstått en feil</AlertStripe>}
     </form>
   );
