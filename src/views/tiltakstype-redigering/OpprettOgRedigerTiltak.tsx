@@ -25,7 +25,7 @@ const OpprettOgRedigerTiltak = () => {
   const isEditMode = !!id;
   const history = useHistory();
 
-  const { data, isLoading, isSuccess, isError } = useQuery(
+  const { isLoading, isError } = useQuery(
     [QueryKeys.Tiltakstyper, { id: id }],
     () => TiltakstypeService.getTiltakstypeById(id),
     {

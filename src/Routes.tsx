@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import TiltakstypeDetaljer from './views/tiltakstype-detaljer/TiltaksDetaljer';
+import TiltakstypeDetaljer from './views/tiltakstype-detaljer/TiltakstypeDetaljer';
 import OpprettOgRedigerTiltak from './views/tiltakstype-redigering/OpprettOgRedigerTiltak';
 import TiltakstypeOversikt from './views/tiltakstype-oversikt/TiltakstypeOversikt';
 
