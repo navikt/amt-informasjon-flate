@@ -5,15 +5,10 @@ Tilhørende flate for <strong>amt-informasjon-api</strong> for behandling av til
 
 # Innhold
 
-- [Hensikt](#hensikt)
 - [Teknologier](#teknologier)
 - [Kom i gang](#kom-i-gang)
   - [Forutsetninger](#forutsetninger)
   - [Steg for steg](#steg-for-steg)
-
-# Hensikt
-
-Et eller annet forklarlig her...
 
 # <a name="teknologier"></a>Teknologier
 
