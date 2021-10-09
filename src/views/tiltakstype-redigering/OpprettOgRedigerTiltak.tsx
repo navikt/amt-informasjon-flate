@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './OpprettOgRedigerTiltak.less';
 import { useMutation, useQuery } from 'react-query';
-import { Innholdstittel, Undertittel } from 'nav-frontend-typografi';
 import { useHistory, useParams } from 'react-router-dom';
 import SlettModal from '../../components/modal/SlettModal';
 import RedigeringsgrensesnittForm from './RedigeringsgrensesnittForm';
@@ -26,7 +25,7 @@ const OpprettOgRedigerTiltak = () => {
   const isEditMode = !!id;
   const history = useHistory();
 
-  const { data, isLoading, isSuccess, isError } = useQuery(
+  const { isLoading, isError } = useQuery(
     [QueryKeys.Tiltakstyper, { id: id }],
     () => TiltakstypeService.getTiltakstypeById(id),
     {
@@ -98,16 +97,12 @@ const OpprettOgRedigerTiltak = () => {
     }
   };
 
-  return (
-    <MainView showBackButton>
-      <div className="rediger-opprett-tiltakstype">
-        <div className="rediger-opprett-tiltakstype__overskrift">
-          <Innholdstittel>{!isEditMode ? 'Opprett tiltakstype' : 'Rediger tiltakstype'}</Innholdstittel>
-          {isEditMode && <Undertittel>Tiltaksnummer: {data?.id}</Undertittel>}
-        </div>
+  const getTitle = () => (isEditMode ? 'Rediger tiltakstype' : 'Opprett tiltakstype');
 
+  return (
+    <MainView showBackButton title={getTitle()}>
+      <div>
         <RedigeringsgrensesnittForm
-          isSuccess={isSuccess}
           isLoading={isLoading}
           isError={isError}
           isEdit={isEditMode}
@@ -119,7 +114,6 @@ const OpprettOgRedigerTiltak = () => {
           beskrivelse={beskrivelse}
         />
       </div>
-
       <SlettModal
         tittel="Slett tiltak"
         modalOpen={modalOpen}

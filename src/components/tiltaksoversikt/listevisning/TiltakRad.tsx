@@ -13,7 +13,7 @@ const TiltakRad = ({ tiltak }: TiltakRadProps) => {
     <tr key={id}>
       <td>{id}</td>
       <td>
-        <Link to={`/tiltakstype/${id}`} isInline>
+        <Link to={`/tiltakstyper/${id}`} isInline>
           {tittel}
         </Link>
       </td>

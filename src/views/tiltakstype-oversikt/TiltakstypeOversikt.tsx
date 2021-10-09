@@ -15,11 +15,11 @@ const TiltakstypeOversikt = () => {
   return (
     <MainView title="Tiltakstyper" subTitle="Se en oversikt over alle nasjonale tiltakstyper">
       <Row className="tiltakstyper-oversikt-actions">
-        <Col>
+        <Col lg={4}>
           <Sokefelt />
         </Col>
         <Col className="opprett-nytt-tiltak__knapp__wrapper">
-          <Link to="/admin/opprett-tiltakstype" className="knapp">
+          <Link to="/tiltakstyper/opprett" className="knapp">
             Opprett tiltakstype
           </Link>
         </Col>
