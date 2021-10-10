@@ -1,15 +1,13 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import './TiltakstypeDetaljer.less';
-import { useQuery } from 'react-query';
 import AlertStripe from 'nav-frontend-alertstriper';
-import { QueryKeys } from '../../core/api/QueryKeys';
-import TiltakstypeService from '../../core/api/TiltakstypeService';
 import MainView from '../../layouts/MainView';
 import Link from '../../components/link/Link';
 import { Ingress, Normaltekst, Systemtittel } from 'nav-frontend-typografi';
 import { Col, Row, Stack } from 'react-bootstrap';
 import Panel from 'nav-frontend-paneler';
+import useTiltakstype from '../../hooks/tiltakstyper/useTiltakstype';
 
 interface routeParams {
   id: string;
@@ -18,9 +16,7 @@ interface routeParams {
 const TiltakstypeDetaljer = () => {
   const { id }: routeParams = useParams();
 
-  const { data, isError } = useQuery([QueryKeys.Tiltakstyper, { id: id }], () =>
-    TiltakstypeService.getTiltakstypeById(id)
-  );
+  const { data, isError } = useTiltakstype(id) 
 
   if (isError) {
     return <AlertStripe type="feil">Det skjedde en feil</AlertStripe>;

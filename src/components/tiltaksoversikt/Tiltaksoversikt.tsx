@@ -34,7 +34,6 @@ const Tiltaksoversikt = (props: TiltaksoversiktProps) => {
 
   return (
     <div className="tiltaksoversikt">
-      {!tiltakstyper && <NavFrontendSpinner />}
       {tiltakstyper && <Tiltaksliste tiltaksliste={queriedTiltakstyper} />}
     </div>
   );

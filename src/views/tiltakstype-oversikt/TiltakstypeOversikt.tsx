@@ -3,15 +3,13 @@ import { Col, Row } from 'react-bootstrap';
 import Tiltaksoversikt from '../../components/tiltaksoversikt/Tiltaksoversikt';
 import Sokefelt from '../../components/filtrering/Sokefelt';
 import './TiltakstypeOversikt.less';
-import { useQuery } from 'react-query';
-import { QueryKeys } from '../../core/api/QueryKeys';
-import TiltakstypeService from '../../core/api/TiltakstypeService';
-import { Tiltakstype } from '../../core/domain/Tiltakstype';
 import MainView from '../../layouts/MainView';
 import Link from '../../components/link/Link';
+import useTiltakstyper from '../../hooks/tiltakstyper/useTiltakstyper';
+import NavFrontendSpinner from 'nav-frontend-spinner';
 
 const TiltakstypeOversikt = () => {
-  const { data } = useQuery<Tiltakstype[]>(QueryKeys.Tiltakstyper, TiltakstypeService.getAllTiltakstyper);
+  const { data, isFetching } = useTiltakstyper()
   return (
     <MainView title="Tiltakstyper" subTitle="Se en oversikt over alle nasjonale tiltakstyper">
       <Row className="tiltakstyper-oversikt-actions">
@@ -25,7 +23,7 @@ const TiltakstypeOversikt = () => {
         </Col>
       </Row>
       <Row>
-        <Tiltaksoversikt tiltakstyper={data} />
+        {isFetching ? <NavFrontendSpinner /> : <Tiltaksoversikt tiltakstyper={data} />}
       </Row>
     </MainView>
   );
