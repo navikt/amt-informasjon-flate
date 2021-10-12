@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import 'nav-frontend-tabell-style';
 import { Tiltakstype } from '../../core/domain/Tiltakstype';
-import Tiltaksliste from './listevisning/Tiltaksliste';
+import Tiltakstypeliste from './listevisning/Tiltakstypeliste';
 import '../../views/tiltakstype-oversikt/TiltakstypeOversikt.less';
 import { tiltakstypeOversiktSok } from '../../core/atoms/atoms';
 import { useAtom } from 'jotai';
@@ -11,7 +11,7 @@ interface TiltaksoversiktProps {
   tiltakstyper?: Tiltakstype[];
 }
 
-const Tiltaksoversikt = (props: TiltaksoversiktProps) => {
+const Tiltakstypeoversikt = (props: TiltaksoversiktProps) => {
   const { tiltakstyper } = props;
   const fuse = new Fuse(tiltakstyper ?? [], {
     keys: ['id', 'tittel', 'ingress'],
@@ -31,7 +31,7 @@ const Tiltaksoversikt = (props: TiltaksoversiktProps) => {
     }
   }, [tiltakstyper, sok]);
 
-  return <div className="tiltaksoversikt">{tiltakstyper && <Tiltaksliste tiltaksliste={queriedTiltakstyper} />}</div>;
+  return <>{tiltakstyper && <Tiltakstypeliste tiltakstypeliste={queriedTiltakstyper} />}</>;
 };
 
-export default Tiltaksoversikt;
+export default Tiltakstypeoversikt;

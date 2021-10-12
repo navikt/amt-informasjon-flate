@@ -73,12 +73,12 @@ const RedigeringsgrensesnittForm = ({
       <Row className="rediger-opprett-tiltakstype__form knapperad">
         <Stack direction="horizontal" gap={2}>
           <Hovedknapp htmlType="submit">
-            {!isEdit ? 'Opprett tiltak' : 'Rediger tiltak'} <Edit />
+            {!isEdit ? 'Opprett tiltakstype' : 'Rediger tiltakstype'} <Edit />
           </Hovedknapp>
           {isEdit && (
             <>
               <Fareknapp spinner={isLoading} onClick={() => setModalOpen(true)} htmlType="button">
-                Slett tiltak <Delete />
+                Slett tiltakstype <Delete />
               </Fareknapp>
             </>
           )}

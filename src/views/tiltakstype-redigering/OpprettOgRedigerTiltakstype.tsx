@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './OpprettOgRedigerTiltak.less';
+import './OpprettOgRedigerTiltakstype.less';
 import { useParams } from 'react-router-dom';
 import SlettModal from '../../components/modal/SlettModal';
 import RedigeringsgrensesnittForm from './RedigeringsgrensesnittForm';
@@ -13,7 +13,7 @@ interface routeParams {
   id: string;
 }
 
-const OpprettOgRedigerTiltak = () => {
+const OpprettOgRedigerTiltakstype = () => {
   const { id }: routeParams = useParams();
   const isEditMode = !!id;
 
@@ -22,20 +22,19 @@ const OpprettOgRedigerTiltak = () => {
   const [beskrivelse, setBeskrivelse] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
 
-
-  const { data, isLoading, isError } = useTiltakstype(id) 
+  const { data, isLoading, isError } = useTiltakstype(id);
 
   useEffect(() => {
     if (data) {
-      setTittel(data.tittel)
-      setIngress(data.ingress)
-      setBeskrivelse(data.beskrivelse)
+      setTittel(data.tittel);
+      setIngress(data.ingress);
+      setBeskrivelse(data.beskrivelse);
     }
-  }, [data])
+  }, [data]);
 
-  const postMutation = useTiltakstypeCreate()
-  const putMutation = useTiltakstypeUpdate(id) 
-  const deleteMutation = useTiltakstypeDelete(id) 
+  const postMutation = useTiltakstypeCreate();
+  const putMutation = useTiltakstypeUpdate(id);
+  const deleteMutation = useTiltakstypeDelete(id);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>, input: string) => {
     if (input === 'tittel') {
@@ -73,7 +72,7 @@ const OpprettOgRedigerTiltak = () => {
         />
       </div>
       <SlettModal
-        tittel="Slett tiltak"
+        tittel="Slett tiltakstype"
         modalOpen={modalOpen}
         onRequestClose={() => setModalOpen(false)}
         handleDelete={() => deleteMutation.mutate()}
@@ -82,4 +81,4 @@ const OpprettOgRedigerTiltak = () => {
   );
 };
 
-export default OpprettOgRedigerTiltak;
+export default OpprettOgRedigerTiltakstype;

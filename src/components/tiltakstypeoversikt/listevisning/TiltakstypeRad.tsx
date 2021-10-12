@@ -1,14 +1,14 @@
 import React from 'react';
 import { Tiltakstype } from '../../../core/domain/Tiltakstype';
 import Link from '../../link/Link';
-import './TiltakListevisning.less';
+import './TiltakstypeListevisning.less';
 
-interface TiltakRadProps {
-  tiltak: Tiltakstype;
+interface TiltakstypeRadProps {
+  tiltakstype: Tiltakstype;
 }
 
-const TiltakRad = ({ tiltak }: TiltakRadProps) => {
-  const { id, tittel, ingress } = tiltak;
+const TiltakstypeRad = ({ tiltakstype }: TiltakstypeRadProps) => {
+  const { id, tittel, ingress } = tiltakstype;
   return (
     <tr key={id}>
       <td>
@@ -21,4 +21,4 @@ const TiltakRad = ({ tiltak }: TiltakRadProps) => {
   );
 };
 
-export default TiltakRad;
+export default TiltakstypeRad;
