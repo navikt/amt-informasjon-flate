@@ -1,83 +1,41 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './OpprettOgRedigerTiltak.less';
-import { useMutation, useQuery } from 'react-query';
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import SlettModal from '../../components/modal/SlettModal';
 import RedigeringsgrensesnittForm from './RedigeringsgrensesnittForm';
-import { QueryKeys } from '../../core/api/QueryKeys';
-import TiltakstypeService from '../../core/api/TiltakstypeService';
-import { Tiltakstype } from '../../core/domain/Tiltakstype';
-import { toast } from 'react-toastify';
 import MainView from '../../layouts/MainView';
+import useTiltakstypeCreate from '../../hooks/tiltakstyper/useTiltakstypeCreate';
+import useTiltakstypeUpdate from '../../hooks/tiltakstyper/useTiltakstypeUpdate';
+import useTiltakstypeDelete from '../../hooks/tiltakstyper/useTiltakstypeDelete';
+import useTiltakstype from '../../hooks/tiltakstyper/useTiltakstype';
 
 interface routeParams {
   id: string;
 }
 
 const OpprettOgRedigerTiltak = () => {
-  const [tittel, setTittel] = useState<string>('');
-  const [ingress, setIngress] = useState<string>('');
-  const [beskrivelse, setBeskrivelse] = useState<string>('');
-
-  const [modalOpen, setModalOpen] = useState<boolean>(false);
-
   const { id }: routeParams = useParams();
   const isEditMode = !!id;
-  const history = useHistory();
 
-  const { isLoading, isError } = useQuery(
-    [QueryKeys.Tiltakstyper, { id: id }],
-    () => TiltakstypeService.getTiltakstypeById(id),
-    {
-      enabled: !!id,
-      onSuccess: data => {
-        setTittel(data.tittel);
-        setIngress(data.ingress);
-        setBeskrivelse(data.beskrivelse);
-      },
-    }
-  );
+  const [tittel, setTittel] = useState('');
+  const [ingress, setIngress] = useState('');
+  const [beskrivelse, setBeskrivelse] = useState('');
+  const [modalOpen, setModalOpen] = useState(false);
 
-  // TODO: Finn en bedre måte å gjøre dette på, vi vil helst ha kun EN mutation per domene-objekt i context. Mulig vi må lage en HTTP method mapping.
-  // Lag potensielt egene hooks for disse så de kan gjenbrukes flere steder. Blir veldig mye likt som skjer, unødvendig for øya.
-  const postMutation = useMutation(
-    QueryKeys.Tiltakstyper,
-    (tiltakstype: Tiltakstype) => TiltakstypeService.postTiltakstype(tiltakstype),
-    {
-      onSuccess: () => {
-        toast.success('Oppretting var vellykket.');
-      },
-      onError: () => {
-        toast.error('Oops! Oppretting feilet.');
-      },
+
+  const { data, isLoading, isError } = useTiltakstype(id) 
+
+  useEffect(() => {
+    if (data) {
+      setTittel(data.tittel)
+      setIngress(data.ingress)
+      setBeskrivelse(data.beskrivelse)
     }
-  );
-  const putMutation = useMutation(
-    [QueryKeys.Tiltakstyper, { id: id }],
-    (tiltakstype: Tiltakstype) => TiltakstypeService.putTiltakstype(tiltakstype),
-    {
-      onSuccess: () => {
-        toast.success('Endring var vellykket.');
-      },
-      onError: () => {
-        toast.error('Oops! Endring feilet.');
-      },
-    }
-  );
-  const deleteMutation = useMutation(
-    [QueryKeys.Tiltakstyper, { id: id }],
-    () => TiltakstypeService.deleteTiltakstype(id),
-    {
-      onSuccess: () => {
-        setModalOpen(false);
-        toast.success('Sletting var vellykket.');
-        history.replace('/');
-      },
-      onError: () => {
-        toast.error('Oops! Sletting feilet.');
-      },
-    }
-  );
+  }, [data])
+
+  const postMutation = useTiltakstypeCreate()
+  const putMutation = useTiltakstypeUpdate(id) 
+  const deleteMutation = useTiltakstypeDelete(id) 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>, input: string) => {
     if (input === 'tittel') {
