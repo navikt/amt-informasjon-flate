@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import NavFrontendSpinner from 'nav-frontend-spinner';
 import 'nav-frontend-tabell-style';
 import { Tiltakstype } from '../../core/domain/Tiltakstype';
 import Tiltaksliste from './listevisning/Tiltaksliste';
@@ -32,11 +31,7 @@ const Tiltaksoversikt = (props: TiltaksoversiktProps) => {
     }
   }, [tiltakstyper, sok]);
 
-  return (
-    <div className="tiltaksoversikt">
-      {tiltakstyper && <Tiltaksliste tiltaksliste={queriedTiltakstyper} />}
-    </div>
-  );
+  return <div className="tiltaksoversikt">{tiltakstyper && <Tiltaksliste tiltaksliste={queriedTiltakstyper} />}</div>;
 };
 
 export default Tiltaksoversikt;
