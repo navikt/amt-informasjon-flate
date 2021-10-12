@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import './TiltakstypeDetaljer.less';
 import AlertStripe from 'nav-frontend-alertstriper';
 import MainView from '../../layouts/MainView';
 import Link from '../../components/link/Link';
@@ -16,7 +15,7 @@ interface routeParams {
 const TiltakstypeDetaljer = () => {
   const { id }: routeParams = useParams();
 
-  const { data, isError } = useTiltakstype(id) 
+  const { data, isError } = useTiltakstype(id);
 
   if (isError) {
     return <AlertStripe type="feil">Det skjedde en feil</AlertStripe>;

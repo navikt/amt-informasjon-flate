@@ -9,22 +9,20 @@ import useTiltakstyper from '../../hooks/tiltakstyper/useTiltakstyper';
 import NavFrontendSpinner from 'nav-frontend-spinner';
 
 const TiltakstypeOversikt = () => {
-  const { data, isFetching } = useTiltakstyper()
+  const { data, isFetching } = useTiltakstyper();
   return (
     <MainView title="Tiltakstyper" subTitle="Se en oversikt over alle nasjonale tiltakstyper">
       <Row className="tiltakstyper-oversikt-actions">
         <Col lg={4}>
           <Sokefelt />
         </Col>
-        <Col className="opprett-nytt-tiltak__knapp__wrapper">
+        <Col className="opprett-ny-tiltakstype__knapp__wrapper">
           <Link to="/tiltakstyper/opprett" className="knapp">
             Opprett tiltakstype
           </Link>
         </Col>
       </Row>
-      <Row>
-        {isFetching ? <NavFrontendSpinner /> : <Tiltaksoversikt tiltakstyper={data} />}
-      </Row>
+      <Row>{isFetching ? <NavFrontendSpinner /> : <Tiltaksoversikt tiltakstyper={data} />}</Row>
     </MainView>
   );
 };

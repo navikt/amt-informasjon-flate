@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import 'nav-frontend-tabell-style';
 import { Tiltakstype } from '../../core/domain/Tiltakstype';
-import Tiltaksliste from './listevisning/Tiltaksliste';
+import Tiltakstypeliste from './listevisning/Tiltakstypeliste';
 import '../../views/tiltakstype-oversikt/TiltakstypeOversikt.less';
 import { tiltakstypeOversiktSok } from '../../core/atoms/atoms';
 import { useAtom } from 'jotai';
@@ -31,7 +31,9 @@ const Tiltaksoversikt = (props: TiltaksoversiktProps) => {
     }
   }, [tiltakstyper, sok]);
 
-  return <div className="tiltaksoversikt">{tiltakstyper && <Tiltaksliste tiltaksliste={queriedTiltakstyper} />}</div>;
+  return (
+    <div className="tiltaksoversikt">{tiltakstyper && <Tiltakstypeliste tiltakstypeliste={queriedTiltakstyper} />}</div>
+  );
 };
 
 export default Tiltaksoversikt;

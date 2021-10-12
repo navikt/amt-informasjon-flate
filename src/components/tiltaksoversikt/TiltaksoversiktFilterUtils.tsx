@@ -1,8 +1,8 @@
 import { Tiltakstype } from '../../core/domain/Tiltakstype';
 
-export const isSearchTextInFilter = (tiltak: Tiltakstype, searchText: string) => {
+export const isSearchTextInFilter = (tiltakstype: Tiltakstype, searchText: string) => {
   return (
-    tiltak.tittel.toLowerCase().includes(searchText.toLowerCase()) ||
-    tiltak.ingress.toLowerCase().includes(searchText.toLowerCase())
+    tiltakstype.tittel.toLowerCase().includes(searchText.toLowerCase()) ||
+    tiltakstype.ingress.toLowerCase().includes(searchText.toLowerCase())
   );
 };
