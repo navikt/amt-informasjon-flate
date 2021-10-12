@@ -11,7 +11,7 @@ interface TiltaksoversiktProps {
   tiltakstyper?: Tiltakstype[];
 }
 
-const Tiltaksoversikt = (props: TiltaksoversiktProps) => {
+const Tiltakstypeoversikt = (props: TiltaksoversiktProps) => {
   const { tiltakstyper } = props;
   const fuse = new Fuse(tiltakstyper ?? [], {
     keys: ['id', 'tittel', 'ingress'],
@@ -31,9 +31,7 @@ const Tiltaksoversikt = (props: TiltaksoversiktProps) => {
     }
   }, [tiltakstyper, sok]);
 
-  return (
-    <div className="tiltaksoversikt">{tiltakstyper && <Tiltakstypeliste tiltakstypeliste={queriedTiltakstyper} />}</div>
-  );
+  return <>{tiltakstyper && <Tiltakstypeliste tiltakstypeliste={queriedTiltakstyper} />}</>;
 };
 
-export default Tiltaksoversikt;
+export default Tiltakstypeoversikt;

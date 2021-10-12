@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import Tiltaksoversikt from '../../components/tiltaksoversikt/Tiltaksoversikt';
+import Tiltakstypeoversikt from '../../components/tiltakstypeoversikt/Tiltakstypeoversikt';
 import Sokefelt from '../../components/filtrering/Sokefelt';
 import './TiltakstypeOversikt.less';
 import MainView from '../../layouts/MainView';
@@ -22,7 +22,7 @@ const TiltakstypeOversikt = () => {
           </Link>
         </Col>
       </Row>
-      <Row>{isFetching ? <NavFrontendSpinner /> : <Tiltaksoversikt tiltakstyper={data} />}</Row>
+      <Row>{isFetching ? <NavFrontendSpinner /> : <Tiltakstypeoversikt tiltakstyper={data} />}</Row>
     </MainView>
   );
 };
