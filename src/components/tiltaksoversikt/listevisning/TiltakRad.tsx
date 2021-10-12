@@ -11,7 +11,6 @@ const TiltakRad = ({ tiltak }: TiltakRadProps) => {
   const { id, tittel, ingress } = tiltak;
   return (
     <tr key={id}>
-      <td>{id}</td>
       <td>
         <Link to={`/tiltakstyper/${id}`} isInline>
           {tittel}
