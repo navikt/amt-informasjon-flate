@@ -6,14 +6,7 @@ import { tiltakstypeOversiktSok } from '../../core/atoms/atoms';
 
 const Sokefelt = () => {
   const [sok, setSok] = useAtom(tiltakstypeOversiktSok);
-  return (
-    <Input
-      label="Søk etter mulighet:"
-      className="sok-mulighet"
-      onChange={e => setSok(e.currentTarget.value)}
-      value={sok}
-    />
-  );
+  return <Input label="Søk etter tiltakstype:" onChange={e => setSok(e.currentTarget.value)} value={sok} />;
 };
 
 export default Sokefelt;

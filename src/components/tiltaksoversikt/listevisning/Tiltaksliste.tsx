@@ -12,7 +12,6 @@ const Tiltaksliste = ({ tiltaksliste }: TiltakslisteProps) => {
       <table className="tabell tabell--stripet">
         <thead>
           <tr>
-            <th>ID</th>
             <th>Tittel</th>
             <th>Ingress</th>
           </tr>
