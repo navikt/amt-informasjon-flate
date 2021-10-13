@@ -26,7 +26,7 @@
     "**/fsevents": "^1.2.9"
   },
   "lint-staged": {
-    "src/**/*.{js,ts,tsx}": "eslint src --cache --fix",
+    "src/**/*.{js,ts,tsx}": "eslint --cache --fix",
     "src/**/*.{js,ts,tsx,less,json,css,md}": "prettier --write"
   },
   "dependencies": {
