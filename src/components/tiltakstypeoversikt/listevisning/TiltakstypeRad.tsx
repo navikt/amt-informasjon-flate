@@ -9,6 +9,7 @@ interface TiltakstypeRadProps {
 
 const TiltakstypeRad = ({ tiltakstype }: TiltakstypeRadProps) => {
   const { id, tittel, ingress } = tiltakstype;
+  console.log('ingress', ingress);
   return (
     <tr key={id} className="tabell__row">
       <td>
@@ -16,7 +17,7 @@ const TiltakstypeRad = ({ tiltakstype }: TiltakstypeRadProps) => {
           {tittel}
         </Link>
       </td>
-      <td>{ingress}</td>
+      <td className="tabell__row__ingress">{ingress}</td>
     </tr>
   );
 };
