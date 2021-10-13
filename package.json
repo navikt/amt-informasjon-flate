@@ -7,7 +7,7 @@
     "build:labs": "cross-env REACT_APP_DEV=true REACT_APP_ENABLE_MOCK=true craco build",
     "clean": "rimraf build",
     "eject": "craco eject",
-    "prepare": "husky install",
+    "lint": "eslint src --ext .js,.ts,.tsx",
     "start": "cross-env REACT_APP_ENABLE_MOCK=true REACT_APP_BACKEND_API_ROOT='' craco start",
     "start:backend": "cross-env REACT_APP_DEV=true REACT_APP_BACKEND_API_ROOT='http://localhost:8080' craco start"
   },
@@ -22,10 +22,6 @@
   ],
   "resolutions": {
     "**/fsevents": "^1.2.9"
-  },
-  "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.{js,ts,tsx,jsx,less,json,css,md}": "prettier --write"
   },
   "dependencies": {
     "@navikt/ds-icons": "^0.5.4",
@@ -103,8 +99,6 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-react": "^7.24.0",
     "faker": "^5.5.3",
-    "husky": "^7.0.0",
-    "lint-staged": "^11.0.0",
     "miragejs": "^0.1.42",
     "postcss": "^7.0.36",
     "prettier": "^2.4.0",

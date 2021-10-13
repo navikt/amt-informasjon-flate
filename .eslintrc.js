@@ -14,7 +14,6 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react', '@typescript-eslint', 'prettier'],
-
   rules: {
     '@typescript-eslint/no-use-before-define': ['off'],
     'no-use-before-define': 'off',
