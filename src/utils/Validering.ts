@@ -16,8 +16,8 @@ export const feilValidering = (tittel: string, ingress: string, beskrivelse: str
   if (!tittel) {
     melding.tittel = tomtFelt;
   }
-  if (tittel.length >= 10) {
-    melding.tittel = 'Maks 10 tegn.';
+  if (tittel.length >= 50) {
+    melding.tittel = 'Maks 50 tegn.';
   }
   if (!beskrivelse) {
     melding.beskrivelse = tomtFelt;

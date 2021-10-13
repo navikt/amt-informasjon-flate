@@ -57,7 +57,7 @@ const OpprettOgRedigerTiltakstype = () => {
   const getTitle = () => (isEditMode ? 'Rediger tiltakstype' : 'Opprett tiltakstype');
 
   return (
-    <MainView showBackButton title={getTitle()}>
+    <MainView showBackButton title={getTitle()} dataTestId={isEditMode ? 'header-rediger-tiltakstype' : 'header_opprett-tiltakstype'}>
       <div>
         <RedigeringsgrensesnittForm
           isLoading={isLoading}

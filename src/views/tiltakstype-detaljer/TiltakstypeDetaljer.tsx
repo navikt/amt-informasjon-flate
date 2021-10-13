@@ -7,6 +7,7 @@ import { Ingress, Normaltekst, Systemtittel } from 'nav-frontend-typografi';
 import { Col, Row, Stack } from 'react-bootstrap';
 import Panel from 'nav-frontend-paneler';
 import useTiltakstype from '../../hooks/tiltakstyper/useTiltakstype';
+import { kebabCase } from '../../utils/Utils';
 
 interface routeParams {
   id: string;
@@ -22,15 +23,15 @@ const TiltakstypeDetaljer = () => {
   }
 
   return (
-    <MainView showBackButton title={data?.tittel}>
+    <MainView showBackButton title={data?.tittel} dataTestId={`tiltakstype_header_${data && kebabCase(data?.tittel)}`}>
       <Row>
         <Col lg={8}>
           <Stack gap={5}>
             <div>
-              <Ingress>{data?.ingress}</Ingress>
+              <Ingress data-testid="tiltakstype_ingress">{data?.ingress}</Ingress>
             </div>
             <div>
-              <Normaltekst>{data?.beskrivelse}</Normaltekst>
+              <Normaltekst data-testid="tiltakstype_beskrivelse">{data?.beskrivelse}</Normaltekst>
             </div>
           </Stack>
         </Col>

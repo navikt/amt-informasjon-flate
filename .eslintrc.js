@@ -4,16 +4,16 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ['plugin:react/recommended', 'standard', 'prettier'],
+  extends: ['plugin:react/recommended', 'standard', 'prettier', "plugin:cypress/recommended"],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: false,
     },
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'prettier'],
+  plugins: ['react', '@typescript-eslint', 'prettier', 'cypress'],
   rules: {
     '@typescript-eslint/no-use-before-define': ['off'],
     'no-use-before-define': 'off',
@@ -24,5 +24,11 @@ module.exports = {
     'no-useless-return': ['off'],
     'spaced-comment': ['off'],
     'react-hooks/exhaustive-deps': ['off'],
+    "cypress/no-assigning-return-values": "error",
+    "cypress/no-unnecessary-waiting": "error",
+    "cypress/assertion-before-screenshot": "warn",
+    "cypress/no-force": "warn",
+    "cypress/no-async-tests": "error",
+    "cypress/no-pause": "error"
   },
 };

@@ -11,13 +11,17 @@ import NavFrontendSpinner from 'nav-frontend-spinner';
 const TiltakstypeOversikt = () => {
   const { data, isFetching } = useTiltakstyper();
   return (
-    <MainView title="Tiltakstyper" subTitle="Se en oversikt over alle nasjonale tiltakstyper">
+    <MainView
+      title="Tiltakstyper"
+      subTitle="Se en oversikt over alle nasjonale tiltakstyper"
+      dataTestId="header-tiltakstyper"
+    >
       <Row className="tiltakstyper-oversikt-actions">
         <Col lg={4}>
           <Sokefelt />
         </Col>
         <Col className="opprett-ny-tiltakstype__knapp__wrapper">
-          <Link to="/tiltakstyper/opprett" className="knapp">
+          <Link to="/tiltakstyper/opprett" className="knapp" dataTestId="knapp_opprett-tiltakstype">
             Opprett tiltakstype
           </Link>
         </Col>

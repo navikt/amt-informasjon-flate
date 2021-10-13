@@ -6,13 +6,13 @@ import './MainView.less';
 interface MainViewTitleProps {
   title?: string;
   subTitle?: string;
+  dataTestId?: string;
 }
 
-function MainViewTitle(props: MainViewTitleProps) {
-  const { title, subTitle } = props;
+function MainViewTitle({ title, subTitle, dataTestId }: MainViewTitleProps) {
   return (
     <Row className="main-view__title">
-      {title && <Sidetittel>{title}</Sidetittel>}
+      {title && <Sidetittel data-testid={dataTestId}>{title}</Sidetittel>}
       {subTitle && <Systemtittel>{subTitle}</Systemtittel>}
     </Row>
   );

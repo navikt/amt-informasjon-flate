@@ -25,10 +25,10 @@ export default function useTiltakstypeCreate() {
                 QueryKeys.Tiltakstyper,
                 context.prevTiltakstyper
             )
-            toast.error('Oops! Oppretting feilet.')
+            toast.error('Oppretting av tiltakstype feilet.')
         } else {
             newTiltakstype && queryClient.invalidateQueries(QueryKeys.Tiltakstyper)
-            toast.success("Oppretting vellykket!")
+            toast.success("Oppretting av tiltakstype vellykket!")
             history.replace(`/tiltakstyper/${newTiltakstype?.id}`)
         }
       }

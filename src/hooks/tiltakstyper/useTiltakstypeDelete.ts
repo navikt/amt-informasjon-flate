@@ -18,10 +18,10 @@ export default function useTiltakstypeDelete(id: Id) {
     onSettled: (newTiltakstype, error, variables, context: any) => {
       if (error) {
         queryClient.setQueryData(QueryKeys.Tiltakstyper, context.prevTiltakstyper);
-        toast.error('Oops! Oppretting feilet.');
+        toast.error('Sletting av tiltakstype feilet.');
       } else {
         newTiltakstype && queryClient.invalidateQueries(QueryKeys.Tiltakstyper);
-        toast.success('Oppretting vellykket!');
+        toast.success('Sletting av tiltakstype vellykket!');
         history.replace(`/tiltakstyper/${newTiltakstype?.id}`);
       }
     },

@@ -55,6 +55,7 @@ const RedigeringsgrensesnittForm = ({
         value={tittel}
         feil={feilmelding.tittel}
         className="rediger-opprett-tiltakstype__form__tittel"
+        data-testid="input_tittel"
       />
       <Input
         label="Ingress"
@@ -62,6 +63,7 @@ const RedigeringsgrensesnittForm = ({
         value={ingress}
         feil={feilmelding.ingress}
         className="rediger-opprett-tiltakstype__form__beskrivelse"
+        data-testid="input_ingress"
       />
       <Input
         label="Beskrivelse"
@@ -69,11 +71,15 @@ const RedigeringsgrensesnittForm = ({
         value={beskrivelse}
         feil={feilmelding.beskrivelse}
         className="rediger-opprett-tiltakstype__form__beskrivelse"
+        data-testid="input_beskrivelse"
       />
       <Row className="rediger-opprett-tiltakstype__form knapperad">
         <Stack direction="horizontal" gap={2}>
-          <Hovedknapp htmlType="submit">
-            {!isEdit ? 'Opprett tiltakstype' : 'Rediger tiltakstype'} <Edit />
+          <Hovedknapp
+            htmlType="submit"
+            data-testid={isEdit ? 'submit-knapp_rediger-tiltakstype' : 'submit-knapp_opprett-tiltakstype'}
+          >
+            {isEdit ? 'Rediger tiltakstype' : 'Opprett tiltakstype'} <Edit />
           </Hovedknapp>
           {isEdit && (
             <>

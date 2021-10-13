@@ -8,3 +8,10 @@ export const inneholderUrl = (string: string) => {
 
 export const redigerTiltakstype = inneholderUrl('rediger-tiltakstype');
 export const opprettTiltakstype = inneholderUrl('opprett-tiltakstype');
+
+export function specialChar(string: string | { label: string }) {
+  return string.toString().toLowerCase().split('æ').join('ae').split('ø').join('o').split('å').join('a');
+}
+export function kebabCase(string: string | { label: string }) {
+  return specialChar(string).replace(/\s+/g, '-');
+}
