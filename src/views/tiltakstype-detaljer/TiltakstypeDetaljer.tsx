@@ -6,7 +6,7 @@ import Link from '../../components/link/Link';
 import { Ingress, Normaltekst, Systemtittel } from 'nav-frontend-typografi';
 import { Col, Row, Stack } from 'react-bootstrap';
 import Panel from 'nav-frontend-paneler';
-import useTiltakstype from '../../hooks/tiltakstyper/useTiltakstype';
+import useTiltakstype from '../../hooks/tiltakstype/useTiltakstype';
 
 interface routeParams {
   id: string;
