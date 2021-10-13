@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tiltakstype } from '../../../core/domain/Tiltakstype';
 import Link from '../../link/Link';
-import './TiltakstypeListevisning.less';
+import './TiltakstypeRad.less';
 
 interface TiltakstypeRadProps {
   tiltakstype: Tiltakstype;
@@ -10,7 +10,7 @@ interface TiltakstypeRadProps {
 const TiltakstypeRad = ({ tiltakstype }: TiltakstypeRadProps) => {
   const { id, tittel, ingress } = tiltakstype;
   return (
-    <tr key={id}>
+    <tr key={id} className="tabell__row">
       <td>
         <Link to={`/tiltakstyper/${id}`} isInline>
           {tittel}
