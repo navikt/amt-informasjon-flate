@@ -8,7 +8,6 @@
     "clean": "rimraf build",
     "eject": "craco eject",
     "lint": "eslint src --ext .js,.ts,.tsx",
-    "lint-staged": "lint-staged",
     "prepare": "husky install",
     "start": "cross-env REACT_APP_ENABLE_MOCK=true REACT_APP_BACKEND_API_ROOT='' craco start",
     "start:backend": "cross-env REACT_APP_DEV=true REACT_APP_BACKEND_API_ROOT='http://localhost:8080' craco start"
