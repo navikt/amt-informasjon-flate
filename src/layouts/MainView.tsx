@@ -1,4 +1,4 @@
-import React, { useEffect, FunctionComponent } from 'react';
+import React, { useEffect,, useLayoutEffect, FunctionComponent } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import { Tilbakeknapp } from 'nav-frontend-ikonknapper';
 import './MainView.less';
