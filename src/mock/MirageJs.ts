@@ -1,11 +1,11 @@
 import { createServer, Response } from 'miragejs';
-import { tiltakstypelisteMock } from './MockUtil';
+import { tiltakstyperMock } from './data/TiltakstyperMock';
 
 const mockServer = () =>
   createServer({
     seeds(server) {
       server.db.loadData({
-        tiltak: tiltakstypelisteMock,
+        tiltak: tiltakstyperMock,
       });
     },
     routes() {
