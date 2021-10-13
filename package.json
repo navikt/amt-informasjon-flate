@@ -26,8 +26,8 @@
     "**/fsevents": "^1.2.9"
   },
   "lint-staged": {
-    "src/**/*.{js,ts,tsx}": "eslint --cache --fix",
-    "src/**/*.{js,ts,tsx,less,json,css,md}": "prettier --write"
+    "src/**/*.{ts,tsx}": "eslint --cache --fix",
+    "src/**/*.{ts,tsx,less,json,css,md}": "prettier --write"
   },
   "dependencies": {
     "@navikt/ds-icons": "^0.5.4",
