@@ -7,9 +7,13 @@ const getAllTiltaksgjennomforinger = () => api<Tiltaksgjennomforing[]>('/tiltaks
 const getTiltaksgjennomforingById = (id: Id) =>
   api<Tiltaksgjennomforing>(`/tiltaksgjennomforinger/${id}`, { method: 'GET' });
 
+const getTiltaksgjennomforingerByTiltakstypeId = (id: Id) =>
+  api<Tiltaksgjennomforing[]>(`/tiltakstyper/${id}/tiltaksgjennomforinger`, { method: 'GET' });
+
 const TiltaksgjennomforingService = {
   getAllTiltaksgjennomforinger,
   getTiltaksgjennomforingById,
+  getTiltaksgjennomforingerByTiltakstypeId,
 };
 
 export default TiltaksgjennomforingService;
