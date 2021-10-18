@@ -5,7 +5,7 @@ const tiltaksgjennomforingerMock: Tiltaksgjennomforing[] = [
   {
     id: 1,
     tiltaksvariantId: 1,
-    tiltaksnummer: faker.random.alphaNumeric(1),
+    tiltaksnummer: faker.random.alphaNumeric(12),
     tittel: `Kjøreopplæring av ${faker.vehicle.manufacturer()}`,
     beskrivelse: faker.lorem.paragraph(1),
     fraDato: faker.date.past(3),
@@ -14,7 +14,7 @@ const tiltaksgjennomforingerMock: Tiltaksgjennomforing[] = [
   {
     id: 2,
     tiltaksvariantId: 1,
-    tiltaksnummer: faker.random.alphaNumeric(1),
+    tiltaksnummer: faker.random.alphaNumeric(12),
     tittel: `Kjøreopplæring av ${faker.vehicle.manufacturer()}`,
     beskrivelse: faker.lorem.paragraph(1),
     fraDato: faker.date.past(3),
@@ -23,7 +23,7 @@ const tiltaksgjennomforingerMock: Tiltaksgjennomforing[] = [
   {
     id: 3,
     tiltaksvariantId: 1,
-    tiltaksnummer: faker.random.alphaNumeric(1),
+    tiltaksnummer: faker.random.alphaNumeric(12),
     tittel: `Kjøreopplæring av ${faker.vehicle.manufacturer()}`,
     beskrivelse: faker.lorem.paragraph(1),
     fraDato: faker.date.past(3),
@@ -32,7 +32,7 @@ const tiltaksgjennomforingerMock: Tiltaksgjennomforing[] = [
   {
     id: 4,
     tiltaksvariantId: 1,
-    tiltaksnummer: faker.random.alphaNumeric(1),
+    tiltaksnummer: faker.random.alphaNumeric(12),
     tittel: `Kjøreopplæring av ${faker.vehicle.manufacturer()}`,
     beskrivelse: faker.lorem.paragraph(1),
     fraDato: faker.date.past(3),
