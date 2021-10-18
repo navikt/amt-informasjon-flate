@@ -1,13 +1,12 @@
-import { Input } from 'nav-frontend-skjema';
+import React, { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { Stack, Row } from 'react-bootstrap';
+import AlertStripe from 'nav-frontend-alertstriper';
 import { Fareknapp, Hovedknapp } from 'nav-frontend-knapper';
+import NavFrontendSpinner from 'nav-frontend-spinner';
 import { ReactComponent as Edit } from '../../ikoner/Edit.svg';
 import { ReactComponent as Delete } from '../../ikoner/Delete.svg';
-import NavFrontendSpinner from 'nav-frontend-spinner';
-import React, { FormEvent, useState } from 'react';
-import { feilValidering, InputValideringsError } from '../../utils/Validering';
-import { erTomtObjekt } from '../../utils/Utils';
-import AlertStripe from 'nav-frontend-alertstriper';
-import { Stack, Row } from 'react-bootstrap';
+import FormInput from './FormInput';
 
 interface RedigeringsgrensesnittFormProps {
   isLoading: boolean;
@@ -28,47 +27,63 @@ const RedigeringsgrensesnittForm = ({
   ingress,
   beskrivelse,
   isEdit,
-  handleChange,
   onSubmit,
+  handleChange,
   setModalOpen,
 }: RedigeringsgrensesnittFormProps) => {
-  const [feilmelding, setFeilmelding] = useState({} as InputValideringsError);
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!isEdit) {
-      const feilValideringsresponse: InputValideringsError = feilValidering(tittel, ingress, beskrivelse);
-      setFeilmelding(feilValideringsresponse);
-      if (erTomtObjekt(feilValideringsresponse)) {
-        onSubmit();
-      }
-    } else {
-      onSubmit();
-    }
+  type FormValues = {
+    tittel: string;
+    ingress: string;
+    beskrivelse: string;
   };
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+  } = useForm<FormValues>({});
+
+  const tomtFeltErrorMessage = 'Dette feltet kan ikke være tomt';
+
+  useEffect(() => {
+    setValue('tittel', tittel);
+    setValue('ingress', ingress);
+    setValue('beskrivelse', beskrivelse);
+  }, [tittel, ingress, beskrivelse]);
+
   return (
-    <form onSubmit={e => handleSubmit(e)} className="rediger-opprett-tiltakstype__form">
-      <Input
+    <form onSubmit={handleSubmit(onSubmit)} className="rediger-opprett-tiltakstype__form">
+      <FormInput
+        type="tittel"
+        register={register('tittel', {
+          required: tomtFeltErrorMessage,
+          maxLength: { value: 50, message: 'Maks 50 tegn.' },
+        })}
+        handleChange={handleChange}
+        defaultValue={tittel}
         label="Tittel"
-        onChange={e => handleChange(e, 'tittel')}
-        value={tittel}
-        feil={feilmelding.tittel}
-        className="rediger-opprett-tiltakstype__form__tittel"
+        feil={errors.tittel && errors.tittel.message}
       />
-      <Input
+
+      <FormInput
+        type="ingress"
+        register={register('ingress', {
+          required: tomtFeltErrorMessage,
+          maxLength: { value: 250, message: 'Maks 250 tegn.' },
+        })}
+        handleChange={handleChange}
+        defaultValue={ingress}
         label="Ingress"
-        onChange={e => handleChange(e, 'ingress')}
-        value={ingress}
-        feil={feilmelding.ingress}
-        className="rediger-opprett-tiltakstype__form__beskrivelse"
+        feil={errors.ingress && errors.ingress.message}
       />
-      <Input
+      <FormInput
+        type="beskrivelse"
+        register={register('beskrivelse', { required: tomtFeltErrorMessage })}
+        handleChange={handleChange}
+        defaultValue={beskrivelse}
         label="Beskrivelse"
-        onChange={e => handleChange(e, 'beskrivelse')}
-        value={beskrivelse}
-        feil={feilmelding.beskrivelse}
-        className="rediger-opprett-tiltakstype__form__beskrivelse"
+        feil={errors.beskrivelse && errors.beskrivelse.message}
       />
       <Row className="rediger-opprett-tiltakstype__form knapperad">
         <Stack direction="horizontal" gap={2}>
