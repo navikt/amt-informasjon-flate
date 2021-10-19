@@ -78,7 +78,12 @@ const RedigeringsgrensesnittForm = ({
             {isEdit ? 'Rediger tiltakstype' : 'Opprett tiltakstype'} <Edit />
           </Hovedknapp>
           {isEdit && (
-            <Fareknapp spinner={isLoading} onClick={() => setModalOpen(true)} htmlType="button">
+            <Fareknapp
+              spinner={isLoading}
+              onClick={() => setModalOpen(true)}
+              htmlType="button"
+              data-testid="slett-knapp_rediger-tiltakstype"
+            >
               Slett tiltakstype <Delete />
             </Fareknapp>
           )}

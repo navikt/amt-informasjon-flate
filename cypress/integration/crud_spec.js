@@ -40,6 +40,22 @@ describe('CRUD tiltakstype', () => {
     cy.getByTestId('tabell_oversikt-tiltakstyper').contains('td', ingress);
   });
 
+  it('Slett tiltakstype', () => {
+    cy.getByTestId('tabell_oversikt-tiltakstyper').children().children().should('have.length', 24);
+    cy.getByTestId('sokefelt_tiltakstype').focus().type(tittel);
+    cy.getByTestId('tabell_oversikt-tiltakstyper').children().children().should('have.length', 2);
+
+    cy.getByTestId('tabell_oversikt-tiltakstyper').contains('td', tittel).click();
+
+    cy.getByTestId('tiltakstype_header_' + kebabCase(tittel)).should('contain', tittel);
+    cy.getByTestId('tiltakstype_ingress').should('contain', ingress);
+    cy.getByTestId('tiltakstype_beskrivelse').should('contain', beskrivelse);
+
+    cy.getByTestId('knapp_rediger-tiltakstype').click();
+
+    cy.getByTestId('slett-knapp_rediger-tiltakstype').click();
+  });
+
   xit('Rediger tiltakstype', () => {
     const tittel = 'Opplæring';
     const ingress = 'Laborum officia rerum sed debitis qui odit suscipit aperiam quo.';
@@ -65,9 +81,5 @@ describe('CRUD tiltakstype', () => {
     cy.getByTestId('input_tittel').should('not.be.empty').click().should('be.focused').type(nyTittel);
     cy.getByTestId('input_ingress').should('not.be.empty').click().should('be.focused').type(nyIngress);
     cy.getByTestId('input_beskrivelse').should('not.be.empty').click().should('be.focused').type(nyBeskrivelse);
-  });
-
-  it('Søk tiltakstype', () => {
-
   });
 });
