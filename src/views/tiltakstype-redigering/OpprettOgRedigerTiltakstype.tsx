@@ -36,7 +36,7 @@ const OpprettOgRedigerTiltakstype = () => {
   const putMutation = useTiltakstypeUpdate(id);
   const deleteMutation = useTiltakstypeDelete(id);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>, input: string) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>, input?: string) => {
     if (input === 'tittel') {
       setTittel(e.target.value);
     } else if (input === 'ingress') {

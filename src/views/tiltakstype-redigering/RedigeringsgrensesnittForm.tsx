@@ -16,7 +16,7 @@ interface RedigeringsgrensesnittFormProps {
   tittel: string;
   ingress: string;
   beskrivelse: string;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>, input: string) => void;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>, input?: string) => void;
   setModalOpen: (open: boolean) => void;
 }
 
@@ -55,7 +55,7 @@ const RedigeringsgrensesnittForm = ({
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="rediger-opprett-tiltakstype__form">
       <FormInput
-        type="tittel"
+        id="tittel"
         register={register('tittel', {
           required: tomtFeltErrorMessage,
           maxLength: { value: 50, message: 'Maks 50 tegn.' },
@@ -68,7 +68,7 @@ const RedigeringsgrensesnittForm = ({
       />
 
       <FormInput
-        type="ingress"
+        id="ingress"
         register={register('ingress', {
           required: tomtFeltErrorMessage,
           maxLength: { value: 250, message: 'Maks 250 tegn.' },
@@ -80,7 +80,7 @@ const RedigeringsgrensesnittForm = ({
         inputClassName={'rediger-opprett-tiltakstype__form__input'}
       />
       <FormInput
-        type="beskrivelse"
+        id="beskrivelse"
         register={register('beskrivelse', { required: tomtFeltErrorMessage })}
         handleChange={handleChange}
         defaultValue={beskrivelse}
