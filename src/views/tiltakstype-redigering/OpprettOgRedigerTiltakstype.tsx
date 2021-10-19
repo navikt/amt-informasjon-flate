@@ -8,6 +8,7 @@ import useTiltakstypeCreate from '../../hooks/tiltakstype/useTiltakstypeCreate';
 import useTiltakstypeUpdate from '../../hooks/tiltakstype/useTiltakstypeUpdate';
 import useTiltakstypeDelete from '../../hooks/tiltakstype/useTiltakstypeDelete';
 import useTiltakstype from '../../hooks/tiltakstype/useTiltakstype';
+import { Tiltakstype } from '../../core/domain/Tiltakstype';
 
 interface routeParams {
   id: string;
@@ -36,21 +37,16 @@ const OpprettOgRedigerTiltakstype = () => {
   const putMutation = useTiltakstypeUpdate(id);
   const deleteMutation = useTiltakstypeDelete(id);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>, input?: string) => {
-    if (input === 'tittel') {
-      setTittel(e.target.value);
-    } else if (input === 'ingress') {
-      setIngress(e.target.value);
-    } else if (input === 'beskrivelse') {
-      setBeskrivelse(e.target.value);
-    }
-  };
-
-  const handleSubmit = () => {
+  const handleSubmit = (tiltakstype: Tiltakstype) => {
     if (isEditMode) {
-      putMutation.mutate({ id: id, tittel: tittel, beskrivelse: beskrivelse, ingress: ingress });
+      putMutation.mutate({
+        id: id,
+        tittel: tiltakstype.tittel,
+        beskrivelse: tiltakstype.beskrivelse,
+        ingress: tiltakstype.ingress,
+      });
     } else {
-      postMutation.mutate({ tittel: tittel, beskrivelse: beskrivelse, ingress: ingress });
+      postMutation.mutate(tiltakstype);
     }
   };
 
@@ -64,7 +60,6 @@ const OpprettOgRedigerTiltakstype = () => {
           isError={isError}
           isEdit={isEditMode}
           onSubmit={handleSubmit}
-          handleChange={handleChange}
           setModalOpen={setModalOpen}
           tittel={tittel}
           ingress={ingress}

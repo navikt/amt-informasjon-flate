@@ -7,16 +7,16 @@ import NavFrontendSpinner from 'nav-frontend-spinner';
 import { ReactComponent as Edit } from '../../ikoner/Edit.svg';
 import { ReactComponent as Delete } from '../../ikoner/Delete.svg';
 import FormInput from './FormInput';
+import { Tiltakstype } from '../../core/domain/Tiltakstype';
 
 interface RedigeringsgrensesnittFormProps {
   isLoading: boolean;
   isError: boolean;
   isEdit: boolean;
-  onSubmit: () => void;
+  onSubmit: (tiltakstype: Tiltakstype) => void;
   tittel: string;
   ingress: string;
   beskrivelse: string;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>, input?: string) => void;
   setModalOpen: (open: boolean) => void;
 }
 
@@ -28,7 +28,6 @@ const RedigeringsgrensesnittForm = ({
   beskrivelse,
   isEdit,
   onSubmit,
-  handleChange,
   setModalOpen,
 }: RedigeringsgrensesnittFormProps) => {
   type FormValues = {
@@ -60,7 +59,6 @@ const RedigeringsgrensesnittForm = ({
           required: tomtFeltErrorMessage,
           maxLength: { value: 50, message: 'Maks 50 tegn.' },
         })}
-        handleChange={handleChange}
         defaultValue={tittel}
         label="Tittel"
         feil={errors.tittel && errors.tittel.message}
@@ -73,7 +71,6 @@ const RedigeringsgrensesnittForm = ({
           required: tomtFeltErrorMessage,
           maxLength: { value: 250, message: 'Maks 250 tegn.' },
         })}
-        handleChange={handleChange}
         defaultValue={ingress}
         label="Ingress"
         feil={errors.ingress && errors.ingress.message}
@@ -82,7 +79,6 @@ const RedigeringsgrensesnittForm = ({
       <FormInput
         id="beskrivelse"
         register={register('beskrivelse', { required: tomtFeltErrorMessage })}
-        handleChange={handleChange}
         defaultValue={beskrivelse}
         label="Beskrivelse"
         feil={errors.beskrivelse && errors.beskrivelse.message}
