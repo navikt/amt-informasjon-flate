@@ -7,7 +7,7 @@ import { Ingress, Normaltekst, Systemtittel } from 'nav-frontend-typografi';
 import { Col, Row, Stack } from 'react-bootstrap';
 import Panel from 'nav-frontend-paneler';
 import useTiltaksgjennomforingerByTiltakstypeId from '../../hooks/tiltaksgjennomforing/useTiltaksgjennomforingerByTiltakstypeId';
-import useTiltakstype from '../../hooks/tiltakstyper/useTiltakstype';
+import useTiltakstype from '../../hooks/tiltakstype/useTiltakstype';
 import { kebabCase } from '../../utils/Utils';
 
 interface routeParams {
@@ -40,7 +40,11 @@ const TiltakstypeDetaljer = () => {
         <Col lg={4}>
           <Panel border>
             <Systemtittel>Sidemeny</Systemtittel>
-            <Link to={`/tiltakstyper/${id}/rediger`} className="knapp knapp--hoved">
+            <Link
+              to={`/tiltakstyper/${id}/rediger`}
+              className="knapp knapp--hoved"
+              dataTestId="knapp_rediger-tiltakstype"
+            >
               Rediger
             </Link>
           </Panel>

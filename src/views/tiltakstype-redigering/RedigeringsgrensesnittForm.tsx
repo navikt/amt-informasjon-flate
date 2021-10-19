@@ -36,13 +36,9 @@ const RedigeringsgrensesnittForm = ({
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!isEdit) {
-      const feilValideringsresponse: InputValideringsError = feilValidering(tittel, ingress, beskrivelse);
-      setFeilmelding(feilValideringsresponse);
-      if (erTomtObjekt(feilValideringsresponse)) {
-        onSubmit();
-      }
-    } else {
+    const feilValideringsresponse: InputValideringsError = feilValidering(tittel, ingress, beskrivelse);
+    setFeilmelding(feilValideringsresponse);
+    if (erTomtObjekt(feilValideringsresponse)) {
       onSubmit();
     }
   };
@@ -82,11 +78,9 @@ const RedigeringsgrensesnittForm = ({
             {isEdit ? 'Rediger tiltakstype' : 'Opprett tiltakstype'} <Edit />
           </Hovedknapp>
           {isEdit && (
-            <>
-              <Fareknapp spinner={isLoading} onClick={() => setModalOpen(true)} htmlType="button">
-                Slett tiltakstype <Delete />
-              </Fareknapp>
-            </>
+            <Fareknapp spinner={isLoading} onClick={() => setModalOpen(true)} htmlType="button">
+              Slett tiltakstype <Delete />
+            </Fareknapp>
           )}
         </Stack>
       </Row>

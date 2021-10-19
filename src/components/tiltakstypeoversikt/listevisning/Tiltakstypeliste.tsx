@@ -9,7 +9,7 @@ export interface TiltakstypelisteProps {
 const Tiltakstypeliste = ({ tiltakstypeliste }: TiltakstypelisteProps) => {
   return (
     <>
-      <table className="tabell tabell--stripet">
+      <table className="tabell tabell--stripet" data-testid='tabell_oversikt-tiltakstyper'>
         <thead>
           <tr>
             <th>Tittel</th>

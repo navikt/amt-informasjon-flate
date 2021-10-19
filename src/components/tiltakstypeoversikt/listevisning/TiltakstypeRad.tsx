@@ -11,9 +11,9 @@ interface TiltakstypeRadProps {
 const TiltakstypeRad = ({ tiltakstype }: TiltakstypeRadProps) => {
   const { id, tittel, ingress } = tiltakstype;
   return (
-    <tr key={id} className="tabell__row" data-testid={`tabellrad_${kebabCase(tittel)}`}>
+    <tr key={id} className="tabell__row" data-testid="tabellrad">
       <td>
-        <Link to={`/tiltakstyper/${id}`} isInline>
+        <Link to={`/tiltakstyper/${id}`} isInline data-testid={`tabellrad_${kebabCase(tittel)}`}>
           {tittel}
         </Link>
       </td>

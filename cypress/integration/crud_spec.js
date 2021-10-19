@@ -15,17 +15,11 @@ describe('CRUD tiltakstype', () => {
 
     cy.url().should('include', '/tiltakstyper/opprett');
 
-    cy.getByTestId('header_opprett-tiltakstype').should('exist');
+    cy.getByTestId('header_opprett-tiltakstype').should('contain', 'Opprett tiltakstype');
 
-    cy.getByTestId('input_tittel').click().should('be.focused');
-    cy.getByTestId('input_tittel').type(tittel);
-
-    cy.getByTestId('input_ingress').click().should('be.focused');
-    cy.getByTestId('input_ingress').type(ingress);
-
-    cy.getByTestId('input_beskrivelse').click().should('be.focused');
-    cy.getByTestId('input_beskrivelse').type(beskrivelse);
-
+    cy.getByTestId('input_tittel').click().should('be.focused').type(tittel);
+    cy.getByTestId('input_ingress').click().should('be.focused').type(ingress);
+    cy.getByTestId('input_beskrivelse').click().should('be.focused').type(beskrivelse);
     cy.getByTestId('submit-knapp_opprett-tiltakstype').contains('Opprett tiltakstype').click();
 
     cy.get(`.Toastify__toast-container`).should('contain', 'Oppretting av tiltakstype vellykket!');
@@ -42,6 +36,38 @@ describe('CRUD tiltakstype', () => {
 
     cy.getByTestId('header-tiltakstyper').should('contain', 'Tiltakstyper');
 
-    cy.getByTestId('tabellrad_' + kebabCase(tittel)).should('contain', tittel);
+    cy.getByTestId('tabell_oversikt-tiltakstyper').contains('td', tittel);
+    cy.getByTestId('tabell_oversikt-tiltakstyper').contains('td', ingress);
+  });
+
+  xit('Rediger tiltakstype', () => {
+    const tittel = 'Opplæring';
+    const ingress = 'Laborum officia rerum sed debitis qui odit suscipit aperiam quo.';
+    const beskrivelse = 'Laborum officia rerum sed debitis qui odit suscipit aperiam quo.';
+
+    const nyTittel = 'Opplæring';
+    const nyIngress = 'Laborum officia rerum sed debitis qui odit suscipit aperiam quo.';
+    const nyBeskrivelse = 'Laborum officia rerum sed debitis qui odit suscipit aperiam quo.';
+
+    cy.getByTestId('tabell_oversikt-tiltakstyper').children().children().should('have.length.at.least', 1);
+    cy.getByTestId('tabell_oversikt-tiltakstyper').contains('td', tittel).click();
+
+    cy.url().should('include', '/tiltakstyper/1');
+
+    cy.getByTestId('tiltakstype_header_opplaering').should('contain', tittel);
+    cy.getByTestId('tiltakstype_ingress').should('contain', ingress);
+    cy.getByTestId('tiltakstype_beskrivelse').should('contain', beskrivelse);
+
+    cy.getByTestId('knapp_rediger-tiltakstype').click();
+
+    cy.url().should('include', '/tiltakstyper/1/rediger');
+
+    cy.getByTestId('input_tittel').should('not.be.empty').click().should('be.focused').type(nyTittel);
+    cy.getByTestId('input_ingress').should('not.be.empty').click().should('be.focused').type(nyIngress);
+    cy.getByTestId('input_beskrivelse').should('not.be.empty').click().should('be.focused').type(nyBeskrivelse);
+  });
+
+  it('Søk tiltakstype', () => {
+
   });
 });
