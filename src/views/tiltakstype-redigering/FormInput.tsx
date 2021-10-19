@@ -12,15 +12,7 @@ function FormInput(props: InputProps) {
   const { type, register, handleChange, ...others } = props;
   if (register) {
     const { ref, ...registerOthers } = register;
-    return (
-      <NavInput
-        inputRef={ref}
-        {...registerOthers}
-        {...others}
-        onChange={e => handleChange(e, type)}
-        className="rediger-opprett-tiltakstype__form__input"
-      />
-    );
+    return <NavInput inputRef={ref} {...registerOthers} {...others} onChange={e => handleChange(e, type)} />;
   }
   return <NavInput {...others} onChange={e => handleChange(e, type)} />;
 }

@@ -64,6 +64,7 @@ const RedigeringsgrensesnittForm = ({
         defaultValue={tittel}
         label="Tittel"
         feil={errors.tittel && errors.tittel.message}
+        inputClassName={'rediger-opprett-tiltakstype__form__input'}
       />
 
       <FormInput
@@ -76,6 +77,7 @@ const RedigeringsgrensesnittForm = ({
         defaultValue={ingress}
         label="Ingress"
         feil={errors.ingress && errors.ingress.message}
+        inputClassName={'rediger-opprett-tiltakstype__form__input'}
       />
       <FormInput
         type="beskrivelse"
@@ -84,6 +86,7 @@ const RedigeringsgrensesnittForm = ({
         defaultValue={beskrivelse}
         label="Beskrivelse"
         feil={errors.beskrivelse && errors.beskrivelse.message}
+        inputClassName={'rediger-opprett-tiltakstype__form__input'}
       />
       <Row className="rediger-opprett-tiltakstype__form knapperad">
         <Stack direction="horizontal" gap={2}>
