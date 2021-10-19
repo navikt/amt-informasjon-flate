@@ -6,6 +6,7 @@ import Link from '../../components/link/Link';
 import { Ingress, Normaltekst, Systemtittel } from 'nav-frontend-typografi';
 import { Col, Row, Stack } from 'react-bootstrap';
 import Panel from 'nav-frontend-paneler';
+import useTiltaksgjennomforingerByTiltakstypeId from '../../hooks/tiltaksgjennomforing/useTiltaksgjennomforingerByTiltakstypeId';
 import useTiltakstype from '../../hooks/tiltakstyper/useTiltakstype';
 import { kebabCase } from '../../utils/Utils';
 
@@ -16,22 +17,23 @@ interface routeParams {
 const TiltakstypeDetaljer = () => {
   const { id }: routeParams = useParams();
 
-  const { data, isError } = useTiltakstype(id);
+  const tiltakstype = useTiltakstype(id);
+  const tiltaksgjennomforinger = useTiltaksgjennomforingerByTiltakstypeId(id);
 
-  if (isError) {
+  if (tiltakstype.isError) {
     return <AlertStripe type="feil">Det skjedde en feil</AlertStripe>;
   }
 
   return (
-    <MainView showBackButton title={data?.tittel} dataTestId={`tiltakstype_header_${data && kebabCase(data?.tittel)}`}>
+    <MainView showBackButton title={tiltakstype.data?.tittel} dataTestId={`tiltakstype_header_${tiltakstype.data && kebabCase(tiltakstype.data?.tittel)}`}>
       <Row>
         <Col lg={8}>
           <Stack gap={5}>
             <div>
-              <Ingress data-testid="tiltakstype_ingress">{data?.ingress}</Ingress>
+              <Ingress data-testid="tiltakstype_ingress">{tiltakstype.data?.ingress}</Ingress>
             </div>
             <div>
-              <Normaltekst data-testid="tiltakstype_beskrivelse">{data?.beskrivelse}</Normaltekst>
+              <Normaltekst data-testid="tiltakstype_beskrivelse">{tiltakstype.data?.beskrivelse}</Normaltekst>
             </div>
           </Stack>
         </Col>
@@ -43,6 +45,13 @@ const TiltakstypeDetaljer = () => {
             </Link>
           </Panel>
         </Col>
+      </Row>
+      <Row>
+        {/* TODO: Implementer tiltaksgjennomføing her (design). Kun for å vise at man får data */}
+        <h2>Tiltaksgjennomføringer:</h2>
+        {tiltaksgjennomforinger.data?.map(t => (
+          <h3 key={t.id}>{t.tittel}</h3>
+        ))}
       </Row>
     </MainView>
   );

@@ -5,7 +5,7 @@ import Sokefelt from '../../components/filtrering/Sokefelt';
 import './TiltakstypeOversikt.less';
 import MainView from '../../layouts/MainView';
 import Link from '../../components/link/Link';
-import useTiltakstyper from '../../hooks/tiltakstyper/useTiltakstyper';
+import useTiltakstyper from '../../hooks/tiltakstype/useTiltakstyper';
 import NavFrontendSpinner from 'nav-frontend-spinner';
 
 const TiltakstypeOversikt = () => {

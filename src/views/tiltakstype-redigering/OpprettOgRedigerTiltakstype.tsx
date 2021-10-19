@@ -4,10 +4,10 @@ import { useParams } from 'react-router-dom';
 import SlettModal from '../../components/modal/SlettModal';
 import RedigeringsgrensesnittForm from './RedigeringsgrensesnittForm';
 import MainView from '../../layouts/MainView';
-import useTiltakstypeCreate from '../../hooks/tiltakstyper/useTiltakstypeCreate';
-import useTiltakstypeUpdate from '../../hooks/tiltakstyper/useTiltakstypeUpdate';
-import useTiltakstypeDelete from '../../hooks/tiltakstyper/useTiltakstypeDelete';
-import useTiltakstype from '../../hooks/tiltakstyper/useTiltakstype';
+import useTiltakstypeCreate from '../../hooks/tiltakstype/useTiltakstypeCreate';
+import useTiltakstypeUpdate from '../../hooks/tiltakstype/useTiltakstypeUpdate';
+import useTiltakstypeDelete from '../../hooks/tiltakstype/useTiltakstypeDelete';
+import useTiltakstype from '../../hooks/tiltakstype/useTiltakstype';
 
 interface routeParams {
   id: string;

@@ -17,7 +17,7 @@ const TiltakstypeRad = ({ tiltakstype }: TiltakstypeRadProps) => {
           {tittel}
         </Link>
       </td>
-      <td>{ingress}</td>
+      <td className="tabell__row__ingress">{ingress}</td>
     </tr>
   );
 };
