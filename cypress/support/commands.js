@@ -26,7 +26,7 @@
 
 Cypress.Commands.add('configure', () => {
   cy.server();
-  cy.visit('localhost:3000');
+  cy.visit('/');
   cy.url().should('include', '/');
   Cypress.on('uncaught:exception', err => {
     console.log(err);

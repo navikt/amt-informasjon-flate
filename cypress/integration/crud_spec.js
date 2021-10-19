@@ -40,7 +40,7 @@ describe('CRUD tiltakstype', () => {
     cy.getByTestId('tabell_oversikt-tiltakstyper').contains('td', ingress);
   });
 
-  it('Slett tiltakstype', () => {
+  xit('Slett tiltakstype', () => {
     cy.getByTestId('tabell_oversikt-tiltakstyper').children().children().should('have.length', 24);
     cy.getByTestId('sokefelt_tiltakstype').focus().type(tittel);
     cy.getByTestId('tabell_oversikt-tiltakstyper').children().children().should('have.length', 2);
