@@ -11,15 +11,27 @@ describe('CRUD tiltakstype', () => {
     'Did you hear about the mathematician who’s afraid of negative numbers? He’ll stop at nothing to avoid them.';
 
   it('Opprett tiltakstype', () => {
+    const borderWhite = 'rgb(106, 106, 106)';
+    const borderRed = 'rgb(186, 58, 38)';
+    const feilmeldingTomtFelt = 'Dette feltet kan ikke være tomt';
+
     cy.getByTestId('knapp_opprett-tiltakstype').click();
 
     cy.url().should('include', '/tiltakstyper/opprett');
 
     cy.getByTestId('header_opprett-tiltakstype').should('contain', 'Opprett tiltakstype');
 
-    cy.getByTestId('input_tittel').click().should('be.focused').type(tittel);
+    cy.getByTestId('input_tittel').should('have.css', 'border-color', borderWhite);
+
     cy.getByTestId('input_ingress').click().should('be.focused').type(ingress);
     cy.getByTestId('input_beskrivelse').click().should('be.focused').type(beskrivelse);
+
+    cy.getByTestId('submit-knapp_opprett-tiltakstype').contains('Opprett tiltakstype').click();
+
+    cy.getByTestId('form__rediger-opprett').contains(feilmeldingTomtFelt).should('have.css', 'border-color', borderRed);
+
+    cy.getByTestId('input_tittel').click().should('be.focused').type(tittel);
+
     cy.getByTestId('submit-knapp_opprett-tiltakstype').contains('Opprett tiltakstype').click();
 
     cy.get(`.Toastify__toast-container`).should('contain', 'Oppretting av tiltakstype vellykket!');

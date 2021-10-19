@@ -44,7 +44,7 @@ const RedigeringsgrensesnittForm = ({
   };
 
   return (
-    <form onSubmit={e => handleSubmit(e)} className="rediger-opprett-tiltakstype__form">
+    <form onSubmit={e => handleSubmit(e)} className="rediger-opprett-tiltakstype__form" data-testid='form__rediger-opprett'>
       <Input
         label="Tittel"
         onChange={e => handleChange(e, 'tittel')}
@@ -58,7 +58,7 @@ const RedigeringsgrensesnittForm = ({
         onChange={e => handleChange(e, 'ingress')}
         value={ingress}
         feil={feilmelding.ingress}
-        className="rediger-opprett-tiltakstype__form__beskrivelse"
+        className="rediger-opprett-tiltakstype__form__ingress"
         data-testid="input_ingress"
       />
       <Input
