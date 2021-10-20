@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './OpprettOgRedigerTiltakstype.less';
 import { useParams } from 'react-router-dom';
 import SlettModal from '../../components/modal/SlettModal';
@@ -18,20 +18,9 @@ const OpprettOgRedigerTiltakstype = () => {
   const { id }: routeParams = useParams();
   const isEditMode = !!id;
 
-  const [tittel, setTittel] = useState('');
-  const [ingress, setIngress] = useState('');
-  const [beskrivelse, setBeskrivelse] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
 
   const { data, isLoading, isError } = useTiltakstype(id);
-
-  useEffect(() => {
-    if (data) {
-      setTittel(data.tittel);
-      setIngress(data.ingress);
-      setBeskrivelse(data.beskrivelse);
-    }
-  }, [data]);
 
   const postMutation = useTiltakstypeCreate();
   const putMutation = useTiltakstypeUpdate(id);
@@ -39,12 +28,7 @@ const OpprettOgRedigerTiltakstype = () => {
 
   const handleSubmit = (tiltakstype: Tiltakstype) => {
     if (isEditMode) {
-      putMutation.mutate({
-        id: id,
-        tittel: tiltakstype.tittel,
-        beskrivelse: tiltakstype.beskrivelse,
-        ingress: tiltakstype.ingress,
-      });
+      putMutation.mutate(tiltakstype);
     } else {
       postMutation.mutate(tiltakstype);
     }
@@ -61,9 +45,7 @@ const OpprettOgRedigerTiltakstype = () => {
           isEdit={isEditMode}
           onSubmit={handleSubmit}
           setModalOpen={setModalOpen}
-          tittel={tittel}
-          ingress={ingress}
-          beskrivelse={beskrivelse}
+          tiltakstype={data}
         />
       </div>
       <SlettModal

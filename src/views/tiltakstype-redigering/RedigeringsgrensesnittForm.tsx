@@ -8,29 +8,27 @@ import { ReactComponent as Edit } from '../../ikoner/Edit.svg';
 import { ReactComponent as Delete } from '../../ikoner/Delete.svg';
 import FormInput from '../../components/form-elements/FormInput';
 import { Tiltakstype } from '../../core/domain/Tiltakstype';
+import { Id } from '../../core/domain/Generic';
 
 interface RedigeringsgrensesnittFormProps {
   isLoading: boolean;
   isError: boolean;
   isEdit: boolean;
   onSubmit: (tiltakstype: Tiltakstype) => void;
-  tittel: string;
-  ingress: string;
-  beskrivelse: string;
+  tiltakstype?: Tiltakstype;
   setModalOpen: (open: boolean) => void;
 }
 
 const RedigeringsgrensesnittForm = ({
   isLoading,
   isError,
-  tittel,
-  ingress,
-  beskrivelse,
+  tiltakstype,
   isEdit,
   onSubmit,
   setModalOpen,
 }: RedigeringsgrensesnittFormProps) => {
   type FormValues = {
+    id?: Id;
     tittel: string;
     ingress: string;
     beskrivelse: string;
@@ -46,10 +44,13 @@ const RedigeringsgrensesnittForm = ({
   const tomtFeltErrorMessage = 'Dette feltet kan ikke være tomt';
 
   useEffect(() => {
-    setValue('tittel', tittel);
-    setValue('ingress', ingress);
-    setValue('beskrivelse', beskrivelse);
-  }, [tittel, ingress, beskrivelse]);
+    if (tiltakstype) {
+      setValue('id', tiltakstype.id);
+      setValue('tittel', tiltakstype.tittel);
+      setValue('ingress', tiltakstype.ingress);
+      setValue('beskrivelse', tiltakstype.beskrivelse);
+    }
+  }, [tiltakstype]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="rediger-opprett-tiltakstype__form">
@@ -59,7 +60,7 @@ const RedigeringsgrensesnittForm = ({
           required: tomtFeltErrorMessage,
           maxLength: { value: 50, message: 'Maks 50 tegn.' },
         })}
-        defaultValue={tittel}
+        defaultValue={tiltakstype ? tiltakstype.tittel : ''}
         label="Tittel"
         feil={errors.tittel && errors.tittel.message}
         inputClassName={'rediger-opprett-tiltakstype__form__input'}
@@ -71,7 +72,7 @@ const RedigeringsgrensesnittForm = ({
           required: tomtFeltErrorMessage,
           maxLength: { value: 250, message: 'Maks 250 tegn.' },
         })}
-        defaultValue={ingress}
+        defaultValue={tiltakstype ? tiltakstype.ingress : ''}
         label="Ingress"
         feil={errors.ingress && errors.ingress.message}
         inputClassName={'rediger-opprett-tiltakstype__form__input'}
@@ -79,7 +80,7 @@ const RedigeringsgrensesnittForm = ({
       <FormInput
         id="beskrivelse"
         register={register('beskrivelse', { required: tomtFeltErrorMessage })}
-        defaultValue={beskrivelse}
+        defaultValue={tiltakstype ? tiltakstype.beskrivelse : ''}
         label="Beskrivelse"
         feil={errors.beskrivelse && errors.beskrivelse.message}
         inputClassName={'rediger-opprett-tiltakstype__form__input'}
