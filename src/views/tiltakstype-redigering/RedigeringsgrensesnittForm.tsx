@@ -6,7 +6,7 @@ import { Fareknapp, Hovedknapp } from 'nav-frontend-knapper';
 import NavFrontendSpinner from 'nav-frontend-spinner';
 import { ReactComponent as Edit } from '../../ikoner/Edit.svg';
 import { ReactComponent as Delete } from '../../ikoner/Delete.svg';
-import FormInput from './FormInput';
+import FormInput from '../../components/form-elements/FormInput';
 import { Tiltakstype } from '../../core/domain/Tiltakstype';
 
 interface RedigeringsgrensesnittFormProps {
