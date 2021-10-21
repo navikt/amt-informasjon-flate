@@ -19,11 +19,13 @@ const SlettModal = ({ modalOpen, onRequestClose, handleDelete, tittel }: SlettMo
       isOpen={modalOpen}
       onRequestClose={onRequestClose}
       ariaHideApp={false}
-      className="rediger-tiltakstype__slett-modal"
+      className="rediger-tiltaksvariant__slett-modal"
     >
       <Innholdstittel className="modal-info-tekst__overskrift">{tittel}</Innholdstittel>
-      <div className="rediger-tiltakstype__slett-modal__tekst">Er du sikker på at du vil slette tiltakstypen?</div>
-      <div className="rediger-tiltakstype__slett-modal__knapperad">
+      <div className="rediger-tiltaksvariant__slett-modal__tekst">
+        Er du sikker på at du vil slette tiltaksvarianten?
+      </div>
+      <div className="rediger-tiltaksvariant__slett-modal__knapperad">
         <Fareknapp onClick={handleDelete}>
           Slett <Delete />
         </Fareknapp>

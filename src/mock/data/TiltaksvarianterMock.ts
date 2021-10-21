@@ -1,7 +1,7 @@
 import faker from 'faker';
-import { Tiltakstype } from '../../core/domain/Tiltakstype';
+import { Tiltaksvariant } from '../../core/domain/Tiltaksvariant';
 
-const tiltakstyperMock: Tiltakstype[] = [
+const tiltaksvarianterMock: Tiltaksvariant[] = [
   {
     id: 1,
     tittel: 'Opplæring',
@@ -136,4 +136,4 @@ const tiltakstyperMock: Tiltakstype[] = [
   },
 ];
 
-export { tiltakstyperMock };
+export { tiltaksvarianterMock };

@@ -4,8 +4,8 @@ import TiltaksgjennomforingService from '../../core/api/TiltaksgjennomforingServ
 import { Id } from '../../core/domain/Generic';
 import { Tiltaksgjennomforing } from '../../core/domain/Tiltaksgjennomforing';
 
-export default function useTiltaksgjennomforingerByTiltakstypeId(id: Id) {
-  return useQuery<Tiltaksgjennomforing[]>([QueryKeys.Tiltaksgjennomforinger, { tiltakstypeId: id }], () =>
-    TiltaksgjennomforingService.getTiltaksgjennomforingerByTiltakstypeId(id)
+export default function useTiltaksgjennomforingerByTiltaksvariantId(id: Id) {
+  return useQuery<Tiltaksgjennomforing[]>([QueryKeys.Tiltaksgjennomforinger, { tiltaksvariantId: id }], () =>
+    TiltaksgjennomforingService.getTiltaksgjennomforingerByTiltaksvariantId(id)
   );
 }

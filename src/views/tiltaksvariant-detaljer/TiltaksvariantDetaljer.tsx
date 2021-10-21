@@ -6,40 +6,40 @@ import Link from '../../components/link/Link';
 import { Ingress, Normaltekst, Systemtittel } from 'nav-frontend-typografi';
 import { Col, Row, Stack } from 'react-bootstrap';
 import Panel from 'nav-frontend-paneler';
-import useTiltakstype from '../../hooks/tiltakstype/useTiltakstype';
-import useTiltaksgjennomforingerByTiltakstypeId from '../../hooks/tiltaksgjennomforing/useTiltaksgjennomforingerByTiltakstypeId';
+import useTiltaksvariant from '../../hooks/tiltaksvariant/useTiltaksvariant';
+import useTiltaksgjennomforingerByTiltaksvariantId from '../../hooks/tiltaksgjennomforing/useTiltaksgjennomforingerByTiltaksvariantId';
 
 interface routeParams {
   id: string;
 }
 
-const TiltakstypeDetaljer = () => {
+const TiltaksvariantDetaljer = () => {
   const { id }: routeParams = useParams();
 
-  const tiltakstype = useTiltakstype(id);
-  const tiltaksgjennomforinger = useTiltaksgjennomforingerByTiltakstypeId(id);
+  const tiltaksvariant = useTiltaksvariant(id);
+  const tiltaksgjennomforinger = useTiltaksgjennomforingerByTiltaksvariantId(id);
 
-  if (tiltakstype.isError) {
+  if (tiltaksvariant.isError) {
     return <AlertStripe type="feil">Det skjedde en feil</AlertStripe>;
   }
 
   return (
-    <MainView showBackButton title={tiltakstype.data?.tittel}>
+    <MainView showBackButton title={tiltaksvariant.data?.tittel}>
       <Row>
         <Col lg={8}>
           <Stack gap={5}>
             <div>
-              <Ingress>{tiltakstype.data?.ingress}</Ingress>
+              <Ingress>{tiltaksvariant.data?.ingress}</Ingress>
             </div>
             <div>
-              <Normaltekst>{tiltakstype.data?.beskrivelse}</Normaltekst>
+              <Normaltekst>{tiltaksvariant.data?.beskrivelse}</Normaltekst>
             </div>
           </Stack>
         </Col>
         <Col lg={4}>
           <Panel border>
             <Systemtittel>Sidemeny</Systemtittel>
-            <Link to={`/tiltakstyper/${id}/rediger`} className="knapp knapp--hoved">
+            <Link to={`/tiltaksvarianter/${id}/rediger`} className="knapp knapp--hoved">
               Rediger
             </Link>
           </Panel>
@@ -56,4 +56,4 @@ const TiltakstypeDetaljer = () => {
   );
 };
 
-export default TiltakstypeDetaljer;
+export default TiltaksvariantDetaljer;

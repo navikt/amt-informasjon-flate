@@ -7,22 +7,22 @@ import NavFrontendSpinner from 'nav-frontend-spinner';
 import { ReactComponent as Edit } from '../../ikoner/Edit.svg';
 import { ReactComponent as Delete } from '../../ikoner/Delete.svg';
 import FormInput from '../../components/form-elements/FormInput';
-import { Tiltakstype } from '../../core/domain/Tiltakstype';
+import { Tiltaksvariant } from '../../core/domain/Tiltaksvariant';
 import { Id } from '../../core/domain/Generic';
 
 interface RedigeringsgrensesnittFormProps {
   isLoading: boolean;
   isError: boolean;
   isEdit: boolean;
-  onSubmit: (tiltakstype: Tiltakstype) => void;
-  tiltakstype?: Tiltakstype;
+  onSubmit: (tiltaksvariant: Tiltaksvariant) => void;
+  tiltaksvariant?: Tiltaksvariant;
   setModalOpen: (open: boolean) => void;
 }
 
 const RedigeringsgrensesnittForm = ({
   isLoading,
   isError,
-  tiltakstype,
+  tiltaksvariant,
   isEdit,
   onSubmit,
   setModalOpen,
@@ -44,26 +44,26 @@ const RedigeringsgrensesnittForm = ({
   const tomtFeltErrorMessage = 'Dette feltet kan ikke være tomt';
 
   useEffect(() => {
-    if (tiltakstype) {
-      setValue('id', tiltakstype.id);
-      setValue('tittel', tiltakstype.tittel);
-      setValue('ingress', tiltakstype.ingress);
-      setValue('beskrivelse', tiltakstype.beskrivelse);
+    if (tiltaksvariant) {
+      setValue('id', tiltaksvariant.id);
+      setValue('tittel', tiltaksvariant.tittel);
+      setValue('ingress', tiltaksvariant.ingress);
+      setValue('beskrivelse', tiltaksvariant.beskrivelse);
     }
-  }, [tiltakstype]);
+  }, [tiltaksvariant]);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="rediger-opprett-tiltakstype__form">
+    <form onSubmit={handleSubmit(onSubmit)} className="rediger-opprett-tiltaksvariant__form">
       <FormInput
         id="tittel"
         register={register('tittel', {
           required: tomtFeltErrorMessage,
           maxLength: { value: 50, message: 'Maks 50 tegn.' },
         })}
-        defaultValue={tiltakstype ? tiltakstype.tittel : ''}
+        defaultValue={tiltaksvariant ? tiltaksvariant.tittel : ''}
         label="Tittel"
         feil={errors.tittel && errors.tittel.message}
-        inputClassName={'rediger-opprett-tiltakstype__form__input'}
+        inputClassName={'rediger-opprett-tiltaksvariant__form__input'}
       />
 
       <FormInput
@@ -72,28 +72,28 @@ const RedigeringsgrensesnittForm = ({
           required: tomtFeltErrorMessage,
           maxLength: { value: 250, message: 'Maks 250 tegn.' },
         })}
-        defaultValue={tiltakstype ? tiltakstype.ingress : ''}
+        defaultValue={tiltaksvariant ? tiltaksvariant.ingress : ''}
         label="Ingress"
         feil={errors.ingress && errors.ingress.message}
-        inputClassName={'rediger-opprett-tiltakstype__form__input'}
+        inputClassName={'rediger-opprett-tiltaksvariant__form__input'}
       />
       <FormInput
         id="beskrivelse"
         register={register('beskrivelse', { required: tomtFeltErrorMessage })}
-        defaultValue={tiltakstype ? tiltakstype.beskrivelse : ''}
+        defaultValue={tiltaksvariant ? tiltaksvariant.beskrivelse : ''}
         label="Beskrivelse"
         feil={errors.beskrivelse && errors.beskrivelse.message}
-        inputClassName={'rediger-opprett-tiltakstype__form__input'}
+        inputClassName={'rediger-opprett-tiltaksvariant__form__input'}
       />
-      <Row className="rediger-opprett-tiltakstype__form knapperad">
+      <Row className="rediger-opprett-tiltaksvariant__form knapperad">
         <Stack direction="horizontal" gap={2}>
           <Hovedknapp htmlType="submit">
-            {!isEdit ? 'Opprett tiltakstype' : 'Rediger tiltakstype'} <Edit />
+            {!isEdit ? 'Opprett tiltaksvariant' : 'Rediger tiltaksvariant'} <Edit />
           </Hovedknapp>
           {isEdit && (
             <>
               <Fareknapp spinner={isLoading} onClick={() => setModalOpen(true)} htmlType="button">
-                Slett tiltakstype <Delete />
+                Slett tiltaksvariant <Delete />
               </Fareknapp>
             </>
           )}
