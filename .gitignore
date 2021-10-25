@@ -25,5 +25,3 @@ yarn-debug.log*
 yarn-error.log*
 
 .eslintcache
-/cypress/integration/2-advanced-examples/
-/cypress/integration/1-getting-started/
