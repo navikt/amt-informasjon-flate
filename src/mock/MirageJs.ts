@@ -1,47 +1,47 @@
 import { createServer, Response } from 'miragejs';
 import { tiltaksgjennomforingerMock } from './data/TiltaksgjennomforingerMock';
-import { tiltakstyperMock } from './data/TiltakstyperMock';
+import { tiltaksvarianterMock } from './data/TiltaksvarianterMock';
 
 const mockServer = () =>
   createServer({
     seeds(server) {
       server.db.loadData({
-        tiltakstyper: tiltakstyperMock,
+        tiltaksvarianter: tiltaksvarianterMock,
         tiltaksgjennomforinger: tiltaksgjennomforingerMock,
       });
     },
     routes() {
       // TODO: Lag en bedre struktur her. Kommer til å bli litt kaos i fremtiden.
       this.namespace = '/api';
-      this.get('/tiltakstyper', schema => {
-        return schema.db.tiltakstyper;
+      this.get('/tiltaksvarianter', schema => {
+        return schema.db.tiltaksvarianter;
       });
-      this.get('/tiltakstyper/:id', (schema, request) => {
+      this.get('/tiltaksvarianter/:id', (schema, request) => {
         const id = request.params.id;
-        return schema.db.tiltakstyper.find(id);
+        return schema.db.tiltaksvarianter.find(id);
       });
-      this.get('/tiltakstyper/:id/tiltaksgjennomforinger', (schema, request) => {
+      this.get('/tiltaksvarianter/:id/tiltaksgjennomforinger', (schema, request) => {
         const id = request.params.id;
-        return schema.db.tiltaksgjennomforinger.where({ tiltakstypeId: id });
+        return schema.db.tiltaksgjennomforinger.where({ tiltaksvariantId: id });
       });
-      this.post('/tiltakstyper', (schema, request) => {
-        const tiltakstyper = JSON.parse(request.requestBody);
-        return schema.db.tiltakstyper.insert(tiltakstyper);
+      this.post('/tiltaksvarianter', (schema, request) => {
+        const tiltaksvarianter = JSON.parse(request.requestBody);
+        return schema.db.tiltaksvarianter.insert(tiltaksvarianter);
       });
-      this.put('/tiltakstyper/:id', (schema, request) => {
+      this.put('/tiltaksvarianter/:id', (schema, request) => {
         const id = request.params.id;
-        const tiltakstyper = JSON.parse(request.requestBody);
-        return schema.db.tiltakstyper.update(id, {
-          tittel: tiltakstyper.tittel,
-          ingress: tiltakstyper.ingress,
-          beskrivelse: tiltakstyper.beskrivelse,
+        const tiltaksvarianter = JSON.parse(request.requestBody);
+        return schema.db.tiltaksvarianter.update(id, {
+          tittel: tiltaksvarianter.tittel,
+          ingress: tiltaksvarianter.ingress,
+          beskrivelse: tiltaksvarianter.beskrivelse,
         });
       });
-      this.delete('/tiltakstyper/:id', (schema, request) => {
+      this.delete('/tiltaksvarianter/:id', (schema, request) => {
         const id = request.params.id;
-        const tiltakstype = schema.db.tiltak.find(id);
-        if (tiltakstype) {
-          schema.db.tiltakstyper.remove(id);
+        const tiltaksvariant = schema.db.tiltak.find(id);
+        if (tiltaksvariant) {
+          schema.db.tiltaksvarianter.remove(id);
           return new Response(200);
         }
         return new Response(404);

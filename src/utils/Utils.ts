@@ -6,8 +6,8 @@ export const inneholderUrl = (string: string) => {
   return window.location.href.indexOf(string) > -1;
 };
 
-export const redigerTiltakstype = inneholderUrl('rediger-tiltakstype');
-export const opprettTiltakstype = inneholderUrl('opprett-tiltakstype');
+export const redigerTiltaksvariant = inneholderUrl('rediger-tiltaksvariant');
+export const opprettTiltaksvariant = inneholderUrl('opprett-tiltaksvariant');
 
 export function specialChar(string: string | { label: string }) {
   return string.toString().toLowerCase().split('æ').join('ae').split('ø').join('o').split('å').join('a');

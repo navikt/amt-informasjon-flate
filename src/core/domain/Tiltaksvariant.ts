@@ -1,6 +1,6 @@
 import { Id } from './Generic';
 
-export interface Tiltakstype {
+export interface Tiltaksvariant {
   id?: Id;
   tittel: string;
   ingress: string;
