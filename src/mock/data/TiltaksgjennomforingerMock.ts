@@ -4,7 +4,7 @@ import { Tiltaksgjennomforing } from '../../core/domain/Tiltaksgjennomforing';
 const tiltaksgjennomforingerMock: Tiltaksgjennomforing[] = [
   {
     id: 1,
-    tiltakstypeId: 1,
+    tiltaksvariantId: 1,
     tiltaksnummer: faker.random.alphaNumeric(1),
     tittel: `Kjøreopplæring av ${faker.vehicle.manufacturer()}`,
     beskrivelse: faker.lorem.paragraph(1),
@@ -13,7 +13,7 @@ const tiltaksgjennomforingerMock: Tiltaksgjennomforing[] = [
   },
   {
     id: 2,
-    tiltakstypeId: 1,
+    tiltaksvariantId: 1,
     tiltaksnummer: faker.random.alphaNumeric(1),
     tittel: `Kjøreopplæring av ${faker.vehicle.manufacturer()}`,
     beskrivelse: faker.lorem.paragraph(1),
@@ -22,7 +22,7 @@ const tiltaksgjennomforingerMock: Tiltaksgjennomforing[] = [
   },
   {
     id: 3,
-    tiltakstypeId: 1,
+    tiltaksvariantId: 1,
     tiltaksnummer: faker.random.alphaNumeric(1),
     tittel: `Kjøreopplæring av ${faker.vehicle.manufacturer()}`,
     beskrivelse: faker.lorem.paragraph(1),
@@ -31,7 +31,7 @@ const tiltaksgjennomforingerMock: Tiltaksgjennomforing[] = [
   },
   {
     id: 4,
-    tiltakstypeId: 1,
+    tiltaksvariantId: 1,
     tiltaksnummer: faker.random.alphaNumeric(1),
     tittel: `Kjøreopplæring av ${faker.vehicle.manufacturer()}`,
     beskrivelse: faker.lorem.paragraph(1),

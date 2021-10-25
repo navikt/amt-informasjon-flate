@@ -1,4 +1,4 @@
 export const enum QueryKeys {
-  Tiltakstyper = 'tiltakstyper',
+  Tiltaksvarianter = 'tiltaksvarianter',
   Tiltaksgjennomforinger = 'tiltaksgjennomforinger',
 }

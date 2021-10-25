@@ -1,3 +1,3 @@
 import { atom } from 'jotai';
 
-export const tiltakstypeOversiktSok = atom('');
+export const tiltaksvariantOversiktSok = atom('');
