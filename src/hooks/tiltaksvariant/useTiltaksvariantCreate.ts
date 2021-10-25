@@ -21,7 +21,7 @@ export default function useTiltaksvariantCreate() {
       onSettled: (newTiltaksvariant, error, variables, context: any) => {
         if (error) {
           queryClient.setQueryData(QueryKeys.Tiltaksvarianter, context.prevTiltaksvarianter);
-          toast.error('Oops! Oppretting feilet.');
+          toast.error('Oppretting feilet.');
         } else {
           newTiltaksvariant && queryClient.invalidateQueries(QueryKeys.Tiltaksvarianter);
           toast.success('Oppretting vellykket!');

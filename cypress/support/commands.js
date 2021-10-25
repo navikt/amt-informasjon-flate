@@ -36,7 +36,7 @@ Cypress.Commands.add('configure', () => {
     method: 'GET',
     url: '/',
   });
-  cy.getByTestId('header-tiltakstyper').should('contain', 'Tiltakstyper');
+  cy.getByTestId('header-tiltaksvarianter').should('contain', 'Tiltaksvarianter');
 });
 
 Cypress.Commands.add('getByTestId', (selector, ...args) => {

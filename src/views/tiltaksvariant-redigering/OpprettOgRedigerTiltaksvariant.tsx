@@ -34,10 +34,14 @@ const OpprettOgRedigerTiltaksvariant = () => {
     }
   };
 
-  const getTitle = () => (isEditMode ? 'Rediger tiltaksvariant' : 'Opprett tiltaksvariant');
+  const getTitle = isEditMode ? 'Rediger tiltaksvariant' : 'Opprett tiltaksvariant';
 
   return (
-    <MainView showBackButton title={getTitle()}>
+    <MainView
+      showBackButton
+      title={getTitle}
+      dataTestId={isEditMode ? 'header-rediger-tiltaksvariant' : 'header_opprett-tiltaksvariant'}
+    >
       <div>
         <RedigeringsgrensesnittForm
           isLoading={isLoading}
