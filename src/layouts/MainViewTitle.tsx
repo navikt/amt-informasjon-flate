@@ -11,7 +11,7 @@ interface MainViewTitleProps {
 function MainViewTitle({ title, subTitle, dataTestId }: MainViewTitleProps) {
   return (
     <div className="main-view__title">
-      {title && <Sidetittel>{title}</Sidetittel>}
+      {title && <Sidetittel data-testid={dataTestId}>{title}</Sidetittel>}
       {subTitle && <Systemtittel>{subTitle}</Systemtittel>}
     </div>
   );
