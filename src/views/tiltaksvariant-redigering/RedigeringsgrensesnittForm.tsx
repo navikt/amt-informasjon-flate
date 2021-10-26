@@ -69,7 +69,6 @@ const RedigeringsgrensesnittForm = ({
         className="rediger-opprett-tiltakstype__form__tittel"
         data-testid="input_tittel"
       />
-
       <FormInput
         label="Ingress"
         register={register('ingress', {
@@ -98,7 +97,6 @@ const RedigeringsgrensesnittForm = ({
             {isEdit ? 'Rediger tiltaksvariant' : 'Opprett tiltaksvariant'} <Edit />
           </Hovedknapp>
           {isEdit && (
-            <>
               <Fareknapp
                 spinner={isLoading}
                 onClick={() => setModalOpen(true)}
@@ -107,12 +105,11 @@ const RedigeringsgrensesnittForm = ({
               >
                 Slett tiltakstype <Delete />
               </Fareknapp>
-            </>
           )}
         </Stack>
       </Row>
       {isLoading && <NavFrontendSpinner />}
-      {isError && <AlertStripe type={'feil'}>Det har oppstått en feil</AlertStripe>}
+      {isError && <AlertStripe type="feil">Det har oppstått en feil</AlertStripe>}
     </form>
   );
 };
