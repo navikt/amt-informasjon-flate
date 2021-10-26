@@ -3,7 +3,7 @@ import { Sidetittel, Systemtittel } from 'nav-frontend-typografi';
 import './MainView.less';
 
 interface MainViewTitleProps {
-  title?: string;
+  title: string;
   subTitle?: string;
   dataTestId?: string;
 }
@@ -11,7 +11,7 @@ interface MainViewTitleProps {
 function MainViewTitle({ title, subTitle, dataTestId }: MainViewTitleProps) {
   return (
     <div className="main-view__title">
-      {title && <Sidetittel data-testid={dataTestId}>{title}</Sidetittel>}
+      <Sidetittel data-testid={dataTestId}>{title}</Sidetittel>
       {subTitle && <Systemtittel>{subTitle}</Systemtittel>}
     </div>
   );

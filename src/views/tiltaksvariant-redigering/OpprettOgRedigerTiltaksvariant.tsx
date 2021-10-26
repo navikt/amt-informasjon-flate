@@ -27,7 +27,7 @@ const OpprettOgRedigerTiltaksvariant = () => {
   const deleteMutation = useTiltaksvariantDelete(id);
 
   const handleSubmit = (tiltaksvariant: Tiltaksvariant) => {
-    isEditMode ? putMutation.mutate(tiltaksvariant) : postMutation.mutate(tiltaksvariant)
+    isEditMode ? putMutation.mutate(tiltaksvariant) : postMutation.mutate(tiltaksvariant);
   };
 
   const getTitle = isEditMode ? 'Rediger tiltaksvariant' : 'Opprett tiltaksvariant';

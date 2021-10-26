@@ -11,13 +11,18 @@ import { logEvent } from '../../utils/frontend-logger';
 const TiltaksvariantOversikt = () => {
   const { data, isFetching } = useTiltaksvarianter();
   return (
-    <MainView title="Tiltaksvarianter" subTitle="Se en oversikt over alle nasjonale tiltaksvarianter">
+    <MainView
+      title="Tiltaksvarianter"
+      subTitle="Se en oversikt over alle nasjonale tiltaksvarianter"
+      dataTestId="header-tiltaksvarianter"
+    >
       <div className="tiltaksvarianter-oversikt-actions">
         <Sokefelt />
         <Link
           to="/tiltaksvarianter/opprett"
           className="knapp opprett-ny-tiltaksvariant__knapp"
           onClick={() => logEvent('amt.opprett-tiltaksvariant-knapp')}
+          dataTestId="knapp_opprett-tiltaksvariant"
         >
           Opprett tiltaksvariant
         </Link>
