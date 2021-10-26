@@ -6,7 +6,14 @@ import { tiltaksvariantOversiktSok } from '../../core/atoms/atoms';
 
 const Sokefelt = () => {
   const [sok, setSok] = useAtom(tiltaksvariantOversiktSok);
-  return <Input label="Søk etter tiltaksvariant:" onChange={e => setSok(e.currentTarget.value)} value={sok} />;
+  return (
+    <Input
+      className="sokefelt-tiltaksvariant"
+      label="Søk etter tiltaksvariant:"
+      onChange={e => setSok(e.currentTarget.value)}
+      value={sok}
+    />
+  );
 };
 
 export default Sokefelt;

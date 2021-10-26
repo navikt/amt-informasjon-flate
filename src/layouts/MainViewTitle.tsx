@@ -1,6 +1,5 @@
 import React from 'react';
 import { Sidetittel, Systemtittel } from 'nav-frontend-typografi';
-import { Row } from 'react-bootstrap';
 import './MainView.less';
 
 interface MainViewTitleProps {
@@ -11,10 +10,10 @@ interface MainViewTitleProps {
 function MainViewTitle(props: MainViewTitleProps) {
   const { title, subTitle } = props;
   return (
-    <Row className="main-view__title">
+    <div className="main-view__title">
       {title && <Sidetittel>{title}</Sidetittel>}
       {subTitle && <Systemtittel>{subTitle}</Systemtittel>}
-    </Row>
+    </div>
   );
 }
 

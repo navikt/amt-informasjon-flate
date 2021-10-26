@@ -42,6 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and publish Docker image
     needs: [build, test]
+    if: github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/grafana'
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
@@ -62,6 +63,7 @@ jobs:
 
   deploy-dev:
     name: Deploy application to dev
+    if: github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/grafana'
     needs:
       - build-docker-image
     runs-on: ubuntu-latest
