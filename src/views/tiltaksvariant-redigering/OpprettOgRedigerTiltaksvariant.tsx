@@ -33,15 +33,22 @@ const OpprettOgRedigerTiltaksvariant = () => {
   const getTitle = isEditMode ? 'Rediger tiltaksvariant' : 'Opprett tiltaksvariant';
 
   return (
-    <MainView showBackButton title={getTitle} tilbakelenke={isEditMode ? '/tiltaksvarianter/' + id : '/'}>
-      <RedigeringsgrensesnittForm
-        isLoading={isLoading}
-        isError={isError}
-        isEdit={isEditMode}
-        onSubmit={handleSubmit}
-        setModalOpen={setModalOpen}
-        tiltaksvariant={data}
-      />
+    <MainView
+      showBackButton
+      title={getTitle}
+      dataTestId={isEditMode ? 'header-rediger-tiltaksvariant' : 'header_opprett-tiltaksvariant'}
+      tilbakelenke={isEditMode ? '/tiltaksvarianter/' + id : '/'}
+    >
+      <div>
+        <RedigeringsgrensesnittForm
+          isLoading={isLoading}
+          isError={isError}
+          isEdit={isEditMode}
+          onSubmit={handleSubmit}
+          setModalOpen={setModalOpen}
+          tiltaksvariant={data}
+        />
+      </div>
       <SlettModal
         tittel="Slett tiltaksvariant"
         modalOpen={modalOpen}

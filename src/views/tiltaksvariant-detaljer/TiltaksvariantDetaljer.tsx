@@ -8,6 +8,7 @@ import { Col, Row, Stack } from 'react-bootstrap';
 import Panel from 'nav-frontend-paneler';
 import useTiltaksvariant from '../../hooks/tiltaksvariant/useTiltaksvariant';
 import useTiltaksgjennomforingerByTiltaksvariantId from '../../hooks/tiltaksgjennomforing/useTiltaksgjennomforingerByTiltaksvariantId';
+import { kebabCase } from '../../utils/Utils';
 
 interface routeParams {
   id: string;
@@ -24,22 +25,22 @@ const TiltaksvariantDetaljer = () => {
   }
 
   return (
-    <MainView showBackButton title={tiltaksvariant.data?.tittel}>
+    <MainView showBackButton title={tiltaksvariant.data?.tittel} dataTestId={`tiltaksvariant_header_${tiltaksvariant.data && kebabCase(tiltaksvariant.data?.tittel)}`}>
       <Row>
         <Col lg={8}>
           <Stack gap={5}>
             <div>
-              <Ingress>{tiltaksvariant.data?.ingress}</Ingress>
+              <Ingress data-testid="tiltaksvariant_ingress">{tiltaksvariant.data?.ingress}</Ingress>
             </div>
             <div>
-              <Normaltekst>{tiltaksvariant.data?.beskrivelse}</Normaltekst>
+              <Normaltekst data-testid="tiltaksvariant_beskrivelse">{tiltaksvariant.data?.beskrivelse}</Normaltekst>
             </div>
           </Stack>
         </Col>
         <Col lg={4}>
           <Panel border>
             <Systemtittel>Sidemeny</Systemtittel>
-            <Link to={`/tiltaksvarianter/${id}/rediger`} className="knapp knapp--hoved">
+            <Link to={`/tiltaksvarianter/${id}/rediger`} className="knapp knapp--hoved" dataTestId="knapp_rediger-tiltaksvariant">
               Rediger
             </Link>
           </Panel>

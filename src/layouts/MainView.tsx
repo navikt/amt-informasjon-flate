@@ -9,17 +9,15 @@ interface MainViewProps {
   showBackButton?: boolean;
   title?: string;
   subTitle?: string;
+  dataTestId?: string;
   tilbakelenke?: string;
 }
 
-const MainView: FunctionComponent<MainViewProps> = ({ showBackButton, title, subTitle, children, tilbakelenke  = '/'}) => {
-  const renderTitleSection = () => (title ? <MainViewTitle title={title} subTitle={subTitle} /> : null);
-  return (
-    <Container className="main-view">
-      <Row className="main-view__header">
-        {showBackButton && (
+const MainView: FunctionComponent<MainViewProps> = ({ showBackButton, title, subTitle, dataTestId, tilbakelenke, children }) => {
+  const renderTitleSection = () =>
+    title ? <MainViewTitle title={title} subTitle={subTitle} dataTestId={dataTestId} /> : null;
           <Link to={tilbakelenke}>
-            <Tilbakeknapp />
+            <Tilbakeknapp data-testid="tilbakeknapp" />
           </Link>
         )}
       </Row>

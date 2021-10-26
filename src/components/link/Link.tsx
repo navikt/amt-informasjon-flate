@@ -9,16 +9,16 @@ interface LinkProps extends RouterLinkProps {
   isInline?: boolean;
   isExternal?: boolean;
   children?: React.ReactNode;
+  dataTestId?: string;
 }
 
-function Link(props: LinkProps) {
-  const { children, isExternal = false, isInline = false, to, className, ...others } = props;
+function Link({ children, isExternal = false, isInline = false, to, className, dataTestId, ...others }: LinkProps) {
   return isExternal ? (
-    <Lenke href={to.toString()} className={className} {...others}>
+    <Lenke href={to.toString()} className={className} {...others} data-testid={dataTestId}>
       {children}
     </Lenke>
   ) : (
-    <RouterLink to={to} className={cn('link', { lenke: isInline }, className)} {...others}>
+    <RouterLink to={to} className={cn('link', { lenke: isInline }, className)} {...others} data-testid={dataTestId}>
       {children}
     </RouterLink>
   );

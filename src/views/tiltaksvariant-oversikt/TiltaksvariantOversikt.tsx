@@ -11,13 +11,17 @@ import NavFrontendSpinner from 'nav-frontend-spinner';
 const TiltaksvariantOversikt = () => {
   const { data, isFetching } = useTiltaksvarianter();
   return (
-    <MainView title="Tiltaksvarianter" subTitle="Se en oversikt over alle nasjonale tiltaksvarianter">
+    <MainView
+      title="Tiltaksvarianter"
+      subTitle="Se en oversikt over alle nasjonale tiltaksvarianter"
+      dataTestId="header-tiltaksvarianter"
+    >
       <Row className="tiltaksvarianter-oversikt-actions">
         <Col lg={4}>
           <Sokefelt />
         </Col>
         <Col className="opprett-ny-tiltaksvariant__knapp__wrapper">
-          <Link to="/tiltaksvarianter/opprett" className="knapp">
+          <Link to="/tiltaksvarianter/opprett" className="knapp" dataTestId="knapp_opprett-tiltaksvariant">
             Opprett tiltaksvariant
           </Link>
         </Col>

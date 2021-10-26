@@ -8,22 +8,20 @@ export interface TiltaksvariantlisteProps {
 
 const Tiltaksvariantliste = ({ tiltaksvariantliste }: TiltaksvariantlisteProps) => {
   return (
-    <>
-      <table className="tabell tabell--stripet">
-        <thead>
-          <tr>
-            <th>Tittel</th>
-            <th>Ingress</th>
-          </tr>
-        </thead>
-        <tbody>
-          {tiltaksvariantliste &&
-            tiltaksvariantliste?.map((tiltaksvariant: Tiltaksvariant) => (
-              <TiltaksvariantRad key={tiltaksvariant.id} tiltaksvariant={tiltaksvariant} />
-            ))}
-        </tbody>
-      </table>
-    </>
+    <table className="tabell tabell--stripet" data-testid="tabell_oversikt-tiltaksvarianter">
+      <thead>
+        <tr>
+          <th>Tittel</th>
+          <th>Ingress</th>
+        </tr>
+      </thead>
+      <tbody>
+        {tiltaksvariantliste &&
+          tiltaksvariantliste?.map((tiltaksvariant: Tiltaksvariant) => (
+            <TiltaksvariantRad key={tiltaksvariant.id} tiltaksvariant={tiltaksvariant} />
+          ))}
+      </tbody>
+    </table>
   );
 };
 
