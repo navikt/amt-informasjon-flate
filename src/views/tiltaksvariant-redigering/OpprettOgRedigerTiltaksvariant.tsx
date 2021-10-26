@@ -27,11 +27,7 @@ const OpprettOgRedigerTiltaksvariant = () => {
   const deleteMutation = useTiltaksvariantDelete(id);
 
   const handleSubmit = (tiltaksvariant: Tiltaksvariant) => {
-    if (isEditMode) {
-      putMutation.mutate(tiltaksvariant);
-    } else {
-      postMutation.mutate(tiltaksvariant);
-    }
+    isEditMode ? putMutation.mutate(tiltaksvariant) : postMutation.mutate(tiltaksvariant)
   };
 
   const getTitle = isEditMode ? 'Rediger tiltaksvariant' : 'Opprett tiltaksvariant';
@@ -41,6 +37,7 @@ const OpprettOgRedigerTiltaksvariant = () => {
       showBackButton
       title={getTitle}
       dataTestId={isEditMode ? 'header-rediger-tiltaksvariant' : 'header_opprett-tiltaksvariant'}
+      tilbakelenke={isEditMode ? '/tiltaksvarianter/' + id : '/'}
     >
       <div>
         <RedigeringsgrensesnittForm

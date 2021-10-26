@@ -4,8 +4,10 @@ import { QueryKeys } from '../../core/api/QueryKeys';
 import TiltaksvariantService from '../../core/api/TiltaksvariantService';
 import { Id } from '../../core/domain/Generic';
 import { Tiltaksvariant } from '../../core/domain/Tiltaksvariant';
+import { useHistory } from 'react-router-dom';
 
 export default function useTiltaksvariantUpdate(id: Id) {
+  const history = useHistory();
   const queryClient = useQueryClient();
   return useMutation(
     [QueryKeys.Tiltaksvarianter, id],
@@ -28,6 +30,7 @@ export default function useTiltaksvariantUpdate(id: Id) {
           updatedTiltaksvariant &&
             queryClient.invalidateQueries([QueryKeys.Tiltaksvarianter, updatedTiltaksvariant.id]);
           toast.success('Endring vellykket!');
+          history.replace(`/tiltaksvarianter/${updatedTiltaksvariant?.id}`);
         }
       },
     }
