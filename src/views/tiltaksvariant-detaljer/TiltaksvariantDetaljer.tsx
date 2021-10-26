@@ -25,7 +25,11 @@ const TiltaksvariantDetaljer = () => {
   }
 
   return (
-    <MainView showBackButton title={tiltaksvariant.data?.tittel} dataTestId={`tiltaksvariant_header_${tiltaksvariant.data && kebabCase(tiltaksvariant.data?.tittel)}`}>
+    <MainView
+      showBackButton
+      title={tiltaksvariant.data?.tittel}
+      dataTestId={`tiltaksvariant_header_${tiltaksvariant.data && kebabCase(tiltaksvariant.data?.tittel)}`}
+    >
       <Row>
         <Col lg={8}>
           <Stack gap={5}>
@@ -40,7 +44,11 @@ const TiltaksvariantDetaljer = () => {
         <Col lg={4}>
           <Panel border>
             <Systemtittel>Sidemeny</Systemtittel>
-            <Link to={`/tiltaksvarianter/${id}/rediger`} className="knapp knapp--hoved" dataTestId="knapp_rediger-tiltaksvariant">
+            <Link
+              to={`/tiltaksvarianter/${id}/rediger`}
+              className="knapp knapp--hoved"
+              dataTestId="knapp_rediger-tiltaksvariant"
+            >
               Rediger
             </Link>
           </Panel>

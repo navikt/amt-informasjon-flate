@@ -26,6 +26,7 @@
   "dependencies": {
     "@navikt/ds-icons": "^0.5.4",
     "@navikt/fnrvalidator": "^1.1.4",
+    "@navikt/frontendlogger": "^2.0.0",
     "@navikt/navspa": "^3.0.0",
     "@reduxjs/toolkit": "^1.6.1",
     "bootstrap": "^5.1.1",

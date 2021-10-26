@@ -6,7 +6,6 @@ import MainView from '../../layouts/MainView';
 import Link from '../../components/link/Link';
 import useTiltaksvarianter from '../../hooks/tiltaksvariant/useTiltaksvarianter';
 import NavFrontendSpinner from 'nav-frontend-spinner';
-import { logEvent } from '../../utils/frontend-logger';
 
 const TiltaksvariantOversikt = () => {
   const { data, isFetching } = useTiltaksvarianter();
@@ -21,8 +20,8 @@ const TiltaksvariantOversikt = () => {
         <Link
           to="/tiltaksvarianter/opprett"
           className="knapp opprett-ny-tiltaksvariant__knapp"
-          onClick={() => logEvent('amt.opprett-tiltaksvariant-knapp')}
           dataTestId="knapp_opprett-tiltaksvariant"
+          logEventNavn="opprett-tiltaksvariant-knapp"
         >
           Opprett tiltaksvariant
         </Link>

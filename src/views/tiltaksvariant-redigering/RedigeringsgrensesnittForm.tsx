@@ -66,7 +66,7 @@ const RedigeringsgrensesnittForm = ({
         })}
         defaultValue={tiltaksvariant ? tiltaksvariant.tittel : ''}
         feil={errors.tittel && errors.tittel.message}
-        className="rediger-opprett-tiltakstype__form__tittel"
+        className="rediger-opprett-tiltaksvariant__form__tittel"
         data-testid="input_tittel"
       />
       <FormInput
@@ -77,7 +77,7 @@ const RedigeringsgrensesnittForm = ({
         })}
         defaultValue={tiltaksvariant ? tiltaksvariant.ingress : ''}
         feil={errors.ingress && errors.ingress.message}
-        className="rediger-opprett-tiltakstype__form__ingress"
+        className="rediger-opprett-tiltaksvariant__form__ingress"
         data-testid="input_ingress"
       />
       <FormInput
@@ -85,10 +85,10 @@ const RedigeringsgrensesnittForm = ({
         register={register('beskrivelse', { required: tomtFeltErrorMessage })}
         defaultValue={tiltaksvariant ? tiltaksvariant.beskrivelse : ''}
         feil={errors.beskrivelse && errors.beskrivelse.message}
-        className="rediger-opprett-tiltakstype__form__beskrivelse"
+        className="rediger-opprett-tiltaksvariant__form__beskrivelse"
         data-testid="input_beskrivelse"
       />
-      <Row className="rediger-opprett-tiltaksvariant__form knapperad">
+      <Row className="knapperad">
         <Stack direction="horizontal" gap={2}>
           <Hovedknapp
             htmlType="submit"
@@ -101,9 +101,9 @@ const RedigeringsgrensesnittForm = ({
                 spinner={isLoading}
                 onClick={() => setModalOpen(true)}
                 htmlType="button"
-                data-testid="slett-knapp_rediger-tiltakstype"
+                data-testid="slett-knapp_rediger-tiltaksvariant"
               >
-                Slett tiltakstype <Delete />
+                Slett tiltaksvariant <Delete />
               </Fareknapp>
           )}
         </Stack>
