@@ -23,7 +23,7 @@ export default function useTiltaksvariantUpdate(id: Id) {
             [QueryKeys.Tiltaksvarianter, context.updatedTiltaksvariant.id],
             context.prevTiltaksvariant
           );
-          toast.error('Oops! Endring feilet.');
+          toast.error('Endring feilet.');
         } else {
           updatedTiltaksvariant &&
             queryClient.invalidateQueries([QueryKeys.Tiltaksvarianter, updatedTiltaksvariant.id]);

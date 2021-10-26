@@ -18,10 +18,10 @@ export default function useTiltaksvariantDelete(id: Id) {
     onSettled: (newTiltaksvariant, error, variables, context: any) => {
       if (error) {
         queryClient.setQueryData(QueryKeys.Tiltaksvarianter, context.prevTiltaksvarianter);
-        toast.error('Oops! Oppretting feilet.');
+        toast.error('Sletting feilet.');
       } else {
         newTiltaksvariant && queryClient.invalidateQueries(QueryKeys.Tiltaksvarianter);
-        toast.success('Oppretting vellykket!');
+        toast.success('Sletting vellykket!');
         history.replace(`/tiltaksvarianter/${newTiltaksvariant?.id}`);
       }
     },
