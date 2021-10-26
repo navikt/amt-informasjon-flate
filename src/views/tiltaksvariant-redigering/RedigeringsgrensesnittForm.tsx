@@ -53,47 +53,59 @@ const RedigeringsgrensesnittForm = ({
   }, [tiltaksvariant]);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="rediger-opprett-tiltaksvariant__form">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="rediger-opprett-tiltaksvariant__form"
+      data-testid="form__rediger-opprett"
+    >
       <FormInput
-        id="tittel"
+        label="Tittel"
         register={register('tittel', {
           required: tomtFeltErrorMessage,
           maxLength: { value: 50, message: 'Maks 50 tegn.' },
         })}
         defaultValue={tiltaksvariant ? tiltaksvariant.tittel : ''}
-        label="Tittel"
         feil={errors.tittel && errors.tittel.message}
-        inputClassName={'rediger-opprett-tiltaksvariant__form__input'}
+        className="rediger-opprett-tiltakstype__form__tittel"
+        data-testid="input_tittel"
       />
 
       <FormInput
-        id="ingress"
+        label="Ingress"
         register={register('ingress', {
           required: tomtFeltErrorMessage,
           maxLength: { value: 250, message: 'Maks 250 tegn.' },
         })}
         defaultValue={tiltaksvariant ? tiltaksvariant.ingress : ''}
-        label="Ingress"
         feil={errors.ingress && errors.ingress.message}
-        inputClassName={'rediger-opprett-tiltaksvariant__form__input'}
+        className="rediger-opprett-tiltakstype__form__ingress"
+        data-testid="input_ingress"
       />
       <FormInput
-        id="beskrivelse"
+        label="Beskrivelse"
         register={register('beskrivelse', { required: tomtFeltErrorMessage })}
         defaultValue={tiltaksvariant ? tiltaksvariant.beskrivelse : ''}
-        label="Beskrivelse"
         feil={errors.beskrivelse && errors.beskrivelse.message}
-        inputClassName={'rediger-opprett-tiltaksvariant__form__input'}
+        className="rediger-opprett-tiltakstype__form__beskrivelse"
+        data-testid="input_beskrivelse"
       />
       <Row className="rediger-opprett-tiltaksvariant__form knapperad">
         <Stack direction="horizontal" gap={2}>
-          <Hovedknapp htmlType="submit">
-            {!isEdit ? 'Opprett tiltaksvariant' : 'Rediger tiltaksvariant'} <Edit />
+          <Hovedknapp
+            htmlType="submit"
+            data-testid={isEdit ? 'submit-knapp_rediger-tiltaksvariant' : 'submit-knapp_opprett-tiltaksvariant'}
+          >
+            {isEdit ? 'Rediger tiltaksvariant' : 'Opprett tiltaksvariant'} <Edit />
           </Hovedknapp>
           {isEdit && (
             <>
-              <Fareknapp spinner={isLoading} onClick={() => setModalOpen(true)} htmlType="button">
-                Slett tiltaksvariant <Delete />
+              <Fareknapp
+                spinner={isLoading}
+                onClick={() => setModalOpen(true)}
+                htmlType="button"
+                data-testid="slett-knapp_rediger-tiltakstype"
+              >
+                Slett tiltakstype <Delete />
               </Fareknapp>
             </>
           )}

@@ -5,10 +5,10 @@ import './MainView.less';
 interface MainViewTitleProps {
   title?: string;
   subTitle?: string;
+  dataTestId?: string;
 }
 
-function MainViewTitle(props: MainViewTitleProps) {
-  const { title, subTitle } = props;
+function MainViewTitle({ title, subTitle, dataTestId }: MainViewTitleProps) {
   return (
     <div className="main-view__title">
       {title && <Sidetittel>{title}</Sidetittel>}
