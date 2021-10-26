@@ -65,7 +65,6 @@ const RedigeringsgrensesnittForm = ({
         feil={errors.tittel && errors.tittel.message}
         inputClassName={'rediger-opprett-tiltaksvariant__form__input'}
       />
-
       <FormInput
         id="ingress"
         register={register('ingress', {
@@ -88,19 +87,17 @@ const RedigeringsgrensesnittForm = ({
       <Row className="rediger-opprett-tiltaksvariant__form knapperad">
         <Stack direction="horizontal" gap={2}>
           <Hovedknapp htmlType="submit">
-            {!isEdit ? 'Opprett tiltaksvariant' : 'Rediger tiltaksvariant'} <Edit />
+            {isEdit ? 'Rediger tiltaksvariant' : 'Opprett tiltaksvariant'} <Edit />
           </Hovedknapp>
           {isEdit && (
-            <>
-              <Fareknapp spinner={isLoading} onClick={() => setModalOpen(true)} htmlType="button">
-                Slett tiltaksvariant <Delete />
-              </Fareknapp>
-            </>
+            <Fareknapp spinner={isLoading} onClick={() => setModalOpen(true)} htmlType="button">
+              Slett tiltaksvariant <Delete />
+            </Fareknapp>
           )}
         </Stack>
       </Row>
       {isLoading && <NavFrontendSpinner />}
-      {isError && <AlertStripe type={'feil'}>Det har oppstått en feil</AlertStripe>}
+      {isError && <AlertStripe type="feil">Det har oppstått en feil</AlertStripe>}
     </form>
   );
 };

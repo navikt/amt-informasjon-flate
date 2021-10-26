@@ -27,27 +27,21 @@ const OpprettOgRedigerTiltaksvariant = () => {
   const deleteMutation = useTiltaksvariantDelete(id);
 
   const handleSubmit = (tiltaksvariant: Tiltaksvariant) => {
-    if (isEditMode) {
-      putMutation.mutate(tiltaksvariant);
-    } else {
-      postMutation.mutate(tiltaksvariant);
-    }
+    isEditMode ? putMutation.mutate(tiltaksvariant) : postMutation.mutate(tiltaksvariant)
   };
 
-  const getTitle = () => (isEditMode ? 'Rediger tiltaksvariant' : 'Opprett tiltaksvariant');
+  const getTitle = isEditMode ? 'Rediger tiltaksvariant' : 'Opprett tiltaksvariant';
 
   return (
-    <MainView showBackButton title={getTitle()}>
-      <div>
-        <RedigeringsgrensesnittForm
-          isLoading={isLoading}
-          isError={isError}
-          isEdit={isEditMode}
-          onSubmit={handleSubmit}
-          setModalOpen={setModalOpen}
-          tiltaksvariant={data}
-        />
-      </div>
+    <MainView showBackButton title={getTitle} tilbakelenke={isEditMode ? '/tiltaksvarianter/' + id : '/'}>
+      <RedigeringsgrensesnittForm
+        isLoading={isLoading}
+        isError={isError}
+        isEdit={isEditMode}
+        onSubmit={handleSubmit}
+        setModalOpen={setModalOpen}
+        tiltaksvariant={data}
+      />
       <SlettModal
         tittel="Slett tiltaksvariant"
         modalOpen={modalOpen}

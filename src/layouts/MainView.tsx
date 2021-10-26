@@ -9,15 +9,16 @@ interface MainViewProps {
   showBackButton?: boolean;
   title?: string;
   subTitle?: string;
+  tilbakelenke?: string;
 }
 
-const MainView: FunctionComponent<MainViewProps> = ({ showBackButton, title, subTitle, children }) => {
+const MainView: FunctionComponent<MainViewProps> = ({ showBackButton, title, subTitle, children, tilbakelenke  = '/'}) => {
   const renderTitleSection = () => (title ? <MainViewTitle title={title} subTitle={subTitle} /> : null);
   return (
     <Container className="main-view">
       <Row className="main-view__header">
         {showBackButton && (
-          <Link to="/">
+          <Link to={tilbakelenke}>
             <Tilbakeknapp />
           </Link>
         )}
