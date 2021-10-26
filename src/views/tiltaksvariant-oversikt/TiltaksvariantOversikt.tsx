@@ -20,7 +20,7 @@ const TiltaksvariantOversikt = () => {
         <Link
           to="/tiltaksvarianter/opprett"
           className="knapp opprett-ny-tiltaksvariant__knapp"
-          dataTestId="knapp_opprett-tiltaksvariant"
+          data-testid="knapp_opprett-tiltaksvariant"
           logEventNavn="opprett-tiltaksvariant-knapp"
         >
           Opprett tiltaksvariant
