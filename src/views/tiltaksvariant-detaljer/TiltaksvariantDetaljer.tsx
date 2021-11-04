@@ -9,6 +9,7 @@ import Panel from 'nav-frontend-paneler';
 import useTiltaksvariant from '../../hooks/tiltaksvariant/useTiltaksvariant';
 import useTiltaksgjennomforingerByTiltaksvariantId from '../../hooks/tiltaksgjennomforing/useTiltaksgjennomforingerByTiltaksvariantId';
 import { kebabCase } from '../../utils/Utils';
+import TiltaksgjennomforingsTabell from './components/TiltaksgjennomforingTabell';
 
 interface routeParams {
   id: string;
@@ -25,7 +26,11 @@ const TiltaksvariantDetaljer = () => {
   }
 
   return (
-    <MainView showBackButton title={tiltaksvariant.data?.tittel} dataTestId={`tiltaksvariant_header_${tiltaksvariant.data && kebabCase(tiltaksvariant.data?.tittel)}`}>
+    <MainView
+      showBackButton
+      title={tiltaksvariant.data?.tittel}
+      dataTestId={`tiltaksvariant_header_${tiltaksvariant.data && kebabCase(tiltaksvariant.data?.tittel)}`}
+    >
       <Row>
         <Col lg={8}>
           <Stack gap={5}>
@@ -40,18 +45,18 @@ const TiltaksvariantDetaljer = () => {
         <Col lg={4}>
           <Panel border>
             <Systemtittel>Sidemeny</Systemtittel>
-            <Link to={`/tiltaksvarianter/${id}/rediger`} className="knapp knapp--hoved" dataTestId="knapp_rediger-tiltaksvariant">
+            <Link
+              to={`/tiltaksvarianter/${id}/rediger`}
+              className="knapp knapp--hoved"
+              dataTestId="knapp_rediger-tiltaksvariant"
+            >
               Rediger
             </Link>
           </Panel>
         </Col>
       </Row>
       <Row>
-        {/* TODO: Implementer tiltaksgjennomføing her (design). Kun for å vise at man får data */}
-        <h2>Tiltaksgjennomføringer:</h2>
-        {tiltaksgjennomforinger.data?.map(t => (
-          <h3 key={t.id}>{t.tittel}</h3>
-        ))}
+        <TiltaksgjennomforingsTabell tiltaksgjennomforinger={tiltaksgjennomforinger.data} />
       </Row>
     </MainView>
   );
