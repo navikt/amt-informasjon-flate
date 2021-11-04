@@ -29,9 +29,6 @@ const TiltaksgjennomforingDetaljer = () => {
         <Col lg={4}>
           <Panel border>
             <Systemtittel>Sidemeny</Systemtittel>
-            {/* <Link to={`/tiltakstyper/${id}/rediger`} className="knapp knapp--hoved">
-              Rediger
-            </Link> */}
           </Panel>
         </Col>
       </Row>
