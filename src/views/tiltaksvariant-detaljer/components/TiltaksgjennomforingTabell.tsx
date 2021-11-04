@@ -3,6 +3,7 @@ import { Row } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import Link from '../../../components/link/Link';
 import { Tiltaksgjennomforing } from '../../../core/domain/Tiltaksgjennomforing';
+import './TiltaksgjennomforingTabell.less';
 
 interface TiltaksgjennomforingTabellProps {
   tiltaksgjennomforinger?: Tiltaksgjennomforing[];
@@ -14,7 +15,6 @@ function TiltaksgjennomforingsTabell(props: TiltaksgjennomforingTabellProps) {
 
   return (
     <div style={{ margin: '2.5rem 0' }}>
-      <Row></Row>
       <Row>
         <table className="tabell tabell--stripet">
           <thead>
@@ -28,7 +28,7 @@ function TiltaksgjennomforingsTabell(props: TiltaksgjennomforingTabellProps) {
           <tbody>
             {tiltaksgjennomforinger?.map(t => {
               return (
-                <tr key={t.id}>
+                <tr key={t.id} className="tabell__row">
                   <td>
                     <Link to={`${location.pathname}/tiltaksgjennomforinger/${t.id}`}>{t.tittel}</Link>
                   </td>
