@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import MainView from '../../layouts/MainView';
-import Link from '../../components/link/Link';
 import { Normaltekst, Systemtittel } from 'nav-frontend-typografi';
 import { Col, Row, Stack } from 'react-bootstrap';
 import Panel from 'nav-frontend-paneler';
@@ -13,7 +12,7 @@ interface RouteParams {
 }
 
 const TiltaksgjennomforingDetaljer = () => {
-  const { tiltaksTypeId, tiltaksGjennomforingId }: RouteParams = useParams();
+  const { tiltaksGjennomforingId }: RouteParams = useParams();
 
   const tiltaksgjennomforing = useTiltaksgjennomforing(tiltaksGjennomforingId);
 
