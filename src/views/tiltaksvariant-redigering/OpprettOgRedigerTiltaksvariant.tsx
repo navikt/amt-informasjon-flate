@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './OpprettOgRedigerTiltaksvariant.less';
 import { useParams } from 'react-router-dom';
 import SlettModal from '../../components/modal/SlettModal';
@@ -18,7 +18,7 @@ const OpprettOgRedigerTiltaksvariant = () => {
   const { id }: routeParams = useParams();
   const isEditMode = !!id;
 
-  const [modalOpen, setModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { data, isLoading, isError } = useTiltaksvariant(id);
 
@@ -27,7 +27,7 @@ const OpprettOgRedigerTiltaksvariant = () => {
   const deleteMutation = useTiltaksvariantDelete(id);
 
   const handleSubmit = (tiltaksvariant: Tiltaksvariant) => {
-    isEditMode ? putMutation.mutate(tiltaksvariant) : postMutation.mutate(tiltaksvariant)
+    isEditMode ? putMutation.mutate(tiltaksvariant) : postMutation.mutate(tiltaksvariant);
   };
 
   const getTitle = isEditMode ? 'Rediger tiltaksvariant' : 'Opprett tiltaksvariant';
@@ -45,15 +45,15 @@ const OpprettOgRedigerTiltaksvariant = () => {
           isError={isError}
           isEdit={isEditMode}
           onSubmit={handleSubmit}
-          setModalOpen={setModalOpen}
+          setModalOpen={setIsModalOpen}
           tiltaksvariant={data}
         />
       </div>
       <SlettModal
         tittel="Slett tiltaksvariant"
-        modalOpen={modalOpen}
-        onRequestClose={() => setModalOpen(false)}
-        handleDelete={() => deleteMutation.mutate()}
+        open={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        handleDelete={deleteMutation.mutate}
       />
     </MainView>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import '@navikt/ds-css';
 import './index.less';
 import store from './core/redux/Store';
 import { Provider } from 'react-redux';
