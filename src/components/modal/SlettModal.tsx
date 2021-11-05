@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Modal, ModalProps } from '@navikt/ds-react';
 import { Fareknapp, Flatknapp } from 'nav-frontend-knapper';
 import './Modal.less';
