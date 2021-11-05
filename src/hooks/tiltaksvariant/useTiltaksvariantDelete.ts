@@ -22,7 +22,7 @@ export default function useTiltaksvariantDelete(id: Id) {
       } else {
         newTiltaksvariant && queryClient.invalidateQueries(QueryKeys.Tiltaksvarianter);
         toast.success('Sletting vellykket!');
-        history.replace(`/tiltaksvarianter/${newTiltaksvariant?.id}`);
+        history.replace(`/`);
       }
     },
   });
