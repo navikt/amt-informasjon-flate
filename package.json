@@ -78,7 +78,7 @@
     "react-toastify": "^8.0.2"
   },
   "devDependencies": {
-    "@craco/craco": "^5.9.0",
+    "@craco/craco": "^6.4.0",
     "@types/faker": "^5.5.8",
     "@types/react": "17.0.11",
     "@types/react-collapse": "^5.0.1",
@@ -89,7 +89,7 @@
     "@typescript-eslint/parser": "^4.28.1",
     "babel-polyfill": "^6.26.0",
     "browserslist": "^4.17.1",
-    "craco-less": "^1.17.1",
+    "craco-less": "^1.20.0",
     "cross-env": "^7.0.3",
     "cypress": "^8.6.0",
     "cypress-dark": "^1.1.0",
