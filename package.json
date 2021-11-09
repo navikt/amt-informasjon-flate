@@ -24,7 +24,9 @@
     "**/fsevents": "^1.2.9"
   },
   "dependencies": {
+    "@navikt/ds-css": "^0.10.0",
     "@navikt/ds-icons": "^0.5.4",
+    "@navikt/ds-react": "^0.12.2",
     "@navikt/fnrvalidator": "^1.1.4",
     "@navikt/navspa": "^3.0.0",
     "@reduxjs/toolkit": "^1.6.1",
@@ -50,8 +52,6 @@
     "nav-frontend-lenker-style": "^2.0.1",
     "nav-frontend-lukknapp": "^2.0.1",
     "nav-frontend-lukknapp-style": "^2.0.1",
-    "nav-frontend-modal": "^2.0.1",
-    "nav-frontend-modal-style": "^2.0.1",
     "nav-frontend-paneler": "^3.0.1",
     "nav-frontend-paneler-style": "^2.0.1",
     "nav-frontend-popover": "^2.0.2",
@@ -78,7 +78,7 @@
     "react-toastify": "^8.0.2"
   },
   "devDependencies": {
-    "@craco/craco": "^5.9.0",
+    "@craco/craco": "^6.4.0",
     "@types/faker": "^5.5.8",
     "@types/react": "17.0.11",
     "@types/react-collapse": "^5.0.1",
@@ -89,7 +89,7 @@
     "@typescript-eslint/parser": "^4.28.1",
     "babel-polyfill": "^6.26.0",
     "browserslist": "^4.17.1",
-    "craco-less": "^1.17.1",
+    "craco-less": "^1.20.0",
     "cross-env": "^7.0.3",
     "cypress": "^8.6.0",
     "cypress-dark": "^1.1.0",

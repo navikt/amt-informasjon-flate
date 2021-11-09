@@ -39,7 +39,7 @@ const mockServer = () =>
       });
       this.delete('/tiltaksvarianter/:id', (schema, request) => {
         const id = request.params.id;
-        const tiltaksvariant = schema.db.tiltak.find(id);
+        const tiltaksvariant = schema.db.tiltaksvarianter.find(id);
         if (tiltaksvariant) {
           schema.db.tiltaksvarianter.remove(id);
           return new Response(200);
