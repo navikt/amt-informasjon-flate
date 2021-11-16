@@ -1,8 +1,7 @@
 name: Deploy (dev)
 on:
   push:
-    #TODO fjernes etter grafana-branch
-    branches: [dev, grafana]
+    branches: [dev]
 env:
   IMAGE_TAG: ${{ github.sha }}
   IMAGE: ghcr.io/navikt/amt-informasjon-flate
