@@ -19,7 +19,7 @@ const SlettModal = ({ tittel, handleDelete, ...others }: SlettModalProps) => {
           Er du sikker på at du vil slette tiltaksvarianten?
         </div>
         <div className="rediger-tiltaksvariant__slett-modal__knapperad">
-          <Fareknapp onClick={handleDelete}>
+          <Fareknapp onClick={handleDelete} data-testid="rediger-tiltaksvariant__slett-modal__knapperad">
             Slett <Delete />
           </Fareknapp>
           <Flatknapp onClick={others.onClose}>Avbryt</Flatknapp>
