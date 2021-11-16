@@ -10,6 +10,11 @@ describe('CRUD tiltaksvariant', () => {
   const beskrivelse =
     'Did you hear about the mathematician who’s afraid of negative numbers? He’ll stop at nothing to avoid them.';
 
+  beforeEach('Skal være på listevisninga', () => {
+    cy.getByTestId('header-tiltaksvarianter').should('contain', 'Tiltaksvarianter');
+    cy.getByTestId('tabell_oversikt-tiltaksvarianter').children().children().should('have.length.at.least', 1);
+  });
+
   it('Opprett tiltaksvariant', () => {
     const borderWhite = 'rgb(106, 106, 106)';
     const borderRed = 'rgb(186, 58, 38)';
@@ -35,7 +40,6 @@ describe('CRUD tiltaksvariant', () => {
     cy.getByTestId('submit-knapp_opprett-tiltaksvariant').contains('Opprett tiltaksvariant').click();
 
     cy.get(`.Toastify__toast-container`).should('contain', 'Oppretting vellykket!');
-    // class="Toastify__toast-container Toastify__toast-container--top-right"
 
     cy.url().should('include', '/tiltaksvarianter/');
 
@@ -66,7 +70,12 @@ describe('CRUD tiltaksvariant', () => {
 
     cy.getByTestId('knapp_rediger-tiltaksvariant').click();
 
+    cy.wait(1000);
     cy.getByTestId('slett-knapp_rediger-tiltaksvariant').click();
+
+    cy.getByTestId('rediger-tiltaksvariant__slett-modal__knapperad').click();
+
+    cy.get(`.Toastify__toast-container`).should('contain', 'Sletting vellykket');
   });
 
   xit('Rediger tiltaksvariant', () => {
@@ -78,7 +87,7 @@ describe('CRUD tiltaksvariant', () => {
     const nyIngress = 'Laborum officia rerum sed debitis qui odit suscipit aperiam quo.';
     const nyBeskrivelse = 'Laborum officia rerum sed debitis qui odit suscipit aperiam quo.';
 
-    cy.getByTestId('tabell_oversikt-tiltaksvarianter').children().children().should('have.length.at.least', 1);
+
     cy.getByTestId('tabell_oversikt-tiltaksvarianter').contains('td', tittel).click();
 
     cy.url().should('include', '/tiltaksvarianter/1');

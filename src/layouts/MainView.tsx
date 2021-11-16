@@ -21,8 +21,6 @@ const MainView: FunctionComponent<MainViewProps> = ({
   tilbakelenke = '/',
   children,
 }) => {
-  const renderTitleSection = () =>
-    title ? <MainViewTitle title={title} subTitle={subTitle} dataTestId={dataTestId} /> : null;
   return (
     <Container className="main-view">
       <Row className="main-view__header">
@@ -32,7 +30,7 @@ const MainView: FunctionComponent<MainViewProps> = ({
           </Link>
         )}
       </Row>
-      {renderTitleSection()}
+      {title && <MainViewTitle title={title} subTitle={subTitle} dataTestId={dataTestId} />}
       {children}
     </Container>
   );

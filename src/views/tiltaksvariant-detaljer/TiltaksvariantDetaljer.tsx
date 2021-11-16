@@ -48,7 +48,7 @@ const TiltaksvariantDetaljer = () => {
             <Link
               to={`/tiltaksvarianter/${id}/rediger`}
               className="knapp knapp--hoved"
-              dataTestId="knapp_rediger-tiltaksvariant"
+              data-testid="knapp_rediger-tiltaksvariant"
             >
               Rediger
             </Link>
