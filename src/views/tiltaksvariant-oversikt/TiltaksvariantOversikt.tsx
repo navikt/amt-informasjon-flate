@@ -21,7 +21,6 @@ const TiltaksvariantOversikt = () => {
           to="/tiltaksvarianter/opprett"
           className="knapp opprett-ny-tiltaksvariant__knapp"
           data-testid="knapp_opprett-tiltaksvariant"
-          logEventNavn="opprett-tiltaksvariant-knapp"
         >
           Opprett tiltaksvariant
         </Link>

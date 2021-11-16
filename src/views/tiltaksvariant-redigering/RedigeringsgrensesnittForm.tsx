@@ -97,14 +97,14 @@ const RedigeringsgrensesnittForm = ({
             {isEdit ? 'Rediger tiltaksvariant' : 'Opprett tiltaksvariant'} <Edit />
           </Hovedknapp>
           {isEdit && (
-              <Fareknapp
-                spinner={isLoading}
-                onClick={() => setModalOpen(true)}
-                htmlType="button"
-                data-testid="slett-knapp_rediger-tiltaksvariant"
-              >
-                Slett tiltaksvariant <Delete />
-              </Fareknapp>
+            <Fareknapp
+              spinner={isLoading}
+              onClick={() => setModalOpen(true)}
+              htmlType="button"
+              data-testid="slett-knapp_rediger-tiltaksvariant"
+            >
+              Slett tiltaksvariant <Delete />
+            </Fareknapp>
           )}
         </Stack>
       </Row>
