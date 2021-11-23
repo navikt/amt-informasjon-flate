@@ -1,4 +1,5 @@
 import { createServer, Response } from 'miragejs';
+import { innsatsgrupperMock } from './data/InnsatsgrupperMock';
 import { tiltaksgjennomforingerMock } from './data/TiltaksgjennomforingerMock';
 import { tiltaksvarianterMock } from './data/TiltaksvarianterMock';
 
@@ -6,6 +7,7 @@ const mockServer = () =>
   createServer({
     seeds(server) {
       server.db.loadData({
+        innsatsgrupper: innsatsgrupperMock,
         tiltaksvarianter: tiltaksvarianterMock,
         tiltaksgjennomforinger: tiltaksgjennomforingerMock,
       });
@@ -13,6 +15,11 @@ const mockServer = () =>
     routes() {
       // TODO: Lag en bedre struktur her. Kommer til å bli litt kaos i fremtiden.
       this.namespace = '/api';
+
+      this.get('/innsatsgrupper', schema => {
+        return schema.db.innsatsgrupper;
+      });
+
       this.get('/tiltaksvarianter', schema => {
         return schema.db.tiltaksvarianter;
       });
