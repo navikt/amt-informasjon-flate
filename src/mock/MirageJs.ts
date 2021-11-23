@@ -47,7 +47,7 @@ const mockServer = () =>
         return new Response(404);
       });
       this.get('/tiltaksgjennomforinger', schema => {
-        return schema.db.tiltasgjennomforinger;
+        return schema.db.tiltaksgjennomforinger;
       });
       this.get('/tiltaksgjennomforinger/:id', (schema, request) => {
         const id = request.params.id;
