@@ -11,12 +11,12 @@ import useTiltaksgjennomforingerByTiltaksvariantId from '../../hooks/tiltaksgjen
 import { kebabCase } from '../../utils/Utils';
 import TiltaksgjennomforingsTabell from './components/TiltaksgjennomforingTabell';
 
-interface routeParams {
+interface RouteParams {
   id: string;
 }
 
 const TiltaksvariantDetaljer = () => {
-  const { id }: routeParams = useParams();
+  const { id } = useParams<RouteParams>();
 
   const tiltaksvariant = useTiltaksvariant(id);
   const tiltaksgjennomforinger = useTiltaksgjennomforingerByTiltaksvariantId(id);
@@ -25,20 +25,23 @@ const TiltaksvariantDetaljer = () => {
     return <AlertStripe type="feil">Det skjedde en feil</AlertStripe>;
   }
 
+  if (!tiltaksvariant.data) {
+    // TODO: loading
+    return null;
+  }
+
+  const { tittel, ingress, beskrivelse } = tiltaksvariant.data;
+
   return (
-    <MainView
-      showBackButton
-      title={tiltaksvariant.data?.tittel}
-      dataTestId={`tiltaksvariant_header_${tiltaksvariant.data && kebabCase(tiltaksvariant.data?.tittel)}`}
-    >
+    <MainView showBackButton title={tittel} dataTestId={`tiltaksvariant_header_${kebabCase(tittel)}`}>
       <Row>
         <Col lg={8}>
           <Stack gap={5}>
             <div>
-              <Ingress data-testid="tiltaksvariant_ingress">{tiltaksvariant.data?.ingress}</Ingress>
+              <Ingress data-testid="tiltaksvariant_ingress">{ingress}</Ingress>
             </div>
             <div>
-              <Normaltekst data-testid="tiltaksvariant_beskrivelse">{tiltaksvariant.data?.beskrivelse}</Normaltekst>
+              <Normaltekst data-testid="tiltaksvariant_beskrivelse">{beskrivelse}</Normaltekst>
             </div>
           </Stack>
         </Col>
