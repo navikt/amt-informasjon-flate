@@ -53,7 +53,7 @@ const OpprettOgRedigerTiltaksvariant = () => {
         tittel="Slett tiltaksvariant"
         open={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        handleDelete={deleteMutation.mutate}
+        handleDelete={() => deleteMutation.mutate()}
       />
     </MainView>
   );
