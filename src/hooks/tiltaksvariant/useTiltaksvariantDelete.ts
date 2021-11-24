@@ -8,19 +8,17 @@ import { Id } from '../../core/domain/Generic';
 export default function useTiltaksvariantDelete(id: Id) {
   const history = useHistory();
   const queryClient = useQueryClient();
-  return useMutation([QueryKeys.Tiltaksvarianter, id], () => TiltaksvariantService.deleteTiltaksvariant(id), {
-    onMutate: async newTiltaksvariant => {
+  return useMutation(() => TiltaksvariantService.deleteTiltaksvariant(id), {
+    onMutate: async () => {
       await queryClient.cancelQueries(QueryKeys.Tiltaksvarianter);
       const prevTiltaksvarianter = queryClient.getQueryData(QueryKeys.Tiltaksvarianter);
-      queryClient.setQueryData(QueryKeys.Tiltaksvarianter, (old: any) => [...old, newTiltaksvariant]);
       return { prevTiltaksvarianter };
     },
-    onSettled: (newTiltaksvariant, error, variables, context: any) => {
+    onSettled: (tiltaksvariant, error, variables, context: any) => {
       if (error) {
         queryClient.setQueryData(QueryKeys.Tiltaksvarianter, context.prevTiltaksvarianter);
         toast.error('Sletting feilet.');
       } else {
-        newTiltaksvariant && queryClient.invalidateQueries(QueryKeys.Tiltaksvarianter);
         toast.success('Sletting vellykket!');
         history.replace(`/`);
       }
