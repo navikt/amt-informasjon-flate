@@ -12,15 +12,11 @@ export default function useTiltaksvariantCreate() {
     QueryKeys.Tiltaksvarianter,
     (tiltaksvariant: Tiltaksvariant) => TiltaksvariantService.postTiltaksvariant(tiltaksvariant),
     {
-      onMutate: async newTiltaksvariant => {
+      onMutate: async () => {
         await queryClient.cancelQueries(QueryKeys.Tiltaksvarianter);
-        const prevTiltaksvarianter = queryClient.getQueryData(QueryKeys.Tiltaksvarianter);
-        queryClient.setQueryData(QueryKeys.Tiltaksvarianter, (old: any) => [...old, newTiltaksvariant]);
-        return { prevTiltaksvarianter };
       },
-      onSettled: (newTiltaksvariant, error, variables, context: any) => {
+      onSettled: (newTiltaksvariant, error) => {
         if (error) {
-          queryClient.setQueryData(QueryKeys.Tiltaksvarianter, context.prevTiltaksvarianter);
           toast.error('Oppretting feilet.');
         } else {
           newTiltaksvariant && queryClient.invalidateQueries(QueryKeys.Tiltaksvarianter);
