@@ -33,4 +33,4 @@ jobs:
           browser: chrome
           headless: true
           wait-on: http://localhost:3000
-          start: npm start cypress:run
+          start: npm start
