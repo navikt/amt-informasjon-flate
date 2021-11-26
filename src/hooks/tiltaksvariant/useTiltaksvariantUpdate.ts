@@ -1,38 +1,21 @@
-import { useMutation, useQueryClient } from 'react-query';
+import { useMutation } from 'react-query';
+import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { QueryKeys } from '../../core/api/QueryKeys';
 import TiltaksvariantService from '../../core/api/TiltaksvariantService';
 import { Id } from '../../core/domain/Generic';
 import { Tiltaksvariant } from '../../core/domain/Tiltaksvariant';
-import { useHistory } from 'react-router-dom';
 
 export default function useTiltaksvariantUpdate(id: Id) {
   const history = useHistory();
-  const queryClient = useQueryClient();
-  return useMutation(
-    [QueryKeys.Tiltaksvarianter, id],
-    (tiltaksvariant: Tiltaksvariant) => TiltaksvariantService.putTiltaksvariant(tiltaksvariant),
-    {
-      onMutate: async updatedTiltaksvariant => {
-        await queryClient.cancelQueries([QueryKeys.Tiltaksvarianter, id]);
-        const prevTiltaksvariant = queryClient.getQueryData([QueryKeys.Tiltaksvarianter, id]);
-        queryClient.setQueryData([QueryKeys.Tiltaksvarianter, id], updatedTiltaksvariant);
-        return { prevTiltaksvariant, updatedTiltaksvariant };
-      },
-      onSettled: (updatedTiltaksvariant, error, variables, context: any) => {
-        if (error) {
-          queryClient.setQueryData(
-            [QueryKeys.Tiltaksvarianter, context.updatedTiltaksvariant.id],
-            context.prevTiltaksvariant
-          );
-          toast.error('Endring feilet.');
-        } else {
-          updatedTiltaksvariant &&
-            queryClient.invalidateQueries([QueryKeys.Tiltaksvarianter, updatedTiltaksvariant.id]);
-          toast.success('Endring vellykket!');
-          history.replace(`/tiltaksvarianter/${updatedTiltaksvariant?.id}`);
-        }
-      },
-    }
-  );
+
+  return useMutation((tiltaksvariant: Tiltaksvariant) => TiltaksvariantService.putTiltaksvariant(tiltaksvariant), {
+    onSuccess() {
+      toast.success('Endring vellykket!');
+
+      history.replace(`/tiltaksvarianter/${id}`);
+    },
+    onError() {
+      toast.error('Endring feilet.');
+    },
+  });
 }
