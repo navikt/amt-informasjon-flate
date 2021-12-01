@@ -34,7 +34,6 @@ const OpprettOgRedigerTiltaksvariant = () => {
 
   return (
     <MainView
-      showBackButton
       title={getTitle}
       dataTestId={isEditMode ? 'header-rediger-tiltaksvariant' : 'header_opprett-tiltaksvariant'}
       tilbakelenke={isEditMode ? '/tiltaksvarianter/' + id : '/'}

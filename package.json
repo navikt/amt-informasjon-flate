@@ -9,7 +9,7 @@
     "eject": "craco eject",
     "lint": "eslint src --ext .js,.ts,.tsx",
     "start": "cross-env REACT_APP_ENABLE_MOCK=true REACT_APP_BACKEND_API_ROOT='' craco start",
-    "start:backend": "cross-env REACT_APP_DEV=true REACT_APP_BACKEND_API_ROOT='http://localhost:8080' craco start"
+    "backend": "cross-env REACT_APP_DEV=true REACT_APP_BACKEND_API_ROOT='http://localhost:8080' craco start"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -91,7 +91,7 @@
     "browserslist": "^4.17.1",
     "craco-less": "^1.20.0",
     "cross-env": "^7.0.3",
-    "cypress": "^9.0.0",
+    "cypress": "^9.1.0",
     "cypress-dark": "^1.1.0",
     "dotenv": "^10.0.0",
     "eslint": "^7.32.0",

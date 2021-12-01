@@ -13,7 +13,7 @@ const Routes = () => {
       <Route exact path="/tiltaksvarianter/:id/rediger" component={OpprettOgRedigerTiltaksvariant} />
       <Route
         exact
-        path="/tiltaksvarianter/:tiltaksTypeId/tiltaksgjennomforinger/:tiltaksGjennomforingId"
+        path="/tiltaksvarianter/:tiltaksvariantId/tiltaksgjennomforinger/:tiltaksgjennomforingsId"
         component={TiltaksgjennomforingDetaljer}
       />
       <Route path="/" component={TiltaksvariantOversikt} />

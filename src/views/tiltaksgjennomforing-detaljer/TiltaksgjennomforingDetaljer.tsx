@@ -2,36 +2,30 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import MainView from '../../layouts/MainView';
 import { Normaltekst, Systemtittel } from 'nav-frontend-typografi';
-import { Col, Row, Stack } from 'react-bootstrap';
 import Panel from 'nav-frontend-paneler';
 import useTiltaksgjennomforing from '../../hooks/tiltaksgjennomforing/useTiltaksgjennomforing';
+import '../Tiltaksvariant-tiltaksgjennomforing-detaljer.less';
 
 interface RouteParams {
-  tiltaksTypeId: string;
-  tiltaksGjennomforingId: string;
+  tiltaksvariantId: string;
+  tiltaksgjennomforingsId: string;
 }
 
 const TiltaksgjennomforingDetaljer = () => {
-  const { tiltaksGjennomforingId }: RouteParams = useParams();
+  const { tiltaksgjennomforingsId, tiltaksvariantId }: RouteParams = useParams();
 
-  const tiltaksgjennomforing = useTiltaksgjennomforing(tiltaksGjennomforingId);
+  const tiltaksgjennomforing = useTiltaksgjennomforing(tiltaksgjennomforingsId);
 
   return (
-    <MainView showBackButton title={tiltaksgjennomforing.data?.tittel}>
-      <Row>
-        <Col lg={8}>
-          <Stack gap={5}>
-            <div>
-              <Normaltekst>{tiltaksgjennomforing.data?.beskrivelse}</Normaltekst>
-            </div>
-          </Stack>
-        </Col>
-        <Col lg={4}>
-          <Panel border>
-            <Systemtittel>Sidemeny</Systemtittel>
-          </Panel>
-        </Col>
-      </Row>
+    <MainView tilbakelenke={`/tiltaksvarianter/${tiltaksvariantId}`} title={tiltaksgjennomforing.data?.tittel}>
+      <div className="tiltaksgjennomforing-detaljer">
+        <div className="tiltaksgjennomforing-detaljer__info">
+          <Normaltekst>{tiltaksgjennomforing.data?.beskrivelse}</Normaltekst>
+        </div>
+        <Panel border>
+          <Systemtittel>Meny</Systemtittel>
+        </Panel>
+      </div>
     </MainView>
   );
 };

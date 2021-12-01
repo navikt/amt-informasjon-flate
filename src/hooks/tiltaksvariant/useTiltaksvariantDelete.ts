@@ -20,7 +20,6 @@ export default function useTiltaksvariantDelete(id: Id) {
         queryClient.setQueryData(QueryKeys.Tiltaksvarianter, context.prevTiltaksvarianter);
         toast.error('Sletting feilet.');
       } else {
-        newTiltaksvariant && queryClient.invalidateQueries(QueryKeys.Tiltaksvarianter);
         toast.success('Sletting vellykket!');
         history.replace(`/`);
       }

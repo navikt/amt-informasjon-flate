@@ -1,5 +1,4 @@
 import React from 'react';
-import { Row } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import Link from '../../../components/link/Link';
 import { Tiltaksgjennomforing } from '../../../core/domain/Tiltaksgjennomforing';
@@ -14,34 +13,32 @@ function TiltaksgjennomforingsTabell(props: TiltaksgjennomforingTabellProps) {
   const { tiltaksgjennomforinger } = props;
 
   return (
-    <div style={{ margin: '2.5rem 0' }}>
-      <Row>
-        <table className="tabell tabell--stripet">
-          <thead>
-            <tr>
-              <th>Tittel</th>
-              <th>Tiltaksnummer</th>
-              <th>Til dato</th>
-              <th>Fra dato</th>
+    <table className="tabell tabell--stripet tabell__tiltaksgjennomforing" data-testid="tabell_tiltaksgjennomforinger">
+      <thead>
+        <tr>
+          <th>Tittel</th>
+          <th>Tiltaksnummer</th>
+          <th>Til dato</th>
+          <th>Fra dato</th>
+        </tr>
+      </thead>
+      <tbody>
+        {tiltaksgjennomforinger?.map(tiltaksgjennomforing => {
+          return (
+            <tr key={tiltaksgjennomforing.id} className="tabell__row">
+              <td>
+                <Link to={`${location.pathname}/tiltaksgjennomforinger/${tiltaksgjennomforing.id}`}>
+                  {tiltaksgjennomforing.tittel}
+                </Link>
+              </td>
+              <td>{tiltaksgjennomforing.tiltaksnummer}</td>
+              <td>{tiltaksgjennomforing.tilDato}</td>
+              <td>{tiltaksgjennomforing.fraDato}</td>
             </tr>
-          </thead>
-          <tbody>
-            {tiltaksgjennomforinger?.map(t => {
-              return (
-                <tr key={t.id} className="tabell__row">
-                  <td>
-                    <Link to={`${location.pathname}/tiltaksgjennomforinger/${t.id}`}>{t.tittel}</Link>
-                  </td>
-                  <td>{t.tiltaksnummer}</td>
-                  <td>{t.tilDato}</td>
-                  <td>{t.fraDato}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </Row>
-    </div>
+          );
+        })}
+      </tbody>
+    </table>
   );
 }
 
