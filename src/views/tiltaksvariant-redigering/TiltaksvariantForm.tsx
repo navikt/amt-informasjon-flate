@@ -1,32 +1,25 @@
-import React, { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import { Stack, Row } from 'react-bootstrap';
+import { AddCircle, Delete, Edit } from '@navikt/ds-icons';
 import AlertStripe from 'nav-frontend-alertstriper';
 import { Fareknapp, Hovedknapp } from 'nav-frontend-knapper';
 import NavFrontendSpinner from 'nav-frontend-spinner';
-import { ReactComponent as Edit } from '../../ikoner/Edit.svg';
-import { ReactComponent as Delete } from '../../ikoner/Delete.svg';
+import React, { useEffect } from 'react';
+import { Row, Stack } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
 import FormInput from '../../components/form-elements/FormInput';
-import { Tiltaksvariant } from '../../core/domain/Tiltaksvariant';
 import { Id } from '../../core/domain/Generic';
+import { Tiltaksvariant } from '../../core/domain/Tiltaksvariant';
+import './TiltaksvariantForm.less';
 
-interface RedigeringsgrensesnittFormProps {
-  isLoading: boolean;
-  isError: boolean;
-  isEdit: boolean;
-  onSubmit: (tiltaksvariant: Tiltaksvariant) => void;
+interface TiltaksvariantFormProps {
+  isLoading?: boolean;
+  isError?: boolean;
   tiltaksvariant?: Tiltaksvariant;
-  setModalOpen: (open: boolean) => void;
+  onSubmit: (tiltaksvariant: Tiltaksvariant) => void;
+  onDelete?: () => void;
+  setModalOpen?: (open: boolean) => void;
 }
 
-const RedigeringsgrensesnittForm = ({
-  isLoading,
-  isError,
-  tiltaksvariant,
-  isEdit,
-  onSubmit,
-  setModalOpen,
-}: RedigeringsgrensesnittFormProps) => {
+const TiltaksvariantForm = ({ isLoading, isError, tiltaksvariant, onSubmit, onDelete }: TiltaksvariantFormProps) => {
   type FormValues = {
     id?: Id;
     tittel: string;
@@ -90,21 +83,24 @@ const RedigeringsgrensesnittForm = ({
       />
       <Row className="knapperad">
         <Stack direction="horizontal" gap={2}>
-          <Hovedknapp
-            htmlType="submit"
-            data-testid={isEdit ? 'submit-knapp_rediger-tiltaksvariant' : 'submit-knapp_opprett-tiltaksvariant'}
-          >
-            {isEdit ? 'Rediger tiltaksvariant' : 'Opprett tiltaksvariant'} <Edit />
-          </Hovedknapp>
-          {isEdit && (
-            <Fareknapp
-              spinner={isLoading}
-              onClick={() => setModalOpen(true)}
-              htmlType="button"
-              data-testid="slett-knapp_rediger-tiltaksvariant"
-            >
-              Slett tiltaksvariant <Delete />
-            </Fareknapp>
+          {onDelete ? (
+            <>
+              <Hovedknapp htmlType="submit" data-testid="submit-knapp_rediger-tiltaksvariant">
+                Rediger tiltaksvariant <Edit />
+              </Hovedknapp>
+              <Fareknapp
+                spinner={isLoading}
+                onClick={onDelete}
+                htmlType="button"
+                data-testid="slett-knapp_rediger-tiltakstype"
+              >
+                Slett tiltakstype <Delete />
+              </Fareknapp>
+            </>
+          ) : (
+            <Hovedknapp htmlType="submit" data-testid="submit-knapp_opprett-tiltaksvariant">
+              Opprett tiltaksvariant <AddCircle />
+            </Hovedknapp>
           )}
         </Stack>
       </Row>
@@ -114,4 +110,4 @@ const RedigeringsgrensesnittForm = ({
   );
 };
 
-export default RedigeringsgrensesnittForm;
+export default TiltaksvariantForm;
