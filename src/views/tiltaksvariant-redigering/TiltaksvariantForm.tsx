@@ -92,9 +92,9 @@ const TiltaksvariantForm = ({ isLoading, isError, tiltaksvariant, onSubmit, onDe
                 spinner={isLoading}
                 onClick={onDelete}
                 htmlType="button"
-                data-testid="slett-knapp_rediger-tiltakstype"
+                data-testid="slett-knapp_rediger-tiltaksvariant"
               >
-                Slett tiltakstype <Delete />
+                Slett tiltaksvariant <Delete />
               </Fareknapp>
             </>
           ) : (
