@@ -2,12 +2,13 @@ import { AddCircle, Delete, Edit } from '@navikt/ds-icons';
 import AlertStripe from 'nav-frontend-alertstriper';
 import { Fareknapp, Hovedknapp } from 'nav-frontend-knapper';
 import NavFrontendSpinner from 'nav-frontend-spinner';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Row, Stack } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import FormInput from '../../components/form-elements/FormInput';
-import { Id } from '../../core/domain/Generic';
+import { Select } from '../../components/form-elements/Select';
 import { Tiltaksvariant } from '../../core/domain/Tiltaksvariant';
+import { useInnsatsgrupper } from '../../hooks/tiltaksvariant/useInnsatsgrupper';
 import './TiltaksvariantForm.less';
 
 interface TiltaksvariantFormProps {
@@ -20,30 +21,18 @@ interface TiltaksvariantFormProps {
 }
 
 const TiltaksvariantForm = ({ isLoading, isError, tiltaksvariant, onSubmit, onDelete }: TiltaksvariantFormProps) => {
-  type FormValues = {
-    id?: Id;
-    tittel: string;
-    ingress: string;
-    beskrivelse: string;
-  };
+  const { data: innsatsgrupper = [] } = useInnsatsgrupper();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    setValue,
-  } = useForm<FormValues>({});
+    control,
+  } = useForm<Tiltaksvariant>({
+    defaultValues: { innsatsgruppe: null, ...tiltaksvariant },
+  });
 
   const tomtFeltErrorMessage = 'Dette feltet kan ikke være tomt';
-
-  useEffect(() => {
-    if (tiltaksvariant) {
-      setValue('id', tiltaksvariant.id);
-      setValue('tittel', tiltaksvariant.tittel);
-      setValue('ingress', tiltaksvariant.ingress);
-      setValue('beskrivelse', tiltaksvariant.beskrivelse);
-    }
-  }, [tiltaksvariant]);
 
   return (
     <form
@@ -51,6 +40,14 @@ const TiltaksvariantForm = ({ isLoading, isError, tiltaksvariant, onSubmit, onDe
       className="rediger-opprett-tiltaksvariant__form"
       data-testid="form__rediger-opprett"
     >
+      <Select
+        name="innsatsgruppe"
+        control={control}
+        nullable
+        label="Innsatsgruppe"
+        placeholder="Ingen innsatsgruppe"
+        options={innsatsgrupper.map(innsatsgruppe => ({ value: innsatsgruppe.id, label: innsatsgruppe.tittel }))}
+      />
       <FormInput
         label="Tittel"
         register={register('tittel', {
