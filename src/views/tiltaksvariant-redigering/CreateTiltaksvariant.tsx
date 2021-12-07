@@ -7,7 +7,7 @@ export const CreateTiltaksvariant = () => {
   const create = useTiltaksvariantCreate();
 
   return (
-    <MainView showBackButton title="Opprett tiltaksvariant" dataTestId="header_opprett-tiltaksvariant" tilbakelenke="/">
+    <MainView title="Opprett tiltaksvariant" dataTestId="header_opprett-tiltaksvariant" tilbakelenke="/">
       <div>
         <TiltaksvariantForm onSubmit={create.mutate} />
       </div>

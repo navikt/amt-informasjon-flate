@@ -19,7 +19,6 @@ export const EditTiltaksvariant = () => {
 
   return (
     <MainView
-      showBackButton
       title="Rediger tiltaksvariant"
       dataTestId="header-rediger-tiltaksvariant"
       tilbakelenke={'/tiltaksvarianter/' + id}

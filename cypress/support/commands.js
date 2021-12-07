@@ -42,3 +42,8 @@ Cypress.Commands.add('configure', () => {
 Cypress.Commands.add('getByTestId', (selector, ...args) => {
   return cy.get(`[data-testid=${selector}]`, ...args);
 });
+
+Cypress.Commands.add('tilbakeTilListevisning', () => {
+  cy.getByTestId('tilbakeknapp').contains('Tilbake').click();
+  cy.getByTestId('header-tiltaksvarianter').should('contain', 'Tiltaksvarianter');
+});

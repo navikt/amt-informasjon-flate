@@ -4,12 +4,11 @@ import AlertStripe from 'nav-frontend-alertstriper';
 import MainView from '../../layouts/MainView';
 import Link from '../../components/link/Link';
 import { Ingress, Normaltekst, Systemtittel } from 'nav-frontend-typografi';
-import { Col, Row, Stack } from 'react-bootstrap';
 import Panel from 'nav-frontend-paneler';
 import useTiltaksvariant from '../../hooks/tiltaksvariant/useTiltaksvariant';
 import useTiltaksgjennomforingerByTiltaksvariantId from '../../hooks/tiltaksgjennomforing/useTiltaksgjennomforingerByTiltaksvariantId';
-import { kebabCase } from '../../utils/Utils';
 import TiltaksgjennomforingsTabell from './components/TiltaksgjennomforingTabell';
+import '../Tiltaksvariant-tiltaksgjennomforing-detaljer.less';
 
 interface RouteParams {
   id: string;
@@ -33,34 +32,24 @@ const TiltaksvariantDetaljer = () => {
   const { tittel, ingress, beskrivelse } = tiltaksvariant.data;
 
   return (
-    <MainView showBackButton title={tittel} dataTestId={`tiltaksvariant_header_${kebabCase(tittel)}`}>
-      <Row>
-        <Col lg={8}>
-          <Stack gap={5}>
-            <div>
-              <Ingress data-testid="tiltaksvariant_ingress">{ingress}</Ingress>
-            </div>
-            <div>
-              <Normaltekst data-testid="tiltaksvariant_beskrivelse">{beskrivelse}</Normaltekst>
-            </div>
-          </Stack>
-        </Col>
-        <Col lg={4}>
-          <Panel border>
-            <Systemtittel>Sidemeny</Systemtittel>
-            <Link
-              to={`/tiltaksvarianter/${id}/rediger`}
-              className="knapp knapp--hoved"
-              data-testid="knapp_rediger-tiltaksvariant"
-            >
-              Rediger
-            </Link>
-          </Panel>
-        </Col>
-      </Row>
-      <Row>
-        <TiltaksgjennomforingsTabell tiltaksgjennomforinger={tiltaksgjennomforinger.data} />
-      </Row>
+    <MainView title={tittel} dataTestId="tiltaksvariant_header">
+      <div className="tiltaksvariant-detaljer">
+        <div className="tiltaksvariant-detaljer__info">
+          <Ingress data-testid="tiltaksvariant_ingress">{ingress}</Ingress>
+          <Normaltekst data-testid="tiltaksvariant_beskrivelse">{beskrivelse}</Normaltekst>
+        </div>
+        <Panel border>
+          <Systemtittel>Meny</Systemtittel>
+          <Link
+            to={`/tiltaksvarianter/${id}/rediger`}
+            className="knapp knapp--hoved rediger-knapp"
+            data-testid="knapp_rediger-tiltaksvariant"
+          >
+            Rediger
+          </Link>
+        </Panel>
+      </div>
+      <TiltaksgjennomforingsTabell tiltaksgjennomforinger={tiltaksgjennomforinger.data} />
     </MainView>
   );
 };
