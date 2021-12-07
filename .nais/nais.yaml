@@ -6,7 +6,7 @@ metadata:
   name: amt-informasjon-flate
   namespace: {{namespace}}
   labels:
-    team: amt
+    team: team-mulighetsrommet
   annotations:
     nais.io/security-does-not-matter: "true"
 spec:
